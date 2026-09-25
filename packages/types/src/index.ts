@@ -65,8 +65,27 @@ export interface PredictionInput {
   cityFilter?: string;
   preferredCities?: string[];
   collegeTypeFilter?: string[];
+  degreeFilter?: DegreeFilter;
   priorityRanking?: string[];
 }
+
+export type DegreeFilter = "ALL" | "MD" | "MS" | "DNB";
+
+export const DEGREE_OPTIONS: { value: DegreeFilter; label: string }[] = [
+  { value: "ALL", label: "All (MD + MS + DNB)" },
+  { value: "MD", label: "MD only" },
+  { value: "MS", label: "MS only" },
+  { value: "DNB", label: "DNB only (NBEMS hospitals)" },
+];
+
+export const DEGREE_LABELS: Record<string, string> = {
+  MD: "MD",
+  MS: "MS",
+  DNB: "DNB",
+  DIPLOMA: "Diploma",
+  DM: "DM",
+  MCH: "MCh",
+};
 
 /** Priorities that actually affect result sorting in the prediction engine */
 export const CORE_PRIORITIES = [
@@ -223,8 +242,35 @@ export * from "./college-type";
 export * from "./counselling-calendar-2026";
 
 export const SPECIALTY_OPTIONS = [
-  "MD General Medicine", "MD Pediatrics", "MD Radiodiagnosis", "MD Dermatology",
-  "MD Psychiatry", "MS Orthopedics", "MS General Surgery", "MS Obstetrics & Gynecology",
-  "MD Anaesthesiology", "MD Pathology", "MD Radiotherapy", "MD Emergency Medicine",
-  "MS Ophthalmology", "MS ENT",
+  "MD General Medicine",
+  "MD Pediatrics",
+  "MD Radiodiagnosis",
+  "MD Dermatology",
+  "MD Psychiatry",
+  "MD Anaesthesiology",
+  "MD Pathology",
+  "MD Radiotherapy",
+  "MD Emergency Medicine",
+  "MD Respiratory Medicine",
+  "MS Orthopedics",
+  "MS General Surgery",
+  "MS Obstetrics & Gynecology",
+  "MS Ophthalmology",
+  "MS ENT",
+  "DNB General Medicine",
+  "DNB Pediatrics",
+  "DNB Radiodiagnosis",
+  "DNB Anaesthesiology",
+  "DNB Obstetrics & Gynecology",
+  "DNB General Surgery",
+  "DNB Orthopedics",
+  "DNB ENT",
+  "DNB Ophthalmology",
+  "DNB Emergency Medicine",
+  "DNB Respiratory Medicine",
 ];
+
+export function specialtiesForDegree(degree: DegreeFilter): string[] {
+  if (degree === "ALL") return SPECIALTY_OPTIONS;
+  return SPECIALTY_OPTIONS.filter((s) => s.startsWith(`${degree} `));
+}

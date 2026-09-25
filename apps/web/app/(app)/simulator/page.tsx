@@ -8,7 +8,7 @@ import { Select } from "@/components/ui/select";
 import { PredictionCard } from "@/components/prediction/prediction-card";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 import type { PredictionResult } from "@medcounsel/types";
-import { INDIAN_STATES, SPECIALTY_OPTIONS } from "@medcounsel/types";
+import { DEGREE_OPTIONS, INDIAN_STATES, SPECIALTY_OPTIONS } from "@medcounsel/types";
 
 export default function SimulatorPage() {
   const [results, setResults] = useState<PredictionResult[]>([]);
@@ -20,6 +20,7 @@ export default function SimulatorPage() {
     domicileState: "Maharashtra",
     counsellingPref: "BOTH",
     collegePref: "ANY",
+    degreePref: "ALL",
     budgetRange: "NO_RESTRICTION",
     state: "",
     specialties: "",
@@ -36,6 +37,7 @@ export default function SimulatorPage() {
       counsellingPref: form.counsellingPref,
       collegePref: form.collegePref,
       budgetRange: form.budgetRange,
+      ...(form.degreePref && form.degreePref !== "ALL" ? { degree: form.degreePref } : {}),
       ...(form.state ? { state: form.state } : {}),
       ...(form.specialties ? { specialties: form.specialties } : {}),
     });
@@ -88,6 +90,14 @@ export default function SimulatorPage() {
             <option value="AIQ">MCC / AIQ only</option>
             <option value="STATE">Maharashtra state only</option>
             <option value="BOTH">Both AIQ + Maharashtra</option>
+          </Select>
+        </div>
+        <div className="space-y-1">
+          <Label>Course type</Label>
+          <Select value={form.degreePref} onChange={(e) => setForm({ ...form, degreePref: e.target.value })}>
+            {DEGREE_OPTIONS.map((d) => (
+              <option key={d.value} value={d.value}>{d.label}</option>
+            ))}
           </Select>
         </div>
         <div className="space-y-1">

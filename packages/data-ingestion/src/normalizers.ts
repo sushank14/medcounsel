@@ -53,7 +53,8 @@ export function parseCourse(courseRaw: string): { degree: string; specialty: str
   const upper = course.toUpperCase();
 
   let degree = "MD";
-  if (upper.startsWith("M.S") || upper.startsWith("MS")) degree = "MS";
+  if (upper.includes("NBEMS") || upper.startsWith("(NBEMS")) degree = "DNB";
+  else if (upper.startsWith("M.S") || upper.startsWith("MS")) degree = "MS";
   else if (upper.startsWith("DNB")) degree = "DNB";
   else if (upper.startsWith("DIPLOMA")) degree = "DIPLOMA";
 

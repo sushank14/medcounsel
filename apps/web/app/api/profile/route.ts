@@ -32,6 +32,7 @@ export async function POST(req: Request) {
       preferredSpecialties: JSON.stringify(body.preferredSpecialties ?? []),
       preferredCities: JSON.stringify(body.preferredCities ?? []),
       collegePref: body.collegePref,
+      degreePref: body.degreePref ?? "ALL",
       budgetRange: body.budgetRange,
       priorityRanking: JSON.stringify(body.priorityRanking ?? []),
       isActive: true,
@@ -87,6 +88,7 @@ export async function PATCH(req: Request) {
       ...(body.domicileState ? { domicileState: body.domicileState } : {}),
       ...(body.counsellingPref ? { counsellingPref: body.counsellingPref } : {}),
       ...(body.collegePref ? { collegePref: body.collegePref } : {}),
+      ...(body.degreePref ? { degreePref: body.degreePref } : {}),
       ...(body.budgetRange ? { budgetRange: body.budgetRange } : {}),
     },
   });

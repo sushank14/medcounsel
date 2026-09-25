@@ -31,6 +31,7 @@ export default async function MyChancesPage({
         domicileState: profile.domicileState,
         counsellingPref: profile.counsellingPref,
         collegePref: profile.collegePref,
+        degreePref: (profile.degreePref as "ALL" | "MD" | "MS" | "DNB") ?? "ALL",
         budgetRange: profile.budgetRange,
         preferredSpecialties: JSON.parse(profile.preferredSpecialties || "[]"),
         preferredCities: normalizePreferredCities(

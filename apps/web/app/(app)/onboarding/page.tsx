@@ -12,8 +12,11 @@ import {
   INDIAN_STATES,
   SPECIALTY_OPTIONS,
   CORE_PRIORITIES,
+  DEGREE_OPTIONS,
+  specialtiesForDegree,
   normalizePreferredCities,
   normalizePriorities,
+  type DegreeFilter,
 } from "@medcounsel/types";
 import { CityChipPicker } from "@/components/profile/city-chip-picker";
 import { PriorityListEditor } from "@/components/profile/priority-list-editor";
@@ -25,6 +28,7 @@ const STEPS = [
   "Gender",
   "Domicile State",
   "Counselling",
+  "Course (MD/MS/DNB)",
   "Specialties",
   "College Preference",
   "Budget",
@@ -44,6 +48,7 @@ const defaultForm = {
   preferredSpecialties: [] as string[],
   preferredCities: [] as string[],
   collegePref: "ANY",
+  degreePref: "ALL" as DegreeFilter,
   budgetRange: "NO_RESTRICTION",
   priorityRanking: [...CORE_PRIORITIES] as string[],
 };
@@ -62,6 +67,7 @@ function profileToForm(p: Record<string, unknown>) {
       JSON.parse((p.preferredCities as string) || "[]") as string[]
     ),
     collegePref: String(p.collegePref ?? "ANY"),
+    degreePref: (String(p.degreePref ?? "ALL") as DegreeFilter) || "ALL",
     budgetRange: String(p.budgetRange ?? "NO_RESTRICTION"),
     priorityRanking: normalizePriorities(
       JSON.parse((p.priorityRanking as string) || "[]") as string[]
@@ -303,10 +309,27 @@ export default function OnboardingPage() {
 
         {step === 6 && (
           <div className="space-y-2">
+            <Label>Course type</Label>
+            <p className="text-xs text-slate-500">
+              MD/MS = medical college seats · DNB = NBEMS hospital seats (choose Govt + Private college type to see DNB).
+            </p>
+            <Select
+              value={form.degreePref}
+              onChange={(e) => update("degreePref", e.target.value as DegreeFilter)}
+            >
+              {DEGREE_OPTIONS.map((d) => (
+                <option key={d.value} value={d.value}>{d.label}</option>
+              ))}
+            </Select>
+          </div>
+        )}
+
+        {step === 7 && (
+          <div className="space-y-2">
             <Label>Preferred Specialties (optional — leave blank for all)</Label>
             <p className="text-xs text-slate-500">Selecting none shows all specialties you qualify for.</p>
             <div className="grid max-h-60 gap-2 overflow-y-auto">
-              {SPECIALTY_OPTIONS.map((s) => (
+              {specialtiesForDegree(form.degreePref).map((s) => (
                 <label key={s} className="flex items-center gap-2 text-sm">
                   <input
                     type="checkbox"
@@ -320,7 +343,7 @@ export default function OnboardingPage() {
           </div>
         )}
 
-        {step === 7 && (
+        {step === 8 && (
           <div className="space-y-2">
             <Label>College Preference</Label>
             <Select value={form.collegePref} onChange={(e) => update("collegePref", e.target.value)}>
@@ -339,7 +362,7 @@ export default function OnboardingPage() {
           </div>
         )}
 
-        {step === 8 && (
+        {step === 9 && (
           <div className="space-y-2">
             <Label>Annual Budget (tuition + hostel)</Label>
             <Select value={form.budgetRange} onChange={(e) => update("budgetRange", e.target.value)}>
@@ -353,7 +376,7 @@ export default function OnboardingPage() {
           </div>
         )}
 
-        {step === 9 && (
+        {step === 10 && (
           <div className="space-y-3">
             <div>
               <Label>Your Priorities</Label>

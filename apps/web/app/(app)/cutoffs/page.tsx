@@ -9,7 +9,7 @@ const PAGE_SIZE = 50;
 export default async function CutoffsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string; year?: string; counselling?: string; page?: string }>;
+  searchParams: Promise<{ category?: string; year?: string; counselling?: string; degree?: string; page?: string }>;
 }) {
   const params = await searchParams;
   const page = Math.max(1, parseInt(params.page ?? "1", 10));
@@ -17,6 +17,7 @@ export default async function CutoffsPage({
     ...(params.category ? { category: params.category as never } : {}),
     ...(params.year ? { year: parseInt(params.year, 10) } : {}),
     ...(params.counselling ? { counselling: { code: params.counselling } } : {}),
+    ...(params.degree ? { specialty: { degree: params.degree as never } } : {}),
   };
 
   const [aiqCount, mahCount, totalColleges, total, cutoffs] = await Promise.all([
@@ -46,6 +47,7 @@ export default async function CutoffsPage({
     if (params.category) q.set("category", params.category);
     if (params.year) q.set("year", params.year);
     if (params.counselling) q.set("counselling", params.counselling);
+    if (params.degree) q.set("degree", params.degree);
     q.set("page", String(p));
     return `/cutoffs?${q.toString()}`;
   };
@@ -72,6 +74,12 @@ export default async function CutoffsPage({
           <option value="">All counselling</option>
           <option value="AIQ">AIQ (AIR ranks)</option>
           <option value="MAHARASHTRA">Maharashtra (SML ranks)</option>
+        </select>
+        <select name="degree" defaultValue={params.degree ?? ""} className="rounded-lg border px-3 py-2 text-sm">
+          <option value="">All courses</option>
+          <option value="MD">MD</option>
+          <option value="MS">MS</option>
+          <option value="DNB">DNB</option>
         </select>
         <select name="year" defaultValue={params.year ?? ""} className="rounded-lg border px-3 py-2 text-sm">
           <option value="">All years</option>

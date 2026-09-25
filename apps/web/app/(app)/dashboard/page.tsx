@@ -32,6 +32,10 @@ export default async function DashboardPage() {
       domicileState: profile.domicileState,
       counsellingPref: profile.counsellingPref as "AIQ" | "STATE" | "BOTH",
       collegePref: profile.collegePref,
+      degreeFilter:
+        profile.degreePref && profile.degreePref !== "ALL"
+          ? (profile.degreePref as "MD" | "MS" | "DNB")
+          : undefined,
       budgetRange: profile.budgetRange,
       preferredSpecialties: JSON.parse(profile.preferredSpecialties || "[]"),
       preferredCities: normalizePreferredCities(

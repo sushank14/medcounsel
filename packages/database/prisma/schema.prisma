@@ -83,6 +83,7 @@ model CandidateProfile {
   preferredSpecialties String           // JSON array
   preferredCities     String           @default("[]") // JSON array — Maharashtra cities
   collegePref         CollegePref
+  degreePref          String            @default("ALL") // ALL | MD | MS | DNB
   budgetRange         BudgetRange
   priorityRanking     String            // JSON array
   isActive            Boolean           @default(true)

@@ -15,7 +15,10 @@ import {
   INDIAN_STATES,
   MAHARASHTRA_CITIES,
   SPECIALTY_OPTIONS,
+  DEGREE_OPTIONS,
+  specialtiesForDegree,
   normalizePriorities,
+  type DegreeFilter,
 } from "@medcounsel/types";
 import { CityChipPicker } from "@/components/profile/city-chip-picker";
 import { PriorityListEditor } from "@/components/profile/priority-list-editor";
@@ -28,6 +31,7 @@ export interface ProfileSnapshot {
   domicileState: string;
   counsellingPref: string;
   collegePref: string;
+  degreePref: DegreeFilter;
   budgetRange: string;
   preferredSpecialties: string[];
   preferredCities: string[];
@@ -105,6 +109,7 @@ export function MyChancesSearch({
       if (f.cityFilter) params.set("city", f.cityFilter);
       if (f.priorityRanking.length)
         params.set("priorities", f.priorityRanking.join(","));
+      if (f.degreePref && f.degreePref !== "ALL") params.set("degree", f.degreePref);
 
       params.set("limit", "100");
       const res = await fetch(`/api/predictions?${params}`);
@@ -299,6 +304,14 @@ export function MyChancesSearch({
               </Select>
             </div>
             <div className="space-y-1">
+              <Label>Course type</Label>
+              <Select value={draft.degreePref} onChange={(e) => updateDraft("degreePref", e.target.value)}>
+                {DEGREE_OPTIONS.map((d) => (
+                  <option key={d.value} value={d.value}>{d.label}</option>
+                ))}
+              </Select>
+            </div>
+            <div className="space-y-1">
               <Label>College type</Label>
               <Select value={draft.collegePref} onChange={(e) => updateDraft("collegePref", e.target.value)}>
                 <option value="ANY">Any</option>
@@ -427,7 +440,7 @@ export function MyChancesSearch({
           <details className="rounded-lg border p-3">
             <summary className="cursor-pointer text-sm font-medium">Preferred specialties (optional)</summary>
             <div className="mt-3 grid max-h-40 gap-2 overflow-y-auto sm:grid-cols-2">
-              {SPECIALTY_OPTIONS.map((s) => (
+              {specialtiesForDegree(draft.degreePref).map((s) => (
                 <label key={s} className="flex items-center gap-2 text-sm">
                   <input
                     type="checkbox"

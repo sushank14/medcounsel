@@ -1,7 +1,17 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@medcounsel/database";
-import { normalizePreferredCities, normalizePriorities } from "@medcounsel/types";
+import {
+  normalizePreferredCities,
+  normalizePriorities,
+  type DegreeFilter,
+} from "@medcounsel/types";
+
+function parseDegreeFilter(raw: string | null | undefined): DegreeFilter | undefined {
+  if (!raw || raw === "ALL") return undefined;
+  if (raw === "MD" || raw === "MS" || raw === "DNB") return raw;
+  return undefined;
+}
 import { generatePredictions } from "@/lib/predictions";
 
 export async function GET(req: Request) {
@@ -27,6 +37,7 @@ export async function GET(req: Request) {
       priorityRanking: normalizePriorities(
         searchParams.get("priorities")?.split(",").filter(Boolean)
       ),
+      degreeFilter: parseDegreeFilter(searchParams.get("degree")),
     };
   } else if (session?.user?.id) {
     const profile = await prisma.candidateProfile.findFirst({
@@ -53,6 +64,9 @@ export async function GET(req: Request) {
       stateFilter: searchParams.get("state") ?? undefined,
       cityFilter: searchParams.get("city") ?? undefined,
       collegeTypeFilter: searchParams.get("type")?.split(",").filter(Boolean),
+      degreeFilter:
+        parseDegreeFilter(searchParams.get("degree")) ??
+        parseDegreeFilter(profile.degreePref ?? undefined),
     };
   } else {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

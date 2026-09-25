@@ -57,7 +57,7 @@ function CollegePagination({
 export default async function CollegesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; state?: string; type?: string; page?: string }>;
+  searchParams: Promise<{ q?: string; state?: string; type?: string; degree?: string; page?: string }>;
 }) {
   const params = await searchParams;
   const page = Math.max(1, parseInt(params.page ?? "1", 10) || 1);
@@ -65,6 +65,9 @@ export default async function CollegesPage({
     ...(params.q ? { name: { contains: params.q } } : {}),
     ...(params.state ? { state: params.state } : {}),
     ...(params.type ? { collegeType: params.type as never } : {}),
+    ...(params.degree
+      ? { specialties: { some: { specialty: { degree: params.degree as never } } } }
+      : {}),
     AND: [
       excludeDemoCollegesWhere,
       {
@@ -101,11 +104,17 @@ export default async function CollegesPage({
         <p className="text-slate-600">{total.toLocaleString("en-IN")} colleges · page {page} of {totalPages || 1}</p>
       </div>
 
-      <form method="GET" className="card grid gap-3 p-4 sm:grid-cols-4">
+      <form method="GET" className="card grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-5">
         <Input name="q" placeholder="Search colleges..." defaultValue={params.q} />
         <Select name="state" defaultValue={params.state ?? ""}>
           <option value="">All states</option>
           {INDIAN_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
+        </Select>
+        <Select name="degree" defaultValue={params.degree ?? ""}>
+          <option value="">All courses</option>
+          <option value="MD">MD only</option>
+          <option value="MS">MS only</option>
+          <option value="DNB">DNB only</option>
         </Select>
         <Select name="type" defaultValue={params.type ?? ""}>
           <option value="">All types</option>
@@ -129,6 +138,9 @@ export default async function CollegesPage({
             <div className="mt-2 flex flex-wrap gap-2">
               <Badge>{c.collegeType}</Badge>
               <Badge className="bg-slate-50">{c.specialties.length} specialties</Badge>
+              {[...new Set(c.specialties.map((cs) => cs.specialty.degree))].map((d) => (
+                <Badge key={d} className="bg-indigo-50 text-indigo-800">{d}</Badge>
+              ))}
               {c.fees[0] && <Badge className="bg-slate-50">₹{(c.fees[0].totalAnnual / 100000).toFixed(1)}L/yr</Badge>}
               {c.stipends[0] && <Badge className="bg-emerald-50 text-emerald-800">₹{c.stipends[0].totalMonthly.toLocaleString("en-IN")}/mo stipend</Badge>}
             </div>

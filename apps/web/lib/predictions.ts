@@ -147,11 +147,15 @@ export async function generatePredictions(
       ? input.collegeTypeFilter
       : COLLEGE_PREF_MAP[input.collegePref ?? "ANY"] ?? COLLEGE_PREF_MAP.ANY;
 
+  const degreeFilter =
+    input.degreeFilter && input.degreeFilter !== "ALL" ? input.degreeFilter : undefined;
+
   const cutoffs = await prisma.cutoff.findMany({
     where: {
       counsellingId: { in: counsellingIds },
       category: input.category as never,
       OR: rankFilters,
+      ...(degreeFilter ? { specialty: { degree: degreeFilter as never } } : {}),
       college: {
         collegeType: { in: collegeTypes as never[] },
         ...excludeDemoCollegesWhere,

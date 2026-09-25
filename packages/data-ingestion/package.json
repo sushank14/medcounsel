@@ -21,6 +21,7 @@
     "relink-cutoffs": "tsx src/relink-orphan-cutoffs.ts",
     "fix-all-colleges": "tsx src/fix-all-college-data.ts",
     "fix-college-types": "tsx src/fix-college-types.ts",
+    "fix-dnb-degrees": "tsx src/fix-dnb-degrees.ts",
     "purge-demo-colleges": "tsx src/purge-demo-colleges.ts",
     "test:scenarios": "tsx src/test-scenarios.ts"
   },
