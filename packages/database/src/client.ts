@@ -1,8 +1,12 @@
 import fs from "fs";
 import path from "path";
 import { PrismaClient } from "@prisma/client";
+import { ensureSchemaPatches } from "./ensure-schema";
 
-const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient;
+  schemaReady?: Promise<void>;
+};
 
 /** Resolve SQLite file path — Next.js on Render runs with cwd apps/web, not repo root. */
 function resolveDatabaseUrl(): string | undefined {
@@ -30,15 +34,35 @@ function resolveDatabaseUrl(): string | undefined {
 
 const databaseUrl = resolveDatabaseUrl();
 
-export const prisma =
+const basePrisma =
   globalForPrisma.prisma ??
   new PrismaClient({
     ...(databaseUrl ? { datasources: { db: { url: databaseUrl } } } : {}),
     log: process.env.NODE_ENV === "development" ? ["error", "warn"] : ["error"],
   });
 
+function schemaReady(): Promise<void> {
+  if (!globalForPrisma.schemaReady) {
+    globalForPrisma.schemaReady = ensureSchemaPatches(basePrisma).catch((err) => {
+      globalForPrisma.schemaReady = undefined;
+      throw err;
+    });
+  }
+  return globalForPrisma.schemaReady;
+}
+
+/** Prisma client — auto-applies missing-column patches before the first query. */
+export const prisma = basePrisma.$extends({
+  query: {
+    async $allOperations({ args, query }) {
+      await schemaReady();
+      return query(args);
+    },
+  },
+}) as unknown as PrismaClient;
+
 if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
+  globalForPrisma.prisma = basePrisma;
 }
 
 export * from "@prisma/client";

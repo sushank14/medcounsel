@@ -2,9 +2,7 @@
  * Re-tag NBEMS-titled specialties as DNB degree.
  * Run: npx tsx src/fix-dnb-degrees.ts
  */
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { prisma } from "@medcounsel/database";
 
 async function main() {
   const nbems = await prisma.specialty.findMany({
