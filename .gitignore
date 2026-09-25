@@ -1,0 +1,17 @@
+node_modules
+.next
+.next-dev
+dist
+.turbo
+.env
+.env.local
+*.db
+*.db-journal
+!packages/database/prisma/prod.db
+packages/database/prisma/dev.db
+data/imports/mcc/*.pdf
+data/processed/
+.DS_Store
+.idea
+coverage
+.vercel

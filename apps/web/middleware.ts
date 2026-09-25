@@ -1,0 +1,35 @@
+import NextAuth from "next-auth";
+import { authConfig } from "@/lib/auth.config";
+import { NextResponse } from "next/server";
+
+const { auth } = NextAuth(authConfig);
+
+export default auth((req) => {
+  const { pathname } = req.nextUrl;
+  const isLoggedIn = !!req.auth;
+  const role = req.auth?.user?.role;
+
+  const isPublic =
+    pathname.startsWith("/login") ||
+    pathname.startsWith("/api/auth");
+
+  if (isPublic) {
+    if (pathname.startsWith("/login") && isLoggedIn) {
+      const dest = role === "ADMIN" ? "/admin" : "/";
+      return NextResponse.redirect(new URL(dest, req.url));
+    }
+    return NextResponse.next();
+  }
+
+  if (!isLoggedIn) {
+    const login = new URL("/login", req.url);
+    login.searchParams.set("callbackUrl", pathname);
+    return NextResponse.redirect(login);
+  }
+
+  return NextResponse.next();
+});
+
+export const config = {
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+};

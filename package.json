@@ -1,0 +1,30 @@
+{
+  "name": "medcounsel-ai",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@medcounsel/web",
+    "dev:fresh": "npm run dev:clean --workspace=@medcounsel/web",
+    "build": "npm run build --workspace=@medcounsel/web",
+    "clean": "npm run clean --workspace=@medcounsel/web",
+    "db:generate": "npm run generate --workspace=@medcounsel/database",
+    "db:migrate": "npm run migrate --workspace=@medcounsel/database",
+    "db:seed": "npm run seed --workspace=@medcounsel/database",
+    "import:mcc": "npm run import-all --workspace=@medcounsel/data-ingestion",
+    "fetch:mcc": "npm run fetch-mcc --workspace=@medcounsel/data-ingestion",
+    "fetch:maharashtra": "npm run fetch-maharashtra --workspace=@medcounsel/data-ingestion",
+    "import:maharashtra": "npm run import-maharashtra --workspace=@medcounsel/data-ingestion",
+    "fetch:seat-matrix": "npm run fetch-seat-matrix --workspace=@medcounsel/data-ingestion",
+    "import:neetpg-colleges": "npm run import-neetpg-colleges --workspace=@medcounsel/data-ingestion",
+    "import:neetpg-all": "npm run import-neetpg-all --workspace=@medcounsel/data-ingestion",
+    "import:fees": "npm run import-fees --workspace=@medcounsel/data-ingestion",
+    "db:push": "npm run push --workspace=@medcounsel/database",
+    "lint": "npm run lint --workspace=@medcounsel/web"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

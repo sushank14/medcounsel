@@ -1,0 +1,474 @@
+/**
+ * Import ALL NEET-PG participating institutes from official MCC seat matrices
+ * + merge institutes discovered in MCC allotment PDFs (2020–2025).
+ */
+import fs from "fs";
+import path from "path";
+import { PrismaClient, CollegeType, DataStatus, Degree, Category, Quota } from "@prisma/client";
+
+interface SeatMatrixEntry {
+  instituteCode: string;
+  specialtySlug: string;
+  year: number;
+  matrixCategory: SeatMatrixCategory;
+  seats: number;
+}
+
+const seatMatrixEntries: SeatMatrixEntry[] = [];
+
+function quotaFromMatrixCategory(category: SeatMatrixCategory): Quota {
+  switch (category) {
+    case "DEEMED":
+      return "MANAGEMENT";
+    case "CENTRAL":
+      return "IQ";
+    default:
+      return "AIQ";
+  }
+}
+import { getSeatMatrixManifest } from "./mcc-seat-matrix-manifest.js";
+import {
+  parseSeatMatrixPdfFile,
+  uniqueInstitutes,
+  type ParsedSeatMatrixRow,
+  type SeatMatrixCategory,
+} from "./parse-seat-matrix-pdf.js";
+import { displayCollegeName, displayCity, isGarbageCollegeName } from "../../types/src/college-display.js";
+import { inferCollegeTypeFromName } from "../../types/src/college-type.js";
+import { expandInstituteAbbrev } from "./maharashtra-colleges.js";
+import { slugify, extractStateFromInstitute, normalizeCollegeName, parseCourse } from "./normalizers.js";
+
+const prisma = new PrismaClient();
+const IMPORT_DIR = path.resolve(process.cwd(), "../../data/imports/mcc");
+const PROCESSED_DIR = path.resolve(process.cwd(), "../../data/processed/mcc");
+
+interface InstituteRecord {
+  instituteCode: string;
+  name: string;
+  instituteNorm: string;
+  state: string;
+  city: string;
+  collegeType: CollegeType;
+  source: "SEAT_MATRIX" | "ALLOTMENT";
+  matrixCategory?: SeatMatrixCategory;
+  programs: Map<string, { specialtySlug: string; degree: string; specialty: string; seats: number }>;
+}
+
+const GARBAGE_NAME =
+  /Not Reported|Not Allotted|Upgradation|Reported -|Manageme nt|fill up fresh choices|Did not fill|No Upgradation/i;
+
+function inferCollegeType(name: string, category?: SeatMatrixCategory): CollegeType {
+  if (category === "DEEMED") return "DEEMED";
+  if (category === "CENTRAL") return "CENTRAL";
+  if (category === "DNB") return "PRIVATE";
+  return inferCollegeTypeFromName(name) as CollegeType;
+}
+
+function cleanDisplayName(name: string): string {
+  return displayCollegeName(name);
+}
+
+function isGarbage(name: string): boolean {
+  return GARBAGE_NAME.test(name) || isGarbageCollegeName(name) || name.length > 180;
+}
+
+async function loadFromSeatMatrices(): Promise<Map<string, InstituteRecord>> {
+  const map = new Map<string, InstituteRecord>();
+  const docs = getSeatMatrixManifest().filter((d) => d.year >= 2023);
+
+  for (const doc of docs) {
+    const pdfPath = path.join(IMPORT_DIR, doc.fileName);
+    if (!fs.existsSync(pdfPath)) {
+      console.log(`  ⚠ Missing ${doc.fileName} — run: npm run fetch:seat-matrix`);
+      continue;
+    }
+
+    console.log(`\n📊 Parsing ${doc.title}...`);
+    const rows = await parseSeatMatrixPdfFile(pdfPath, doc.category);
+    const institutes = uniqueInstitutes(rows);
+    console.log(`   ${rows.length} programs · ${institutes.length} institutes`);
+
+    for (const row of rows) {
+      upsertInstitute(map, row, "SEAT_MATRIX", doc.category);
+      if (row.totalSeats > 0 && row.specialtySlug) {
+        seatMatrixEntries.push({
+          instituteCode: row.instituteCode,
+          specialtySlug: row.specialtySlug,
+          year: doc.year,
+          matrixCategory: doc.category,
+          seats: row.totalSeats,
+        });
+      }
+    }
+  }
+
+  return map;
+}
+
+function upsertInstitute(
+  map: Map<string, InstituteRecord>,
+  row: {
+    instituteCode: string;
+    institute: string;
+    instituteNorm: string;
+    state: string;
+    program: string;
+    degree: string;
+    specialty: string;
+    specialtySlug: string;
+    totalSeats: number;
+  },
+  source: "SEAT_MATRIX" | "ALLOTMENT",
+  matrixCategory?: SeatMatrixCategory
+) {
+  if (!row.instituteCode || isGarbage(row.institute)) return;
+
+  let name = cleanDisplayName(expandInstituteAbbrev(row.institute, row.state));
+  if (isGarbage(name)) return;
+
+  const key = row.instituteCode;
+  const extracted = row.state !== "Unknown" ? { state: row.state, city: "Unknown" } : extractStateFromInstitute(name);
+  let city = displayCity(extracted.city !== "Unknown" ? extracted.city : name);
+  const state = extracted.state;
+
+  const abbrevResolved = expandInstituteAbbrev(row.institute, state);
+  if (abbrevResolved !== row.institute.replace(/\(\d{5,7}\)\s*$/, "").trim()) {
+    name = cleanDisplayName(abbrevResolved);
+    const fromAbbrev = expandInstituteAbbrev(row.institute, "Maharashtra");
+    const cityMatch = fromAbbrev.match(/,\s*([^,]+)$/);
+    if (cityMatch) city = displayCity(cityMatch[1].trim());
+  }
+
+  const existing = map.get(key);
+  if (!existing) {
+    map.set(key, {
+      instituteCode: key,
+      name,
+      instituteNorm: row.instituteNorm || normalizeCollegeName(name),
+      state,
+      city,
+      collegeType: inferCollegeType(name, matrixCategory),
+      source,
+      matrixCategory,
+      programs: new Map(),
+    });
+  } else if (row.state !== "Unknown" && existing.state === "Unknown") {
+    existing.state = row.state;
+  }
+
+  const inst = map.get(key)!;
+  const progKey = row.specialtySlug || parseCourse(row.program).slug;
+  const prev = inst.programs.get(progKey);
+  inst.programs.set(progKey, {
+    specialtySlug: progKey,
+    degree: row.degree,
+    specialty: row.specialty,
+    seats: (prev?.seats ?? 0) + (row.totalSeats || 0),
+  });
+}
+
+function loadFromAllotmentJson(): Map<string, InstituteRecord> {
+  const map = new Map<string, InstituteRecord>();
+
+  if (!fs.existsSync(PROCESSED_DIR)) return map;
+
+  for (const file of fs.readdirSync(PROCESSED_DIR).filter((f) => f.endsWith("-cutoffs.json"))) {
+    const data = JSON.parse(fs.readFileSync(path.join(PROCESSED_DIR, file), "utf8")) as Array<{
+      institute: string;
+      instituteNorm: string;
+      degree: string;
+      specialty: string;
+      specialtySlug?: string;
+      seats?: number;
+    }>;
+
+    for (const row of data) {
+      if (isGarbage(row.institute)) continue;
+      const codeMatch = row.institute.match(/\((\d{5,7})\)/);
+      const code = codeMatch?.[1] ?? `X-${normalizeCollegeName(row.institute).slice(0, 40)}`;
+      const { degree, specialty, slug } = parseCourse(row.specialty || row.institute);
+
+      upsertInstitute(
+        map,
+        {
+          instituteCode: code,
+          institute: row.institute,
+          instituteNorm: row.instituteNorm || normalizeCollegeName(row.institute),
+          state: "Unknown",
+          program: row.specialty || specialty,
+          degree: row.degree || degree,
+          specialty,
+          specialtySlug: row.specialtySlug || slug,
+          totalSeats: row.seats ?? 0,
+        },
+        "ALLOTMENT"
+      );
+    }
+  }
+
+  return map;
+}
+
+function mergeMaps(primary: Map<string, InstituteRecord>, secondary: Map<string, InstituteRecord>) {
+  for (const [key, rec] of secondary) {
+    if (!primary.has(key)) {
+      primary.set(key, rec);
+      continue;
+    }
+    const existing = primary.get(key)!;
+    for (const [prog, val] of rec.programs) {
+      const prev = existing.programs.get(prog);
+      existing.programs.set(prog, {
+        ...val,
+        seats: (prev?.seats ?? 0) + val.seats,
+      });
+    }
+  }
+}
+
+const DEGREE_MAP: Record<string, Degree> = {
+  MD: "MD",
+  MS: "MS",
+  DNB: "DNB",
+  DIPLOMA: "DIPLOMA",
+};
+
+const specialtyCache = new Map<string, string>();
+
+async function getSpecialtyId(slug: string): Promise<string | null> {
+  if (specialtyCache.has(slug)) return specialtyCache.get(slug)!;
+  const existing = await prisma.specialty.findUnique({ where: { slug } });
+  if (existing) {
+    specialtyCache.set(slug, existing.id);
+    return existing.id;
+  }
+  return null;
+}
+
+async function ensureSpecialty(degree: string, specialty: string, slug: string) {
+  if (specialtyCache.has(slug)) {
+    return { id: specialtyCache.get(slug)! };
+  }
+
+  const existing = await prisma.specialty.findUnique({ where: { slug } });
+  if (existing) {
+    specialtyCache.set(slug, existing.id);
+    return existing;
+  }
+
+  const created = await prisma.specialty.create({
+    data: {
+      name: specialty.replace(/^M\.?D\.?\s*\(?/i, "").replace(/\)$/, "").trim().slice(0, 100),
+      degree: DEGREE_MAP[degree] ?? "MD",
+      slug,
+      category: "CLINICAL",
+    },
+  });
+  specialtyCache.set(slug, created.id);
+  return created;
+}
+
+async function ensureCollege(rec: InstituteRecord): Promise<{ id: string; isNew: boolean }> {
+  const slugBase = slugify(rec.name.split(",")[0]);
+  let slug = slugBase;
+  let n = 1;
+
+  const byCode = await prisma.college.findFirst({ where: { nmcId: rec.instituteCode } });
+  if (byCode) return { id: byCode.id, isNew: false };
+
+  const byNorm = await prisma.college.findFirst({
+    where: {
+      OR: [
+        { name: { equals: rec.name } },
+        { slug: slugBase },
+        { name: { contains: rec.name.slice(0, 40) } },
+      ],
+    },
+  });
+  if (byNorm) {
+    const updated = await prisma.college.update({
+      where: { id: byNorm.id },
+      data: {
+        nmcId: rec.instituteCode,
+        dataStatus: DataStatus.OFFICIAL,
+        state: byNorm.state === "Unknown" ? rec.state : byNorm.state,
+        collegeType: byNorm.collegeType === "GOVT" ? rec.collegeType : byNorm.collegeType,
+      },
+    });
+    return { id: updated.id, isNew: false };
+  }
+
+  while (await prisma.college.findUnique({ where: { slug } })) {
+    slug = `${slugBase}-${n++}`;
+  }
+
+  const created = await prisma.college.create({
+    data: {
+      name: rec.name,
+      shortName: displayCollegeName(rec.name).slice(0, 60),
+      slug,
+      state: rec.state,
+      city: displayCity(rec.city),
+      collegeType: rec.collegeType,
+      nmcId: rec.instituteCode,
+      dataStatus: DataStatus.OFFICIAL,
+    },
+  });
+  return { id: created.id, isNew: true };
+}
+
+async function cleanupGarbageColleges() {
+  const bad = await prisma.college.findMany({
+    where: {
+      OR: [
+        { name: { contains: "Not Reported" } },
+        { name: { contains: "Not Allotted" } },
+        { name: { contains: "Upgradation" } },
+        { name: { contains: "Reported -" } },
+        { name: { contains: "Manageme nt" } },
+        { name: { startsWith: "&" } },
+      ],
+    },
+    select: { id: true, name: true },
+  });
+
+  console.log(`\n🧹 Removing ${bad.length} garbage college entries...`);
+  for (const c of bad) {
+    await prisma.cutoff.deleteMany({ where: { collegeId: c.id } });
+    await prisma.collegeSpecialty.deleteMany({ where: { collegeId: c.id } });
+    await prisma.seatMatrix.deleteMany({ where: { collegeId: c.id } });
+    await prisma.college.delete({ where: { id: c.id } });
+  }
+}
+
+async function ensureSeatMatrixSource() {
+  const existing = await prisma.source.findFirst({
+    where: { title: { contains: "MCC seat matrix" } },
+  });
+  if (existing) return existing.id;
+  const created = await prisma.source.create({
+    data: {
+      authority: "MCC",
+      title: "MCC NEET-PG official seat matrix PDFs",
+      url: "https://mcc.nic.in/pg-medical-counselling/",
+      publishedDate: new Date("2024-11-01"),
+      lastVerifiedDate: new Date(),
+      dataYear: 2025,
+      sourceType: "OFFICIAL",
+      trustLevel: "PRIMARY",
+    },
+  });
+  return created.id;
+}
+
+async function upsertSeatMatrix(
+  collegeId: string,
+  specialtyId: string,
+  entry: SeatMatrixEntry,
+  sourceId: string
+) {
+  const quota = quotaFromMatrixCategory(entry.matrixCategory);
+  const existing = await prisma.seatMatrix.findFirst({
+    where: {
+      collegeId,
+      specialtyId,
+      year: entry.year,
+      category: Category.GENERAL,
+      quota,
+    },
+  });
+  if (existing) {
+    await prisma.seatMatrix.update({
+      where: { id: existing.id },
+      data: { seats: entry.seats, sourceId },
+    });
+    return;
+  }
+  await prisma.seatMatrix.create({
+    data: {
+      collegeId,
+      specialtyId,
+      year: entry.year,
+      category: Category.GENERAL,
+      quota,
+      seats: entry.seats,
+      sourceId,
+    },
+  });
+}
+
+async function main() {
+  console.log("🏥 Importing ALL NEET-PG participating institutes (MCC official)...");
+
+  await cleanupGarbageColleges();
+  const seatMatrixSourceId = await ensureSeatMatrixSource();
+
+  const fromMatrix = await loadFromSeatMatrices();
+  const fromAllotments = loadFromAllotmentJson();
+  mergeMaps(fromMatrix, fromAllotments);
+
+  const institutes = [...fromMatrix.values()].filter((r) => !isGarbage(r.name));
+  console.log(`\n📋 Total unique NEET-PG institutes: ${institutes.length}`);
+
+  let collegesCreated = 0;
+  let programsLinked = 0;
+  let seatMatricesWritten = 0;
+
+  const matrixByInstitute = new Map<string, SeatMatrixEntry[]>();
+  for (const entry of seatMatrixEntries) {
+    const list = matrixByInstitute.get(entry.instituteCode) ?? [];
+    list.push(entry);
+    matrixByInstitute.set(entry.instituteCode, list);
+  }
+
+  for (const rec of institutes) {
+    const college = await ensureCollege(rec);
+    if (college.isNew) collegesCreated++;
+
+    for (const prog of rec.programs.values()) {
+      const specialty = await ensureSpecialty(prog.degree, prog.specialty, prog.specialtySlug);
+      await prisma.collegeSpecialty.upsert({
+        where: { collegeId_specialtyId: { collegeId: college.id, specialtyId: specialty.id } },
+        update: { totalSeats: { increment: prog.seats || 0 } },
+        create: {
+          collegeId: college.id,
+          specialtyId: specialty.id,
+          totalSeats: prog.seats || 0,
+        },
+      });
+      programsLinked++;
+    }
+
+    const matrixRows = matrixByInstitute.get(rec.instituteCode) ?? [];
+    for (const entry of matrixRows) {
+      const specialtyId = await getSpecialtyId(entry.specialtySlug);
+      if (!specialtyId) continue;
+      await upsertSeatMatrix(college.id, specialtyId, entry, seatMatrixSourceId);
+      seatMatricesWritten++;
+    }
+  }
+
+  const [totalOfficial, withCode, medColleges, dnbHospitals] = await Promise.all([
+    prisma.college.count({ where: { dataStatus: "OFFICIAL" } }),
+    prisma.college.count({ where: { nmcId: { not: null } } }),
+    prisma.college.count({
+      where: { dataStatus: "OFFICIAL", name: { contains: "Medical College" } },
+    }),
+    prisma.college.count({
+      where: { dataStatus: "OFFICIAL", OR: [{ name: { contains: "NBEMS" } }, { collegeType: "PRIVATE" }] },
+    }),
+  ]);
+
+  console.log(`\n✅ NEET-PG college import complete`);
+  console.log(`   Institutes processed: ${institutes.length}`);
+  console.log(`   New colleges (approx): ${collegesCreated}`);
+  console.log(`   Program links updated: ${programsLinked}`);
+  console.log(`   Seat matrix rows written: ${seatMatricesWritten.toLocaleString()}`);
+  console.log(`   Official colleges in DB: ${totalOfficial.toLocaleString()}`);
+  console.log(`   With MCC institute code: ${withCode.toLocaleString()}`);
+  console.log(`   Medical colleges: ${medColleges.toLocaleString()}`);
+}
+
+main()
+  .catch(console.error)
+  .finally(() => prisma.$disconnect());

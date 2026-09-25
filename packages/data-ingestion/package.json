@@ -1,0 +1,36 @@
+{
+  "name": "@medcounsel/data-ingestion",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "discover-mcc": "tsx src/discover-mcc-archive.ts",
+    "fetch-mcc": "tsx src/discover-mcc-archive.ts && tsx src/fetch-mcc-pdfs.ts",
+    "parse-mcc": "tsx src/parse-mcc-pdf.ts",
+    "import-mcc": "tsx src/import-mcc-cutoffs.ts",
+    "import-all": "tsx src/import-mcc-cutoffs.ts --years 2020,2021,2022,2023,2024,2025",
+    "fetch-maharashtra": "tsx src/fetch-maharashtra-pdfs.ts",
+    "parse-maharashtra": "tsx src/parse-maharashtra-pdf.ts",
+    "import-maharashtra": "tsx src/import-maharashtra-cutoffs.ts --years 2025",
+    "fetch-seat-matrix": "tsx src/fetch-seat-matrix-pdfs.ts",
+    "import-neetpg-colleges": "tsx src/import-neetpg-colleges.ts",
+    "import-neetpg-all": "tsx src/fetch-seat-matrix-pdfs.ts && tsx src/import-neetpg-colleges.ts",
+    "import-fees": "tsx src/import-official-fees.ts",
+    "cleanup-colleges": "tsx src/cleanup-bad-colleges.ts",
+    "fix-college-names": "tsx src/fix-college-names.ts",
+    "relink-cutoffs": "tsx src/relink-orphan-cutoffs.ts",
+    "fix-all-colleges": "tsx src/fix-all-college-data.ts",
+    "fix-college-types": "tsx src/fix-college-types.ts",
+    "purge-demo-colleges": "tsx src/purge-demo-colleges.ts",
+    "test:scenarios": "tsx src/test-scenarios.ts"
+  },
+  "dependencies": {
+    "@medcounsel/database": "*",
+    "@medcounsel/types": "*",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

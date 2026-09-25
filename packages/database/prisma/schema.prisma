@@ -1,0 +1,632 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Auth ───────────────────────────────────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  passwordHash  String?
+  emailVerified DateTime?
+  image         String?
+  role          UserRole  @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts       Account[]
+  sessions       Session[]
+  profiles       CandidateProfile[]
+  preferenceLists PreferenceList[]
+  notifications  Notification[]
+  auditLogs      AuditLog[]
+  dataImports    DataImport[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+// ─── Candidate ──────────────────────────────────────────────────────────────
+
+model CandidateProfile {
+  id                  String            @id @default(cuid())
+  userId              String
+  neetPgYear          Int
+  rank                Int
+  rankType            RankType          @default(AIR)
+  category            Category
+  gender              Gender
+  domicileState       String
+  counsellingPref     CounsellingPref
+  preferredSpecialties String           // JSON array
+  preferredCities     String           @default("[]") // JSON array — Maharashtra cities
+  collegePref         CollegePref
+  budgetRange         BudgetRange
+  priorityRanking     String            // JSON array
+  isActive            Boolean           @default(true)
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
+
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  predictions     Prediction[]
+  preferenceLists PreferenceList[]
+
+  @@index([userId])
+}
+
+enum RankType {
+  AIR
+  SML
+  STATE_MERIT
+}
+
+enum Category {
+  GENERAL
+  EWS
+  OBC
+  SC
+  ST
+  PWD
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum CounsellingPref {
+  AIQ
+  STATE
+  BOTH
+}
+
+enum CollegePref {
+  GOVT_ONLY
+  GOVT_PRIVATE
+  DEEMED
+  CENTRAL
+  STATE_UNIV
+  PRIVATE
+  ANY
+}
+
+enum BudgetRange {
+  UNDER_5L
+  RANGE_5_10L
+  RANGE_10_20L
+  RANGE_20_50L
+  ABOVE_50L
+  NO_RESTRICTION
+}
+
+// ─── Counselling ────────────────────────────────────────────────────────────
+
+model Counselling {
+  id        String          @id @default(cuid())
+  code      String          @unique
+  name      String
+  type      CounsellingType
+  authority String
+  portalUrl String?
+  rankType  RankType        @default(AIR)
+  config    String          @default("{}") // JSON
+  isActive  Boolean         @default(true)
+
+  rounds         CounsellingRound[]
+  cutoffs        Cutoff[]
+  calendarEvents CalendarEvent[]
+}
+
+enum CounsellingType {
+  MCC
+  STATE
+  CENTRAL
+  ESIC
+  AFMC
+}
+
+model CounsellingRound {
+  id                  String    @id @default(cuid())
+  counsellingId       String
+  year                Int
+  round               RoundType
+  registrationStart   DateTime?
+  registrationEnd     DateTime?
+  choiceFillingStart  DateTime?
+  choiceFillingEnd    DateTime?
+  resultDate          DateTime?
+  reportingDeadline   DateTime?
+
+  counselling    Counselling     @relation(fields: [counsellingId], references: [id])
+  cutoffs        Cutoff[]
+  seatMatrices   SeatMatrix[]
+  calendarEvents CalendarEvent[]
+
+  @@unique([counsellingId, year, round])
+}
+
+enum RoundType {
+  R1
+  R2
+  R3
+  STRAY
+  SPECIAL
+}
+
+// ─── Colleges & Specialties ─────────────────────────────────────────────────
+
+model College {
+  id              String      @id @default(cuid())
+  name            String
+  shortName       String
+  slug            String      @unique
+  state           String
+  city            String
+  collegeType     CollegeType
+  university      String?
+  ownership       String?
+  establishedYear Int?
+  website         String?
+  latitude        Float?
+  longitude       Float?
+  nmcId           String?
+  dataStatus      DataStatus  @default(DEMO)
+
+  specialties      CollegeSpecialty[]
+  cutoffs          Cutoff[]
+  fees             Fee[]
+  bonds            Bond[]
+  stipends         Stipend[]
+  seatMatrices     SeatMatrix[]
+  preferenceItems  PreferenceItem[]
+  predictions      Prediction[]
+
+  @@index([state, collegeType])
+}
+
+enum CollegeType {
+  GOVT
+  PRIVATE
+  DEEMED
+  CENTRAL
+  STATE_UNIV
+}
+
+enum DataStatus {
+  DEMO
+  OFFICIAL
+}
+
+model Specialty {
+  id            String            @id @default(cuid())
+  name          String
+  degree        Degree
+  durationYears Int               @default(3)
+  category      SpecialtyCategory
+  slug          String            @unique
+
+  colleges        CollegeSpecialty[]
+  cutoffs         Cutoff[]
+  fees            Fee[]
+  seatMatrices    SeatMatrix[]
+  preferenceItems PreferenceItem[]
+  predictions     Prediction[]
+}
+
+enum Degree {
+  MD
+  MS
+  DNB
+  DIPLOMA
+  DM
+  MCH
+}
+
+enum SpecialtyCategory {
+  CLINICAL
+  NON_CLINICAL
+  SUPER_SPECIALTY
+}
+
+model CollegeSpecialty {
+  id                 String  @id @default(cuid())
+  collegeId          String
+  specialtyId        String
+  totalSeats         Int     @default(0)
+  recognitionStatus  String?
+
+  college   College   @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+  specialty Specialty @relation(fields: [specialtyId], references: [id], onDelete: Cascade)
+
+  @@unique([collegeId, specialtyId])
+}
+
+// ─── Cutoffs & Seats ────────────────────────────────────────────────────────
+
+model Cutoff {
+  id                 String             @id @default(cuid())
+  collegeId          String
+  specialtyId        String
+  counsellingId      String
+  roundId            String?
+  year               Int
+  category           Category
+  quota              Quota
+  seatType           String?
+  openingRank        Int?
+  closingRank        Int
+  rankType           RankType           @default(AIR)
+  seats              Int?
+  sourceId           String?
+  verificationStatus VerificationStatus @default(PENDING)
+
+  college     College           @relation(fields: [collegeId], references: [id])
+  specialty   Specialty         @relation(fields: [specialtyId], references: [id])
+  counselling Counselling       @relation(fields: [counsellingId], references: [id])
+  round       CounsellingRound? @relation(fields: [roundId], references: [id])
+  source      Source?           @relation(fields: [sourceId], references: [id])
+
+  @@index([counsellingId, year, category, closingRank])
+  @@index([collegeId, specialtyId, year])
+}
+
+enum Quota {
+  AIQ
+  STATE
+  MANAGEMENT
+  NRI
+  IQ
+  IN_SERVICE
+}
+
+enum VerificationStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+  NEEDS_REVIEW
+}
+
+model SeatMatrix {
+  id          String   @id @default(cuid())
+  collegeId   String
+  specialtyId String
+  roundId     String?
+  year        Int
+  category    Category
+  quota       Quota
+  seats       Int
+  sourceId    String?
+
+  college   College           @relation(fields: [collegeId], references: [id])
+  specialty Specialty         @relation(fields: [specialtyId], references: [id])
+  round     CounsellingRound? @relation(fields: [roundId], references: [id])
+  source    Source?           @relation(fields: [sourceId], references: [id])
+}
+
+// ─── Fees, Bond, Stipend ────────────────────────────────────────────────────
+
+model Fee {
+  id           String   @id @default(cuid())
+  collegeId    String
+  specialtyId  String?
+  academicYear Int
+  tuitionFee   Float
+  hostelFee    Float    @default(0)
+  otherFees    Float    @default(0)
+  totalAnnual  Float
+  sourceId     String?
+  verifiedAt   DateTime?
+
+  college College  @relation(fields: [collegeId], references: [id])
+  specialty Specialty? @relation(fields: [specialtyId], references: [id])
+  source  Source?  @relation(fields: [sourceId], references: [id])
+}
+
+model Bond {
+  id                String    @id @default(cuid())
+  collegeId         String
+  durationYears     Int?
+  bondAmount        Float?
+  serviceObligation String?
+  sourceId          String?
+  verifiedAt        DateTime?
+
+  college College @relation(fields: [collegeId], references: [id])
+  source  Source? @relation(fields: [sourceId], references: [id])
+}
+
+model Stipend {
+  id               String             @id @default(cuid())
+  collegeId        String
+  traineeType      TraineeType        @default(PG_RESIDENT)
+  yearOfTraining   YearOfTraining
+  monthlyAmount    Float
+  payScale         String?
+  da               Float              @default(0)
+  otherAllowances  Float              @default(0)
+  totalMonthly     Float
+  academicYear     Int
+  sourceId         String?
+  verifiedAt       DateTime?
+  verificationStatus VerificationStatus @default(PENDING)
+
+  college College @relation(fields: [collegeId], references: [id])
+  source  Source? @relation(fields: [sourceId], references: [id])
+
+  @@index([collegeId, academicYear])
+}
+
+enum TraineeType {
+  PG_RESIDENT
+  SR
+  INTERN
+}
+
+enum YearOfTraining {
+  Y1
+  Y2
+  Y3
+}
+
+// ─── Sources & Documents ──────────────────────────────────────────────────────
+
+model Source {
+  id               String     @id @default(cuid())
+  authority        String
+  title            String
+  url              String?
+  publishedDate    DateTime?
+  lastVerifiedDate DateTime?
+  dataYear         Int?
+  sourceType       SourceType @default(SUPPLEMENTARY)
+  trustLevel       TrustLevel @default(SECONDARY)
+
+  cutoffs        Cutoff[]
+  fees           Fee[]
+  bonds          Bond[]
+  stipends       Stipend[]
+  seatMatrices   SeatMatrix[]
+  documents      Document[]
+  calendarEvents CalendarEvent[]
+}
+
+enum SourceType {
+  OFFICIAL
+  SUPPLEMENTARY
+}
+
+enum TrustLevel {
+  PRIMARY
+  SECONDARY
+}
+
+model Document {
+  id                   String      @id @default(cuid())
+  sourceId             String?
+  fileName             String
+  s3Key                String?
+  docType              DocType
+  parseStatus          ParseStatus @default(PENDING)
+  extractedData        String?     // JSON
+  extractionConfidence Float?
+
+  source      Source?      @relation(fields: [sourceId], references: [id])
+  dataImports DataImport[]
+}
+
+enum DocType {
+  CUTOFF
+  SEAT_MATRIX
+  FEE
+  BOND
+  STIPEND
+  SCHEDULE
+}
+
+enum ParseStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model DataImport {
+  id             String       @id @default(cuid())
+  documentId     String?
+  adminUserId    String
+  format         ImportFormat
+  status         ImportStatus @default(PENDING)
+  rawData        String?      // JSON
+  normalizedData String?      // JSON
+  errors         String?      // JSON
+  createdAt      DateTime     @default(now())
+
+  document  Document? @relation(fields: [documentId], references: [id])
+  adminUser User      @relation(fields: [adminUserId], references: [id])
+}
+
+enum ImportFormat {
+  CSV
+  XLSX
+  PDF
+  JSON
+  MANUAL
+}
+
+enum ImportStatus {
+  PENDING
+  PROCESSING
+  NEEDS_REVIEW
+  VERIFIED
+  REJECTED
+}
+
+// ─── Predictions & Preferences ────────────────────────────────────────────────
+
+model Prediction {
+  id           String          @id @default(cuid())
+  profileId    String
+  collegeId    String
+  specialtyId  String
+  fitLevel     FitLevel
+  confidence   ConfidenceLevel
+  statistics   String          // JSON
+  explanation  String          // JSON
+  generatedAt  DateTime        @default(now())
+
+  profile   CandidateProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  college   College          @relation(fields: [collegeId], references: [id])
+  specialty Specialty        @relation(fields: [specialtyId], references: [id])
+
+  @@index([profileId, fitLevel])
+}
+
+enum FitLevel {
+  STRONG
+  POSSIBLE
+  BORDERLINE
+  DIFFICULT
+}
+
+enum ConfidenceLevel {
+  HIGH
+  MEDIUM
+  LOW
+}
+
+model PreferenceList {
+  id        String           @id @default(cuid())
+  userId    String
+  profileId String?
+  title     String
+  year      Int
+  status    PreferenceStatus @default(DRAFT)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  user    User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  profile CandidateProfile? @relation(fields: [profileId], references: [id])
+  items   PreferenceItem[]
+}
+
+enum PreferenceStatus {
+  DRAFT
+  FINAL
+}
+
+model PreferenceItem {
+  id          String @id @default(cuid())
+  listId      String
+  collegeId   String
+  specialtyId String
+  sortOrder   Int
+  fitSnapshot String @default("{}") // JSON
+
+  list      PreferenceList @relation(fields: [listId], references: [id], onDelete: Cascade)
+  college   College        @relation(fields: [collegeId], references: [id])
+  specialty Specialty      @relation(fields: [specialtyId], references: [id])
+
+  @@index([listId, sortOrder])
+}
+
+// ─── Calendar & Notifications ─────────────────────────────────────────────────
+
+model CalendarEvent {
+  id            String    @id @default(cuid())
+  counsellingId String
+  roundId       String?
+  eventType     EventType
+  title         String
+  startAt       DateTime
+  endAt         DateTime?
+  sourceId      String?
+
+  counselling Counselling       @relation(fields: [counsellingId], references: [id])
+  round       CounsellingRound? @relation(fields: [roundId], references: [id])
+  source      Source?           @relation(fields: [sourceId], references: [id])
+}
+
+enum EventType {
+  REGISTRATION
+  CHOICE_FILL
+  LOCK
+  RESULT
+  REPORTING
+  RESIGNATION
+}
+
+model Notification {
+  id            String              @id @default(cuid())
+  userId        String
+  channel       NotificationChannel @default(EMAIL)
+  eventType     EventType
+  counsellingId String?
+  isActive      Boolean             @default(true)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum NotificationChannel {
+  EMAIL
+  PUSH
+}
+
+// ─── Audit ────────────────────────────────────────────────────────────────────
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  entity    String
+  entityId  String
+  action    String
+  oldValue  String?
+  newValue  String?
+  timestamp DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([entity, entityId])
+}
