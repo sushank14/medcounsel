@@ -1,5 +1,7 @@
 import { MapPin } from "lucide-react";
 import { CREATOR, CREATOR_DISCLAIMER } from "@/lib/creator";
+
+const { builtFor } = CREATOR;
 import { CreatorCard } from "@/components/about/creator-card";
 import { LinkedInButton } from "@/components/about/linkedin-button";
 import { WhyBuiltSection } from "@/components/about/why-built-section";
@@ -19,12 +21,12 @@ export function AboutCreatorContent() {
         <div className="mt-5 space-y-3 text-sm leading-relaxed text-slate-600">
           <p>
             MedCounsel started as a personal project to make NEET-PG counselling easier to
-            understand and more organized for someone close to me going through the counselling
+            understand and more organized for {builtFor} while she went through the counselling
             process.
           </p>
           <p>
-            What started as a personal need became a platform designed to help NEET-PG aspirants
-            make better, more informed counselling decisions.
+            What began as something I built for {builtFor} became a platform designed to help
+            NEET-PG aspirants make better, more informed counselling decisions.
           </p>
         </div>
 

@@ -12,7 +12,7 @@ function parseDegreeFilter(raw: string | null | undefined): DegreeFilter | undef
   if (raw === "MD" || raw === "MS" || raw === "DNB") return raw;
   return undefined;
 }
-import { generatePredictions } from "@/lib/predictions";
+import { generatePredictionsCached } from "@/lib/predictions";
 
 export async function GET(req: Request) {
   const session = await auth();
@@ -74,7 +74,7 @@ export async function GET(req: Request) {
 
   const fitFilter = searchParams.get("fit") ?? undefined;
   const limit = Math.min(parseInt(searchParams.get("limit") ?? "100", 10) || 100, 300);
-  let results = await generatePredictions(input, { limit });
+  let results = await generatePredictionsCached(input, { limit });
   if (fitFilter) {
     results = results.filter((r) => r.fitLevel === fitFilter);
   }

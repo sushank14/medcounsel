@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { prisma } from "@medcounsel/database";
-import { generatePredictions } from "@/lib/predictions";
+import { generatePredictionsCached } from "@/lib/predictions";
 import { Button } from "@/components/ui/button";
 import { PredictionCard } from "@/components/prediction/prediction-card";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
@@ -55,7 +55,7 @@ export default async function DashboardPage() {
 
   const preferredSpecialties = JSON.parse(profile.preferredSpecialties || "[]") as string[];
 
-  const predictions = await generatePredictions(
+  const predictions = await generatePredictionsCached(
     {
       rank: profile.rank,
       rankType: profile.rankType as "AIR" | "SML",

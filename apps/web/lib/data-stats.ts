@@ -1,6 +1,7 @@
+import { unstable_cache } from "next/cache";
 import { prisma } from "@medcounsel/database";
 
-export async function getDataStats() {
+async function fetchDataStats() {
   const [
     aiqCutoffs,
     mahCutoffs,
@@ -13,38 +14,38 @@ export async function getDataStats() {
     seatMatrixColleges,
     seatMatrixSeatSum,
   ] = await Promise.all([
-      prisma.cutoff.count({
-        where: { counselling: { code: "AIQ" }, verificationStatus: "VERIFIED" },
-      }),
-      prisma.cutoff.count({
-        where: { counselling: { code: "MAHARASHTRA" }, verificationStatus: "VERIFIED" },
-      }),
-      prisma.college.count({
-        where: { dataStatus: "OFFICIAL", NOT: [{ slug: { startsWith: "demo-" } }] },
-      }),
-      prisma.source.findMany({
-        where: { trustLevel: "PRIMARY" },
-        orderBy: { lastVerifiedDate: "desc" },
-        take: 5,
-        select: { title: true, authority: true, lastVerifiedDate: true, dataYear: true },
-      }),
-      prisma.cutoff.groupBy({
-        by: ["year"],
-        where: { counselling: { code: "AIQ" }, verificationStatus: "VERIFIED" },
-        orderBy: { year: "asc" },
-      }),
-      prisma.source.count({ where: { authority: "MCC", sourceType: "OFFICIAL" } }),
-      prisma.college.count({ where: { dataStatus: "OFFICIAL", nmcId: { not: null } } }),
-      prisma.seatMatrix.count({ where: { year: 2026 } }),
-      prisma.seatMatrix.groupBy({
-        by: ["collegeId"],
-        where: { year: 2026 },
-      }),
-      prisma.seatMatrix.aggregate({
-        where: { year: 2026 },
-        _sum: { seats: true },
-      }),
-    ]);
+    prisma.cutoff.count({
+      where: { counselling: { code: "AIQ" }, verificationStatus: "VERIFIED" },
+    }),
+    prisma.cutoff.count({
+      where: { counselling: { code: "MAHARASHTRA" }, verificationStatus: "VERIFIED" },
+    }),
+    prisma.college.count({
+      where: { dataStatus: "OFFICIAL", NOT: [{ slug: { startsWith: "demo-" } }] },
+    }),
+    prisma.source.findMany({
+      where: { trustLevel: "PRIMARY" },
+      orderBy: { lastVerifiedDate: "desc" },
+      take: 5,
+      select: { title: true, authority: true, lastVerifiedDate: true, dataYear: true },
+    }),
+    prisma.cutoff.groupBy({
+      by: ["year"],
+      where: { counselling: { code: "AIQ" }, verificationStatus: "VERIFIED" },
+      orderBy: { year: "asc" },
+    }),
+    prisma.source.count({ where: { authority: "MCC", sourceType: "OFFICIAL" } }),
+    prisma.college.count({ where: { dataStatus: "OFFICIAL", nmcId: { not: null } } }),
+    prisma.seatMatrix.count({ where: { year: 2026 } }),
+    prisma.seatMatrix.groupBy({
+      by: ["collegeId"],
+      where: { year: 2026 },
+    }),
+    prisma.seatMatrix.aggregate({
+      where: { year: 2026 },
+      _sum: { seats: true },
+    }),
+  ]);
 
   const lastImport = sources[0]?.lastVerifiedDate ?? null;
   const aiqYearRange =
@@ -69,3 +70,5 @@ export async function getDataStats() {
     seatMatrixTotalSeats: seatMatrixSeatSum._sum.seats ?? 0,
   };
 }
+
+export const getDataStats = unstable_cache(fetchDataStats, ["data-stats"], { revalidate: 3600 });

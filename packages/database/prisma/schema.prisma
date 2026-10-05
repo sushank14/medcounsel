@@ -311,6 +311,7 @@ model Cutoff {
   source      Source?           @relation(fields: [sourceId], references: [id])
 
   @@index([counsellingId, year, category, closingRank])
+  @@index([counsellingId, category, rankType, closingRank])
   @@index([collegeId, specialtyId, year])
 }
 

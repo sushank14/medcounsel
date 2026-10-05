@@ -1,3 +1,5 @@
+import { CREATOR } from "@/lib/creator";
+
 export function WhyBuiltSection() {
   return (
     <details className="group card open:shadow-sm">
@@ -13,7 +15,7 @@ export function WhyBuiltSection() {
           seat matrices, counselling rounds, state rules and choice filling.
         </p>
         <p>
-          I started building MedCounsel while helping someone close to me navigate this process.
+          I started building MedCounsel while helping {CREATOR.builtFor} navigate this process.
         </p>
         <p>
           As a software engineer, I wanted to turn that information into something simpler: a

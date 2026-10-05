@@ -1,12 +1,17 @@
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { BackLink } from "@/components/ui/back-link";
 import { prisma } from "@medcounsel/database";
 import { auth } from "@/lib/auth";
-import { generatePredictions } from "@/lib/predictions";
+import { generatePredictionsCached } from "@/lib/predictions";
 import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
-import { CutoffChart } from "@/components/college/cutoff-chart";
+
+const CutoffChart = dynamic(
+  () => import("@/components/college/cutoff-chart").then((m) => m.CutoffChart),
+  { loading: () => <div className="h-48 animate-pulse rounded-lg bg-slate-100" /> }
+);
 import { SpecialtyRowActions } from "@/components/college/specialty-row-actions";
 import { SourceLink } from "@/components/ui/source-link";
 import {
@@ -33,8 +38,10 @@ export default async function CollegeDetailPage({
       bonds: true,
       stipends: { orderBy: { yearOfTraining: "asc" } },
       cutoffs: {
+        where: { year: { gte: 2020 } },
         include: { specialty: true, round: true, counselling: true },
         orderBy: [{ year: "asc" }, { closingRank: "asc" }],
+        take: 120,
       },
     },
   });
@@ -47,16 +54,19 @@ export default async function CollegeDetailPage({
       where: { userId: session.user.id, isActive: true },
     });
     if (profile) {
-      const predictions = await generatePredictions({
-        rank: profile.rank,
-        rankType: profile.rankType as "AIR" | "SML",
-        category: profile.category,
-        domicileState: profile.domicileState,
-        counsellingPref: profile.counsellingPref as "AIQ" | "STATE" | "BOTH",
-        collegePref: "ANY",
-        budgetRange: "NO_RESTRICTION",
-      });
-      candidateFit = predictions.filter((p) => p.collegeId === college.id);
+      candidateFit = await generatePredictionsCached(
+        {
+          rank: profile.rank,
+          rankType: profile.rankType as "AIR" | "SML",
+          category: profile.category,
+          domicileState: profile.domicileState,
+          counsellingPref: profile.counsellingPref as "AIQ" | "STATE" | "BOTH",
+          collegePref: "ANY",
+          budgetRange: "NO_RESTRICTION",
+          collegeId: college.id,
+        },
+        { limit: 80 }
+      );
     }
   }
 

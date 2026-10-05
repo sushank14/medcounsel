@@ -68,15 +68,17 @@ function buildInitialFilters(profile: ProfileSnapshot, fitFilter = ""): SearchFi
 export function MyChancesSearch({
   profile,
   initialFitFilter = "",
+  initialResults,
 }: {
   profile: ProfileSnapshot;
   initialFitFilter?: string;
+  initialResults?: PredictionResult[];
 }) {
   const [editOpen, setEditOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [savingPriorities, setSavingPriorities] = useState(false);
-  const [results, setResults] = useState<PredictionResult[]>([]);
-  const [hasSearched, setHasSearched] = useState(false);
+  const [results, setResults] = useState<PredictionResult[]>(initialResults ?? []);
+  const [hasSearched, setHasSearched] = useState(!!initialResults?.length);
 
   const [draft, setDraft] = useState<SearchFilters>(() =>
     buildInitialFilters(profile, initialFitFilter)
@@ -136,14 +138,14 @@ export function MyChancesSearch({
     }
   }, []);
 
-  const initialSearch = useRef(false);
+  const initialSearch = useRef(!!initialResults?.length);
 
   useEffect(() => {
     if (!initialSearch.current) {
       initialSearch.current = true;
       runSearch(buildInitialFilters(profile, initialFitFilter));
     }
-  }, [profile, initialFitFilter, runSearch]);
+  }, [profile, initialFitFilter, runSearch, initialResults?.length]);
 
   const openEdit = () => {
     setDraft(applied);

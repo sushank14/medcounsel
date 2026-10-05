@@ -67,6 +67,8 @@ export interface PredictionInput {
   collegeTypeFilter?: string[];
   degreeFilter?: DegreeFilter;
   priorityRanking?: string[];
+  /** When set, only load cutoffs for this college (much faster on detail pages). */
+  collegeId?: string;
 }
 
 export type DegreeFilter = "ALL" | "MD" | "MS" | "DNB";

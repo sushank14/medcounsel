@@ -24,7 +24,8 @@ export function CreatorCard({ compact = false }: { compact?: boolean }) {
           <p className="mt-0.5 text-xs text-slate-500">{CREATOR.role}</p>
           {!compact && (
             <p className="mt-2 text-xs leading-relaxed text-slate-600">
-              A personal project created to make NEET-PG counselling simpler.
+              A personal project created for {CREATOR.builtFor}&apos;s counselling journey — and
+              everyone navigating NEET-PG.
             </p>
           )}
           <div className="mt-3">

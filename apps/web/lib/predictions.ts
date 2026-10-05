@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import { prisma } from "@medcounsel/database";
 import {
   computeStatistics,
@@ -148,6 +149,7 @@ export async function generatePredictions(
       counsellingId: { in: counsellingIds },
       category: input.category as never,
       OR: rankFilters,
+      ...(input.collegeId ? { collegeId: input.collegeId } : {}),
       ...(degreeFilter ? { specialty: { degree: degreeFilter as never } } : {}),
       college: {
         collegeType: { in: collegeTypes as never[] },
@@ -155,15 +157,31 @@ export async function generatePredictions(
       },
     },
     include: {
-      college: { include: { fees: true, bonds: true, stipends: true, specialties: true } },
+      college: { include: { fees: true, bonds: true, stipends: true } },
       specialty: true,
       counselling: true,
-      round: true,
-      source: true,
+      round: { select: { round: true } },
+      source: { select: { url: true, title: true } },
     },
     orderBy: [{ year: "desc" }, { closingRank: "asc" }],
-    take: 8000,
+    take: input.collegeId ? 800 : 4500,
   });
+
+  const seatRecords =
+    cutoffs.length > 0
+      ? await prisma.collegeSpecialty.findMany({
+          where: {
+            OR: [...new Set(cutoffs.map((c) => `${c.collegeId}:${c.specialtyId}`))].map((key) => {
+              const [collegeId, specialtyId] = key.split(":");
+              return { collegeId, specialtyId };
+            }),
+          },
+          select: { collegeId: true, specialtyId: true, totalSeats: true },
+        })
+      : [];
+  const seatMap = new Map(
+    seatRecords.map((s) => [`${s.collegeId}-${s.specialtyId}`, s.totalSeats ?? 0])
+  );
 
   const grouped = new Map<string, typeof cutoffs>();
   for (const c of cutoffs) {
@@ -263,8 +281,7 @@ export async function generatePredictions(
         year: g.year,
       }));
 
-    const seatRecord = college.specialties.find((cs) => cs.specialtyId === specialty.id);
-    const seatCount = seatRecord?.totalSeats ?? 0;
+    const seatCount = seatMap.get(`${college.id}-${specialty.id}`) ?? 0;
 
     const latestSource = group.find((g) => g.source?.url)?.source;
 
@@ -344,6 +361,24 @@ export async function generatePredictions(
 
   const limit = options?.limit ?? 300;
   return sorted.slice(0, limit);
+}
+
+function predictionCacheKey(input: PredictionInput, limit?: number) {
+  return JSON.stringify({ ...input, limit: limit ?? 300 });
+}
+
+/** Cached predictions — same profile params reuse results for ~10 minutes. */
+export async function generatePredictionsCached(
+  input: PredictionInput,
+  options?: { limit?: number }
+): Promise<PredictionResult[]> {
+  const limit = options?.limit ?? 300;
+  const key = predictionCacheKey(input, limit);
+  return unstable_cache(
+    () => generatePredictions(input, { limit }),
+    ["predictions", key],
+    { revalidate: 600 }
+  )();
 }
 
 export async function compareCategoriesForOption(

@@ -4,6 +4,8 @@ export const CREATOR = {
   headline: "Software Engineer • DevSecOps • Product Builder",
   role: "Software Engineer & DevSecOps Engineer",
   location: "Nagpur, Maharashtra",
+  /** NEET-PG aspirant this project was originally built for */
+  builtFor: "Diksha",
   linkedin: "https://www.linkedin.com/in/sushank-sakharwade-softwareengineer/",
   credentials: [
     "AWS Certified Developer – Associate",
