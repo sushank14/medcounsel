@@ -23,6 +23,7 @@ export async function Header() {
           <Link href="/cutoffs" className="hover:text-brand-600">Cutoffs</Link>
           <Link href="/compare" className="hover:text-brand-600">Compare</Link>
           <Link href="/category-explorer" className="hover:text-brand-600">Categories</Link>
+          <Link href="/profile" className="hover:text-brand-600">Profile</Link>
           {session?.user?.role === "ADMIN" && (
             <Link href="/admin" className="hover:text-brand-600">Admin</Link>
           )}

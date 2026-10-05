@@ -2,15 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Target, Search, List, MoreHorizontal } from "lucide-react";
+import { Home, Target, Compass, List, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV = [
   { href: "/dashboard", label: "Home", icon: Home },
-  { href: "/my-chances", label: "Chances", icon: Target },
-  { href: "/colleges", label: "Search", icon: Search },
-  { href: "/preferences", label: "Choices", icon: List },
-  { href: "/counselling", label: "Hub", icon: MoreHorizontal },
+  { href: "/my-chances", label: "Predict", icon: Target },
+  { href: "/counselling", label: "Counselling", icon: Compass },
+  { href: "/preferences", label: "Choice List", icon: List },
+  { href: "/profile", label: "Profile", icon: User },
 ];
 
 export function BottomNav() {
@@ -23,7 +23,9 @@ export function BottomNav() {
           const active =
             href === "/dashboard"
               ? pathname === "/dashboard" || pathname === "/"
-              : pathname.startsWith(href);
+              : href === "/profile"
+                ? pathname.startsWith("/profile")
+                : pathname.startsWith(href);
           return (
             <Link
               key={href}
