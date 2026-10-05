@@ -7,6 +7,7 @@ import { generatePredictions } from "@/lib/predictions";
 import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 import { CutoffChart } from "@/components/college/cutoff-chart";
+import { SpecialtyRowActions } from "@/components/college/specialty-row-actions";
 import { SourceLink } from "@/components/ui/source-link";
 import {
   ACTIVE_SEAT_MATRIX_ACADEMIC_YEAR,
@@ -185,7 +186,8 @@ export default async function CollegeDetailPage({
                 <th className="pb-2 pr-4">Specialty</th>
                 <th className="pb-2 pr-4">Degree</th>
                 <th className="pb-2 pr-4">Seats</th>
-                <th className="pb-2">Recent Closing Rank</th>
+                <th className="pb-2 pr-4">Recent Closing Rank</th>
+                <th className="pb-2">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -198,7 +200,10 @@ export default async function CollegeDetailPage({
                     <td className="py-2 pr-4">{cs.specialty.name}</td>
                     <td className="py-2 pr-4">{cs.specialty.degree}</td>
                     <td className="py-2 pr-4">{cs.totalSeats}</td>
-                    <td className="py-2">{recentCutoff ? formatRank(recentCutoff.closingRank, recentCutoff.rankType) : "—"}</td>
+                    <td className="py-2 pr-4">{recentCutoff ? formatRank(recentCutoff.closingRank, recentCutoff.rankType) : "—"}</td>
+                    <td className="py-2">
+                      <SpecialtyRowActions collegeId={college.id} specialtyId={cs.specialtyId} />
+                    </td>
                   </tr>
                 );
               })}

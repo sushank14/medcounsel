@@ -5,8 +5,10 @@ import { FitBadge } from "./fit-badge";
 import { formatCurrency, formatRank } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { SourceLink } from "@/components/ui/source-link";
+import { AddToChoiceButton } from "@/components/preference/add-to-choice-button";
+import { AddToCompareButton } from "@/components/compare/add-to-compare-button";
 
-export function PredictionCard({ result }: { result: PredictionResult }) {
+export function PredictionCard({ result, showActions = true }: { result: PredictionResult; showActions?: boolean }) {
   const diffSign = result.candidateDiff <= 0 ? "+" : "";
   const diffAbs = Math.abs(result.candidateDiff);
 
@@ -138,9 +140,27 @@ export function PredictionCard({ result }: { result: PredictionResult }) {
         </div>
       )}
 
-      <Link href={`/colleges/${result.collegeSlug}`} className="text-sm font-medium text-brand-600 hover:underline">
-        View details →
-      </Link>
+      <div className="flex flex-wrap items-center gap-2">
+        <Link href={`/colleges/${result.collegeSlug}`} className="text-sm font-medium text-brand-600 hover:underline">
+          View details →
+        </Link>
+        {showActions && (
+          <>
+            <AddToChoiceButton
+              collegeId={result.collegeId}
+              specialtyId={result.specialtyId}
+              compact
+              fitSnapshot={{
+                fitLevel: result.fitLevel,
+                candidateRank: result.candidateRank,
+                medianClosing: result.statistics.median,
+                tier: result.fitLevel,
+              }}
+            />
+            <AddToCompareButton collegeId={result.collegeId} specialtyId={result.specialtyId} compact />
+          </>
+        )}
+      </div>
     </article>
   );
 }

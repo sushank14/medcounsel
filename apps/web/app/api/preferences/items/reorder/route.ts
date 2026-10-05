@@ -9,8 +9,13 @@ export async function POST(req: Request) {
   }
 
   const { itemId, direction } = await req.json();
-  const item = await prisma.preferenceItem.findUnique({ where: { id: itemId } });
-  if (!item) return NextResponse.json({ error: "Not found" }, { status: 404 });
+  const item = await prisma.preferenceItem.findUnique({
+    where: { id: itemId },
+    include: { list: true },
+  });
+  if (!item || item.list.userId !== session.user.id) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
 
   const items = await prisma.preferenceItem.findMany({
     where: { listId: item.listId },

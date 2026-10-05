@@ -6,11 +6,11 @@ import { Home, Target, Search, List, MoreHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { href: "/", label: "Home", icon: Home },
+  { href: "/dashboard", label: "Home", icon: Home },
   { href: "/my-chances", label: "Chances", icon: Target },
   { href: "/colleges", label: "Search", icon: Search },
-  { href: "/preferences", label: "Prefs", icon: List },
-  { href: "/simulator", label: "More", icon: MoreHorizontal },
+  { href: "/preferences", label: "Choices", icon: List },
+  { href: "/counselling", label: "Hub", icon: MoreHorizontal },
 ];
 
 export function BottomNav() {
@@ -20,7 +20,10 @@ export function BottomNav() {
     <nav className="fixed bottom-0 left-0 right-0 z-50 border-t bg-white md:hidden">
       <div className="flex items-center justify-around py-2">
         {NAV.map(({ href, label, icon: Icon }) => {
-          const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
+          const active =
+            href === "/dashboard"
+              ? pathname === "/dashboard" || pathname === "/"
+              : pathname.startsWith(href);
           return (
             <Link
               key={href}

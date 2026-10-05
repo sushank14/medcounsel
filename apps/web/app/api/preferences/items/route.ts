@@ -54,6 +54,14 @@ export async function DELETE(req: Request) {
   const id = searchParams.get("id");
   if (!id) return NextResponse.json({ error: "Missing id" }, { status: 400 });
 
+  const item = await prisma.preferenceItem.findUnique({
+    where: { id },
+    include: { list: true },
+  });
+  if (!item || item.list.userId !== session.user.id) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
   await prisma.preferenceItem.delete({ where: { id } });
   return NextResponse.json({ ok: true });
 }

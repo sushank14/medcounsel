@@ -199,7 +199,7 @@ export function MyChancesSearch({
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold">Your Counselling Options</h1>
+          <h1 className="text-2xl font-bold">Analyze My Rank</h1>
           <p className="text-slate-600">
             {hasSearched
               ? `${results.length} options match your applied filters`

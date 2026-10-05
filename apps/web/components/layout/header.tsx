@@ -13,13 +13,16 @@ export async function Header() {
           <Stethoscope className="h-5 w-5" />
           MedCounsel AI
         </Link>
-        <nav className="hidden items-center gap-6 text-sm text-slate-600 md:flex">
+        <nav className="hidden items-center gap-5 text-sm text-slate-600 md:flex">
+          <Link href="/dashboard" className="hover:text-brand-600">Dashboard</Link>
+          <Link href="/my-chances" className="hover:text-brand-600">My Chances</Link>
+          <Link href="/counselling" className="hover:text-brand-600">Counselling</Link>
+          <Link href="/preferences" className="hover:text-brand-600">Choices</Link>
           <Link href="/colleges" className="hover:text-brand-600">Colleges</Link>
-          <Link href="/top-colleges" className="hover:text-brand-600">Top Colleges</Link>
           <Link href="/calendar" className="hover:text-brand-600">Calendar</Link>
           <Link href="/cutoffs" className="hover:text-brand-600">Cutoffs</Link>
-          <Link href="/my-chances" className="hover:text-brand-600">My Chances</Link>
-          <Link href="/simulator" className="hover:text-brand-600">Simulator</Link>
+          <Link href="/compare" className="hover:text-brand-600">Compare</Link>
+          <Link href="/category-explorer" className="hover:text-brand-600">Categories</Link>
           {session?.user?.role === "ADMIN" && (
             <Link href="/admin" className="hover:text-brand-600">Admin</Link>
           )}

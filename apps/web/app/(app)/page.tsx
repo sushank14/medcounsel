@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import { prisma } from "@medcounsel/database";
 import { QuickProfileForm } from "@/components/home/quick-profile-form";
 import { CollegeSearchBar, HomeQuickLinks } from "@/components/home/college-search-bar";
 import { CounsellingUpdatesPanel } from "@/components/counselling/counselling-updates-panel";
@@ -11,6 +12,11 @@ export default async function HomePage() {
   const session = await auth();
   if (!session?.user) redirect("/login");
   if (session.user.role === "ADMIN") redirect("/admin");
+
+  const profile = await prisma.candidateProfile.findFirst({
+    where: { userId: session.user.id, isActive: true },
+  });
+  if (profile) redirect("/dashboard");
 
   return (
     <div className="space-y-8">
