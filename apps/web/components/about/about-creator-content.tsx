@@ -1,8 +1,8 @@
-import { MapPin } from "lucide-react";
+import { Briefcase, MapPin } from "lucide-react";
 import { CREATOR, CREATOR_DISCLAIMER } from "@/lib/creator";
+import { CreatorCard } from "@/components/about/creator-card";
 
 const { builtFor } = CREATOR;
-import { CreatorCard } from "@/components/about/creator-card";
 import { LinkedInButton } from "@/components/about/linkedin-button";
 import { WhyBuiltSection } from "@/components/about/why-built-section";
 
@@ -13,6 +13,10 @@ export function AboutCreatorContent() {
         <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">About the creator</p>
         <h2 className="mt-1 text-2xl font-bold text-slate-900">Built by {CREATOR.name}</h2>
         <p className="mt-1 text-sm font-medium text-slate-700">{CREATOR.headline}</p>
+        <p className="mt-2 flex items-center gap-1 text-xs text-slate-500">
+          <Briefcase className="h-3.5 w-3.5" />
+          {CREATOR.work}
+        </p>
         <p className="mt-1 flex items-center gap-1 text-xs text-slate-500">
           <MapPin className="h-3.5 w-3.5" />
           {CREATOR.location}
@@ -38,9 +42,10 @@ export function AboutCreatorContent() {
       <section className="card p-6">
         <h3 className="text-sm font-semibold text-slate-900">Background</h3>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
-          I&apos;m a software engineer working in cloud and DevSecOps-oriented engineering. I build
-          and ship products—MedCounsel is one I created outside of work to solve a real problem I
-          saw up close.
+          By day I&apos;m a software developer at Persistent Systems, working in cloud and
+          DevSecOps-oriented engineering. MedCounsel is a personal project I built on my own time
+          to solve a real problem I saw up close—it is not affiliated with Persistent Systems or
+          any counselling authority.
         </p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {CREATOR.credentials.map((item) => (

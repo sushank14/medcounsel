@@ -21,7 +21,7 @@ export function CreatorCard({ compact = false }: { compact?: boolean }) {
             Built with care by{" "}
             <span className="font-medium text-slate-900">{CREATOR.name}</span>
           </p>
-          <p className="mt-0.5 text-xs text-slate-500">{CREATOR.role}</p>
+          <p className="mt-0.5 text-xs text-slate-500">{CREATOR.work}</p>
           {!compact && (
             <p className="mt-2 text-xs leading-relaxed text-slate-600">
               A personal project created for {CREATOR.builtFor}&apos;s counselling journey — and

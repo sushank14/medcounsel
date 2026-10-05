@@ -3,6 +3,7 @@ export const CREATOR = {
   name: "Sushank Sakharwade",
   headline: "Software Engineer • DevSecOps • Product Builder",
   role: "Software Engineer & DevSecOps Engineer",
+  work: "Software Developer at Persistent Systems",
   location: "Nagpur, Maharashtra",
   /** NEET-PG aspirant this project was originally built for */
   builtFor: "Diksha",
@@ -11,7 +12,6 @@ export const CREATOR = {
     "AWS Certified Developer – Associate",
     "IIIT Bangalore",
   ] as const,
-  employer: "Persistent Systems",
 } as const;
 
 export const CREATOR_DISCLAIMER =
