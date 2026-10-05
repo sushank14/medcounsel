@@ -1,8 +1,18 @@
 import { prisma } from "@medcounsel/database";
 
 export async function getDataStats() {
-  const [aiqCutoffs, mahCutoffs, officialColleges, sources, aiqYears, mccSources, neetPgColleges] =
-    await Promise.all([
+  const [
+    aiqCutoffs,
+    mahCutoffs,
+    officialColleges,
+    sources,
+    aiqYears,
+    mccSources,
+    neetPgColleges,
+    seatMatrixRows,
+    seatMatrixColleges,
+    seatMatrixSeatSum,
+  ] = await Promise.all([
       prisma.cutoff.count({
         where: { counselling: { code: "AIQ" }, verificationStatus: "VERIFIED" },
       }),
@@ -25,6 +35,15 @@ export async function getDataStats() {
       }),
       prisma.source.count({ where: { authority: "MCC", sourceType: "OFFICIAL" } }),
       prisma.college.count({ where: { dataStatus: "OFFICIAL", nmcId: { not: null } } }),
+      prisma.seatMatrix.count({ where: { year: 2026 } }),
+      prisma.seatMatrix.groupBy({
+        by: ["collegeId"],
+        where: { year: 2026 },
+      }),
+      prisma.seatMatrix.aggregate({
+        where: { year: 2026 },
+        _sum: { seats: true },
+      }),
     ]);
 
   const lastImport = sources[0]?.lastVerifiedDate ?? null;
@@ -43,5 +62,10 @@ export async function getDataStats() {
     aiqYearRange,
     mccSources,
     neetPgColleges,
+    seatMatrixYear: seatMatrixRows > 0 ? 2026 : null,
+    seatMatrixAcademicYear: seatMatrixRows > 0 ? "2026-27" : null,
+    seatMatrixRows,
+    seatMatrixColleges: seatMatrixColleges.length,
+    seatMatrixTotalSeats: seatMatrixSeatSum._sum.seats ?? 0,
   };
 }

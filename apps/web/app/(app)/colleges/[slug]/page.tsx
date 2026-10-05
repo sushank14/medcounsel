@@ -8,7 +8,12 @@ import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 import { CutoffChart } from "@/components/college/cutoff-chart";
 import { SourceLink } from "@/components/ui/source-link";
-import { displayCollegeName, formatCollegeLocation, isDemoCollege } from "@medcounsel/types";
+import {
+  ACTIVE_SEAT_MATRIX_ACADEMIC_YEAR,
+  displayCollegeName,
+  formatCollegeLocation,
+  isDemoCollege,
+} from "@medcounsel/types";
 import { formatCurrency, formatRank } from "@/lib/utils";
 
 export default async function CollegeDetailPage({
@@ -169,7 +174,10 @@ export default async function CollegeDetailPage({
       )}
 
       <div className="card p-5">
-        <h2 className="mb-3 font-semibold">Available Specialties</h2>
+        <h2 className="mb-1 font-semibold">Available Specialties</h2>
+        <p className="mb-3 text-xs text-slate-500">
+          Seat counts from NMC PG Seat Matrix {ACTIVE_SEAT_MATRIX_ACADEMIC_YEAR} (approved intake for counselling).
+        </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

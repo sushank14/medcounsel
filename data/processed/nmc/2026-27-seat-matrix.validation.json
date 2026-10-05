@@ -1,0 +1,224 @@
+{
+  "recordCount": 9664,
+  "uniqueCollegeCodes": 574,
+  "uniqueColleges": 574,
+  "uniqueCourses": 66,
+  "totalSeats": 58845,
+  "zeroSeatRecords": 18,
+  "missingFields": {
+    "collegeCode": 0,
+    "state": 0,
+    "collegeName": 0,
+    "category": 0,
+    "courseName": 0,
+    "seats": 1
+  },
+  "duplicateCollegeCourseAfterDedup": 0,
+  "negativeSeatRecords": 0,
+  "suspiciousLargeSeatRecords": 0,
+  "seatConflictRecords": 6,
+  "seatsByState": {
+    "Karnataka": 1296,
+    "Tamil Nadu": 1016,
+    "Maharashtra": 1014,
+    "Uttar Pradesh": 963,
+    "Telangana": 638,
+    "Andhra Pradesh": 601,
+    "Gujarat": 519,
+    "Kerala": 476,
+    "Rajasthan": 435,
+    "Madhya Pradesh": 430,
+    "West Bengal": 362,
+    "Bihar": 276,
+    "Haryana": 221,
+    "Orissa": 168,
+    "Punjab": 168,
+    "Pondicherry": 151,
+    "Chhatisgarh": 144,
+    "Delhi": 138,
+    "Assam": 119,
+    "Uttarakhand": 119,
+    "Jammu & Kashmir": 99,
+    "Himachal Pradesh": 78,
+    "Manipur": 52,
+    "Jharkhand": 44,
+    "Tripura": 28,
+    "Goa": 26,
+    "Chandigarh": 21,
+    "Meghalaya": 15,
+    "Sikkim": 13,
+    "Dadara Nagar Haveli": 12,
+    "Arunachal Pradesh": 11,
+    "Andaman Nicobar Islands": 6,
+    "Mizoram": 5
+  },
+  "seatsByCategory": {
+    "DEEMED": 7784,
+    "GOVT": 29927,
+    "PRIVATE": 21134
+  },
+  "topCoursesBySeats": {
+    "M.S. General Surgery": 507,
+    "M.D. Anaesthesiology": 506,
+    "M.S. Obstetrics and Gynaecology": 498,
+    "M.D. General Medicine": 496,
+    "M.D. Paediatrics": 490,
+    "M.S. Orthopaedics": 487,
+    "M.D. Pathology": 464,
+    "M.S. Otorhinolaryngology/ENT": 457,
+    "M.S. Ophthalmology": 454,
+    "M.D. Community Medicine/Social & Preventive Medicine": 435,
+    "M.D. Microbiology": 425,
+    "M.D. Radio-Diagnosis /Radiology": 412,
+    "M.D. Dermatology, Venereology and Leprosy/Dermatology": 407,
+    "M.D. BioChemistry": 397,
+    "M.D. Pharmacology": 393
+  },
+  "recordsWithMissingSeats": [
+    {
+      "collegeCode": "JK/011/G/1",
+      "collegeName": "Sher-I-Kashmir Instt. Of Medical Sciences, Srinagar",
+      "courseName": "Diploma in Immuno-Haematology and Blood Transfusion (D.I.H.",
+      "page": 48
+    }
+  ],
+  "seatConflictSamples": [
+    {
+      "srNo": "2359",
+      "collegeCode": "HP/007/G/1",
+      "state": "Himachal Pradesh",
+      "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi, HP",
+      "category": "GOVT",
+      "courseName": "M.S. Orthopaedics",
+      "seats": 3,
+      "academicYear": "2026-27",
+      "matrixYear": 2026,
+      "page": 47,
+      "_dedupedFrom": 2,
+      "_seatConflict": {
+        "pages": [
+          47
+        ],
+        "values": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "srNo": "4166",
+      "collegeCode": "KL/019/G/1",
+      "state": "Kerala",
+      "collegeName": "Govt. Medical College,Pariyaram, Kannur (Prev. Known as Academy of Medical Sciences)",
+      "category": "GOVT",
+      "courseName": "M.D. Dermatology, Venereology and Leprosy/Dermatology",
+      "seats": 1,
+      "academicYear": "2026-27",
+      "matrixYear": 2026,
+      "page": 79,
+      "_dedupedFrom": 2,
+      "_seatConflict": {
+        "pages": [
+          76,
+          79
+        ],
+        "values": [
+          3,
+          1
+        ]
+      }
+    },
+    {
+      "srNo": "4160",
+      "collegeCode": "KL/019/G/1",
+      "state": "Kerala",
+      "collegeName": "Govt. Medical College,Pariyaram, Kannur (Prev. Known as Academy of Medical Sciences)",
+      "category": "GOVT",
+      "courseName": "M.D. Microbiology",
+      "seats": 2,
+      "academicYear": "2026-27",
+      "matrixYear": 2026,
+      "page": 79,
+      "_dedupedFrom": 2,
+      "_seatConflict": {
+        "pages": [
+          77,
+          79
+        ],
+        "values": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "srNo": "4162",
+      "collegeCode": "KL/019/G/1",
+      "state": "Kerala",
+      "collegeName": "Govt. Medical College,Pariyaram, Kannur (Prev. Known as Academy of Medical Sciences)",
+      "category": "GOVT",
+      "courseName": "M.D. Radio-Diagnosis /Radiology",
+      "seats": 2,
+      "academicYear": "2026-27",
+      "matrixYear": 2026,
+      "page": 79,
+      "_dedupedFrom": 2,
+      "_seatConflict": {
+        "pages": [
+          76,
+          79
+        ],
+        "values": [
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "srNo": "6720",
+      "collegeCode": "PB/003/P/3",
+      "state": "Punjab",
+      "collegeName": "Dayanand Medical College & Hospital, Ludhiana",
+      "category": "PRIVATE",
+      "courseName": "M.D. Microbiology",
+      "seats": 4,
+      "academicYear": "2026-27",
+      "matrixYear": 2026,
+      "page": 125,
+      "_dedupedFrom": 2,
+      "_seatConflict": {
+        "pages": [
+          124,
+          125
+        ],
+        "values": [
+          3,
+          4
+        ]
+      }
+    },
+    {
+      "srNo": "7159",
+      "collegeCode": "RJ/037/P/3",
+      "state": "Rajasthan",
+      "collegeName": "Mahatma Gandhi Medical College and Hospital, Sitapur, Jaipur",
+      "category": "PRIVATE",
+      "courseName": "M.D. Radiation Oncology/ Radiotherapy",
+      "seats": 0,
+      "academicYear": "2026-27",
+      "matrixYear": 2026,
+      "page": 133,
+      "_dedupedFrom": 2,
+      "_seatConflict": {
+        "pages": [
+          132,
+          133
+        ],
+        "values": [
+          6,
+          0
+        ]
+      }
+    }
+  ]
+}

@@ -10,7 +10,9 @@ dist
 !packages/database/prisma/prod.db
 packages/database/prisma/dev.db
 data/imports/mcc/*.pdf
-data/processed/
+data/processed/*
+!data/processed/nmc/
+!data/processed/nmc/**
 .DS_Store
 .idea
 coverage

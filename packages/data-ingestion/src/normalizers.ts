@@ -56,7 +56,7 @@ export function parseCourse(courseRaw: string): { degree: string; specialty: str
   if (upper.includes("NBEMS") || upper.startsWith("(NBEMS")) degree = "DNB";
   else if (upper.startsWith("M.S") || upper.startsWith("MS")) degree = "MS";
   else if (upper.startsWith("DNB")) degree = "DNB";
-  else if (upper.startsWith("DIPLOMA")) degree = "DIPLOMA";
+  else if (upper.startsWith("DIPLOMA") || /^DIPLOMA\s+IN\b/i.test(course)) degree = "DIPLOMA";
 
   const specialtyMap: [RegExp, string][] = [
     [/GENERAL\s*MEDICINE/i, "General Medicine"],

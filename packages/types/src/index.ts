@@ -160,8 +160,16 @@ export const FIT_LABELS: Record<FitLevel, { label: string; color: string; emoji:
   DIFFICULT: { label: "Historically difficult", color: "text-red-700 bg-red-50 border-red-200", emoji: "🔴" },
 };
 
+export const ACTIVE_SEAT_MATRIX_YEAR = 2026;
+export const ACTIVE_SEAT_MATRIX_ACADEMIC_YEAR = "2026-27";
+
+export const SEAT_MATRIX_SOURCE_NOTE =
+  "Seat data sourced from the National Medical Commission (NMC/MARB) PG Seat Matrix for Academic Year 2026–27, dated 29 September 2026. The matrix is subject to subsequent revisions by NMC/MARB.";
+
 export const DISCLAIMER =
   "Predictions are estimates based on historical and available counselling data and do not guarantee admission. Verify eligibility, fees, deadlines, and rules with the official counselling authority.";
+
+export const DISCLAIMER_WITH_SEATS = `${DISCLAIMER} ${SEAT_MATRIX_SOURCE_NOTE}`;
 
 /** Major Maharashtra cities/districts for location preference (matches messy college address data) */
 export const MAHARASHTRA_CITIES = [
