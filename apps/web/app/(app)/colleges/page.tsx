@@ -11,6 +11,7 @@ import {
   isGarbageCollegeName,
 } from "@medcounsel/types";
 import { collegesSearchHref } from "@/lib/colleges-nav";
+import { BUDGET_RANGE_BANDS, COLLEGE_BUDGET_FILTER_OPTIONS } from "@/lib/budget-limits";
 
 const PAGE_SIZE = 24;
 
@@ -57,10 +58,25 @@ function CollegePagination({
 export default async function CollegesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; state?: string; type?: string; degree?: string; page?: string }>;
+  searchParams: Promise<{ q?: string; state?: string; type?: string; degree?: string; budget?: string; page?: string }>;
 }) {
   const params = await searchParams;
   const page = Math.max(1, parseInt(params.page ?? "1", 10) || 1);
+
+  const budgetBand = params.budget ? BUDGET_RANGE_BANDS[params.budget] : undefined;
+  const feeFilter = budgetBand
+    ? {
+        fees: {
+          some: {
+            totalAnnual: {
+              ...(budgetBand.min != null ? { gte: budgetBand.min } : {}),
+              ...(budgetBand.max != null ? { lte: budgetBand.max } : {}),
+            },
+          },
+        },
+      }
+    : {};
+
   const where = {
     ...(params.q ? { name: { contains: params.q } } : {}),
     ...(params.state ? { state: params.state } : {}),
@@ -68,6 +84,7 @@ export default async function CollegesPage({
     ...(params.degree
       ? { specialties: { some: { specialty: { degree: params.degree as never } } } }
       : {}),
+    ...feeFilter,
     AND: [
       excludeDemoCollegesWhere,
       {
@@ -104,7 +121,7 @@ export default async function CollegesPage({
         <p className="text-slate-600">{total.toLocaleString("en-IN")} colleges · page {page} of {totalPages || 1}</p>
       </div>
 
-      <form method="GET" className="card grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-5">
+      <form method="GET" className="card grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-3">
         <Input name="q" placeholder="Search colleges..." defaultValue={params.q} />
         <Select name="state" defaultValue={params.state ?? ""}>
           <option value="">All states</option>
@@ -123,10 +140,20 @@ export default async function CollegesPage({
           <option value="DEEMED">Deemed</option>
           <option value="CENTRAL">Central</option>
         </Select>
+        <Select name="budget" defaultValue={params.budget ?? ""}>
+          {COLLEGE_BUDGET_FILTER_OPTIONS.map((o) => (
+            <option key={o.value || "any"} value={o.value}>{o.label}</option>
+          ))}
+        </Select>
         <button type="submit" className="rounded-lg bg-brand-600 px-4 py-2 text-sm text-white hover:bg-brand-700">
           Search
         </button>
       </form>
+      {params.budget && (
+        <p className="text-xs text-slate-500">
+          Showing colleges with known annual fee in selected band only. Colleges without fee data are excluded.
+        </p>
+      )}
 
       <div className="grid gap-4 md:grid-cols-2">
         {colleges.filter((c) => !isGarbageCollegeName(c.name)).map((c) => (

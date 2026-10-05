@@ -1,27 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
-import type { FitLevel, PredictionResult } from "@medcounsel/types";
-import { displayCollegeName, formatCollegeLocation } from "@medcounsel/types";
-import { formatRank, formatCurrency } from "@/lib/utils";
-import { FitBadge } from "@/components/prediction/fit-badge";
-import { fitLevelToTier, CHOICE_TIER_LABELS } from "@medcounsel/types";
+import type { PredictionResult } from "@medcounsel/types";
+import { formatRank } from "@/lib/utils";
 import Link from "next/link";
+import { ChoiceListEditor, type ChoiceListRow } from "@/components/preference/choice-list-editor";
 
-interface PrefItem {
+type OptimizePreview = {
+  rank: number;
   id: string;
-  sortOrder: number;
-  college: { name: string; slug: string; city: string; state: string };
-  specialty: { name: string; degree: string };
-  fitSnapshot: string;
-}
+  collegeName: string;
+  specialtyLabel: string;
+  fitLevel?: string;
+  explanation: string;
+};
 
 export default function PreferencesPage() {
-  const [list, setList] = useState<{ id: string; title: string; items: PrefItem[] } | null>(null);
+  const [list, setList] = useState<{ id: string; title: string; items: ChoiceListRow[] } | null>(null);
   const [suggestions, setSuggestions] = useState<PredictionResult[]>([]);
   const [loading, setLoading] = useState(true);
+  const [reordering, setReordering] = useState(false);
+  const [optimizePreview, setOptimizePreview] = useState<OptimizePreview[] | null>(null);
+  const [prioritiesUsed, setPrioritiesUsed] = useState<string[]>([]);
+  const [optimizing, setOptimizing] = useState(false);
+
+  const refreshList = useCallback(async () => {
+    const res = await fetch("/api/preferences");
+    const data = await res.json();
+    setList(data.list);
+    return data.list as typeof list;
+  }, []);
 
   useEffect(() => {
     Promise.all([
@@ -48,22 +58,21 @@ export default function PreferencesPage() {
         },
       }),
     });
-    const res = await fetch("/api/preferences");
-    const data = await res.json();
-    setList(data.list);
+    await refreshList();
+    setOptimizePreview(null);
   };
 
   const removeItem = async (itemId: string) => {
     await fetch(`/api/preferences/items?id=${itemId}`, { method: "DELETE" });
-    const res = await fetch("/api/preferences");
-    const data = await res.json();
-    setList(data.list);
+    await refreshList();
+    setOptimizePreview(null);
   };
 
   const exportList = () => {
     if (!list?.items.length) return;
-    const lines = list.items.map((item, idx) =>
-      `${idx + 1}. ${item.specialty.degree} ${item.specialty.name} — ${displayCollegeName(item.college.name)}, ${item.college.state}`
+    const lines = list.items.map(
+      (item, idx) =>
+        `${idx + 1}. ${item.specialty.degree} ${item.specialty.name} — ${item.college.name}, ${item.college.state}`
     );
     const blob = new Blob([lines.join("\n")], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
@@ -74,16 +83,51 @@ export default function PreferencesPage() {
     URL.revokeObjectURL(url);
   };
 
-  const moveItem = async (itemId: string, direction: "up" | "down") => {
-    await fetch("/api/preferences/items/reorder", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ itemId, direction }),
-    });
-    const res = await fetch("/api/preferences");
-    const data = await res.json();
-    setList(data.list);
+  const bulkReorder = async (orderedIds: string[]) => {
+    setReordering(true);
+    try {
+      await fetch("/api/preferences/items/bulk-reorder", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ orderedIds }),
+      });
+      await refreshList();
+      setOptimizePreview(null);
+    } finally {
+      setReordering(false);
+    }
   };
+
+  const runOptimize = async (apply: boolean) => {
+    setOptimizing(true);
+    try {
+      const res = await fetch("/api/preferences/optimize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ apply }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        alert(data.error ?? "Optimize failed");
+        return;
+      }
+      if (apply) {
+        setOptimizePreview(null);
+        await refreshList();
+      } else {
+        setOptimizePreview(data.suggested);
+        setPrioritiesUsed(data.priorities ?? []);
+      }
+    } finally {
+      setOptimizing(false);
+    }
+  };
+
+  const itemsWithNotes: ChoiceListRow[] =
+    list?.items.map((item) => ({
+      ...item,
+      optimizeNote: optimizePreview?.find((p) => p.id === item.id)?.explanation,
+    })) ?? [];
 
   if (loading) return <p className="text-slate-500">Loading preference list...</p>;
 
@@ -91,21 +135,58 @@ export default function PreferencesPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold">Build My Choice List</h1>
-        <p className="text-slate-600">{list?.title ?? "2026 Preference List"} — drag order = MCC priority</p>
+        <p className="text-slate-600">{list?.title ?? "2026 Preference List"} — drag to set MCC priority</p>
         <p className="mt-1 text-sm text-slate-500">
-          Add from suggestions or any option in{" "}
-          <Link href="/my-chances" className="text-brand-600 hover:underline">My Chances</Link>.
-          Use ↑↓ to reorder — top choice first.
+          Add from{" "}
+          <Link href="/my-chances" className="text-brand-600 hover:underline">
+            My Chances
+          </Link>
+          . Drag rows to reorder — top = first choice.
         </p>
       </div>
 
       <DisclaimerBanner compact />
 
       {list && list.items.length > 0 && (
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <Button variant="outline" size="sm" onClick={exportList}>
-            Export preference list (.txt)
+            Export (.txt)
           </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            disabled={optimizing}
+            onClick={() => runOptimize(false)}
+          >
+            {optimizing ? "Working…" : "Preview optimized order"}
+          </Button>
+          <Button size="sm" disabled={optimizing} onClick={() => runOptimize(true)}>
+            Apply optimized order
+          </Button>
+          <Link href="/onboarding">
+            <Button variant="ghost" size="sm">
+              Edit priorities
+            </Button>
+          </Link>
+        </div>
+      )}
+
+      {optimizePreview && (
+        <div className="card border-brand-200 bg-brand-50/50 p-4 text-sm">
+          <p className="font-medium text-brand-900">Suggested order preview</p>
+          <p className="mt-1 text-brand-800/80">
+            Based on priorities: {prioritiesUsed.join(" → ")}. Review below, then click Apply optimized order.
+          </p>
+          <ol className="mt-3 list-decimal space-y-2 pl-5 text-slate-700">
+            {optimizePreview.map((row) => (
+              <li key={row.id}>
+                <span className="font-medium">
+                  {row.specialtyLabel} — {row.collegeName}
+                </span>
+                <span className="mt-0.5 block text-xs text-slate-600">{row.explanation}</span>
+              </li>
+            ))}
+          </ol>
         </div>
       )}
 
@@ -117,37 +198,12 @@ export default function PreferencesPage() {
               No preferences yet. Add from suggestions →
             </div>
           ) : (
-            <div className="space-y-2">
-              {list?.items.map((item, idx) => {
-                const fit = JSON.parse(item.fitSnapshot || "{}") as { fitLevel?: string };
-                const tier = fit.fitLevel ? fitLevelToTier(fit.fitLevel) : null;
-                return (
-                  <div key={item.id} className="card flex items-start gap-3 p-4">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700">
-                      {idx + 1}
-                    </span>
-                    <div className="flex-1">
-                      <p className="font-medium">{item.specialty.degree} {item.specialty.name}</p>
-                      <p className="text-sm text-slate-600">{displayCollegeName(item.college.name)}</p>
-                      <p className="text-xs text-slate-400">{formatCollegeLocation(item.college.city, item.college.state, item.college.name, item.college.slug)}</p>
-                      <div className="mt-1 flex flex-wrap gap-2">
-                        {fit.fitLevel && <FitBadge fitLevel={fit.fitLevel as FitLevel} />}
-                        {tier && (
-                          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-600">
-                            {CHOICE_TIER_LABELS[tier].label}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <Button variant="ghost" size="sm" onClick={() => moveItem(item.id, "up")} disabled={idx === 0}>↑</Button>
-                      <Button variant="ghost" size="sm" onClick={() => moveItem(item.id, "down")} disabled={idx === (list?.items.length ?? 0) - 1}>↓</Button>
-                      <Button variant="ghost" size="sm" onClick={() => removeItem(item.id)}>✕</Button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <ChoiceListEditor
+              items={itemsWithNotes}
+              onReorder={bulkReorder}
+              onRemove={removeItem}
+              reordering={reordering}
+            />
           )}
         </div>
 
@@ -157,11 +213,18 @@ export default function PreferencesPage() {
             {suggestions.map((s) => (
               <div key={`${s.collegeId}-${s.specialtyId}`} className="card flex items-center justify-between p-3">
                 <div>
-                  <p className="text-sm font-medium">{s.degree} {s.specialtyName}</p>
+                  <p className="text-sm font-medium">
+                    {s.degree} {s.specialtyName}
+                  </p>
                   <p className="text-xs text-slate-500">{s.collegeName}</p>
-                  <p className="text-xs text-slate-400">{formatRank(s.candidateRank, s.rankType)} · Median {formatRank(s.statistics.median, s.rankType)}</p>
+                  <p className="text-xs text-slate-400">
+                    {formatRank(s.candidateRank, s.rankType)} · Median{" "}
+                    {formatRank(s.statistics.median, s.rankType)}
+                  </p>
                 </div>
-                <Button size="sm" variant="outline" onClick={() => addItem(s)}>Add</Button>
+                <Button size="sm" variant="outline" onClick={() => addItem(s)}>
+                  Add
+                </Button>
               </div>
             ))}
           </div>

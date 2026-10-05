@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
+import { prisma } from "@medcounsel/database";
 import {
   AIQ_COUNSELLING,
   STATE_COUNSELLING_REGISTRY,
@@ -17,9 +18,16 @@ export default async function CounsellingHubPage() {
   const session = await auth();
   if (!session?.user?.id) redirect("/login");
 
+  const profile = await prisma.candidateProfile.findFirst({
+    where: { userId: session.user.id, isActive: true },
+  });
+
   const tracks = getTrackStatuses();
   const aiqEvents = eventsByCounselling("AIQ");
   const mhEvents = eventsByCounselling("MAHARASHTRA");
+
+  const reservedCategories = new Set(["OBC", "SC", "ST", "EWS", "PWD"]);
+  const showCategoryExplorer = profile && reservedCategories.has(profile.category);
 
   return (
     <div className="space-y-8">
@@ -33,6 +41,35 @@ export default async function CounsellingHubPage() {
 
       <DisclaimerBanner compact />
       <CounsellingStatusPanel tracks={tracks} />
+
+      {showCategoryExplorer && (
+        <section className="card border-violet-200 bg-violet-50/60 p-5">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <h2 className="text-lg font-semibold text-violet-950">Category & quota explorer</h2>
+              <p className="mt-1 text-sm text-violet-900/90">
+                You&apos;re in category <strong>{profile!.category}</strong>. Compare closing ranks across
+                General, OBC, SC, ST, EWS, and PwD for the same college and branch — cutoffs differ
+                significantly by category.
+              </p>
+            </div>
+            <Link href="/category-explorer">
+              <Button size="sm">Open category explorer</Button>
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {profile?.category === "GENERAL" && (
+        <section className="card p-4 text-sm text-slate-600">
+          <p>
+            <Link href="/category-explorer" className="font-medium text-brand-600 hover:underline">
+              Category explorer
+            </Link>{" "}
+            — see how cutoffs differ for OBC, SC, ST, EWS, and PwD candidates at the same institute.
+          </p>
+        </section>
+      )}
 
       <section className="card p-5">
         <div className="mb-4 flex flex-wrap items-start justify-between gap-3">

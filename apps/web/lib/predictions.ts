@@ -19,14 +19,7 @@ import {
 
 const MCC_SOURCE_URL = "https://mcc.nic.in/pg-medical-counselling/";
 
-const BUDGET_LIMITS: Record<string, number> = {
-  UNDER_5L: 500000,
-  RANGE_5_10L: 1000000,
-  RANGE_10_20L: 2000000,
-  RANGE_20_50L: 5000000,
-  ABOVE_50L: Infinity,
-  NO_RESTRICTION: Infinity,
-};
+import { BUDGET_LIMITS } from "./budget-limits";
 
 const COLLEGE_PREF_MAP: Record<string, string[]> = {
   GOVT_ONLY: ["GOVT", "CENTRAL"],
