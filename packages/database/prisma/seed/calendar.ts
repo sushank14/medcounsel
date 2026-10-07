@@ -32,8 +32,8 @@ export async function seedCalendar(
 
   const mccSource = await ensureSource(
     "MCC",
-    "MCC NEET-PG 2026 Counselling Schedule",
-    NEET_PG_2026_SESSION.mccSchedule
+    "MCC NEET-PG 2026 Tentative Allotment Schedule (DGHS, 07 Oct 2026)",
+    NEET_PG_2026_SESSION.mccSchedulePdf
   );
 
   const mahSource = await ensureSource(

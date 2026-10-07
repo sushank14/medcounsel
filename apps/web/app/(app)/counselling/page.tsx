@@ -100,13 +100,16 @@ export default async function CounsellingHubPage() {
           </Link>
         </div>
         <details className="mt-4">
-          <summary className="cursor-pointer text-sm font-medium text-slate-700">Round timeline (expected)</summary>
+          <summary className="cursor-pointer text-sm font-medium text-slate-700">Round timeline (MCC official · Maharashtra expected)</summary>
           <ul className="mt-2 space-y-1 text-sm text-slate-600">
             {aiqEvents.map((e) => (
               <li key={e.title} className="flex flex-wrap gap-2">
                 <span>{e.round ?? "—"}</span>
                 <span>{e.title}</span>
                 <span className="text-slate-400">{formatEventRange(e.startAt, e.endAt)}</span>
+                {e.status === "official" && (
+                  <Badge className="bg-emerald-50 text-emerald-800 text-[10px]">MCC official</Badge>
+                )}
                 {e.status === "expected" && (
                   <Badge className="bg-amber-50 text-amber-800 text-[10px]">Expected</Badge>
                 )}

@@ -35,7 +35,8 @@ export const AIQ_COUNSELLING: CounsellingTrackConfig = {
   label: "All India Quota (MCC)",
   authority: "Medical Counselling Committee (MCC), DGHS",
   portalUrl: "https://mcc.nic.in/pg-medical-counselling/",
-  scheduleUrl: "https://mcc.nic.in/eservices-schedule-pg/",
+  scheduleUrl:
+    "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/10/202610071411981089.pdf",
   rankType: "AIR",
   eligibility:
     "All NEET-PG qualified candidates. Uses All India Rank (AIR). Includes AIQ seats in government colleges, central institutes, deemed universities, and ESIC (as per MCC notice).",

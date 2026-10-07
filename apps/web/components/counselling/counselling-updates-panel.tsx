@@ -53,6 +53,9 @@ export function CounsellingUpdatesPanel({ compact = false }: { compact?: boolean
                     {e.title.replace(/ \(Expected — verify on official portal\)/, "")}
                     <span className="ml-1.5 inline-flex gap-1">
                       <Badge className="bg-slate-100 text-slate-600">{e.counsellingCode}</Badge>
+                      {e.status === "official" && (
+                        <Badge className="bg-emerald-50 text-emerald-800">MCC official</Badge>
+                      )}
                       {e.status === "expected" && (
                         <Badge className="bg-amber-50 text-amber-800">Expected</Badge>
                       )}

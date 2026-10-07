@@ -35,6 +35,9 @@ function EventList({ code }: { code: "AIQ" | "MAHARASHTRA" }) {
               <div className="mt-1 flex flex-wrap gap-1.5">
                 <Badge className="bg-slate-100 text-slate-600">{e.eventType.replace("_", " ")}</Badge>
                 {e.round && <Badge className="bg-brand-50 text-brand-800">{e.round}</Badge>}
+                {e.status === "official" && (
+                  <Badge className="bg-emerald-50 text-emerald-800">MCC official (tentative)</Badge>
+                )}
                 {e.status === "expected" && (
                   <Badge className="bg-amber-50 text-amber-800">Expected — verify officially</Badge>
                 )}
@@ -90,8 +93,12 @@ export default async function CalendarPage() {
 
       <p className="text-xs text-slate-400">
         Official schedules:{" "}
+        <a href={NEET_PG_2026_SESSION.mccSchedulePdf} className="text-brand-600 hover:underline" target="_blank" rel="noopener">
+          MCC 2026 allotment PDF (DGHS)
+        </a>
+        {" · "}
         <a href={NEET_PG_2026_SESSION.mccSchedule} className="text-brand-600 hover:underline" target="_blank" rel="noopener">
-          MCC PG schedule
+          mcc.nic.in schedule
         </a>
         {" · "}
         <Link href="/cutoffs" className="text-brand-600 hover:underline">
