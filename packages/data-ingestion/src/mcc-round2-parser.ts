@@ -69,19 +69,27 @@ function isRankLine(line: string, next?: string): boolean {
   return false;
 }
 
+function splitMergedTokens(line: string): string[] {
+  let s = line;
+  s = s.replace(/^(\d{1,6})(AI|AD)([A-Za-z].*)$/i, "$1\n$2\n$3");
+  s = s.replace(/^AI([A-Za-z])/i, "All India\n$1");
+  s = s.replace(/(OPTH|OPHT|GMED|GSUR|RADD|ASTH|DOPH|PATH|ORTH|PAED|OBGY|ANAE|DV-L)(Reported|Not|Seat)/gi, "$1\n$2");
+  s = s.replace(/(\))(OBC|EWS|Open|General|SC|ST)/g, "$1\n$2");
+  s = s.replace(/(OBCOBC|EWSOpen|OpenGeneral|OpenOBC|OpenSC|OpenST)/g, (m) =>
+    m.replace(/(OBC|EWS|General|Open|SC|ST)/g, "\n$1")
+  );
+  s = s.replace(/(Fresh Allotted)(\s*in\s*[23])/gi, "$1\n$2");
+  s = s.replace(/-{2,}/g, "\n");
+  return s.split("\n").map((p) => p.trim()).filter(Boolean);
+}
+
 function normalizeSideBySideLines(lines: string[]): string[] {
   const out: string[] = [];
   for (const line of lines) {
-    const inline = line.match(/^(\d{1,6})(AI|AD)([A-Za-z].*)$/i);
-    if (inline) {
-      out.push(inline[1], expandQuota(inline[2]), inline[3]);
-      continue;
+    for (const part of splitMergedTokens(line)) {
+      if (/^Page No\./i.test(part)) continue;
+      out.push(part);
     }
-    if (/^AI[A-Za-z]/.test(line)) {
-      out.push("All India", line.replace(/^AI/i, ""));
-      continue;
-    }
-    out.push(line);
   }
   return out;
 }
@@ -192,11 +200,10 @@ function pushResult(results: ParsedAllotment[], row: Omit<ParsedAllotment, "inst
 function parseRoundBlock(
   lines: string[],
   i: number,
-  rank: number,
-  targetRoundLabel: "2" | "3"
+  rank: number
 ): { allotment: ParsedAllotment | null; next: number } {
   let j = skipDashes(lines, i);
-  if (j >= lines.length || !QUOTA_LINE.test(lines[j]) && !/^All India/i.test(lines[j])) {
+  if (j >= lines.length || (!QUOTA_LINE.test(lines[j]) && !/^All India/i.test(lines[j]))) {
     return { allotment: null, next: j };
   }
 
@@ -211,42 +218,35 @@ function parseRoundBlock(
   j = courseNext;
   if (!course) return { allotment: null, next: j };
 
-  const { allotted, candidate, next: catNext } = readCategories(lines, j);
-  j = catNext;
+  let allotted = "Open";
+  let candidate = "General";
+  if (CAT_LINE.test(lines[j] ?? "") || /^(OBC|EWS|SC|ST|General|Open|BC|EW|GN)$/i.test(lines[j] ?? "")) {
+    const cats = readCategories(lines, j);
+    allotted = cats.allotted;
+    candidate = cats.candidate;
+    j = cats.next;
+  }
 
-  // option number (numeric, skip)
   if (/^\d+$/.test(lines[j] ?? "")) j++;
 
-  // remarks (Fresh Allotted in 2nd/3rd Round, Upgraded, etc.)
-  const remarkParts: string[] = [];
   while (j < lines.length) {
     const line = lines[j];
     if (isRankLine(line, lines[j + 1])) break;
     if (QUOTA_LINE.test(line)) break;
     if (/^Page No\./i.test(line)) break;
-    remarkParts.push(line);
-    if (/Round$/i.test(line) && /Fresh Allotted/i.test(remarkParts.join(" "))) {
-      j++;
-      break;
-    }
-    if (/^Upgraded?$/i.test(line) || /^No$/i.test(line)) {
+    if (/^(Upgraded?|No|Did|fresh|in \d|Round|Reported|Not|Seat)$/i.test(line)) {
       j++;
       continue;
     }
-    j++;
-    if (remarkParts.join(" ").length > 80) break;
+    if (line === "-") {
+      j++;
+      continue;
+    }
+    break;
   }
 
   const institute = instParts.join(" ").replace(/\s+/g, " ").trim();
-  const remarks = remarkParts.join(" ").toLowerCase();
-  const isTargetRound =
-    targetRoundLabel === "2"
-      ? /2nd round|fresh allotted|upgraded/i.test(remarks) || remarkParts.length > 0
-      : /3rd round|fresh allotted|upgraded/i.test(remarks) || remarkParts.length > 0;
-
-  if (!isTargetRound && targetRoundLabel === "2" && !/reported/i.test(remarks)) {
-    // Round 2 block exists with institute+course — treat as allotment for upgrade PDFs
-  }
+  if (institute.length < 4) return { allotment: null, next: j };
 
   return {
     allotment: {
@@ -281,34 +281,44 @@ export function parseRoundSideBySide(lines: string[], targetRound: "2" | "3"): P
     const rank = parseInt(line, 10);
     i++;
 
-    // Round 1 — skip
-    if (QUOTA_LINE.test(normalized[i] ?? "")) {
-      const { next: qNext } = readQuota(normalized, i);
-      i = qNext;
-      const { next: instNext } = readUntilCourse(normalized, i);
-      i = instNext;
-      const { next: courseNext } = readCourse(normalized, i);
-      i = courseNext;
-      i = readStatus(normalized, i).next;
-    }
+    if (targetRound === "2") {
+      // Round 1 — skip (proven path for R2 PDFs)
+      if (QUOTA_LINE.test(normalized[i] ?? "")) {
+        const { next: qNext } = readQuota(normalized, i);
+        i = qNext;
+        const { next: instNext } = readUntilCourse(normalized, i);
+        i = instNext;
+        const { next: courseNext } = readCourse(normalized, i);
+        i = courseNext;
+        i = readStatus(normalized, i).next;
+      }
 
-    // Round 2 block
-    const r2 = parseRoundBlock(normalized, i, rank, "2");
-    i = r2.next;
-    if (targetRound === "2" && r2.allotment?.institute && r2.allotment.course) {
-      pushResult(results, r2.allotment);
-    }
-
-    // Round 3 block (R3 PDFs have an extra column)
-    if (targetRound === "3") {
+      const r2 = parseRoundBlock(normalized, i, rank);
+      i = r2.next;
+      if (r2.allotment?.institute && r2.allotment.course) {
+        pushResult(results, r2.allotment);
+      }
       i = skipDashes(normalized, i);
-      const r3 = parseRoundBlock(normalized, i, rank, "3");
+    } else {
+      // R3 PDF: skip R1, skip R2 block, parse R3 column
+      if (QUOTA_LINE.test(normalized[i] ?? "")) {
+        const { next: qNext } = readQuota(normalized, i);
+        i = qNext;
+        const { next: instNext } = readUntilCourse(normalized, i);
+        i = instNext;
+        const { next: courseNext } = readCourse(normalized, i);
+        i = courseNext;
+        i = readStatus(normalized, i).next;
+      }
+
+      const r2 = parseRoundBlock(normalized, i, rank);
+      i = r2.next;
+      i = skipDashes(normalized, i);
+      const r3 = parseRoundBlock(normalized, i, rank);
       i = r3.next;
       if (r3.allotment?.institute && r3.allotment.course) {
         pushResult(results, r3.allotment);
       }
-    } else {
-      i = skipDashes(normalized, i);
     }
   }
 

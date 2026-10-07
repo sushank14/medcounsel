@@ -44,6 +44,8 @@ async function main() {
   await analyze("2025-r1-final.pdf", 2025, "R1");
   await analyze("2025-r2-final.pdf", 2025, "R2");
   await analyze("2025-r3-final.pdf", 2025, "R3");
+  await analyze("2024-r2-final.pdf", 2024, "R2");
+  await analyze("2024-r3-final.pdf", 2024, "R3");
 }
 
 main().catch(console.error);
