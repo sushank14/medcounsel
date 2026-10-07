@@ -21,6 +21,8 @@
     "relink-cutoffs": "tsx src/relink-orphan-cutoffs.ts",
     "fix-all-colleges": "tsx src/fix-all-college-data.ts",
     "fix-college-types": "tsx src/fix-college-types.ts",
+    "sync-college-types-nmc": "python3 scripts/sync-college-types-from-nmc.py && python3 scripts/backfill-nmc-ids.py",
+    "audit-college-types": "tsx src/audit-college-types.ts",
     "fix-dnb-degrees": "tsx src/fix-dnb-degrees.ts",
     "import-nmc-seat-matrix-2026": "tsx src/import-nmc-seat-matrix-2026.ts",
     "purge-demo-colleges": "tsx src/purge-demo-colleges.ts",

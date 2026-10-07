@@ -146,7 +146,7 @@ const PRIVATE_CHAIN_PATTERNS = [
  * the name contains "Medical College" (common MCC/NMC import mistake).
  */
 const DEEMED_UNIVERSITY_MEDICAL_COLLEGES =
-  /d\.?\s*y\.?\s*patil|dy\s*patil|padmashree|b\.?\s*m\.?\s*patil|manipal|sri siddhartha|saveetha|chettinad|datta meghe|sbks medical|krishna institute of medical|sri ramachandra medical|srm medical college|bharati vidyapeeth|symbiosis|b\.?\s*l\.?\s*d\.?\s*e\.?\s*university/i;
+  /d\.?\s*y\.?\s*patil|dy\s*patil|padmashree|b\.?\s*m\.?\s*patil|bharati\s+vidyapeeth|\bbvdu\b|symbiosis|amrita|aarupadai\s+veedu|vinayaka\s+missions|kasturba\s+medical|manipal\s+(medical|academy|college)|sikkim[- ]manipal|sri\s+siddhartha|sathya\s+sai|gitam|acs\s+medical|krishna\s+institute|\bkims\b|chettinad|saveetha|srm\s+medical|sri\s+ramachandra|datta\s+meghe|sbks\s+medical|yenepoya|melmaruvathur|sri\s+balaji\s+medical|mahatma\s+gandhi\s+medical\s+college|mgm\s+medical|sri\s+devraj|santosh|jss\s+medical|raja\s+rajeswari|adesh|dayanand\s+medical|dmims|krishna\s+mohans|meenakshi\s+medical|sree\s+balaji|vel\s+medical|tagore\s+medical|shri\s+sathya|sri\s+lakshmi\s+narayana|b\.?\s*l\.?\s*d\.?\s*e\.?\s*university|deemed\s+university|deemed\s+to\s+be\s+university/i;
 
 /** @deprecated use isDeemedUniversityMedicalCollege */
 const PRIVATE_DEEMED_MEDICAL_COLLEGES = DEEMED_UNIVERSITY_MEDICAL_COLLEGES;

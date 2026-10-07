@@ -65,11 +65,9 @@ function mapState(state: string): string {
 }
 
 function collegeTypeFromRow(row: NmcRow): CollegeType {
-  const fromName = inferCollegeTypeFromName(displayCollegeName(row.collegeName)) as CollegeType;
   const fromCategory = CATEGORY_TO_TYPE[row.category?.toUpperCase?.() ?? row.category];
-  if (fromCategory && fromCategory !== "GOVT") return fromCategory;
-  if (fromCategory === "GOVT" && fromName !== "GOVT") return fromName;
-  return fromCategory ?? fromName;
+  if (fromCategory) return fromCategory;
+  return inferCollegeTypeFromName(displayCollegeName(row.collegeName)) as CollegeType;
 }
 
 async function ensureSource() {
