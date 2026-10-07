@@ -19,6 +19,7 @@ import {
   displayCollegeName,
   formatCollegeLocation,
   isDemoCollege,
+  COLLEGE_TYPE_LABELS,
 } from "@medcounsel/types";
 import { formatCurrency, formatRank } from "@/lib/utils";
 
@@ -88,7 +89,8 @@ export default async function CollegeDetailPage({
           <h1 className="text-2xl font-bold">{displayCollegeName(college.name)}</h1>
         </div>
         <p className="text-slate-600">
-          {formatCollegeLocation(college.city, college.state, college.name, college.slug)} · {college.collegeType}
+          {formatCollegeLocation(college.city, college.state, college.name, college.slug)} ·{" "}
+          {COLLEGE_TYPE_LABELS[college.collegeType] ?? college.collegeType}
           {college.nmcId && <span className="ml-2 text-slate-400">· MCC #{college.nmcId}</span>}
         </p>
       </div>
@@ -108,7 +110,10 @@ export default async function CollegeDetailPage({
           <dl className="grid gap-2 text-sm sm:grid-cols-2">
             <div><dt className="text-slate-500">University</dt><dd>{college.university ?? "—"}</dd></div>
             <div><dt className="text-slate-500">Established</dt><dd>{college.establishedYear ?? "—"}</dd></div>
-            <div><dt className="text-slate-500">Type</dt><dd>{college.collegeType}</dd></div>
+            <div>
+              <dt className="text-slate-500">Type</dt>
+              <dd>{COLLEGE_TYPE_LABELS[college.collegeType] ?? college.collegeType}</dd>
+            </div>
             <div><dt className="text-slate-500">Website</dt><dd>{college.website ? <a href={college.website} className="text-brand-600 hover:underline" target="_blank" rel="noopener">Official site</a> : "—"}</dd></div>
           </dl>
         </div>

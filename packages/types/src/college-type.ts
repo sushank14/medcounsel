@@ -141,8 +141,20 @@ const PRIVATE_CHAIN_PATTERNS = [
   /chittaranjan national cancer institute dnb/i,
 ];
 
-const PRIVATE_DEEMED_MEDICAL_COLLEGES =
-  /manipal|sri siddhartha|saveetha|chettinad|datta meghe|sbks medical|krishna institute of medical|sri ramachandra medical|srm medical college/i;
+/**
+ * Private / deemed university medical colleges — must not be tagged GOVT just because
+ * the name contains "Medical College" (common MCC/NMC import mistake).
+ */
+const DEEMED_UNIVERSITY_MEDICAL_COLLEGES =
+  /d\.?\s*y\.?\s*patil|dy\s*patil|padmashree|b\.?\s*m\.?\s*patil|manipal|sri siddhartha|saveetha|chettinad|datta meghe|sbks medical|krishna institute of medical|sri ramachandra medical|srm medical college|bharati vidyapeeth|symbiosis|b\.?\s*l\.?\s*d\.?\s*e\.?\s*university/i;
+
+/** @deprecated use isDeemedUniversityMedicalCollege */
+const PRIVATE_DEEMED_MEDICAL_COLLEGES = DEEMED_UNIVERSITY_MEDICAL_COLLEGES;
+
+export function isDeemedUniversityMedicalCollege(name: string): boolean {
+  if (/deemed/i.test(name)) return true;
+  return DEEMED_UNIVERSITY_MEDICAL_COLLEGES.test(name);
+}
 
 /** Clear private-hospital / corporate signals in the official institute name. */
 export function hasPrivateOwnershipSignals(name: string): boolean {
@@ -159,7 +171,7 @@ export function hasPrivateOwnershipSignals(name: string): boolean {
   }
 
   const isGovtMedicalCollege =
-    (/medical college/i.test(name) && !PRIVATE_DEEMED_MEDICAL_COLLEGES.test(name)) ||
+    (/medical college/i.test(name) && !isDeemedUniversityMedicalCollege(name)) ||
     /college of medicine/i.test(name) ||
     /\besic medical college/i.test(name) ||
     GOVT_KNOWN_PATTERNS.some((p) => p.test(name));
@@ -193,7 +205,7 @@ export function isNbemsOrDnbSeat(specialtyName?: string, degree?: string): boole
 
 /** Default type for newly imported institutes (conservative). */
 export function inferCollegeTypeFromName(name: string): CollegeTypeCode {
-  if (/deemed/i.test(name)) return "DEEMED";
+  if (isDeemedUniversityMedicalCollege(name)) return "DEEMED";
   if (hasPrivateOwnershipSignals(name)) return "PRIVATE";
   if (CENTRAL_PATTERNS.some((p) => p.test(name)) && !/\bdnb\b/i.test(name)) return "CENTRAL";
   if (hasGovernmentOwnershipSignals(name)) {
@@ -202,9 +214,9 @@ export function inferCollegeTypeFromName(name: string): CollegeTypeCode {
     }
     return "GOVT";
   }
-  if (/medical college/i.test(name)) return "GOVT";
+  if (/medical college/i.test(name) && !isDeemedUniversityMedicalCollege(name)) return "GOVT";
   if (/university/i.test(name) && /medical/i.test(name)) return "STATE_UNIV";
-  return "GOVT";
+  return "PRIVATE";
 }
 
 /**
@@ -237,6 +249,10 @@ export function confidentCollegeTypeRetag(
   name: string,
   currentType: string
 ): CollegeTypeCode | null {
+  if (isDeemedUniversityMedicalCollege(name) && currentType !== "DEEMED") {
+    return "DEEMED";
+  }
+
   if (hasPrivateOwnershipSignals(name) && currentType !== "PRIVATE" && currentType !== "DEEMED") {
     return "PRIVATE";
   }

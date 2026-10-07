@@ -8,6 +8,7 @@ import fs from "fs";
 import path from "path";
 import { prisma, CollegeType, DataStatus, Degree, Category, Quota } from "@medcounsel/database";
 import { displayCollegeName, displayCity } from "../../types/src/college-display.js";
+import { inferCollegeTypeFromName } from "../../types/src/college-type.js";
 import { parseCourse, slugify } from "./normalizers.js";
 
 const MATRIX_YEAR = 2026;
@@ -64,7 +65,11 @@ function mapState(state: string): string {
 }
 
 function collegeTypeFromRow(row: NmcRow): CollegeType {
-  return CATEGORY_TO_TYPE[row.category] ?? "GOVT";
+  const fromName = inferCollegeTypeFromName(displayCollegeName(row.collegeName)) as CollegeType;
+  const fromCategory = CATEGORY_TO_TYPE[row.category?.toUpperCase?.() ?? row.category];
+  if (fromCategory && fromCategory !== "GOVT") return fromCategory;
+  if (fromCategory === "GOVT" && fromName !== "GOVT") return fromName;
+  return fromCategory ?? fromName;
 }
 
 async function ensureSource() {

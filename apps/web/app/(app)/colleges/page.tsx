@@ -9,6 +9,7 @@ import {
   formatCollegeLocation,
   INDIAN_STATES,
   isGarbageCollegeName,
+  COLLEGE_TYPE_LABELS,
 } from "@medcounsel/types";
 import { collegesSearchHref } from "@/lib/colleges-nav";
 import { BUDGET_RANGE_BANDS, COLLEGE_BUDGET_FILTER_OPTIONS } from "@/lib/budget-limits";
@@ -163,7 +164,7 @@ export default async function CollegesPage({
             </div>
             <p className="text-sm text-slate-600">{formatCollegeLocation(c.city, c.state, c.name, c.slug)}</p>
             <div className="mt-2 flex flex-wrap gap-2">
-              <Badge>{c.collegeType}</Badge>
+              <Badge>{COLLEGE_TYPE_LABELS[c.collegeType] ?? c.collegeType}</Badge>
               <Badge className="bg-slate-50">{c.specialties.length} specialties</Badge>
               {[...new Set(c.specialties.map((cs) => cs.specialty.degree))].map((d) => (
                 <Badge key={d} className="bg-indigo-50 text-indigo-800">{d}</Badge>
