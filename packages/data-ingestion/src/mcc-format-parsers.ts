@@ -5,6 +5,7 @@ import {
   parseCourse,
 } from "./normalizers.js";
 import type { ParsedAllotment } from "./parse-mcc-pdf.js";
+import { parseRoundSideBySide } from "./mcc-round2-parser.js";
 
 const QUOTA_FULL =
   /^(All India|Delhi University|Banaras Hindu|Aligarh Muslim|IP University|Management\/Paid|Muslim Minority|Jain Minority|Non-Resident|DNB Quota|Armed Forces)/i;
@@ -42,7 +43,13 @@ const COURSE_ABBR: Record<string, string> = {
   DERM: "M.D. (DERMATOLOGY)",
   PSYY: "M.D. (PSYCHIATRY)",
   ORTH: "M.S. (ORTHOPAEDICS)",
-  OPHT: "M.D. (OPHTHALMOLOGY)",
+  OPHT: "M.S. (OPHTHALMOLOGY)",
+  OPTH: "M.S. (OPHTHALMOLOGY)",
+  GMED: "M.D. (GENERAL MEDICINE)",
+  GSUR: "M.S. (GENERAL SURGERY)",
+  RADD: "M.D. (RADIO-DIAGNOSIS)",
+  ASTH: "M.D. (ANAESTHESIOLOGY)",
+  DOPH: "(NBEMS) OPHTHALMOLOGY",
   ENT: "M.D. (ENT)",
 };
 
@@ -400,7 +407,34 @@ export function parseUpgradeAbbrev(lines: string[]): ParsedAllotment[] {
   return results;
 }
 
-export function detectAndParse(text: string): ParsedAllotment[] {
+/** Decompress merged lines in Round 3 PDFs (tokens run together). */
+export function decompressRound3Lines(lines: string[]): string[] {
+  const out: string[] = [];
+  for (const raw of lines) {
+    let line = raw;
+    // Rank + quota + institute on one token: 1002AIDr.V.M.Govt...
+    line = line.replace(/^(\d{4,6})(AI|AD)([A-Za-z].*)$/i, "$1\n$2\n$3");
+    line = line.replace(/(\d{4,6})(AI|AD)([A-Za-z])/g, "$1\n$2\n$3");
+    line = line.replace(/^AI([A-Z])/i, "All India\n$1");
+    line = line.replace(/(\d{4,6})\s*(AI|AD)\s*/g, "$1\n$2\n");
+    line = line.replace(/(All India)([A-Z])/g, "$1\n$2");
+    line = line.replace(/(Reported|Not Reported|Seat Surrendered)(All India|AI|AD)/g, "$1\n$2");
+    line = line.replace(/-{2,}/g, "\n");
+    line = line.replace(
+      /(OPHT|OPTH|GMED|GSUR|RADD|ASTH|DOPH|PATH|ORTH|PAED|OBGY|ANAE|DV-L)(Reported|Not|Seat|Open|OBC|EWS|SC|ST|M\.)/gi,
+      "$1\n$2"
+    );
+    line = line.replace(/(OBCOBC|EWSOpen|OpenGeneral|OpenOBC|OpenSC|OpenST)/g, (m) => m.replace(/(OBC|EWS|General|SC|ST)/g, "\n$1"));
+    line = line.replace(/(Fresh Allotted)(\s*in\s*3)/gi, "$1\n$2");
+    for (const part of line.split("\n").map((p) => p.trim()).filter(Boolean)) {
+      if (/^Page No\./i.test(part)) continue;
+      out.push(part);
+    }
+  }
+  return out;
+}
+
+export function detectAndParse(text: string, roundHint?: string): ParsedAllotment[] {
   const lines = text
     .split("\n")
     .map((l) => l.trim())
@@ -416,9 +450,27 @@ export function detectAndParse(text: string): ParsedAllotment[] {
     if (r.length) return r;
   }
 
-  if (/Round 1[\s\S]{0,80}Round 2/i.test(text) || /Round 2[\s\S]{0,80}Round 3/i.test(text)) {
+  // Round 2 / Round 3 side-by-side upgrade PDFs (2024–2025)
+  const isSideBySide =
+    /Round 1[\s\S]{0,200}Round 2/i.test(text) ||
+    /Allotment -2025 Round 2/i.test(text) ||
+    /Allotment -2025 Round 3/i.test(text) ||
+    roundHint === "R2" ||
+    roundHint === "R3";
+
+  if (isSideBySide) {
+    const targetRound =
+      roundHint === "R3" || (roundHint !== "R2" && /Allotment -2025 Round 3|Round-III/i.test(text.slice(0, 800)))
+        ? "3"
+        : "2";
+    const inputLines = targetRound === "3" ? decompressRound3Lines(lines) : lines;
+    const sideBySide = parseRoundSideBySide(inputLines, targetRound as "2" | "3");
+    if (sideBySide.length > 50) return sideBySide;
+  }
+
+  if (/Round 1[\s\S]{0,80}Round 2/i.test(text)) {
     const upgrade = parseUpgradeAbbrev(lines);
-    if (upgrade.length) return upgrade;
+    if (upgrade.length > 50) return upgrade;
   }
 
   return parseStandardLines(lines);

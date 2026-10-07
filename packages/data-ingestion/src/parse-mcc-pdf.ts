@@ -31,8 +31,8 @@ export interface CutoffAggregate {
   seats: number;
 }
 
-export function parseAllotmentText(text: string): ParsedAllotment[] {
-  return detectAndParse(text);
+export function parseAllotmentText(text: string, roundHint?: string): ParsedAllotment[] {
+  return detectAndParse(text, roundHint);
 }
 
 export function aggregateCutoffs(
@@ -78,7 +78,7 @@ export async function parseMccPdfFile(
 ): Promise<{ allotments: ParsedAllotment[]; cutoffs: CutoffAggregate[] }> {
   const buffer = fs.readFileSync(filePath);
   const data = await pdf(buffer);
-  const allotments = parseAllotmentText(data.text);
+  const allotments = parseAllotmentText(data.text, round);
   const cutoffs = aggregateCutoffs(allotments, year, round);
   return { allotments, cutoffs };
 }

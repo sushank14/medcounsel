@@ -144,13 +144,24 @@ export async function generatePredictions(
   const degreeFilter =
     input.degreeFilter && input.degreeFilter !== "ALL" ? input.degreeFilter : undefined;
 
+  // Ophthalmology appears as both MS and MD in MCC PDFs — include both when filtering MS + branch
+  const wantsOphthalmology = input.preferredSpecialties?.some((p) =>
+    /ophthal/i.test(p)
+  );
+  const specialtyWhere =
+    degreeFilter === "MS" && wantsOphthalmology
+      ? { OR: [{ degree: "MS" as const }, { slug: "md-ophthalmology" }] }
+      : degreeFilter
+      ? { degree: degreeFilter as never }
+      : undefined;
+
   const cutoffs = await prisma.cutoff.findMany({
     where: {
       counsellingId: { in: counsellingIds },
       category: input.category as never,
       OR: rankFilters,
       ...(input.collegeId ? { collegeId: input.collegeId } : {}),
-      ...(degreeFilter ? { specialty: { degree: degreeFilter as never } } : {}),
+      ...(specialtyWhere ? { specialty: specialtyWhere } : {}),
       college: {
         collegeType: { in: collegeTypes as never[] },
         ...excludeDemoCollegesWhere,
