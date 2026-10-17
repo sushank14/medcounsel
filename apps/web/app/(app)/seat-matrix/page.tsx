@@ -54,9 +54,12 @@ export default async function SeatMatrixPage({
     ...(params.quota ? { quota: params.quota as never } : {}),
     ...(params.degree ? { specialty: { degree: params.degree as never } } : {}),
     college: {
+      // Inner-join colleges only — skip orphan SeatMatrix rows (e.g. after college cleanup).
+      slug: { not: "" },
       ...(params.state ? { state: params.state } : {}),
       ...(params.q ? { name: { contains: params.q } } : {}),
     },
+    specialty: { slug: { not: "" } },
   };
 
   const [total, rows, seatSum, collegeCount, nmcStats, mcc2026Stats, mcc2025Stats, mcc2024Stats] =
