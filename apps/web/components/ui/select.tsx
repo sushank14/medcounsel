@@ -1,13 +1,11 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { fieldSelect } from "@/lib/form-field-classes";
 
 export function Select({ className, children, ...props }: React.ComponentProps<"select">) {
   return (
     <select
-      className={cn(
-        "flex h-10 w-full rounded-lg border bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500",
-        className
-      )}
+      className={cn(fieldSelect, "w-full py-2", className)}
       {...props}
     >
       {children}

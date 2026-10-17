@@ -24,9 +24,9 @@ function DocSection({
   onToggle: (id: string) => void;
 }) {
   return (
-    <section className="card p-5">
-      <h2 className="mb-3 font-semibold">{title}</h2>
-      <ul className="space-y-2">
+    <section className="card card-body section-block">
+      <h2 className="section-title">{title}</h2>
+      <ul className="flex flex-col gap-2">
         {items.map((doc) => (
           <li key={doc.id} className="flex items-start gap-3 rounded-lg border px-3 py-2">
             <input
@@ -71,16 +71,18 @@ export default function DocumentsPage() {
   const done = allDocs.filter((d) => checked[d.id]).length;
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">My documents</h1>
-        <p className="text-slate-600">
-          Track registration documents for AIQ and state counselling. Requirements vary — verify on official portals.
-        </p>
-        <p className="mt-2 text-sm text-slate-500">
-          {done} of {allDocs.length} marked ready (saved on this device)
-        </p>
-      </div>
+    <div className="page">
+      <header className="page-header">
+        <div className="space-y-2">
+          <h1 className="page-title">My documents</h1>
+          <p className="page-lead">
+            Track registration documents for AIQ and state counselling. Requirements vary — verify on official portals.
+          </p>
+          <p className="text-sm text-slate-500">
+            {done} of {allDocs.length} marked ready (saved on this device)
+          </p>
+        </div>
+      </header>
 
       <DisclaimerBanner compact />
 

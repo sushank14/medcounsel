@@ -9,6 +9,7 @@ import {
   formatEventRange,
   NEET_PG_2026_SESSION,
 } from "@/lib/counselling-calendar";
+import { PageHeader } from "@/components/layout/page-header";
 
 function EventList({ code }: { code: "AIQ" | "MAHARASHTRA" }) {
   const events = eventsByCounselling(code);
@@ -28,7 +29,7 @@ function EventList({ code }: { code: "AIQ" | "MAHARASHTRA" }) {
         return (
           <div
             key={`${e.title}-${e.startAt}`}
-            className="card flex flex-wrap items-start justify-between gap-3 p-4"
+            className="card card-tile flex flex-wrap items-start justify-between gap-3"
           >
             <div className="min-w-0 flex-1">
               <p className="font-medium">{e.title}</p>
@@ -60,13 +61,11 @@ export default async function CalendarPage() {
   });
 
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-bold">Counselling Calendar</h1>
-        <p className="text-slate-600">
-          NEET-PG {NEET_PG_2026_SESSION.academicYear} — MCC AIQ & Maharashtra CAP dates
-        </p>
-      </div>
+    <div className="page">
+      <PageHeader
+        title="Counselling Calendar"
+        description={`NEET-PG ${NEET_PG_2026_SESSION.academicYear} — MCC AIQ & Maharashtra CAP dates`}
+      />
 
       <CounsellingUpdatesPanel />
 
@@ -76,7 +75,7 @@ export default async function CalendarPage() {
       <EventList code="MAHARASHTRA" />
 
       {dbEvents.length > 0 && (
-        <details className="card p-4">
+        <details className="card card-tile">
           <summary className="cursor-pointer font-medium text-slate-700">
             Synced database events ({dbEvents.length})
           </summary>

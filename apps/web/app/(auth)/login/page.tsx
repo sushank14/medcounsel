@@ -23,7 +23,7 @@ export default async function LoginPage({
     : null;
 
   return (
-    <div className="w-full max-w-md space-y-6">
+    <div className="page w-full max-w-md">
         <div className="text-center">
           <div className="mb-4 inline-flex items-center gap-2 font-semibold text-brand-700">
             <Stethoscope className="h-6 w-6" />
@@ -35,7 +35,7 @@ export default async function LoginPage({
           </p>
         </div>
 
-        <div className="card space-y-4 p-6 shadow-lg">
+        <div className="card card-body section-block shadow-lg">
           {errorMessage && (
             <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
               {errorMessage}

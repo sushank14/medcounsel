@@ -51,9 +51,10 @@ export function mapMccQuota(quota: string): string {
 export function parseCourse(courseRaw: string): { degree: string; specialty: string; slug: string } {
   const course = courseRaw.replace(/\s+/g, " ").trim();
   const upper = course.toUpperCase();
+  const isNbemsDiploma = /\(NBEMS-DIPLOMA\)/i.test(course);
 
   let degree = "MD";
-  if (upper.includes("NBEMS") || upper.startsWith("(NBEMS")) degree = "DNB";
+  if (isNbemsDiploma || upper.includes("NBEMS") || upper.startsWith("(NBEMS")) degree = "DNB";
   else if (upper.startsWith("M.S") || upper.startsWith("MS")) degree = "MS";
   else if (upper.startsWith("DNB")) degree = "DNB";
   else if (upper.startsWith("DIPLOMA") || /^DIPLOMA\s+IN\b/i.test(course)) degree = "DIPLOMA";
@@ -62,10 +63,11 @@ export function parseCourse(courseRaw: string): { degree: string; specialty: str
     [/GENERAL\s*MEDICINE/i, "General Medicine"],
     [/RADIO\s*DIAG/i, "Radiodiagnosis"],
     [/DERM/i, "Dermatology"],
-    [/PAED/i, "Pediatrics"],
     [/ANAE?STH/i, "Anaesthesiology"],
     [/GENERAL\s*SURGERY/i, "General Surgery"],
     [/ORTHOP/i, "Orthopedics"],
+    [/PAEDIATRIC\s+SURGERY|PEDiatric\s+surgery/i, "Pediatric Surgery"],
+    [/PAED/i, "Pediatrics"],
     [/O\.?B\.?G|OBSTET|GYNAEC/i, "Obstetrics & Gynecology"],
     [/OPHTHAL/i, "Ophthalmology"],
     [/ENT|OTO-RHINO/i, "ENT"],
@@ -76,7 +78,11 @@ export function parseCourse(courseRaw: string): { degree: string; specialty: str
     [/RESPIR|PULMON/i, "Respiratory Medicine"],
   ];
 
-  let specialty = course.replace(/^(M\.?D\.?|M\.?S\.?|DNB|DIPLOMA)\s*[(\[]?\s*/i, "").replace(/[)\]]/g, "").trim();
+  let specialty = course
+    .replace(/^\(NBEMS(?:-DIPLOMA)?\)\s*/i, "")
+    .replace(/^(M\.?D\.?|M\.?S\.?|DNB|DIPLOMA)\s*[(\[]?\s*/i, "")
+    .replace(/[)\]]/g, "")
+    .trim();
   for (const [re, name] of specialtyMap) {
     if (re.test(course)) {
       specialty = name;
@@ -89,7 +95,8 @@ export function parseCourse(courseRaw: string): { degree: string; specialty: str
     .replace(/RADIO\s*-?\s*DIAGNOSIS/i, "Radiodiagnosis")
     .replace(/\s+/g, " ")
     .trim();
-  const slug = slugify(`${degree}-${specialty}`);
+  const slugBase = isNbemsDiploma ? `dnb-diploma-${specialty}` : `${degree}-${specialty}`;
+  const slug = slugify(slugBase);
 
   return { degree, specialty, slug };
 }

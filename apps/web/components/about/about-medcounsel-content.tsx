@@ -5,7 +5,7 @@ import { WhyBuiltSection } from "@/components/about/why-built-section";
 
 export function AboutMedCounselContent() {
   return (
-    <div className="space-y-6">
+    <div className="page">
       <section className="card p-6">
         <h2 className="text-lg font-semibold text-slate-900">What is MedCounsel?</h2>
         <p className="mt-3 text-sm leading-relaxed text-slate-600">

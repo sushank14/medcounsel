@@ -25,7 +25,7 @@ export default async function AdminPage() {
   });
 
   return (
-    <div className="space-y-6">
+    <div className="page">
       <div>
         <h1 className="text-2xl font-bold">Admin Dashboard</h1>
         <p className="text-slate-600">Data management and freshness overview</p>

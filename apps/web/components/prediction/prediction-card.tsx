@@ -15,7 +15,7 @@ export function PredictionCard({ result, showActions = true }: { result: Predict
   const latestRound = result.roundMovement[result.roundMovement.length - 1];
 
   return (
-    <article className="card p-4 transition-shadow hover:shadow-md">
+    <article className="card card-tile transition-shadow hover:shadow-md">
       <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
         <div>
           <h3 className="font-semibold text-slate-900">

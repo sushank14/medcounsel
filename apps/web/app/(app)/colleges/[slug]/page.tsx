@@ -82,7 +82,7 @@ export default async function CollegeDetailPage({
     }));
 
   return (
-    <div className="space-y-6">
+    <div className="page">
       <div>
         <BackLink fallbackHref="/colleges" />
         <div className="mt-2 flex flex-wrap items-start gap-2">

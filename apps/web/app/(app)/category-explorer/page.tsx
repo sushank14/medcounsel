@@ -61,17 +61,19 @@ export default function CategoryExplorerPage() {
   };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">Category & Quota Explorer</h1>
-        <p className="text-slate-600">
-          See how previous-year cutoffs differ by caste/category and quota for each college + branch
-        </p>
-      </div>
+    <div className="page">
+      <header className="page-header">
+        <div className="space-y-2">
+          <h1 className="page-title">Category & Quota Explorer</h1>
+          <p className="page-lead">
+            See how previous-year cutoffs differ by caste/category and quota for each college + branch
+          </p>
+        </div>
+      </header>
 
       <DisclaimerBanner compact />
 
-      <div className="card grid gap-4 p-5 sm:grid-cols-3">
+      <div className="card card-body grid gap-4 sm:grid-cols-3">
         <div className="space-y-1">
           <Label>Your NEET-PG Rank</Label>
           <Input type="number" value={rank} onChange={(e) => setRank(e.target.value)} />

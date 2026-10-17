@@ -2,7 +2,7 @@ import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 
 export default function DisclaimerPage() {
   return (
-    <div className="mx-auto max-w-3xl space-y-6">
+    <div className="mx-auto max-w-3xl page">
       <h1 className="text-3xl font-bold">Disclaimer & Legal</h1>
       <DisclaimerBanner />
       <div className="prose prose-slate space-y-4 text-sm text-slate-700">

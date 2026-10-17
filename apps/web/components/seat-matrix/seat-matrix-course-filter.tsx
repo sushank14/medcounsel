@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { fieldInput } from "@/lib/form-field-classes";
 
 export interface CourseOption {
@@ -16,7 +16,13 @@ export function SeatMatrixCourseFilter({
   selected: string[];
 }) {
   const [query, setQuery] = useState("");
-  const selectedSet = useMemo(() => new Set(selected), [selected]);
+  const [open, setOpen] = useState(() => selected.length > 0);
+  const [checked, setChecked] = useState(() => new Set(selected));
+
+  useEffect(() => {
+    setChecked(new Set(selected));
+    if (selected.length > 0) setOpen(true);
+  }, [selected]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -24,17 +30,30 @@ export function SeatMatrixCourseFilter({
     return options.filter((o) => o.label.toLowerCase().includes(q));
   }, [options, query]);
 
+  const toggle = (slug: string, on: boolean) => {
+    setChecked((prev) => {
+      const next = new Set(prev);
+      if (on) next.add(slug);
+      else next.delete(slug);
+      return next;
+    });
+  };
+
   return (
     <details
       className="w-full min-w-[240px] flex-[1_1_280px] rounded-xl border border-slate-200 bg-white p-3 shadow-sm"
-      open={selected.length > 0}
+      open={open}
+      onToggle={(e) => setOpen((e.currentTarget as HTMLDetailsElement).open)}
     >
       <summary className="cursor-pointer select-none px-1 py-1.5 text-sm font-medium text-slate-800">
-        {selected.length > 0
-          ? `${selected.length} course${selected.length === 1 ? "" : "s"} selected`
+        {checked.size > 0
+          ? `${checked.size} course${checked.size === 1 ? "" : "s"} selected`
           : "Courses (optional)"}
       </summary>
-      <div className="mt-3 space-y-3 border-t border-slate-100 pt-3">
+      <div
+        className="mt-3 space-y-3 border-t border-slate-100 pt-3"
+        onClick={(e) => e.stopPropagation()}
+      >
         <input
           type="search"
           value={query}
@@ -59,8 +78,9 @@ export function SeatMatrixCourseFilter({
                   type="checkbox"
                   name="course"
                   value={o.slug}
-                  defaultChecked={selectedSet.has(o.slug)}
-                  className="mt-1"
+                  checked={checked.has(o.slug)}
+                  onChange={(e) => toggle(o.slug, e.target.checked)}
+                  className="mt-1 shrink-0"
                 />
                 <span className="leading-snug text-slate-700">{o.label}</span>
               </label>

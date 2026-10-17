@@ -48,15 +48,17 @@ export default function SimulatorPage() {
   };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">What-If Simulator</h1>
-        <p className="text-slate-600">Change parameters and see how your options shift — same engine as My Chances</p>
-      </div>
+    <div className="page">
+      <header className="page-header">
+        <div className="space-y-2">
+          <h1 className="page-title">What-If Simulator</h1>
+          <p className="page-lead">Change parameters and see how your options shift — same engine as My Chances</p>
+        </div>
+      </header>
 
       <DisclaimerBanner compact />
 
-      <div className="card grid gap-4 p-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="card card-body grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <div className="space-y-1">
           <Label>What if my rank is...</Label>
           <Input value={form.rank} onChange={(e) => setForm({ ...form, rank: e.target.value })} type="number" />

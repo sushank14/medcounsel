@@ -3,6 +3,8 @@ import Link from "next/link";
 import { displayCollegeName } from "@medcounsel/types";
 import { formatRank } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { PageHeader } from "@/components/layout/page-header";
+import { fieldSelect } from "@/lib/form-field-classes";
 
 const PAGE_SIZE = 50;
 
@@ -53,41 +55,47 @@ export default async function CutoffsPage({
   };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">Cutoff Explorer</h1>
-        <p className="text-slate-600">Browse historical closing ranks by category, quota, year, and round</p>
-        <p className="mt-1 text-sm text-emerald-700">
-          {aiqCount.toLocaleString()} AIQ (AIR) · {mahCount.toLocaleString()} Maharashtra (SML) ·{" "}
-          {totalColleges.toLocaleString()} NEET-PG institutes
-        </p>
-      </div>
+    <div className="page">
+      <PageHeader
+        title="Cutoff Explorer"
+        description={
+          <>
+            Browse historical closing ranks by category, quota, year, and round.
+            <span className="mt-2 block text-sm text-emerald-700">
+              {aiqCount.toLocaleString()} AIQ (AIR) · {mahCount.toLocaleString()} Maharashtra (SML) ·{" "}
+              {totalColleges.toLocaleString()} NEET-PG institutes
+            </span>
+          </>
+        }
+      />
 
-      <form method="GET" className="flex flex-wrap gap-2">
-        <select name="category" defaultValue={params.category ?? ""} className="rounded-lg border px-3 py-2 text-sm">
+      <form method="GET" className="filter-row">
+        <select name="category" defaultValue={params.category ?? ""} className={fieldSelect}>
           <option value="">All categories</option>
           {["GENERAL", "EWS", "OBC", "SC", "ST", "PWD"].map((c) => (
             <option key={c} value={c}>{c}</option>
           ))}
         </select>
-        <select name="counselling" defaultValue={params.counselling ?? ""} className="rounded-lg border px-3 py-2 text-sm">
+        <select name="counselling" defaultValue={params.counselling ?? ""} className={fieldSelect}>
           <option value="">All counselling</option>
           <option value="AIQ">AIQ (AIR ranks)</option>
           <option value="MAHARASHTRA">Maharashtra (SML ranks)</option>
         </select>
-        <select name="degree" defaultValue={params.degree ?? ""} className="rounded-lg border px-3 py-2 text-sm">
+        <select name="degree" defaultValue={params.degree ?? ""} className={fieldSelect}>
           <option value="">All courses</option>
           <option value="MD">MD</option>
           <option value="MS">MS</option>
           <option value="DNB">DNB</option>
         </select>
-        <select name="year" defaultValue={params.year ?? ""} className="rounded-lg border px-3 py-2 text-sm">
+        <select name="year" defaultValue={params.year ?? ""} className={fieldSelect}>
           <option value="">All years</option>
           {[2025, 2024, 2023, 2022, 2021, 2020].map((y) => (
             <option key={y} value={y}>{y}</option>
           ))}
         </select>
-        <button type="submit" className="rounded-lg bg-brand-600 px-4 py-2 text-sm text-white">Filter</button>
+        <button type="submit" className="h-10 rounded-lg bg-brand-600 px-5 text-sm font-medium text-white hover:bg-brand-700">
+          Filter
+        </button>
       </form>
 
       <p className="text-sm text-slate-500">

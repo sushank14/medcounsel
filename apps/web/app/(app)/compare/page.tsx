@@ -4,6 +4,7 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@medcounsel/database";
 import { CompareWorkspace } from "@/components/compare/compare-workspace";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
+import { PageHeader } from "@/components/layout/page-header";
 
 export default async function ComparePage({
   searchParams,
@@ -25,13 +26,11 @@ export default async function ComparePage({
   });
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">Compare colleges</h1>
-        <p className="text-slate-600">
-          Side-by-side comparison of up to 3 college + course options. Only fields with reliable data are shown.
-        </p>
-      </div>
+    <div className="page">
+      <PageHeader
+        title="Compare colleges"
+        description="Side-by-side comparison of up to 3 college + course options. Only fields with reliable data are shown."
+      />
 
       <DisclaimerBanner compact />
 

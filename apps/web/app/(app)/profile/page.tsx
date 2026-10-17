@@ -15,6 +15,7 @@ import { prisma } from "@medcounsel/database";
 import { formatRank } from "@/lib/utils";
 import { ProfileMenuLink } from "@/components/layout/profile-menu-link";
 import { CreatorCard } from "@/components/about/creator-card";
+import { PageHeader } from "@/components/layout/page-header";
 
 export default async function ProfileHubPage() {
   const session = await auth();
@@ -25,16 +26,14 @@ export default async function ProfileHubPage() {
   });
 
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-bold">Profile</h1>
-        <p className="mt-1 text-sm text-slate-600">
-          Your counselling profile, tools, and app information.
-        </p>
-      </div>
+    <div className="page">
+      <PageHeader
+        title="Profile"
+        description="Your counselling profile, tools, and app information."
+      />
 
       {profile ? (
-        <section className="card p-5">
+        <section className="card card-body">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">
@@ -56,7 +55,7 @@ export default async function ProfileHubPage() {
           </div>
         </section>
       ) : (
-        <section className="card border-dashed p-5 text-sm text-slate-600">
+        <section className="card card-body border-dashed text-sm text-slate-600">
           <p>No counselling profile yet.</p>
           <Link href="/onboarding" className="mt-2 inline-block font-medium text-brand-600 hover:underline">
             Set up your profile →

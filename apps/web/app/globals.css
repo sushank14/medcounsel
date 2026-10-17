@@ -23,7 +23,47 @@
 
 @layer utilities {
   .card {
-    @apply rounded-xl border bg-white shadow-sm;
+    @apply rounded-xl border border-slate-200/90 bg-white shadow-sm;
+  }
+
+  .card-body {
+    @apply p-5 md:p-6;
+  }
+
+  .card-tile {
+    @apply p-4 md:p-5;
+  }
+
+  .page {
+    @apply flex flex-col gap-8 pb-2;
+  }
+
+  .page-header {
+    @apply flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between;
+  }
+
+  .page-kicker {
+    @apply text-sm font-medium text-brand-600;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold tracking-tight text-slate-900 md:text-3xl;
+  }
+
+  .page-lead {
+    @apply max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base;
+  }
+
+  .section-title {
+    @apply text-base font-semibold tracking-tight text-slate-900;
+  }
+
+  .section-block {
+    @apply flex flex-col gap-4;
+  }
+
+  .filter-row {
+    @apply flex flex-wrap gap-3;
   }
 
   .badge-strong {

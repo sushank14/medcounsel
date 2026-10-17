@@ -174,12 +174,14 @@ export default function PreferencesPage() {
   }
 
   return (
-    <div className="space-y-8">
-      <header className="space-y-2">
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">My choice list</h1>
-        <p className="text-sm leading-relaxed text-slate-600 md:text-base">
-          {list?.title ?? "2026 Preference List"} · Position <strong>1</strong> is your first counselling choice.
-        </p>
+    <div className="page">
+      <header className="page-header">
+        <div className="space-y-2">
+          <h1 className="page-title">My choice list</h1>
+          <p className="page-lead">
+            {list?.title ?? "2026 Preference List"} · Position <strong>1</strong> is your first counselling choice.
+          </p>
+        </div>
       </header>
 
       <DisclaimerBanner compact />

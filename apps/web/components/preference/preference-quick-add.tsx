@@ -98,7 +98,7 @@ export function PreferenceQuickAdd({ onAdded }: { onAdded: () => void }) {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="flex flex-col gap-8">
       <section className="space-y-4">
         <div>
           <h2 className={sectionTitle}>Other ways to add</h2>
@@ -109,7 +109,7 @@ export function PreferenceQuickAdd({ onAdded }: { onAdded: () => void }) {
             <Link
               key={href}
               href={href}
-              className="card flex items-start gap-3 rounded-xl p-4 transition hover:border-brand-200 hover:shadow-md"
+              className="card card-tile flex items-start gap-3 transition hover:border-brand-200 hover:shadow-md"
             >
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
                 <Icon className="h-5 w-5" />

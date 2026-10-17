@@ -8,7 +8,7 @@ export default async function AboutCreatorPage() {
   if (!session?.user?.id) redirect("/login");
 
   return (
-    <div className="mx-auto max-w-2xl space-y-6">
+    <div className="mx-auto max-w-2xl page">
       <BackLink fallbackHref="/profile" label="← Back to profile" />
       <AboutCreatorContent />
     </div>

@@ -172,7 +172,7 @@ export default function OnboardingPage() {
     (form.counsellingPref === "STATE" || form.counsellingPref === "BOTH");
 
   return (
-    <div className="mx-auto max-w-lg space-y-6">
+    <div className="mx-auto max-w-lg page">
       <div>
         <p className="text-sm text-brand-600">Step {step + 1} of {STEPS.length}</p>
         <h1 className="text-2xl font-bold">{STEPS[step]}</h1>

@@ -21,7 +21,7 @@ export default async function AdminImportsPage() {
   });
 
   return (
-    <div className="space-y-6">
+    <div className="page">
       <div>
         <BackLink fallbackHref="/admin" />
         <h1 className="mt-2 text-2xl font-bold">Data Import Pipeline</h1>

@@ -25,6 +25,7 @@ import { CounsellingStatusPanel } from "@/components/counselling/counselling-sta
 import { UpcomingDeadlines } from "@/components/counselling/upcoming-deadlines";
 import { Badge } from "@/components/ui/badge";
 import { displayCollegeName } from "@medcounsel/types";
+import { PageHeader } from "@/components/layout/page-header";
 
 function topByTier(predictions: PredictionResult[], tier: ChoiceTier, limit = 2) {
   return predictions.filter((p) => fitLevelToTier(p.fitLevel) === tier).slice(0, limit);
@@ -87,24 +88,24 @@ export default async function DashboardPage() {
   const prefItems = prefList?.items ?? [];
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <p className="text-sm font-medium text-brand-600">Counselling command center</p>
-          <h1 className="text-2xl font-bold">My Dashboard</h1>
-          <p className="text-slate-600">NEET-PG 2026–27 · What to do, where you stand, what to pick next</p>
-        </div>
-        <div className="flex flex-wrap gap-2">
+    <div className="page">
+      <PageHeader
+        kicker="Counselling command center"
+        title="My Dashboard"
+        description="NEET-PG 2026–27 · What to do, where you stand, what to pick next"
+        actions={
+          <>
           <Link href="/my-chances">
             <Button size="sm">Analyze my rank</Button>
           </Link>
           <Link href="/onboarding">
             <Button variant="outline" size="sm">Edit profile</Button>
           </Link>
-        </div>
-      </div>
+          </>
+        }
+      />
 
-      <section className="card p-5">
+      <section className="card card-body">
         <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">My counselling profile</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <div>
@@ -144,9 +145,9 @@ export default async function DashboardPage() {
       <CounsellingStatusPanel tracks={tracks} />
       <UpcomingDeadlines deadlines={deadlines} />
 
-      <section className="card p-5">
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold">My saved choices</h2>
+      <section className="card card-body section-block">
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="section-title">My saved choices</h2>
           <Link href="/preferences" className="text-sm text-brand-600 hover:underline">
             Manage list →
           </Link>
@@ -177,14 +178,14 @@ export default async function DashboardPage() {
         )}
       </section>
 
-      <section>
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold">My top options</h2>
+      <section className="section-block">
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="section-title">My top options</h2>
           <Link href="/my-chances" className="text-sm text-brand-600 hover:underline">
             View all →
           </Link>
         </div>
-        <div className="space-y-6">
+        <div className="flex flex-col gap-8">
           {(["TARGET", "REALISTIC", "BACKUP", "DREAM"] as ChoiceTier[]).map((tier) => {
             const items = topByTier(predictions, tier, 2);
             if (!items.length) return null;
@@ -204,7 +205,7 @@ export default async function DashboardPage() {
           })}
         </div>
         {predictions.length === 0 && (
-          <div className="card p-6 text-center text-slate-600">
+          <div className="card card-body text-center text-slate-600">
             <p>No matching options — try widening college type or budget in your profile.</p>
           </div>
         )}
@@ -213,19 +214,19 @@ export default async function DashboardPage() {
       <DisclaimerBanner compact />
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <Link href="/counselling" className="card p-4 hover:shadow-md">
+        <Link href="/counselling" className="card card-tile hover:shadow-md">
           <p className="font-medium">Counselling hub</p>
           <p className="text-sm text-slate-500">AIQ vs State</p>
         </Link>
-        <Link href="/preferences" className="card p-4 hover:shadow-md">
+        <Link href="/preferences" className="card card-tile hover:shadow-md">
           <p className="font-medium">Choice list</p>
           <p className="text-sm text-slate-500">Build & reorder</p>
         </Link>
-        <Link href="/compare" className="card p-4 hover:shadow-md">
+        <Link href="/compare" className="card card-tile hover:shadow-md">
           <p className="font-medium">Compare</p>
           <p className="text-sm text-slate-500">Up to 3 options</p>
         </Link>
-        <Link href="/documents" className="card p-4 hover:shadow-md">
+        <Link href="/documents" className="card card-tile hover:shadow-md">
           <p className="font-medium">Documents</p>
           <p className="text-sm text-slate-500">Registration checklist</p>
         </Link>

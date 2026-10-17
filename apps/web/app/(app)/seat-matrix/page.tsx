@@ -16,8 +16,9 @@ import { SeatMatrixAddToPreferences } from "@/components/seat-matrix/seat-matrix
 import { SeatMatrixCourseFilter } from "@/components/seat-matrix/seat-matrix-course-filter";
 import { AddToChoiceButton } from "@/components/preference/add-to-choice-button";
 import { seatMatrixHref } from "@/lib/seat-matrix-nav";
-import { resolveSeatMatrixFilters } from "@/lib/seat-matrix-filters";
-import { fieldInput, fieldSelect } from "@/lib/form-field-classes";
+import { degreeFilterLabel, resolveDegreeWhere, resolveSeatMatrixFilters } from "@/lib/seat-matrix-filters";
+import { fieldInput, fieldSelect, sectionCard, sectionTitle } from "@/lib/form-field-classes";
+import { PageHeader } from "@/components/layout/page-header";
 
 const PAGE_SIZE = 50;
 
@@ -70,7 +71,7 @@ export default async function SeatMatrixPage({
     college: { slug: { not: "" } },
     specialty: {
       slug: { not: "" },
-      ...(params.degree ? { degree: params.degree as never } : {}),
+      ...resolveDegreeWhere(params.degree),
     },
   };
 
@@ -197,7 +198,7 @@ export default async function SeatMatrixPage({
   }
   if (params.state) filterChips.push({ label: "State", value: params.state });
   if (params.q) filterChips.push({ label: "College search", value: params.q });
-  if (params.degree) filterChips.push({ label: "Course type", value: params.degree });
+  if (params.degree) filterChips.push({ label: "Course type", value: degreeFilterLabel(params.degree) });
   if (selectedCourses.length) {
     filterChips.push({
       label: "Branches",
@@ -227,16 +228,14 @@ export default async function SeatMatrixPage({
   };
 
   return (
-    <div className="space-y-8 pb-8">
-      <header className="space-y-2">
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">PG Seat Matrix</h1>
-        <p className="max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
-          Official approved seats by college, course, and quota — NMC master matrix and MCC counselling matrices.
-        </p>
-      </header>
+    <div className="page">
+      <PageHeader
+        title="PG Seat Matrix"
+        description="Official approved seats by college, course, and quota — NMC master matrix and MCC counselling matrices."
+      />
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <div className={`card p-4 ${source === "nmc" ? "ring-2 ring-brand-500" : ""}`}>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className={`card card-tile ${source === "nmc" ? "ring-2 ring-brand-500" : ""}`}>
           <p className="text-xs font-medium uppercase tracking-wide text-slate-500">NMC Master Matrix</p>
           <p className="mt-1 text-2xl font-bold">{nmcStats._sum.seats?.toLocaleString("en-IN") ?? "—"}</p>
           <p className="text-sm text-slate-600">
@@ -250,7 +249,7 @@ export default async function SeatMatrixPage({
           </Link>
         </div>
         <div
-          className={`card p-4 ${source === "mcc" && matrixYear === ACTIVE_MCC_SEAT_MATRIX_YEAR ? "ring-2 ring-brand-500" : ""}`}
+          className={`card card-tile ${source === "mcc" && matrixYear === ACTIVE_MCC_SEAT_MATRIX_YEAR ? "ring-2 ring-brand-500" : ""}`}
         >
           <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
             MCC Counselling {ACTIVE_MCC_SEAT_MATRIX_YEAR}
@@ -271,7 +270,7 @@ export default async function SeatMatrixPage({
             Browse MCC {ACTIVE_MCC_SEAT_MATRIX_YEAR} →
           </Link>
         </div>
-        <div className={`card p-4 ${source === "mcc" && matrixYear === 2025 ? "ring-2 ring-brand-500" : ""}`}>
+        <div className={`card card-tile ${source === "mcc" && matrixYear === 2025 ? "ring-2 ring-brand-500" : ""}`}>
           <p className="text-xs font-medium uppercase tracking-wide text-slate-500">MCC Counselling 2025</p>
           <p className="mt-1 text-2xl font-bold">
             {mcc2025Stats._count > 0 ? mcc2025Stats._sum.seats?.toLocaleString("en-IN") : "—"}
@@ -288,7 +287,7 @@ export default async function SeatMatrixPage({
             Browse MCC 2025 →
           </Link>
         </div>
-        <div className={`card p-4 ${source === "mcc" && matrixYear === 2024 ? "ring-2 ring-brand-500" : ""}`}>
+        <div className={`card card-tile ${source === "mcc" && matrixYear === 2024 ? "ring-2 ring-brand-500" : ""}`}>
           <p className="text-xs font-medium uppercase tracking-wide text-slate-500">MCC Counselling 2024</p>
           <p className="mt-1 text-2xl font-bold">{mcc2024Stats._sum.seats?.toLocaleString("en-IN") ?? "—"}</p>
           <p className="text-sm text-slate-600">{mcc2024Stats._count.toLocaleString("en-IN")} course rows</p>
@@ -301,9 +300,9 @@ export default async function SeatMatrixPage({
         </div>
       </div>
 
-      <form method="GET" className="card space-y-5 rounded-xl p-5 shadow-sm md:p-6">
-        <p className="text-sm font-semibold text-slate-900">Filters</p>
-        <div className="flex flex-wrap gap-3">
+      <form method="GET" className={`${sectionCard} section-block`}>
+        <p className={sectionTitle}>Filters</p>
+        <div className="filter-row">
         <select name="source" defaultValue={source} className={fieldSelect}>
           <option value="nmc">NMC master matrix</option>
           <option value="mcc">MCC counselling matrix</option>
@@ -334,13 +333,12 @@ export default async function SeatMatrixPage({
         </select>
         <select name="degree" defaultValue={params.degree ?? ""} className={fieldSelect}>
           <option value="">All course types</option>
-          {["MD", "MS", "DNB", "DIPLOMA"].map((d) => (
-            <option key={d} value={d}>
-              {d}
-            </option>
-          ))}
+          <option value="MD_MS">MD / MS</option>
+          <option value="DNB">DNB</option>
+          <option value="DIPLOMA">Diploma</option>
         </select>
         <SeatMatrixCourseFilter
+          key={selectedCourses.join("\0")}
           selected={selectedCourses}
           options={courseOptions.map((sp) => ({
             slug: sp.slug,

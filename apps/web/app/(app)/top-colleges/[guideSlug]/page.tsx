@@ -31,7 +31,7 @@ export default async function TopCollegesGuidePage({
   const found = guide.resolvedEntries.filter((e) => e.college).length;
 
   return (
-    <div className="space-y-6">
+    <div className="page">
       <div>
         <BackLink fallbackHref="/top-colleges" label="← Back" />
         <h1 className="mt-2 text-2xl font-bold">{guide.title}</h1>

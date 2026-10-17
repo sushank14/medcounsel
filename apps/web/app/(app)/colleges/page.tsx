@@ -13,6 +13,7 @@ import {
 } from "@medcounsel/types";
 import { collegesSearchHref } from "@/lib/colleges-nav";
 import { BUDGET_RANGE_BANDS, COLLEGE_BUDGET_FILTER_OPTIONS } from "@/lib/budget-limits";
+import { PageHeader } from "@/components/layout/page-header";
 
 const PAGE_SIZE = 24;
 
@@ -116,13 +117,13 @@ export default async function CollegesPage({
   const totalPages = Math.ceil(total / PAGE_SIZE);
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">College Search</h1>
-        <p className="text-slate-600">{total.toLocaleString("en-IN")} colleges · page {page} of {totalPages || 1}</p>
-      </div>
+    <div className="page">
+      <PageHeader
+        title="College Search"
+        description={`${total.toLocaleString("en-IN")} colleges · page ${page} of ${totalPages || 1}`}
+      />
 
-      <form method="GET" className="card grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-3">
+      <form method="GET" className="card card-body grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Input name="q" placeholder="Search colleges..." defaultValue={params.q} />
         <Select name="state" defaultValue={params.state ?? ""}>
           <option value="">All states</option>
@@ -158,7 +159,7 @@ export default async function CollegesPage({
 
       <div className="grid gap-4 md:grid-cols-2">
         {colleges.filter((c) => !isGarbageCollegeName(c.name)).map((c) => (
-          <Link key={c.id} href={`/colleges/${c.slug}`} className="card p-4 hover:shadow-md">
+          <Link key={c.id} href={`/colleges/${c.slug}`} className="card card-tile hover:shadow-md">
             <div className="mb-2 flex flex-wrap items-start justify-between gap-2">
               <h3 className="font-semibold">{displayCollegeName(c.name)}</h3>
             </div>

@@ -13,6 +13,7 @@ import { CounsellingStatusPanel } from "@/components/counselling/counselling-sta
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { PageHeader } from "@/components/layout/page-header";
 
 export default async function CounsellingHubPage() {
   const session = await auth();
@@ -30,20 +31,18 @@ export default async function CounsellingHubPage() {
   const showCategoryExplorer = profile && reservedCategories.has(profile.category);
 
   return (
-    <div className="space-y-8">
-      <div>
-        <p className="text-sm font-medium text-brand-600">NEET-PG {NEET_PG_2026_SESSION.academicYear}</p>
-        <h1 className="text-2xl font-bold">Counselling Hub</h1>
-        <p className="mt-1 text-slate-600">
-          AIQ and state tracks — official links, rounds, and what&apos;s active now.
-        </p>
-      </div>
+    <div className="page">
+      <PageHeader
+        kicker={`NEET-PG ${NEET_PG_2026_SESSION.academicYear}`}
+        title="Counselling Hub"
+        description="AIQ and state tracks — official links, rounds, and what's active now."
+      />
 
       <DisclaimerBanner compact />
       <CounsellingStatusPanel tracks={tracks} />
 
       {showCategoryExplorer && (
-        <section className="card border-violet-200 bg-violet-50/60 p-5">
+        <section className="card card-body border-violet-200 bg-violet-50/60">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
               <h2 className="text-lg font-semibold text-violet-950">Category & quota explorer</h2>
@@ -61,7 +60,7 @@ export default async function CounsellingHubPage() {
       )}
 
       {profile?.category === "GENERAL" && (
-        <section className="card p-4 text-sm text-slate-600">
+        <section className="card card-tile text-sm text-slate-600">
           <p>
             <Link href="/category-explorer" className="font-medium text-brand-600 hover:underline">
               Category explorer
@@ -71,7 +70,7 @@ export default async function CounsellingHubPage() {
         </section>
       )}
 
-      <section className="card p-5">
+      <section className="card card-body section-block">
         <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
           <div>
             <h2 className="text-xl font-semibold">{AIQ_COUNSELLING.label}</h2>
@@ -132,7 +131,7 @@ export default async function CounsellingHubPage() {
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
           {STATE_COUNSELLING_REGISTRY.map((state) => (
-            <div key={state.stateCode} className="card p-4">
+            <div key={state.stateCode} className="card card-tile">
               <div className="flex items-start justify-between gap-2">
                 <h3 className="font-semibold">{state.stateName}</h3>
                 {state.supported ? (
@@ -165,7 +164,7 @@ export default async function CounsellingHubPage() {
       </section>
 
       {mhEvents.length > 0 && (
-        <section className="card p-5">
+        <section className="card card-body section-block">
           <h2 className="mb-3 font-semibold">Maharashtra CAP timeline (expected)</h2>
           <ul className="space-y-1 text-sm text-slate-600">
             {mhEvents.map((e) => (
@@ -181,15 +180,15 @@ export default async function CounsellingHubPage() {
       )}
 
       <div className="grid gap-3 sm:grid-cols-3">
-        <Link href="/calendar" className="card p-4 hover:shadow-md">
+        <Link href="/calendar" className="card card-tile hover:shadow-md">
           <p className="font-medium">Counselling calendar</p>
           <p className="text-sm text-slate-500">All dates in one place</p>
         </Link>
-        <Link href="/documents" className="card p-4 hover:shadow-md">
+        <Link href="/documents" className="card card-tile hover:shadow-md">
           <p className="font-medium">Document checklist</p>
           <p className="text-sm text-slate-500">Registration prep</p>
         </Link>
-        <Link href="/preferences" className="card p-4 hover:shadow-md">
+        <Link href="/preferences" className="card card-tile hover:shadow-md">
           <p className="font-medium">Choice list</p>
           <p className="text-sm text-slate-500">Build & reorder</p>
         </Link>

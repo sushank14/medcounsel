@@ -46,6 +46,9 @@ const MANUAL: SeatMatrixDocument[] = [
     title: "FINAL SEATS MATRIX DNB PG COUNSELLING 2026",
     url: "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/10/202610151482599908.pdf",
     fileName: "2026-dnb-seat-matrix.pdf",
+    csvFileName: "2026-dnb-seat-matrix-sheet.csv",
+    googleSheetId: "1gTVhgFGA00nEBi7OhvfXqNc-0j25QRMTkCsVRZnP_l8",
+    googleSheetGid: "258471497",
   },
   {
     year: 2025,

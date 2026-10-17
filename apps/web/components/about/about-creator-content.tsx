@@ -8,7 +8,7 @@ import { WhyBuiltSection } from "@/components/about/why-built-section";
 
 export function AboutCreatorContent() {
   return (
-    <div className="space-y-6">
+    <div className="page">
       <section className="card p-6">
         <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">About the creator</p>
         <h2 className="mt-1 text-2xl font-bold text-slate-900">Built by {CREATOR.name}</h2>

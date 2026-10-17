@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import { PredictionCard } from "@/components/prediction/prediction-card";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
+import { PageHeader } from "@/components/layout/page-header";
 import { cn, formatRank } from "@/lib/utils";
 import type { PredictionResult } from "@medcounsel/types";
 import {
@@ -198,33 +199,33 @@ export function MyChancesSearch({
     FIT_OPTIONS.find((f) => f.value === applied.fitFilter)?.label ?? "All fits";
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold">Analyze My Rank</h1>
-          <p className="text-slate-600">
-            {hasSearched
-              ? `${results.length} options match your applied filters`
-              : "Loading your options…"}
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <Button variant="outline" size="sm" className="gap-1.5" onClick={openEdit}>
-            <SlidersHorizontal className="h-3.5 w-3.5" />
-            Edit filters
-          </Button>
-          <Link href="/onboarding">
-            <Button variant="outline" size="sm" className="gap-1">
-              <Pencil className="h-3.5 w-3.5" />
-              Full profile edit
+    <div className="page">
+      <PageHeader
+        title="Analyze My Rank"
+        description={
+          hasSearched
+            ? `${results.length} options match your applied filters`
+            : "Loading your options…"
+        }
+        actions={
+          <>
+            <Button variant="outline" size="sm" className="gap-1.5" onClick={openEdit}>
+              <SlidersHorizontal className="h-3.5 w-3.5" />
+              Edit filters
             </Button>
-          </Link>
-        </div>
-      </div>
+            <Link href="/onboarding">
+              <Button variant="outline" size="sm" className="gap-1">
+                <Pencil className="h-3.5 w-3.5" />
+                Full profile edit
+              </Button>
+            </Link>
+          </>
+        }
+      />
 
       <DisclaimerBanner compact />
 
-      <div className="card flex flex-wrap items-center gap-x-4 gap-y-2 p-4 text-sm">
+      <div className="card card-tile flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
         <span>
           <span className="text-slate-500">Rank</span>{" "}
           <span className="font-medium">{formatRank(applied.rank, applied.rankType)}</span>
@@ -253,7 +254,7 @@ export function MyChancesSearch({
       </div>
 
       {editOpen && (
-        <div className="card space-y-4 p-4">
+        <div className="card card-body section-block">
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="font-semibold">Edit filters</p>

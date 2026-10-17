@@ -19,7 +19,7 @@ export default async function HomePage() {
   if (profile) redirect("/dashboard");
 
   return (
-    <div className="space-y-8">
+    <div className="page">
       <section className="text-center sm:text-left">
         <p className="text-sm font-medium text-brand-600">NEET-PG Counselling</p>
         <h1 className="mt-1 text-3xl font-bold tracking-tight">

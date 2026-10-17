@@ -39,7 +39,7 @@ export function HomeQuickLinks() {
         <Link
           key={l.href}
           href={l.href}
-          className="card p-4 transition-shadow hover:shadow-md"
+          className="card card-tile transition-shadow hover:shadow-md"
         >
           <p className="font-medium text-brand-700">{l.title}</p>
           <p className="text-sm text-slate-500">{l.desc}</p>

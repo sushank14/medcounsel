@@ -110,7 +110,7 @@ export function ChoiceListEditor({ items, onReorder, onRemove, reordering }: Cho
             key={item.id}
             data-choice-item
             className={cn(
-              "card flex flex-col gap-4 rounded-xl p-4 transition-all sm:flex-row sm:items-start md:p-5",
+              "card card-tile flex flex-col gap-4 transition-all sm:flex-row sm:items-start md:py-5",
               draggingIndex === idx && "scale-[0.99] opacity-60 shadow-md",
               overIndex === idx && draggingIndex !== null && draggingIndex !== idx && "border-brand-400 bg-brand-50/50"
             )}

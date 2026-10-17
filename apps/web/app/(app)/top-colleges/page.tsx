@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { guidesByCategory, TOP_COLLEGES_DISCLAIMER } from "@medcounsel/types";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
+import { PageHeader } from "@/components/layout/page-header";
 import { Award, MapPin, Stethoscope } from "lucide-react";
 
 const CATEGORY_META = {
@@ -23,15 +24,12 @@ const CATEGORY_META = {
 
 export default function TopCollegesPage() {
   return (
-    <div className="space-y-8">
-      <div>
-        <p className="text-sm font-medium text-brand-600">College guides</p>
-        <h1 className="mt-1 text-2xl font-bold">Top Colleges — pick easier</h1>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          Curated lists like Reddit senior reviews — which colleges are famous for which branch,
-          with cutoff context from official MCC data where available.
-        </p>
-      </div>
+    <div className="page">
+      <PageHeader
+        kicker="College guides"
+        title="Top Colleges — pick easier"
+        description="Curated lists like Reddit senior reviews — which colleges are famous for which branch, with cutoff context from official MCC data where available."
+      />
 
       <DisclaimerBanner compact />
       <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
@@ -56,7 +54,7 @@ export default function TopCollegesPage() {
                 <Link
                   key={g.slug}
                   href={`/top-colleges/${g.slug}`}
-                  className="card p-4 transition-shadow hover:shadow-md"
+                  className="card card-tile transition-shadow hover:shadow-md"
                 >
                   <p className="font-medium text-brand-700">{g.title}</p>
                   <p className="mt-1 line-clamp-2 text-sm text-slate-500">{g.description}</p>
