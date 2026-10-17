@@ -12,8 +12,11 @@ import {
   SEAT_MATRIX_SOURCE_NOTE,
 } from "@medcounsel/types";
 import { Badge } from "@/components/ui/badge";
+import { SeatMatrixAddToPreferences } from "@/components/seat-matrix/seat-matrix-add-to-preferences";
 import { SeatMatrixCourseFilter } from "@/components/seat-matrix/seat-matrix-course-filter";
-import { parseCourseSlugs, seatMatrixHref } from "@/lib/seat-matrix-nav";
+import { AddToChoiceButton } from "@/components/preference/add-to-choice-button";
+import { seatMatrixHref } from "@/lib/seat-matrix-nav";
+import { resolveSeatMatrixFilters } from "@/lib/seat-matrix-filters";
 
 const PAGE_SIZE = 50;
 
@@ -46,48 +49,19 @@ export default async function SeatMatrixPage({
 }) {
   const params = await searchParams;
   const page = Math.max(1, parseInt(params.page ?? "1", 10) || 1);
-  const source = params.source === "mcc" ? "mcc" : "nmc";
-  const matrixYear =
-    source === "nmc"
-      ? ACTIVE_SEAT_MATRIX_YEAR
-      : parseInt(params.year ?? String(ACTIVE_MCC_SEAT_MATRIX_YEAR), 10) || ACTIVE_MCC_SEAT_MATRIX_YEAR;
+  const { source, matrixYear, reservationCategory, selectedCourses, where } =
+    resolveSeatMatrixFilters(params);
+
   const diffYearParsed = params.diffYear ? parseInt(params.diffYear, 10) : NaN;
   const diffYear =
     source === "mcc" && Number.isFinite(diffYearParsed) && diffYearParsed !== matrixYear
       ? diffYearParsed
       : null;
-  const reservationCategory =
-    params.category && RESERVATION_CATEGORIES.includes(params.category as (typeof RESERVATION_CATEGORIES)[number])
-      ? params.category
-      : undefined;
-  const selectedCourses = parseCourseSlugs(params.course);
 
   const nmcSourceWhere = { title: { contains: "NMC/MARB PG Seat Matrix" } };
   const mccSourceWhere = { title: { contains: "MCC NEET-PG official seat matrix" } };
   const matrixSourceWhere = source === "mcc" ? mccSourceWhere : nmcSourceWhere;
-
-  const specialtyWhere = {
-    ...(params.degree ? { degree: params.degree as never } : {}),
-    ...(selectedCourses.length === 1
-      ? { slug: selectedCourses[0] }
-      : selectedCourses.length > 1
-        ? { slug: { in: selectedCourses } }
-        : { slug: { not: "" } }),
-  };
-
-  const where = {
-    year: matrixYear,
-    source: matrixSourceWhere,
-    ...(params.quota ? { quota: params.quota as never } : {}),
-    ...(reservationCategory ? { category: reservationCategory as never } : {}),
-    college: {
-      // Inner-join colleges only — skip orphan SeatMatrix rows (e.g. after college cleanup).
-      slug: { not: "" },
-      ...(params.state ? { state: params.state } : {}),
-      ...(params.q ? { name: { contains: params.q } } : {}),
-    },
-    specialty: specialtyWhere,
-  };
+  const specialtyWhere = where.specialty;
 
   const coursePickerWhere = {
     year: matrixYear,
@@ -99,16 +73,28 @@ export default async function SeatMatrixPage({
     },
   };
 
-  const [total, rows, seatSum, collegeCount, courseGroups, nmcStats, mcc2026Stats, mcc2025Stats, mcc2024Stats] =
-    await Promise.all([
+  const [
+    total,
+    rows,
+    seatSum,
+    collegeCount,
+    courseGroups,
+    matchingCourseGroups,
+    nmcStats,
+    mcc2026Stats,
+    mcc2025Stats,
+    mcc2024Stats,
+  ] = await Promise.all([
     prisma.seatMatrix.count({ where }),
     prisma.seatMatrix.findMany({
       take: PAGE_SIZE,
       skip: (page - 1) * PAGE_SIZE,
       where,
       include: {
-        college: { select: { slug: true, name: true, shortName: true, state: true, collegeType: true } },
-        specialty: { select: { name: true, degree: true } },
+        college: {
+          select: { id: true, slug: true, name: true, shortName: true, state: true, collegeType: true },
+        },
+        specialty: { select: { id: true, name: true, degree: true } },
       },
       orderBy: [
         { college: { state: "asc" } },
@@ -123,6 +109,7 @@ export default async function SeatMatrixPage({
       by: ["specialtyId"],
       where: coursePickerWhere,
     }),
+    prisma.seatMatrix.groupBy({ by: ["collegeId", "specialtyId"], where }),
     prisma.seatMatrix.aggregate({
       where: { year: ACTIVE_SEAT_MATRIX_YEAR, source: nmcSourceWhere },
       _sum: { seats: true },
@@ -193,7 +180,50 @@ export default async function SeatMatrixPage({
     q: params.q,
   };
 
-  const tableColSpan = 6 + (source === "mcc" ? 1 : 0) + (diffYear ? 2 : 0);
+  const tableColSpan = 7 + (source === "mcc" ? 1 : 0) + (diffYear ? 2 : 0);
+
+  const pageCourseCount = new Set(rows.map((r) => `${r.collegeId}|${r.specialtyId}`)).size;
+  const allMatchingCourses = matchingCourseGroups.length;
+
+  const courseLabels = new Map(
+    courseOptions.map((sp) => [sp.slug, `${sp.degree} — ${sp.name}`])
+  );
+  const filterChips: { label: string; value: string }[] = [];
+  if (source === "mcc") {
+    filterChips.push({ label: "Source", value: `MCC ${matrixYear}` });
+  } else {
+    filterChips.push({ label: "Source", value: "NMC master matrix" });
+  }
+  if (params.state) filterChips.push({ label: "State", value: params.state });
+  if (params.q) filterChips.push({ label: "College search", value: params.q });
+  if (params.degree) filterChips.push({ label: "Course type", value: params.degree });
+  if (selectedCourses.length) {
+    filterChips.push({
+      label: "Branches",
+      value:
+        selectedCourses.length <= 2
+          ? selectedCourses.map((s) => courseLabels.get(s) ?? s).join("; ")
+          : `${selectedCourses.length} selected`,
+    });
+  }
+  if (params.quota) filterChips.push({ label: "Quota", value: QUOTA_LABELS[params.quota] ?? params.quota });
+  if (reservationCategory) {
+    filterChips.push({
+      label: "Category",
+      value: CATEGORY_LABELS[reservationCategory] ?? reservationCategory,
+    });
+  }
+
+  const seatMatrixFilters = {
+    source: params.source,
+    year: params.year,
+    state: params.state,
+    degree: params.degree,
+    course: params.course,
+    quota: params.quota,
+    category: params.category,
+    q: params.q,
+  };
 
   return (
     <div className="space-y-6">
@@ -358,6 +388,16 @@ export default async function SeatMatrixPage({
         )}
       </form>
 
+      <SeatMatrixAddToPreferences
+        filters={seatMatrixFilters}
+        filterChips={filterChips}
+        allMatchingCourses={allMatchingCourses}
+        pageCourseCount={pageCourseCount}
+        page={page}
+        pageSize={PAGE_SIZE}
+        disabled={total === 0}
+      />
+
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-sm text-slate-600">
           {source === "nmc" ? (
@@ -398,6 +438,7 @@ export default async function SeatMatrixPage({
               <th className="p-3">{diffYear ? `Seats ${matrixYear}` : "Seats"}</th>
               {diffYear && <th className="p-3">Seats {diffYear}</th>}
               {diffYear && <th className="p-3">Change</th>}
+              <th className="p-3 w-[100px]">Choice list</th>
             </tr>
           </thead>
           <tbody>
@@ -472,6 +513,20 @@ export default async function SeatMatrixPage({
                             : String(delta)}
                       </td>
                     )}
+                    <td className="p-3">
+                      <AddToChoiceButton
+                        collegeId={row.college.id}
+                        specialtyId={row.specialty.id}
+                        compact
+                        fitSnapshot={{
+                          source: "seat-matrix",
+                          seats: row.seats,
+                          category: row.category,
+                          quota: row.quota,
+                          matrixYear,
+                        }}
+                      />
+                    </td>
                   </tr>
                 );
               })
