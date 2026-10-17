@@ -38,5 +38,5 @@ export async function GET() {
   }
 
   const list = await getOrCreateList(session.user.id);
-  return NextResponse.json({ list });
+  return NextResponse.json({ userId: session.user.id, list });
 }

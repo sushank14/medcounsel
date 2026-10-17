@@ -10,6 +10,7 @@ import { ChoiceListEditor, type ChoiceListRow } from "@/components/preference/ch
 import { PreferenceQuickAdd } from "@/components/preference/preference-quick-add";
 import { cn } from "@/lib/utils";
 import { sectionCard, sectionHint, sectionTitle } from "@/lib/form-field-classes";
+import { loadChoiceListBackup, saveChoiceListBackup } from "@/lib/preference-list-backup";
 
 type OptimizePreview = {
   rank: number;
@@ -32,25 +33,81 @@ export default function PreferencesPage() {
   const [optimizing, setOptimizing] = useState(false);
   const [tab, setTab] = useState<Tab>("list");
   const [copied, setCopied] = useState(false);
+  const [loadError, setLoadError] = useState("");
+  const [restoredNote, setRestoredNote] = useState(false);
+
+  const persistBackup = useCallback((userId: string, items: ChoiceListRow[]) => {
+    saveChoiceListBackup(
+      userId,
+      items.map((item, index) => ({
+        collegeId: item.collegeId,
+        specialtyId: item.specialtyId,
+        sortOrder: item.sortOrder ?? index + 1,
+        fitSnapshot: item.fitSnapshot,
+      }))
+    );
+  }, []);
 
   const refreshList = useCallback(async () => {
     const res = await fetch("/api/preferences");
     const data = await res.json();
+    if (!res.ok) {
+      setLoadError(data.error ?? "Could not load your list");
+      return null;
+    }
     setList(data.list);
+    if (data.userId && data.list?.items) {
+      persistBackup(data.userId, data.list.items);
+    }
     return data.list as typeof list;
-  }, []);
+  }, [persistBackup]);
 
   useEffect(() => {
-    Promise.all([
-      fetch("/api/preferences").then((r) => r.json()),
-      fetch("/api/predictions").then((r) => r.json()),
-    ]).then(([prefData, predData]) => {
-      setList(prefData.list);
+    async function load() {
+      const prefRes = await fetch("/api/preferences");
+      const prefData = await prefRes.json();
+      if (!prefRes.ok) {
+        setLoadError(prefData.error ?? "Could not load your list");
+        setLoading(false);
+        return;
+      }
+
+      let nextList = prefData.list as typeof list;
+      const userId = prefData.userId as string | undefined;
+
+      if (userId && (nextList?.items?.length ?? 0) === 0) {
+        const backup = loadChoiceListBackup(userId);
+        if (backup?.length) {
+          const restoreRes = await fetch("/api/preferences/items/bulk", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              items: backup.map((b) => ({ collegeId: b.collegeId, specialtyId: b.specialtyId })),
+              fitSnapshot: { source: "browser-backup-restore" },
+            }),
+          });
+          if (restoreRes.ok) {
+            const restored = await refreshList();
+            if (restored?.items?.length) {
+              nextList = restored;
+              setRestoredNote(true);
+            }
+          }
+        }
+      } else if (userId && nextList?.items?.length) {
+        persistBackup(userId, nextList.items);
+      }
+
+      setList(nextList);
+
+      const predRes = await fetch("/api/predictions");
+      const predData = predRes.ok ? await predRes.json() : { results: [] };
       setSuggestions((predData.results ?? []).slice(0, 20));
       setLoading(false);
-      if ((prefData.list?.items?.length ?? 0) === 0) setTab("add");
-    });
-  }, []);
+      if ((nextList?.items?.length ?? 0) === 0) setTab("add");
+    }
+    void load();
+  }, [persistBackup, refreshList]);
 
   const addItem = async (result: PredictionResult) => {
     await fetch("/api/preferences/items", {
@@ -185,6 +242,19 @@ export default function PreferencesPage() {
       </header>
 
       <DisclaimerBanner compact />
+
+      {loadError && (
+        <p className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{loadError}</p>
+      )}
+      {restoredNote && (
+        <p className="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
+          Restored your saved choices from this browser after the server list was empty.
+        </p>
+      )}
+      <p className="text-xs text-slate-500">
+        Your list is tied to your login and saved in the database. We also keep a backup in this browser so you do not
+        lose it after a site update.
+      </p>
 
       <div className="space-y-4">
         <div className="inline-flex w-full max-w-md rounded-xl border border-slate-200 bg-slate-50/80 p-1.5 sm:w-auto">

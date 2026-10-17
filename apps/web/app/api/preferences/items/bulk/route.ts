@@ -56,10 +56,16 @@ export async function POST(req: Request) {
 
   let list = await prisma.preferenceList.findFirst({
     where: { userId: session.user.id, status: "DRAFT" },
+    orderBy: { updatedAt: "desc" },
   });
   if (!list) {
     list = await prisma.preferenceList.create({
-      data: { userId: session.user.id, title: "My 2026 Preference List", year: 2026 },
+      data: {
+        userId: session.user.id,
+        title: "My 2026 Preference List",
+        year: 2026,
+        status: "DRAFT",
+      },
     });
   }
 

@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Plus, Check } from "lucide-react";
 import type { PredictionResult } from "@medcounsel/types";
+import { syncChoiceListBackupFromServer } from "@/lib/preference-list-backup";
 
 export function AddToChoiceButton({
   collegeId,
@@ -33,14 +35,20 @@ export function AddToChoiceButton({
           fitSnapshot: fitSnapshot ?? {},
         }),
       });
+      if (res.status === 401) {
+        setError("sign-in");
+        return;
+      }
       if (res.status === 409) {
         setAdded(true);
+        void syncChoiceListBackupFromServer();
         return;
       }
       if (!res.ok) throw new Error("Failed to add");
       setAdded(true);
+      void syncChoiceListBackupFromServer();
     } catch {
-      setError("Could not add");
+      setError("Could not save — try again or open My choice list.");
     } finally {
       setLoading(false);
     }
@@ -59,7 +67,12 @@ export function AddToChoiceButton({
         {added ? <Check className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
         {added ? "In list" : compact ? "Add" : "Add to choice list"}
       </Button>
-      {error && <span className="text-xs text-red-600">{error}</span>}
+      {error === "sign-in" && (
+        <Link href="/login" className="text-xs font-medium text-brand-600 hover:underline">
+          Sign in to save your list
+        </Link>
+      )}
+      {error && error !== "sign-in" && <span className="text-xs text-red-600">{error}</span>}
     </div>
   );
 }

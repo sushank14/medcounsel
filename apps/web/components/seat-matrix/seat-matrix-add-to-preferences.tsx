@@ -7,6 +7,7 @@ import { ListPlus, Check, ExternalLink } from "lucide-react";
 import type { SeatMatrixSearchParams } from "@/lib/seat-matrix-filters";
 import { sectionCard, sectionHint, sectionTitle } from "@/lib/form-field-classes";
 import { cn } from "@/lib/utils";
+import { syncChoiceListBackupFromServer } from "@/lib/preference-list-backup";
 
 export type FilterChip = { label: string; value: string };
 
@@ -58,6 +59,7 @@ export function SeatMatrixAddToPreferences({
       if (!res.ok) throw new Error("Failed");
       const data = await res.json();
       setResult({ added: data.added, skipped: data.skipped });
+      if (data.added > 0) void syncChoiceListBackupFromServer();
     } catch {
       setError("Could not add to choice list. Try again.");
     } finally {

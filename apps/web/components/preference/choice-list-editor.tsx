@@ -10,6 +10,8 @@ import { FitBadge } from "@/components/prediction/fit-badge";
 
 export type ChoiceListRow = {
   id: string;
+  collegeId: string;
+  specialtyId: string;
   sortOrder: number;
   college: { name: string; slug: string; city: string; state: string };
   specialty: { name: string; degree: string };
