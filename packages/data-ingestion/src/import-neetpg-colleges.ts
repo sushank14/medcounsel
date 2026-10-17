@@ -472,7 +472,7 @@ async function main() {
     const removed = await prisma.seatMatrix.deleteMany({
       where: {
         year: { in: matrixYears },
-        sourceId: seatMatrixSourceId,
+        source: { title: { contains: "MCC NEET-PG official seat matrix" } },
       },
     });
     console.log(
@@ -490,16 +490,14 @@ async function main() {
   let collegesCreated = 0;
   let programsLinked = 0;
   let seatMatricesWritten = 0;
+  let seatMatrixSkipped = 0;
 
-  const matrixByInstitute = new Map<string, SeatMatrixEntry[]>();
-  for (const entry of seatMatrixEntries) {
-    const list = matrixByInstitute.get(entry.instituteCode) ?? [];
-    list.push(entry);
-    matrixByInstitute.set(entry.instituteCode, list);
-  }
+  const instituteByCode = new Map(institutes.map((r) => [r.instituteCode, r]));
+  const collegeIdByCode = new Map<string, string>();
 
   for (const rec of institutes) {
     const college = await ensureCollege(rec);
+    collegeIdByCode.set(rec.instituteCode, college.id);
     if (college.isNew) collegesCreated++;
 
     for (const prog of rec.programs.values()) {
@@ -515,14 +513,31 @@ async function main() {
       });
       programsLinked++;
     }
+  }
 
-    const matrixRows = matrixByInstitute.get(rec.instituteCode) ?? [];
-    for (const entry of matrixRows) {
-      const specialtyId = await getSpecialtyId(entry.specialtySlug);
-      if (!specialtyId) continue;
-      await upsertSeatMatrix(college.id, specialtyId, entry, seatMatrixSourceId);
-      seatMatricesWritten++;
+  const yearFilter = matrixYears ? new Set(matrixYears) : null;
+  for (const entry of seatMatrixEntries) {
+    if (yearFilter && !yearFilter.has(entry.year)) continue;
+
+    let collegeId = collegeIdByCode.get(entry.instituteCode);
+    if (!collegeId) {
+      const rec = instituteByCode.get(entry.instituteCode);
+      if (!rec) {
+        seatMatrixSkipped++;
+        continue;
+      }
+      const college = await ensureCollege(rec);
+      collegeId = college.id;
+      collegeIdByCode.set(entry.instituteCode, collegeId);
     }
+
+    const specialtyId = await getSpecialtyId(entry.specialtySlug);
+    if (!specialtyId) {
+      seatMatrixSkipped++;
+      continue;
+    }
+    await upsertSeatMatrix(collegeId, specialtyId, entry, seatMatrixSourceId);
+    seatMatricesWritten++;
   }
 
   const [totalOfficial, withCode, medColleges, dnbHospitals] = await Promise.all([
@@ -541,6 +556,9 @@ async function main() {
   console.log(`   New colleges (approx): ${collegesCreated}`);
   console.log(`   Program links updated: ${programsLinked}`);
   console.log(`   Seat matrix rows written: ${seatMatricesWritten.toLocaleString()}`);
+  if (seatMatrixSkipped > 0) {
+    console.log(`   Seat matrix rows skipped (missing college/specialty): ${seatMatrixSkipped.toLocaleString()}`);
+  }
   console.log(`   Official colleges in DB: ${totalOfficial.toLocaleString()}`);
   console.log(`   With MCC institute code: ${withCode.toLocaleString()}`);
   console.log(`   Medical colleges: ${medColleges.toLocaleString()}`);

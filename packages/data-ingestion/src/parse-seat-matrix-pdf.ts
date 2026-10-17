@@ -2,7 +2,12 @@ import fs from "fs";
 import pdf from "pdf-parse";
 import { normalizeCollegeName, parseCourse } from "./normalizers.js";
 import { is2025SeatMatrixFormat, parse2025SeatMatrixText } from "./parse-seat-matrix-2025.js";
-import { is2026DeemedSeatMatrixFormat, parse2026Deemed } from "./parse-seat-matrix-2026-deemed.js";
+import {
+  is2026ColumnSeatMatrixFormat,
+  is2026DnbSeatMatrixFormat,
+  parse2026ColumnMatrix,
+  parse2026Dnb,
+} from "./parse-seat-matrix-2026-columns.js";
 
 export type SeatMatrixCategory = "AIQ" | "DEEMED" | "CENTRAL" | "DNB";
 
@@ -348,8 +353,12 @@ export function parseSeatMatrixText(text: string, category: SeatMatrixCategory):
     .map((l) => l.trim())
     .filter(Boolean);
 
-  if (category === "DEEMED" && is2026DeemedSeatMatrixFormat(text)) {
-    return parse2026Deemed(lines);
+  if (category === "DNB" && is2026DnbSeatMatrixFormat(text)) {
+    return parse2026Dnb(lines);
+  }
+
+  if (is2026ColumnSeatMatrixFormat(text)) {
+    return parse2026ColumnMatrix(lines, category);
   }
 
   if (is2025SeatMatrixFormat(text)) {
