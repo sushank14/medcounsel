@@ -7,6 +7,7 @@ export function seatMatrixHref(
   if (params.year) q.set("year", params.year);
   if (params.state) q.set("state", params.state);
   if (params.degree) q.set("degree", params.degree);
+  if (params.course) q.set("course", params.course);
   if (params.quota) q.set("quota", params.quota);
   if (params.category) q.set("category", params.category);
   if (params.diffYear) q.set("diffYear", params.diffYear);

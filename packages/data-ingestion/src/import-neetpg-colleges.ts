@@ -41,6 +41,8 @@ process.env.DATABASE_URL = resolveDatabaseUrl();
 interface SeatMatrixEntry {
   instituteCode: string;
   specialtySlug: string;
+  degree: string;
+  specialty: string;
   year: number;
   matrixCategory: SeatMatrixCategory;
   seats: number;
@@ -48,13 +50,22 @@ interface SeatMatrixEntry {
 }
 
 function seatMatrixEntriesFromRow(
-  row: { instituteCode: string; specialtySlug: string; totalSeats: number; reservationSeats?: Partial<Record<string, number>> },
+  row: {
+    instituteCode: string;
+    specialtySlug: string;
+    degree: string;
+    specialty: string;
+    totalSeats: number;
+    reservationSeats?: Partial<Record<string, number>>;
+  },
   year: number,
   matrixCategory: SeatMatrixCategory
 ): SeatMatrixEntry[] {
   const base = {
     instituteCode: row.instituteCode,
     specialtySlug: row.specialtySlug,
+    degree: row.degree,
+    specialty: row.specialty,
     year,
     matrixCategory,
   };
@@ -74,6 +85,17 @@ function seatMatrixEntriesFromRow(
 }
 
 const seatMatrixEntries: SeatMatrixEntry[] = [];
+
+function dedupeSeatMatrixEntries(entries: SeatMatrixEntry[]): SeatMatrixEntry[] {
+  const map = new Map<string, SeatMatrixEntry>();
+  for (const entry of entries) {
+    const quota = quotaFromMatrixCategory(entry.matrixCategory);
+    const key = `${entry.instituteCode}|${entry.specialtySlug}|${entry.year}|${entry.reservationCategory}|${quota}`;
+    const prev = map.get(key);
+    if (!prev || entry.seats > prev.seats) map.set(key, entry);
+  }
+  return [...map.values()];
+}
 
 function quotaFromMatrixCategory(category: SeatMatrixCategory): Quota {
   switch (category) {
@@ -132,6 +154,7 @@ function isGarbage(name: string): boolean {
 }
 
 async function loadFromSeatMatrices(matrixYears?: number[]): Promise<Map<string, InstituteRecord>> {
+  seatMatrixEntries.length = 0;
   const map = new Map<string, InstituteRecord>();
   const docs = getSeatMatrixManifest().filter(
     (d) => d.year >= 2023 && (!matrixYears?.length || matrixYears.includes(d.year))
@@ -151,7 +174,7 @@ async function loadFromSeatMatrices(matrixYears?: number[]): Promise<Map<string,
 
     for (const row of rows) {
       upsertInstitute(map, row, "SEAT_MATRIX", doc.category);
-      if (row.specialtySlug) {
+      if (row.specialtySlug && map.has(row.instituteCode)) {
         seatMatrixEntries.push(
           ...seatMatrixEntriesFromRow(row, doc.year, doc.category)
         );
@@ -516,9 +539,14 @@ async function main() {
   }
 
   const yearFilter = matrixYears ? new Set(matrixYears) : null;
-  for (const entry of seatMatrixEntries) {
-    if (yearFilter && !yearFilter.has(entry.year)) continue;
+  const matrixToWrite = dedupeSeatMatrixEntries(
+    yearFilter ? seatMatrixEntries.filter((e) => yearFilter.has(e.year)) : seatMatrixEntries
+  );
 
+  type Agg = { entry: SeatMatrixEntry; collegeId: string; specialtyId: string; seats: number };
+  const aggregated = new Map<string, Agg>();
+
+  for (const entry of matrixToWrite) {
     let collegeId = collegeIdByCode.get(entry.instituteCode);
     if (!collegeId) {
       const rec = instituteByCode.get(entry.instituteCode);
@@ -531,12 +559,29 @@ async function main() {
       collegeIdByCode.set(entry.instituteCode, collegeId);
     }
 
-    const specialtyId = await getSpecialtyId(entry.specialtySlug);
-    if (!specialtyId) {
-      seatMatrixSkipped++;
-      continue;
+    const specialty = await ensureSpecialty(entry.degree, entry.specialty, entry.specialtySlug);
+    const quota = quotaFromMatrixCategory(entry.matrixCategory);
+    const aggKey = `${collegeId}|${specialty.id}|${entry.year}|${entry.reservationCategory}|${quota}`;
+    const prev = aggregated.get(aggKey);
+    if (prev) {
+      prev.seats += entry.seats;
+    } else {
+      aggregated.set(aggKey, {
+        entry,
+        collegeId,
+        specialtyId: specialty.id,
+        seats: entry.seats,
+      });
     }
-    await upsertSeatMatrix(collegeId, specialtyId, entry, seatMatrixSourceId);
+  }
+
+  for (const agg of aggregated.values()) {
+    await upsertSeatMatrix(
+      agg.collegeId,
+      agg.specialtyId,
+      { ...agg.entry, seats: agg.seats },
+      seatMatrixSourceId
+    );
     seatMatricesWritten++;
   }
 

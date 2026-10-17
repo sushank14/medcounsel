@@ -35,6 +35,7 @@ export default async function SeatMatrixPage({
     year?: string;
     state?: string;
     degree?: string;
+    course?: string;
     quota?: string;
     category?: string;
     diffYear?: string;
@@ -61,23 +62,39 @@ export default async function SeatMatrixPage({
 
   const nmcSourceWhere = { title: { contains: "NMC/MARB PG Seat Matrix" } };
   const mccSourceWhere = { title: { contains: "MCC NEET-PG official seat matrix" } };
+  const matrixSourceWhere = source === "mcc" ? mccSourceWhere : nmcSourceWhere;
+
+  const specialtyWhere = {
+    slug: { not: "" },
+    ...(params.degree ? { degree: params.degree as never } : {}),
+    ...(params.course ? { slug: params.course } : {}),
+  };
 
   const where = {
     year: matrixYear,
-    source: source === "mcc" ? mccSourceWhere : nmcSourceWhere,
+    source: matrixSourceWhere,
     ...(params.quota ? { quota: params.quota as never } : {}),
     ...(reservationCategory ? { category: reservationCategory as never } : {}),
-    ...(params.degree ? { specialty: { degree: params.degree as never } } : {}),
     college: {
       // Inner-join colleges only — skip orphan SeatMatrix rows (e.g. after college cleanup).
       slug: { not: "" },
       ...(params.state ? { state: params.state } : {}),
       ...(params.q ? { name: { contains: params.q } } : {}),
     },
-    specialty: { slug: { not: "" } },
+    specialty: specialtyWhere,
   };
 
-  const [total, rows, seatSum, collegeCount, nmcStats, mcc2026Stats, mcc2025Stats, mcc2024Stats] =
+  const coursePickerWhere = {
+    year: matrixYear,
+    source: matrixSourceWhere,
+    college: { slug: { not: "" } },
+    specialty: {
+      slug: { not: "" },
+      ...(params.degree ? { degree: params.degree as never } : {}),
+    },
+  };
+
+  const [total, rows, seatSum, collegeCount, courseGroups, nmcStats, mcc2026Stats, mcc2025Stats, mcc2024Stats] =
     await Promise.all([
     prisma.seatMatrix.count({ where }),
     prisma.seatMatrix.findMany({
@@ -97,6 +114,10 @@ export default async function SeatMatrixPage({
     }),
     prisma.seatMatrix.aggregate({ where, _sum: { seats: true } }),
     prisma.seatMatrix.groupBy({ by: ["collegeId"], where }),
+    prisma.seatMatrix.groupBy({
+      by: ["specialtyId"],
+      where: coursePickerWhere,
+    }),
     prisma.seatMatrix.aggregate({
       where: { year: ACTIVE_SEAT_MATRIX_YEAR, source: nmcSourceWhere },
       _sum: { seats: true },
@@ -119,6 +140,14 @@ export default async function SeatMatrixPage({
     }),
   ]);
 
+  const courseOptions =
+    courseGroups.length > 0
+      ? await prisma.specialty.findMany({
+          where: { id: { in: courseGroups.map((g) => g.specialtyId) } },
+          orderBy: [{ degree: "asc" }, { name: "asc" }],
+        })
+      : [];
+
   const diffMap = new Map<string, number>();
   if (diffYear && rows.length > 0) {
     const diffRows = await prisma.seatMatrix.findMany({
@@ -127,9 +156,9 @@ export default async function SeatMatrixPage({
         source: mccSourceWhere,
         collegeId: { in: [...new Set(rows.map((r) => r.collegeId))] },
         college: { slug: { not: "" } },
-        specialty: { slug: { not: "" } },
         ...(params.quota ? { quota: params.quota as never } : {}),
         ...(reservationCategory ? { category: reservationCategory as never } : {}),
+        specialty: specialtyWhere,
       },
       select: {
         collegeId: true,
@@ -152,6 +181,7 @@ export default async function SeatMatrixPage({
     year: source === "mcc" ? String(matrixYear) : undefined,
     state: params.state,
     degree: params.degree,
+    course: params.course,
     quota: params.quota,
     category: reservationCategory,
     diffYear: diffYear ? String(diffYear) : undefined,
@@ -265,10 +295,23 @@ export default async function SeatMatrixPage({
           ))}
         </select>
         <select name="degree" defaultValue={params.degree ?? ""} className="rounded-lg border px-3 py-2 text-sm">
-          <option value="">All degrees</option>
+          <option value="">All course types</option>
           {["MD", "MS", "DNB", "DIPLOMA"].map((d) => (
             <option key={d} value={d}>
               {d}
+            </option>
+          ))}
+        </select>
+        <select
+          name="course"
+          defaultValue={params.course ?? ""}
+          className="max-w-[220px] rounded-lg border px-3 py-2 text-sm"
+          aria-label="Course or branch"
+        >
+          <option value="">All courses / branches</option>
+          {courseOptions.map((sp) => (
+            <option key={sp.slug} value={sp.slug}>
+              {sp.degree} — {sp.name}
             </option>
           ))}
         </select>

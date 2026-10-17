@@ -35,21 +35,60 @@ const IMPORT_DIR = path.resolve(process.cwd(), "../../data/imports/mcc");
 const prisma = new PrismaClient();
 const MCC_SOURCE = { title: { contains: "MCC NEET-PG official seat matrix" } };
 
-function sumRows(rows: { totalSeats: number; reservationSeats?: Record<string, number> }[]) {
-  let seats = 0;
-  const byCat: Record<string, number> = {};
+function quotaFrom(matrixCategory: string) {
+  if (matrixCategory === "DEEMED") return "MANAGEMENT";
+  if (matrixCategory === "CENTRAL") return "IQ";
+  return "AIQ";
+}
+
+/** Match import pipeline: expand reservation rows + dedupe by max seats per key. */
+function sumRows(
+  rows: {
+    instituteCode: string;
+    specialtySlug: string;
+    totalSeats: number;
+    reservationSeats?: Record<string, number>;
+  }[],
+  matrixCategory: string,
+  year: number
+) {
+  const expanded: { key: string; cat: string; seats: number }[] = [];
   for (const r of rows) {
+    if (!r.specialtySlug) continue;
+    const quota = quotaFrom(matrixCategory);
     if (r.reservationSeats && Object.keys(r.reservationSeats).length) {
-      for (const [k, v] of Object.entries(r.reservationSeats)) {
-        byCat[k] = (byCat[k] ?? 0) + v;
-        seats += v;
+      for (const [cat, seats] of Object.entries(r.reservationSeats)) {
+        if (seats <= 0) continue;
+        expanded.push({
+          key: `${r.instituteCode}|${r.specialtySlug}|${year}|${cat}|${quota}`,
+          cat,
+          seats,
+        });
       }
-    } else {
-      seats += r.totalSeats;
-      byCat.GENERAL = (byCat.GENERAL ?? 0) + r.totalSeats;
+    } else if (r.totalSeats > 0) {
+      expanded.push({
+        key: `${r.instituteCode}|${r.specialtySlug}|${year}|GENERAL|${quota}`,
+        cat: "GENERAL",
+        seats: r.totalSeats,
+      });
     }
   }
-  return { rows: rows.length, seats, byCat };
+
+  const deduped = new Map<string, number>();
+  const byCat: Record<string, number> = {};
+  for (const e of expanded) {
+    const prev = deduped.get(e.key);
+    const seats = prev !== undefined ? Math.max(prev, e.seats) : e.seats;
+    deduped.set(e.key, seats);
+  }
+  let totalSeats = 0;
+  for (const [key, seats] of deduped) {
+    totalSeats += seats;
+    const cat = key.split("|")[3];
+    byCat[cat] = (byCat[cat] ?? 0) + seats;
+  }
+
+  return { rows: deduped.size, seats: totalSeats, byCat, rawRows: rows.length };
 }
 
 async function main() {
@@ -61,11 +100,13 @@ async function main() {
   for (const doc of getSeatMatrixManifest().filter((d) => d.year === 2026)) {
     const pdfPath = path.join(IMPORT_DIR, doc.fileName);
     const parsed = await parseSeatMatrixPdfFile(pdfPath, doc.category);
-    const stats = sumRows(parsed);
+    const stats = sumRows(parsed, doc.category, doc.year);
     pdfGrand += stats.seats;
     pdfRows += stats.rows;
     console.log(`${doc.fileName} (${doc.category})`);
-    console.log(`  PDF parse: ${stats.rows.toLocaleString()} rows · ${stats.seats.toLocaleString()} seats`);
+    console.log(
+      `  PDF parse: ${stats.rawRows.toLocaleString()} raw → ${stats.rows.toLocaleString()} unique rows · ${stats.seats.toLocaleString()} seats`
+    );
     console.log(`  Categories:`, stats.byCat);
   }
 
@@ -93,15 +134,13 @@ async function main() {
   console.log(`PDF vs DB seat delta: ${pdfGrand - dbSeats} (${pdfGrand} parsed, ${dbSeats} in DB)`);
 
   const deltaPct = pdfGrand ? Math.abs(pdfGrand - dbSeats) / pdfGrand : 0;
-  if (deltaPct > 0.2) {
-    console.log("\n⚠️  Seat totals differ by >20% — re-run: npm run import:mcc-seat-matrix-2026");
-    process.exitCode = 1;
-  } else if (deltaPct > 0.02) {
+  if (deltaPct > 0.02) {
     console.log(
-      `\n⚠️  Seat totals differ by ${(deltaPct * 100).toFixed(1)}% (often unmapped specialties). Review import skip log.`
+      `\n⚠️  Seat totals differ by ${(deltaPct * 100).toFixed(1)}% — re-run: npm run import:mcc-seat-matrix-2026`
     );
+    process.exitCode = 1;
   } else {
-    console.log("\n✅ PDF and DB totals align within tolerance");
+    console.log("\n✅ PDF and DB totals align within 2%");
   }
 }
 
