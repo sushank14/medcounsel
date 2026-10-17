@@ -203,9 +203,9 @@ export default async function SeatMatrixPage({
     filterChips.push({
       label: "Branches",
       value:
-        selectedCourses.length <= 2
+        selectedCourses.length <= 4
           ? selectedCourses.map((s) => courseLabels.get(s) ?? s).join("; ")
-          : `${selectedCourses.length} selected`,
+          : `${selectedCourses.length} branches selected`,
     });
   }
   if (params.quota) filterChips.push({ label: "Quota", value: QUOTA_LABELS[params.quota] ?? params.quota });
