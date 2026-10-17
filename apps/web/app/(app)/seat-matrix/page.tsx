@@ -372,6 +372,12 @@ export default async function SeatMatrixPage({
                       the project root.
                     </span>
                   )}
+                  {source === "mcc" && mcc2026Stats._count > 0 && total === 0 && (
+                    <span className="mt-2 block text-sm">
+                      MCC {matrixYear} data is loaded — try clearing state, degree, or category filters, or pick{" "}
+                      <strong>All categories</strong> (NMC totals are stored as General only).
+                    </span>
+                  )}
                 </td>
               </tr>
             ) : (

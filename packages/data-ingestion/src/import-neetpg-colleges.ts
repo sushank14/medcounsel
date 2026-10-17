@@ -7,13 +7,36 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { PrismaClient, CollegeType, DataStatus, Degree, Category, Quota } from "@prisma/client";
 
-const defaultDb = path.resolve(
-  path.dirname(fileURLToPath(import.meta.url)),
-  "../../database/prisma/dev.db"
-);
-if (!process.env.DATABASE_URL) {
-  process.env.DATABASE_URL = `file:${defaultDb}`;
+const packageRoot = path.dirname(fileURLToPath(import.meta.url));
+const defaultDevDb = path.resolve(packageRoot, "../../database/prisma/dev.db");
+const defaultProdDb = path.resolve(packageRoot, "../../database/prisma/prod.db");
+
+/** Resolve SQLite path — npm may run with cwd repo root or packages/data-ingestion. */
+function resolveDatabaseUrl(): string {
+  const url = process.env.DATABASE_URL;
+  if (!url?.startsWith("file:")) {
+    return url ?? `file:${defaultDevDb}`;
+  }
+
+  const filePath = url.slice("file:".length);
+  if (path.isAbsolute(filePath)) return url;
+
+  const candidates = [
+    path.resolve(process.cwd(), filePath),
+    path.resolve(process.cwd(), "packages/database/prisma/prod.db"),
+    path.resolve(process.cwd(), "../database/prisma/prod.db"),
+    defaultProdDb,
+    defaultDevDb,
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return `file:${candidate}`;
+  }
+
+  return `file:${path.resolve(process.cwd(), filePath)}`;
 }
+
+process.env.DATABASE_URL = resolveDatabaseUrl();
 
 interface SeatMatrixEntry {
   instituteCode: string;
