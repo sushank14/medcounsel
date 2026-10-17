@@ -108,8 +108,8 @@ function quotaFromMatrixCategory(category: SeatMatrixCategory): Quota {
   }
 }
 import { getSeatMatrixManifest } from "./mcc-seat-matrix-manifest.js";
+import { loadSeatMatrixRows } from "./load-seat-matrix-rows.js";
 import {
-  parseSeatMatrixPdfFile,
   uniqueInstitutes,
   type ParsedSeatMatrixRow,
   type SeatMatrixCategory,
@@ -161,16 +161,19 @@ async function loadFromSeatMatrices(matrixYears?: number[]): Promise<Map<string,
   );
 
   for (const doc of docs) {
-    const pdfPath = path.join(IMPORT_DIR, doc.fileName);
-    if (!fs.existsSync(pdfPath)) {
+    const hasCsv = doc.csvFileName && fs.existsSync(path.join(IMPORT_DIR, doc.csvFileName));
+    const hasPdf = fs.existsSync(path.join(IMPORT_DIR, doc.fileName));
+    if (!hasCsv && !hasPdf) {
       console.log(`  ⚠ Missing ${doc.fileName} — run: npm run fetch:seat-matrix`);
       continue;
     }
 
     console.log(`\n📊 Parsing ${doc.title}...`);
-    const rows = await parseSeatMatrixPdfFile(pdfPath, doc.category);
+    const { rows, source } = await loadSeatMatrixRows(doc, IMPORT_DIR);
     const institutes = uniqueInstitutes(rows);
-    console.log(`   ${rows.length} programs · ${institutes.length} institutes`);
+    console.log(
+      `   ${rows.length.toLocaleString()} programs · ${institutes.length.toLocaleString()} institutes (${source === "csv" ? "Google Sheet CSV" : "PDF"})`
+    );
 
     for (const row of rows) {
       upsertInstitute(map, row, "SEAT_MATRIX", doc.category);

@@ -8,9 +8,23 @@ async function main() {
   fs.mkdirSync(IMPORT_DIR, { recursive: true });
   const docs = getSeatMatrixManifest();
 
-  console.log(`📥 Downloading ${docs.length} MCC NEET-PG seat matrix PDFs...`);
+  console.log(`📥 Downloading MCC NEET-PG seat matrix PDFs + official sheets...`);
 
   for (const doc of docs) {
+    if (doc.googleSheetId && doc.googleSheetGid && doc.csvFileName) {
+      const csvDest = path.join(IMPORT_DIR, doc.csvFileName);
+      process.stdout.write(`  ↓ Google Sheet → ${doc.csvFileName}...`);
+      const sheetUrl = `https://docs.google.com/spreadsheets/d/${doc.googleSheetId}/gviz/tq?tqx=out:csv&gid=${doc.googleSheetGid}`;
+      const sheetRes = await fetch(sheetUrl);
+      if (sheetRes.ok) {
+        const csv = await sheetRes.text();
+        fs.writeFileSync(csvDest, csv);
+        console.log(` ✓ ${(csv.length / 1024).toFixed(0)} KB`);
+      } else {
+        console.log(` ⚠ sheet failed (${sheetRes.status})`);
+      }
+    }
+
     const dest = path.join(IMPORT_DIR, doc.fileName);
     if (fs.existsSync(dest)) {
       console.log(`  ✓ ${doc.fileName} (cached)`);

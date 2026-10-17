@@ -22,6 +22,7 @@
     "import:neetpg-all": "npm run import-neetpg-all --workspace=@medcounsel/data-ingestion",
     "import:mcc-seat-matrix-2026": "DATABASE_URL=file:./packages/database/prisma/prod.db npm run import-mcc-seat-matrix-2026 --workspace=@medcounsel/data-ingestion",
     "audit:mcc-seat-matrix-2026": "DATABASE_URL=file:./packages/database/prisma/prod.db npm run audit-mcc-seat-matrix-2026 --workspace=@medcounsel/data-ingestion",
+    "audit:mcc-seat-matrix-by-college": "DATABASE_URL=file:./packages/database/prisma/prod.db npm run audit-mcc-seat-matrix-by-college --workspace=@medcounsel/data-ingestion",
     "import:nmc-seat-matrix-2026": "npm run import-nmc-seat-matrix-2026 --workspace=@medcounsel/data-ingestion",
     "import:fees": "npm run import-fees --workspace=@medcounsel/data-ingestion",
     "db:push": "npm run push --workspace=@medcounsel/database",

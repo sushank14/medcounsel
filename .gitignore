@@ -10,6 +10,7 @@ dist
 !packages/database/prisma/prod.db
 packages/database/prisma/dev.db
 data/imports/mcc/*.pdf
+data/imports/mcc/*-sheet.csv
 data/processed/*
 !data/processed/nmc/
 !data/processed/nmc/**

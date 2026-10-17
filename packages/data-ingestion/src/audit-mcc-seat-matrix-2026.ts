@@ -29,7 +29,7 @@ function resolveDatabaseUrl(): string {
 
 process.env.DATABASE_URL = resolveDatabaseUrl();
 import { getSeatMatrixManifest } from "./mcc-seat-matrix-manifest.js";
-import { parseSeatMatrixPdfFile } from "./parse-seat-matrix-pdf.js";
+import { loadSeatMatrixRows } from "./load-seat-matrix-rows.js";
 
 const IMPORT_DIR = path.resolve(process.cwd(), "../../data/imports/mcc");
 const prisma = new PrismaClient();
@@ -98,12 +98,11 @@ async function main() {
   let pdfRows = 0;
 
   for (const doc of getSeatMatrixManifest().filter((d) => d.year === 2026)) {
-    const pdfPath = path.join(IMPORT_DIR, doc.fileName);
-    const parsed = await parseSeatMatrixPdfFile(pdfPath, doc.category);
+    const { rows: parsed, source } = await loadSeatMatrixRows(doc, IMPORT_DIR);
     const stats = sumRows(parsed, doc.category, doc.year);
     pdfGrand += stats.seats;
     pdfRows += stats.rows;
-    console.log(`${doc.fileName} (${doc.category})`);
+    console.log(`${doc.fileName} (${doc.category}, ${source})`);
     console.log(
       `  PDF parse: ${stats.rawRows.toLocaleString()} raw → ${stats.rows.toLocaleString()} unique rows · ${stats.seats.toLocaleString()} seats`
     );

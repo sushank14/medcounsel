@@ -9,6 +9,10 @@ export interface SeatMatrixDocument {
   title: string;
   url: string;
   fileName: string;
+  /** Official Google Sheet CSV (preferred over PDF when present). */
+  csvFileName?: string;
+  googleSheetId?: string;
+  googleSheetGid?: string;
 }
 
 const MANUAL: SeatMatrixDocument[] = [
@@ -18,6 +22,9 @@ const MANUAL: SeatMatrixDocument[] = [
     title: "FINAL ALL INDIA QUOTA SEATS MATRIX PG 2026 COUNSELLING (MD MS)",
     url: "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/10/202610151676193504.pdf",
     fileName: "2026-aiq-seat-matrix.pdf",
+    csvFileName: "2026-aiq-seat-matrix-sheet.csv",
+    googleSheetId: "1pXBK3pF0dP9IZ4h_Q5jTAEmIO2HuiXXMFAlkU16X0Qo",
+    googleSheetGid: "1217711414",
   },
   {
     year: 2026,
