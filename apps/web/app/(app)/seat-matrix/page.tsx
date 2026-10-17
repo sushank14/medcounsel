@@ -17,6 +17,7 @@ import { SeatMatrixCourseFilter } from "@/components/seat-matrix/seat-matrix-cou
 import { AddToChoiceButton } from "@/components/preference/add-to-choice-button";
 import { seatMatrixHref } from "@/lib/seat-matrix-nav";
 import { resolveSeatMatrixFilters } from "@/lib/seat-matrix-filters";
+import { fieldInput, fieldSelect } from "@/lib/form-field-classes";
 
 const PAGE_SIZE = 50;
 
@@ -226,13 +227,13 @@ export default async function SeatMatrixPage({
   };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">PG Seat Matrix</h1>
-        <p className="text-slate-600">
+    <div className="space-y-8 pb-8">
+      <header className="space-y-2">
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">PG Seat Matrix</h1>
+        <p className="max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
           Official approved seats by college, course, and quota — NMC master matrix and MCC counselling matrices.
         </p>
-      </div>
+      </header>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <div className={`card p-4 ${source === "nmc" ? "ring-2 ring-brand-500" : ""}`}>
@@ -300,13 +301,15 @@ export default async function SeatMatrixPage({
         </div>
       </div>
 
-      <form method="GET" className="card flex flex-wrap gap-2 p-4">
-        <select name="source" defaultValue={source} className="rounded-lg border px-3 py-2 text-sm">
+      <form method="GET" className="card space-y-5 rounded-xl p-5 shadow-sm md:p-6">
+        <p className="text-sm font-semibold text-slate-900">Filters</p>
+        <div className="flex flex-wrap gap-3">
+        <select name="source" defaultValue={source} className={fieldSelect}>
           <option value="nmc">NMC master matrix</option>
           <option value="mcc">MCC counselling matrix</option>
         </select>
         {source === "mcc" && (
-          <select name="year" defaultValue={String(matrixYear)} className="rounded-lg border px-3 py-2 text-sm">
+          <select name="year" defaultValue={String(matrixYear)} className={fieldSelect}>
             {[ACTIVE_MCC_SEAT_MATRIX_YEAR, 2025, 2024, 2023].map((y) => (
               <option key={y} value={y}>
                 MCC {y}
@@ -319,9 +322,9 @@ export default async function SeatMatrixPage({
           name="q"
           defaultValue={params.q ?? ""}
           placeholder="Search college…"
-          className="min-w-[160px] flex-1 rounded-lg border px-3 py-2 text-sm"
+          className={`${fieldInput} min-w-[180px] flex-[1_1_200px]`}
         />
-        <select name="state" defaultValue={params.state ?? ""} className="rounded-lg border px-3 py-2 text-sm">
+        <select name="state" defaultValue={params.state ?? ""} className={fieldSelect}>
           <option value="">All states</option>
           {INDIAN_STATES.map((s) => (
             <option key={s} value={s}>
@@ -329,7 +332,7 @@ export default async function SeatMatrixPage({
             </option>
           ))}
         </select>
-        <select name="degree" defaultValue={params.degree ?? ""} className="rounded-lg border px-3 py-2 text-sm">
+        <select name="degree" defaultValue={params.degree ?? ""} className={fieldSelect}>
           <option value="">All course types</option>
           {["MD", "MS", "DNB", "DIPLOMA"].map((d) => (
             <option key={d} value={d}>
@@ -345,7 +348,7 @@ export default async function SeatMatrixPage({
           }))}
         />
         {source === "mcc" && (
-          <select name="quota" defaultValue={params.quota ?? ""} className="rounded-lg border px-3 py-2 text-sm">
+          <select name="quota" defaultValue={params.quota ?? ""} className={fieldSelect}>
             <option value="">All quotas</option>
             {["AIQ", "MANAGEMENT", "IQ", "NRI"].map((q) => (
               <option key={q} value={q}>
@@ -357,7 +360,7 @@ export default async function SeatMatrixPage({
         <select
           name="category"
           defaultValue={reservationCategory ?? ""}
-          className="rounded-lg border px-3 py-2 text-sm"
+          className={fieldSelect}
           aria-label="Reservation category"
         >
           <option value="">All categories</option>
@@ -368,7 +371,7 @@ export default async function SeatMatrixPage({
           ))}
         </select>
         {source === "mcc" && diffYearOptions.length > 0 && (
-          <select name="diffYear" defaultValue={diffYear ? String(diffYear) : ""} className="rounded-lg border px-3 py-2 text-sm">
+          <select name="diffYear" defaultValue={diffYear ? String(diffYear) : ""} className={fieldSelect}>
             <option value="">No year diff</option>
             {diffYearOptions.map((y) => (
               <option key={y} value={y}>
@@ -377,15 +380,21 @@ export default async function SeatMatrixPage({
             ))}
           </select>
         )}
-        <button type="submit" className="rounded-lg bg-brand-600 px-4 py-2 text-sm text-white">
-          Filter
-        </button>
-        {source === "nmc" && (
-          <p className="w-full text-xs text-slate-500">
-            NMC lists total approved seats per course. For General / EWS / OBC / SC / ST / PwD breakdown, choose{" "}
-            <strong>MCC counselling matrix</strong> above.
-          </p>
-        )}
+        </div>
+        <div className="flex flex-col gap-3 border-t border-slate-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
+          <button
+            type="submit"
+            className="h-10 rounded-lg bg-brand-600 px-6 text-sm font-medium text-white shadow-sm hover:bg-brand-700"
+          >
+            Apply filters
+          </button>
+          {source === "nmc" && (
+            <p className="text-xs leading-relaxed text-slate-500">
+              NMC = total approved seats. For category breakdown use{" "}
+              <strong className="font-medium text-slate-700">MCC counselling matrix</strong>.
+            </p>
+          )}
+        </div>
       </form>
 
       <SeatMatrixAddToPreferences
@@ -398,8 +407,8 @@ export default async function SeatMatrixPage({
         disabled={total === 0}
       />
 
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="text-sm text-slate-600">
+      <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+        <p className="text-sm leading-relaxed text-slate-600">
           {source === "nmc" ? (
             <>
               Showing <strong>NMC {ACTIVE_SEAT_MATRIX_ACADEMIC_YEAR}</strong> master matrix — total approved intake
@@ -425,20 +434,20 @@ export default async function SeatMatrixPage({
         </p>
       </div>
 
-      <div className="overflow-x-auto rounded-xl border bg-white">
+      <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b bg-slate-50 text-left text-slate-500">
-              <th className="p-3">College</th>
-              <th className="p-3">State</th>
-              <th className="p-3">Type</th>
-              <th className="p-3">Course</th>
-              {source === "mcc" && <th className="p-3">Quota</th>}
-              <th className="p-3">Category</th>
-              <th className="p-3">{diffYear ? `Seats ${matrixYear}` : "Seats"}</th>
-              {diffYear && <th className="p-3">Seats {diffYear}</th>}
-              {diffYear && <th className="p-3">Change</th>}
-              <th className="p-3 w-[100px]">Choice list</th>
+            <tr className="border-b bg-slate-50/80 text-left text-xs font-medium uppercase tracking-wide text-slate-500">
+              <th className="px-4 py-3.5">College</th>
+              <th className="px-4 py-3.5">State</th>
+              <th className="px-4 py-3.5">Type</th>
+              <th className="px-4 py-3.5">Course</th>
+              {source === "mcc" && <th className="px-4 py-3.5">Quota</th>}
+              <th className="px-4 py-3.5">Category</th>
+              <th className="px-4 py-3.5">{diffYear ? `Seats ${matrixYear}` : "Seats"}</th>
+              {diffYear && <th className="px-4 py-3.5">Seats {diffYear}</th>}
+              {diffYear && <th className="px-4 py-3.5">Change</th>}
+              <th className="w-[108px] px-4 py-3.5">Add</th>
             </tr>
           </thead>
           <tbody>
@@ -471,32 +480,32 @@ export default async function SeatMatrixPage({
                   diffYear && prevSeats !== undefined ? row.seats - prevSeats : diffYear ? null : undefined;
 
                 return (
-                  <tr key={row.id} className="border-b hover:bg-slate-50">
-                    <td className="p-3">
+                  <tr key={row.id} className="border-b border-slate-100 hover:bg-slate-50/80">
+                    <td className="px-4 py-3.5">
                       <Link href={`/colleges/${row.college.slug}`} className="text-brand-600 hover:underline">
                         {displayCollegeName(row.college.shortName || row.college.name)}
                       </Link>
                     </td>
-                    <td className="p-3 text-slate-600">{row.college.state}</td>
-                    <td className="p-3">
+                    <td className="px-4 py-3.5 text-slate-600">{row.college.state}</td>
+                    <td className="px-4 py-3.5">
                       <Badge className="border-slate-200 bg-white text-slate-700">
                         {COLLEGE_TYPE_LABELS[row.college.collegeType] ?? row.college.collegeType}
                       </Badge>
                     </td>
-                    <td className="p-3">
+                    <td className="px-4 py-3.5">
                       {row.specialty.degree} {row.specialty.name}
                     </td>
                     {source === "mcc" && (
-                      <td className="p-3 text-slate-600">{QUOTA_LABELS[row.quota] ?? row.quota}</td>
+                      <td className="px-4 py-3.5 text-slate-600">{QUOTA_LABELS[row.quota] ?? row.quota}</td>
                     )}
-                    <td className="p-3 text-slate-600">{CATEGORY_LABELS[row.category] ?? row.category}</td>
-                    <td className="p-3 font-medium">{row.seats}</td>
+                    <td className="px-4 py-3.5 text-slate-600">{CATEGORY_LABELS[row.category] ?? row.category}</td>
+                    <td className="px-4 py-3.5 font-medium">{row.seats}</td>
                     {diffYear && (
-                      <td className="p-3 text-slate-600">{prevSeats !== undefined ? prevSeats : "—"}</td>
+                      <td className="px-4 py-3.5 text-slate-600">{prevSeats !== undefined ? prevSeats : "—"}</td>
                     )}
                     {diffYear && (
                       <td
-                        className={`p-3 font-medium ${
+                        className={`px-4 py-3.5 font-medium ${
                           delta === null || delta === undefined
                             ? "text-slate-400"
                             : delta > 0
@@ -513,7 +522,7 @@ export default async function SeatMatrixPage({
                             : String(delta)}
                       </td>
                     )}
-                    <td className="p-3">
+                    <td className="px-4 py-3.5">
                       <AddToChoiceButton
                         collegeId={row.college.id}
                         specialtyId={row.specialty.id}

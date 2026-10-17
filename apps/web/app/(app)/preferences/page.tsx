@@ -9,6 +9,7 @@ import Link from "next/link";
 import { ChoiceListEditor, type ChoiceListRow } from "@/components/preference/choice-list-editor";
 import { PreferenceQuickAdd } from "@/components/preference/preference-quick-add";
 import { cn } from "@/lib/utils";
+import { sectionCard, sectionHint, sectionTitle } from "@/lib/form-field-classes";
 
 type OptimizePreview = {
   rank: number;
@@ -162,25 +163,33 @@ export default function PreferencesPage() {
 
   const count = list?.items.length ?? 0;
 
-  if (loading) return <p className="text-slate-500">Loading preference list...</p>;
+  if (loading) {
+    return (
+      <div className="space-y-4 py-8">
+        <div className="h-8 w-48 animate-pulse rounded-lg bg-slate-200" />
+        <div className="h-4 w-full max-w-md animate-pulse rounded bg-slate-100" />
+        <div className="h-32 animate-pulse rounded-xl bg-slate-100" />
+      </div>
+    );
+  }
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">My choice list</h1>
-        <p className="text-slate-600">
-          {list?.title ?? "2026 Preference List"} — order = MCC priority (1 = first choice).
+    <div className="space-y-8">
+      <header className="space-y-2">
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">My choice list</h1>
+        <p className="text-sm leading-relaxed text-slate-600 md:text-base">
+          {list?.title ?? "2026 Preference List"} · Position <strong>1</strong> is your first counselling choice.
         </p>
-      </div>
+      </header>
 
       <DisclaimerBanner compact />
 
-      <div className="flex flex-wrap items-center gap-2">
-        <div className="inline-flex rounded-lg border bg-slate-50 p-1">
+      <div className="space-y-4">
+        <div className="inline-flex w-full max-w-md rounded-xl border border-slate-200 bg-slate-50/80 p-1.5 sm:w-auto">
           <button
             type="button"
             className={cn(
-              "rounded-md px-4 py-2 text-sm font-medium transition",
+              "flex-1 rounded-lg px-5 py-2.5 text-sm font-medium transition sm:flex-none",
               tab === "list" ? "bg-white text-brand-700 shadow-sm" : "text-slate-600 hover:text-slate-900"
             )}
             onClick={() => setTab("list")}
@@ -190,7 +199,7 @@ export default function PreferencesPage() {
           <button
             type="button"
             className={cn(
-              "rounded-md px-4 py-2 text-sm font-medium transition",
+              "flex-1 rounded-lg px-5 py-2.5 text-sm font-medium transition sm:flex-none",
               tab === "add" ? "bg-white text-brand-700 shadow-sm" : "text-slate-600 hover:text-slate-900"
             )}
             onClick={() => setTab("add")}
@@ -198,29 +207,38 @@ export default function PreferencesPage() {
             Add choices
           </button>
         </div>
+
         {count > 0 && tab === "list" && (
-          <>
-            <Button variant="outline" size="sm" onClick={copyList}>
-              {copied ? "Copied!" : "Copy list"}
-            </Button>
-            <Button variant="outline" size="sm" onClick={exportList}>
-              Export .txt
-            </Button>
-            <Button variant="outline" size="sm" disabled={optimizing} onClick={() => runOptimize(false)}>
-              {optimizing ? "Working…" : "Smart order preview"}
-            </Button>
-            <Button size="sm" disabled={optimizing} onClick={() => runOptimize(true)}>
-              Apply smart order
-            </Button>
-            <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700" onClick={clearAll}>
-              Clear all
-            </Button>
-            <Link href="/onboarding">
-              <Button variant="ghost" size="sm">
-                Edit priorities
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <div className="flex flex-wrap gap-2">
+              <Button variant="outline" size="sm" onClick={copyList}>
+                {copied ? "Copied!" : "Copy list"}
               </Button>
-            </Link>
-          </>
+              <Button variant="outline" size="sm" onClick={exportList}>
+                Export .txt
+              </Button>
+            </div>
+            <span className="hidden h-6 w-px bg-slate-200 sm:block" aria-hidden />
+            <div className="flex flex-wrap gap-2">
+              <Button variant="outline" size="sm" disabled={optimizing} onClick={() => runOptimize(false)}>
+                {optimizing ? "Working…" : "Smart order preview"}
+              </Button>
+              <Button size="sm" disabled={optimizing} onClick={() => runOptimize(true)}>
+                Apply smart order
+              </Button>
+            </div>
+            <span className="hidden h-6 w-px bg-slate-200 sm:block" aria-hidden />
+            <div className="flex flex-wrap gap-2">
+              <Link href="/onboarding">
+                <Button variant="ghost" size="sm">
+                  Edit priorities
+                </Button>
+              </Link>
+              <Button variant="ghost" size="sm" className="text-red-600 hover:bg-red-50 hover:text-red-700" onClick={clearAll}>
+                Clear all
+              </Button>
+            </div>
+          </div>
         )}
       </div>
 
@@ -234,13 +252,19 @@ export default function PreferencesPage() {
       )}
 
       {tab === "add" && suggestions.length > 0 && (
-        <div>
-          <h2 className="mb-2 text-sm font-semibold text-slate-800">From your rank (My Chances)</h2>
-          <div className="grid gap-2 sm:grid-cols-2">
+        <section className={`${sectionCard} space-y-4`}>
+          <div>
+            <h2 className={sectionTitle}>From your rank</h2>
+            <p className={sectionHint}>Quick picks based on My Chances — tap Add to include them.</p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
             {suggestions.slice(0, 8).map((s) => (
-              <div key={`${s.collegeId}-${s.specialtyId}`} className="card flex items-center justify-between p-3">
-                <div className="min-w-0 pr-2">
-                  <p className="truncate text-sm font-medium">
+              <div
+                key={`${s.collegeId}-${s.specialtyId}`}
+                className="flex items-center justify-between gap-3 rounded-xl border border-slate-100 bg-slate-50/60 p-4"
+              >
+                <div className="min-w-0 space-y-0.5">
+                  <p className="truncate text-sm font-medium text-slate-900">
                     {s.degree} {s.specialtyName}
                   </p>
                   <p className="truncate text-xs text-slate-500">{s.collegeName}</p>
@@ -254,27 +278,27 @@ export default function PreferencesPage() {
               </div>
             ))}
           </div>
-          <Link href="/my-chances" className="mt-2 inline-block text-sm text-brand-600 hover:underline">
+          <Link href="/my-chances" className="inline-block text-sm font-medium text-brand-600 hover:underline">
             See all matches →
           </Link>
-        </div>
+        </section>
       )}
 
       {tab === "list" && (
-        <>
+        <div className="space-y-6">
           {optimizePreview && (
-            <div className="card border-brand-200 bg-brand-50/50 p-4 text-sm">
-              <p className="font-medium text-brand-900">Suggested order preview</p>
-              <p className="mt-1 text-brand-800/80">
-                Based on priorities: {prioritiesUsed.join(" → ")}. Click Apply smart order to use it.
+            <div className="rounded-xl border border-brand-200 bg-brand-50/60 p-5 md:p-6">
+              <p className="font-semibold text-brand-900">Suggested order preview</p>
+              <p className="mt-2 text-sm leading-relaxed text-brand-900/80">
+                Based on priorities: {prioritiesUsed.join(" → ")}. Click <strong>Apply smart order</strong> to use it.
               </p>
-              <ol className="mt-3 list-decimal space-y-2 pl-5 text-slate-700">
+              <ol className="mt-4 space-y-3 border-t border-brand-200/60 pt-4 text-sm text-slate-700">
                 {optimizePreview.map((row) => (
-                  <li key={row.id}>
-                    <span className="font-medium">
+                  <li key={row.id} className="leading-relaxed">
+                    <span className="font-medium text-slate-900">
                       {row.specialtyLabel} — {row.collegeName}
                     </span>
-                    <span className="mt-0.5 block text-xs text-slate-600">{row.explanation}</span>
+                    <span className="mt-1 block text-xs text-slate-600">{row.explanation}</span>
                   </li>
                 ))}
               </ol>
@@ -282,25 +306,47 @@ export default function PreferencesPage() {
           )}
 
           {count === 0 ? (
-            <div className="card space-y-4 p-8 text-center">
-              <p className="text-lg font-medium text-slate-800">Start your list in under a minute</p>
-              <ol className="mx-auto max-w-md space-y-2 text-left text-sm text-slate-600">
-                <li>
-                  <strong>1.</strong> Open <button type="button" className="text-brand-600 underline" onClick={() => setTab("add")}>Add choices</button> and search a college, or use Seat Matrix filters.
+            <div className={`${sectionCard} space-y-6 text-center`}>
+              <div className="space-y-2">
+                <p className="text-lg font-semibold text-slate-900">Start your list in under a minute</p>
+                <p className="text-sm text-slate-500">Three simple steps — no form filling on the MCC portal yet.</p>
+              </div>
+              <ol className="mx-auto max-w-sm space-y-3 text-left text-sm leading-relaxed text-slate-600">
+                <li className="flex gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-700">
+                    1
+                  </span>
+                  <span>
+                    Open{" "}
+                    <button type="button" className="font-medium text-brand-600 underline" onClick={() => setTab("add")}>
+                      Add choices
+                    </button>{" "}
+                    and search, or use Seat Matrix filters.
+                  </span>
                 </li>
-                <li>
-                  <strong>2.</strong> Tap <strong>Add</strong> on each course you want.
+                <li className="flex gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-700">
+                    2
+                  </span>
+                  <span>
+                    Tap <strong>Add</strong> on each course you want on your list.
+                  </span>
                 </li>
-                <li>
-                  <strong>3.</strong> Return here and drag or use ↑↓ to set priority order.
+                <li className="flex gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-700">
+                    3
+                  </span>
+                  <span>Drag or use arrows here to set priority — top = choice #1.</span>
                 </li>
               </ol>
-              <Button onClick={() => setTab("add")}>Add my first choice</Button>
+              <Button size="lg" className="px-8" onClick={() => setTab("add")}>
+                Add my first choice
+              </Button>
             </div>
           ) : (
-            <div>
-              <p className="mb-2 text-xs text-slate-500">
-                Drag the handle or use arrow buttons to reorder. Top = choice #1 for counselling.
+            <section className="space-y-4">
+              <p className="text-sm leading-relaxed text-slate-500">
+                Drag the handle or use the arrow buttons to reorder. Top row = highest priority for counselling.
               </p>
               <ChoiceListEditor
                 items={itemsWithNotes}
@@ -308,9 +354,9 @@ export default function PreferencesPage() {
                 onRemove={removeItem}
                 reordering={reordering}
               />
-            </div>
+            </section>
           )}
-        </>
+        </div>
       )}
     </div>
   );

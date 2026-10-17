@@ -101,7 +101,7 @@ export function ChoiceListEditor({ items, onReorder, onRemove, reordering }: Cho
   };
 
   return (
-    <div ref={listRef} className="space-y-2">
+    <div ref={listRef} className="space-y-3">
       {localItems.map((item, idx) => {
         const fit = JSON.parse(item.fitSnapshot || "{}") as { fitLevel?: string };
         const tier = fit.fitLevel ? fitLevelToTier(fit.fitLevel) : null;
@@ -110,48 +110,55 @@ export function ChoiceListEditor({ items, onReorder, onRemove, reordering }: Cho
             key={item.id}
             data-choice-item
             className={cn(
-              "card flex items-start gap-3 p-4 transition-all",
-              draggingIndex === idx && "scale-[0.98] opacity-60 shadow-md",
-              overIndex === idx && draggingIndex !== null && draggingIndex !== idx && "border-brand-500 bg-brand-50/40"
+              "card flex flex-col gap-4 rounded-xl p-4 transition-all sm:flex-row sm:items-start md:p-5",
+              draggingIndex === idx && "scale-[0.99] opacity-60 shadow-md",
+              overIndex === idx && draggingIndex !== null && draggingIndex !== idx && "border-brand-400 bg-brand-50/50"
             )}
           >
-            <button
-              type="button"
-              className="mt-1 cursor-grab touch-none rounded p-0.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600 active:cursor-grabbing disabled:cursor-not-allowed"
-              aria-label="Drag to reorder"
-              disabled={!!reordering}
-              onPointerDown={(e) => onPointerDown(idx, e)}
-              onPointerMove={onPointerMove}
-              onPointerUp={onPointerUp}
-              onPointerCancel={onPointerCancel}
-            >
-              <GripVertical className="h-5 w-5" />
-            </button>
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700">
-              {idx + 1}
-            </span>
-            <div className="min-w-0 flex-1">
-              <p className="font-medium">
-                {item.specialty.degree} {item.specialty.name}
-              </p>
-              <p className="text-sm text-slate-600">{displayCollegeName(item.college.name)}</p>
-              <p className="text-xs text-slate-400">
-                {formatCollegeLocation(item.college.city, item.college.state, item.college.name, item.college.slug)}
-              </p>
-              <div className="mt-1 flex flex-wrap gap-2">
-                {fit.fitLevel && <FitBadge fitLevel={fit.fitLevel as FitLevel} />}
-                {tier && (
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-600">
-                    {CHOICE_TIER_LABELS[tier].label}
-                  </span>
+            <div className="flex min-w-0 flex-1 items-start gap-3">
+              <button
+                type="button"
+                className="mt-0.5 cursor-grab touch-none rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600 active:cursor-grabbing disabled:cursor-not-allowed"
+                aria-label="Drag to reorder"
+                disabled={!!reordering}
+                onPointerDown={(e) => onPointerDown(idx, e)}
+                onPointerMove={onPointerMove}
+                onPointerUp={onPointerUp}
+                onPointerCancel={onPointerCancel}
+              >
+                <GripVertical className="h-5 w-5" />
+              </button>
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-800">
+                {idx + 1}
+              </span>
+              <div className="min-w-0 flex-1 space-y-1">
+                <p className="font-semibold leading-snug text-slate-900">
+                  {item.specialty.degree} {item.specialty.name}
+                </p>
+                <p className="text-sm text-slate-600">{displayCollegeName(item.college.name)}</p>
+                <p className="text-xs text-slate-400">
+                  {formatCollegeLocation(item.college.city, item.college.state, item.college.name, item.college.slug)}
+                </p>
+                {(fit.fitLevel || tier) && (
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {fit.fitLevel && <FitBadge fitLevel={fit.fitLevel as FitLevel} />}
+                    {tier && (
+                      <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs text-slate-600">
+                        {CHOICE_TIER_LABELS[tier].label}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {item.optimizeNote && (
+                  <p className="mt-2 rounded-lg bg-brand-50/80 px-2.5 py-1.5 text-xs leading-relaxed text-brand-900/90">
+                    {item.optimizeNote}
+                  </p>
                 )}
               </div>
-              {item.optimizeNote && (
-                <p className="mt-2 text-xs text-brand-800/90">{item.optimizeNote}</p>
-              )}
             </div>
-            <div className="flex shrink-0 flex-col items-end gap-0.5">
-              <div className="flex gap-0.5">
+
+            <div className="flex shrink-0 items-center justify-between gap-2 border-t border-slate-100 pt-3 sm:flex-col sm:items-end sm:border-0 sm:pt-0">
+              <div className="flex rounded-lg bg-slate-50 p-0.5">
                 <Button
                   type="button"
                   variant="ghost"
@@ -197,8 +204,16 @@ export function ChoiceListEditor({ items, onReorder, onRemove, reordering }: Cho
                   <ChevronsDown className="h-4 w-4" />
                 </Button>
               </div>
-              <Button variant="ghost" size="sm" onClick={() => onRemove(item.id)} disabled={!!reordering}>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-slate-500 hover:text-red-600"
+                onClick={() => onRemove(item.id)}
+                disabled={!!reordering}
+                aria-label="Remove from list"
+              >
                 <X className="h-4 w-4" />
+                <span className="ml-1 text-xs sm:sr-only">Remove</span>
               </Button>
             </div>
           </div>
