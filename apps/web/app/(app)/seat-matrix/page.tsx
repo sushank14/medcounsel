@@ -12,7 +12,8 @@ import {
   SEAT_MATRIX_SOURCE_NOTE,
 } from "@medcounsel/types";
 import { Badge } from "@/components/ui/badge";
-import { seatMatrixHref } from "@/lib/seat-matrix-nav";
+import { SeatMatrixCourseFilter } from "@/components/seat-matrix/seat-matrix-course-filter";
+import { parseCourseSlugs, seatMatrixHref } from "@/lib/seat-matrix-nav";
 
 const PAGE_SIZE = 50;
 
@@ -35,7 +36,7 @@ export default async function SeatMatrixPage({
     year?: string;
     state?: string;
     degree?: string;
-    course?: string;
+    course?: string | string[];
     quota?: string;
     category?: string;
     diffYear?: string;
@@ -59,15 +60,19 @@ export default async function SeatMatrixPage({
     params.category && RESERVATION_CATEGORIES.includes(params.category as (typeof RESERVATION_CATEGORIES)[number])
       ? params.category
       : undefined;
+  const selectedCourses = parseCourseSlugs(params.course);
 
   const nmcSourceWhere = { title: { contains: "NMC/MARB PG Seat Matrix" } };
   const mccSourceWhere = { title: { contains: "MCC NEET-PG official seat matrix" } };
   const matrixSourceWhere = source === "mcc" ? mccSourceWhere : nmcSourceWhere;
 
   const specialtyWhere = {
-    slug: { not: "" },
     ...(params.degree ? { degree: params.degree as never } : {}),
-    ...(params.course ? { slug: params.course } : {}),
+    ...(selectedCourses.length === 1
+      ? { slug: selectedCourses[0] }
+      : selectedCourses.length > 1
+        ? { slug: { in: selectedCourses } }
+        : { slug: { not: "" } }),
   };
 
   const where = {
@@ -181,7 +186,7 @@ export default async function SeatMatrixPage({
     year: source === "mcc" ? String(matrixYear) : undefined,
     state: params.state,
     degree: params.degree,
-    course: params.course,
+    course: selectedCourses.length ? selectedCourses : undefined,
     quota: params.quota,
     category: reservationCategory,
     diffYear: diffYear ? String(diffYear) : undefined,
@@ -302,19 +307,13 @@ export default async function SeatMatrixPage({
             </option>
           ))}
         </select>
-        <select
-          name="course"
-          defaultValue={params.course ?? ""}
-          className="max-w-[220px] rounded-lg border px-3 py-2 text-sm"
-          aria-label="Course or branch"
-        >
-          <option value="">All courses / branches</option>
-          {courseOptions.map((sp) => (
-            <option key={sp.slug} value={sp.slug}>
-              {sp.degree} — {sp.name}
-            </option>
-          ))}
-        </select>
+        <SeatMatrixCourseFilter
+          selected={selectedCourses}
+          options={courseOptions.map((sp) => ({
+            slug: sp.slug,
+            label: `${sp.degree} — ${sp.name}`,
+          }))}
+        />
         {source === "mcc" && (
           <select name="quota" defaultValue={params.quota ?? ""} className="rounded-lg border px-3 py-2 text-sm">
             <option value="">All quotas</option>
