@@ -4,7 +4,16 @@
  */
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 import { PrismaClient, CollegeType, DataStatus, Degree, Category, Quota } from "@prisma/client";
+
+const defaultDb = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "../../database/prisma/dev.db"
+);
+if (!process.env.DATABASE_URL) {
+  process.env.DATABASE_URL = `file:${defaultDb}`;
+}
 
 interface SeatMatrixEntry {
   instituteCode: string;
@@ -72,9 +81,11 @@ function isGarbage(name: string): boolean {
   return GARBAGE_NAME.test(name) || isGarbageCollegeName(name) || name.length > 180;
 }
 
-async function loadFromSeatMatrices(): Promise<Map<string, InstituteRecord>> {
+async function loadFromSeatMatrices(matrixYears?: number[]): Promise<Map<string, InstituteRecord>> {
   const map = new Map<string, InstituteRecord>();
-  const docs = getSeatMatrixManifest().filter((d) => d.year >= 2023);
+  const docs = getSeatMatrixManifest().filter(
+    (d) => d.year >= 2023 && (!matrixYears?.length || matrixYears.includes(d.year))
+  );
 
   for (const doc of docs) {
     const pdfPath = path.join(IMPORT_DIR, doc.fileName);
@@ -353,7 +364,7 @@ async function ensureSeatMatrixSource() {
       url: "https://mcc.nic.in/pg-medical-counselling/",
       publishedDate: new Date("2024-11-01"),
       lastVerifiedDate: new Date(),
-      dataYear: 2025,
+      dataYear: 2026,
       sourceType: "OFFICIAL",
       trustLevel: "PRIMARY",
     },
@@ -375,6 +386,7 @@ async function upsertSeatMatrix(
       year: entry.year,
       category: Category.GENERAL,
       quota,
+      sourceId,
     },
   });
   if (existing) {
@@ -398,14 +410,33 @@ async function upsertSeatMatrix(
 }
 
 async function main() {
-  console.log("🏥 Importing ALL NEET-PG participating institutes (MCC official)...");
+  const yearArg = process.argv.find((a) => /^\d{4}$/.test(a));
+  const matrixYears = yearArg ? [parseInt(yearArg, 10)] : undefined;
+
+  console.log(
+    matrixYears
+      ? `🏥 Importing MCC seat matrix ${matrixYears.join(", ")}...`
+      : "🏥 Importing ALL NEET-PG participating institutes (MCC official)..."
+  );
 
   await cleanupGarbageColleges();
   const seatMatrixSourceId = await ensureSeatMatrixSource();
 
-  const fromMatrix = await loadFromSeatMatrices();
-  const fromAllotments = loadFromAllotmentJson();
-  mergeMaps(fromMatrix, fromAllotments);
+  if (matrixYears?.length) {
+    const removed = await prisma.seatMatrix.deleteMany({
+      where: {
+        year: { in: matrixYears },
+        sourceId: seatMatrixSourceId,
+      },
+    });
+    console.log(
+      `   Cleared ${removed.count} prior MCC SeatMatrix rows for ${matrixYears.join(", ")}`
+    );
+  }
+
+  const fromMatrix = await loadFromSeatMatrices(matrixYears);
+  const fromAllotments = matrixYears ? new Map<string, InstituteRecord>() : loadFromAllotmentJson();
+  if (!matrixYears) mergeMaps(fromMatrix, fromAllotments);
 
   const institutes = [...fromMatrix.values()].filter((r) => !isGarbage(r.name));
   console.log(`\n📋 Total unique NEET-PG institutes: ${institutes.length}`);

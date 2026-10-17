@@ -278,6 +278,23 @@ export function cityFromSlug(slug: string): string | null {
   return null;
 }
 
+function shouldUseStoredCity(storedCity: string, collegeName: string): boolean {
+  if (!storedCity || isGarbageCity(storedCity)) return false;
+  const cleaned = displayCity(storedCity);
+  if (!cleaned || isGarbageCity(cleaned)) return false;
+  const cLower = cleaned.toLowerCase();
+  const nameRoot = collegeName.split(",")[0].trim().toLowerCase();
+  if (cLower === nameRoot) return false;
+  if (isGenericCollegeName(cleaned)) return false;
+  if (
+    /medical college|medical university|institute of medical|memorial hospital/i.test(cLower) &&
+    !matchKnownCity(cleaned)
+  ) {
+    return false;
+  }
+  return true;
+}
+
 /** Best-effort city for a college record */
 export function resolveCollegeCity(
   name: string,
@@ -285,7 +302,7 @@ export function resolveCollegeCity(
   state?: string,
   processedHint?: { city: string; state?: string } | null
 ): string | null {
-  if (processedHint?.city && !isGarbageCity(processedHint.city)) {
+  if (processedHint?.city && shouldUseStoredCity(processedHint.city, name)) {
     return displayCity(processedHint.city);
   }
 
@@ -320,10 +337,10 @@ export function formatCollegeLocation(
   name?: string,
   slug?: string
 ): string {
-  let resolved = displayCity(city);
-  if (!resolved || resolved.toLowerCase() === "unknown") {
-    resolved =
-      resolveCollegeCity(name ?? "", slug ?? "", state) ?? "";
+  let resolved =
+    resolveCollegeCity(name ?? "", slug ?? "", state, { city }) ?? "";
+  if (!resolved && shouldUseStoredCity(city, name ?? "")) {
+    resolved = displayCity(city);
   }
   if (!resolved) return state;
   return `${resolved}, ${state}`;

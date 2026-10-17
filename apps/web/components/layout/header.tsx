@@ -21,6 +21,7 @@ export async function Header() {
           <Link href="/colleges" className="hover:text-brand-600">Colleges</Link>
           <Link href="/calendar" className="hover:text-brand-600">Calendar</Link>
           <Link href="/cutoffs" className="hover:text-brand-600">Cutoffs</Link>
+          <Link href="/seat-matrix" className="hover:text-brand-600">Seat Matrix</Link>
           <Link href="/compare" className="hover:text-brand-600">Compare</Link>
           <Link href="/category-explorer" className="hover:text-brand-600">Categories</Link>
           <Link href="/profile" className="hover:text-brand-600">Profile</Link>

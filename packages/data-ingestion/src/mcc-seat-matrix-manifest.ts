@@ -13,6 +13,62 @@ export interface SeatMatrixDocument {
 
 const MANUAL: SeatMatrixDocument[] = [
   {
+    year: 2026,
+    category: "AIQ",
+    title: "FINAL ALL INDIA QUOTA SEATS MATRIX PG 2026 COUNSELLING (MD MS)",
+    url: "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/10/202610151676193504.pdf",
+    fileName: "2026-aiq-seat-matrix.pdf",
+  },
+  {
+    year: 2026,
+    category: "DEEMED",
+    title: "FINAL DEEMED SEATS MATRIX PG COUNSELLING 2026 (MD MS)",
+    url: "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/10/20261015907178910.pdf",
+    fileName: "2026-deemed-seat-matrix.pdf",
+  },
+  {
+    year: 2026,
+    category: "CENTRAL",
+    title: "FINAL CENTRAL INTERNAL QUOTA SEATS MATRIX PG COUNSELLING 2026 (MD MS)",
+    url: "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/10/202610151906520168.pdf",
+    fileName: "2026-central-seat-matrix.pdf",
+  },
+  {
+    year: 2026,
+    category: "DNB",
+    title: "FINAL SEATS MATRIX DNB PG COUNSELLING 2026",
+    url: "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/10/202610151482599908.pdf",
+    fileName: "2026-dnb-seat-matrix.pdf",
+  },
+  {
+    year: 2025,
+    category: "AIQ",
+    title: "FINAL SEAT MATRIX FOR ROUND 1 AIQ MD/MS/DIPLOMA PG 2025",
+    url: "https://cdnbbsr.s3waas.gov.in/s33dd13c7093362886b8ce5923426fdad4/uploads/2025/11/202511071301088057.pdf",
+    fileName: "2025-aiq-seat-matrix.pdf",
+  },
+  {
+    year: 2025,
+    category: "DEEMED",
+    title: "Deemed University Seats Matrix PG 2025 Counselling",
+    url: "https://medicaldialogues.in/pdf_upload/3-306030.pdf",
+    fileName: "2025-deemed-seat-matrix.pdf",
+  },
+  {
+    year: 2025,
+    category: "CENTRAL",
+    title: "Central Internal Quota Seats Matrix PG 2025 Counselling",
+    url: "https://medicaldialogues.in/pdf_upload/2-306029.pdf",
+    fileName: "2025-central-seat-matrix.pdf",
+  },
+  {
+    year: 2025,
+    category: "DNB",
+    title: "FINAL DNB SEAT MATRIX FOR PG 2025",
+    url: "https://medicaldialogues.in/pdf_upload/4-306032.pdf",
+    fileName: "2025-dnb-seat-matrix.pdf",
+  },
+  {
     year: 2024,
     category: "AIQ",
     title: "All India Quota Seats Matrix PG 2024 Counselling",

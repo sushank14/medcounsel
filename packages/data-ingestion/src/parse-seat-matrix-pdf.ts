@@ -1,6 +1,8 @@
 import fs from "fs";
 import pdf from "pdf-parse";
 import { normalizeCollegeName, parseCourse } from "./normalizers.js";
+import { is2025SeatMatrixFormat, parse2025SeatMatrixText } from "./parse-seat-matrix-2025.js";
+import { is2026DeemedSeatMatrixFormat, parse2026Deemed } from "./parse-seat-matrix-2026-deemed.js";
 
 export type SeatMatrixCategory = "AIQ" | "DEEMED" | "CENTRAL" | "DNB";
 
@@ -341,6 +343,14 @@ export function parseSeatMatrixText(text: string, category: SeatMatrixCategory):
     .split("\n")
     .map((l) => l.trim())
     .filter(Boolean);
+
+  if (category === "DEEMED" && is2026DeemedSeatMatrixFormat(text)) {
+    return parse2026Deemed(lines);
+  }
+
+  if (is2025SeatMatrixFormat(text)) {
+    return parse2025SeatMatrixText(text, category);
+  }
 
   const format = detectSeatMatrixFormat(text);
   if (format === "DNB") return parseDnb(lines);

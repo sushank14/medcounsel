@@ -98,6 +98,9 @@ export default async function CounsellingHubPage() {
           <Link href="/my-chances">
             <Button variant="outline" size="sm">My AIQ options</Button>
           </Link>
+          <Link href="/seat-matrix">
+            <Button variant="outline" size="sm">Seat matrix</Button>
+          </Link>
         </div>
         <details className="mt-4">
           <summary className="cursor-pointer text-sm font-medium text-slate-700">Round timeline (MCC official · Maharashtra expected)</summary>

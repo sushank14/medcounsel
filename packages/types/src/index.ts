@@ -165,8 +165,14 @@ export const FIT_LABELS: Record<FitLevel, { label: string; color: string; emoji:
 export const ACTIVE_SEAT_MATRIX_YEAR = 2026;
 export const ACTIVE_SEAT_MATRIX_ACADEMIC_YEAR = "2026-27";
 
+/** Latest MCC NEET-PG counselling seat matrix (AIQ / Deemed / Central / DNB). */
+export const ACTIVE_MCC_SEAT_MATRIX_YEAR = 2026;
+
 export const SEAT_MATRIX_SOURCE_NOTE =
   "Seat data sourced from the National Medical Commission (NMC/MARB) PG Seat Matrix for Academic Year 2026–27, dated 29 September 2026. The matrix is subject to subsequent revisions by NMC/MARB.";
+
+export const MCC_SEAT_MATRIX_SOURCE_NOTE =
+  "MCC counselling seat matrices (AIQ, Deemed, Central Internal, DNB) from official PDFs published for NEET-PG 2026 counselling, October 2026.";
 
 export const DISCLAIMER =
   "Predictions are estimates based on historical and available counselling data and do not guarantee admission. Verify eligibility, fees, deadlines, and rules with the official counselling authority.";

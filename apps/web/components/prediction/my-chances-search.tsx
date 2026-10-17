@@ -323,6 +323,16 @@ export function MyChancesSearch({
                 <option value="PRIVATE">Private</option>
                 <option value="DEEMED">Deemed</option>
               </Select>
+              {draft.collegePref === "GOVT_ONLY" && draft.degreePref !== "DNB" && (
+                <p className="text-xs text-amber-800">
+                  DNB (NBEMS) hospital seats are excluded here. Use &quot;Govt + Private&quot; or set Course type to DNB.
+                </p>
+              )}
+              {draft.degreePref === "DNB" && (
+                <p className="text-xs text-slate-600">
+                  DNB seats are at NBEMS-accredited hospitals (shown even if college type is Government only).
+                </p>
+              )}
             </div>
             <div className="space-y-1">
               <Label>Budget</Label>
@@ -484,7 +494,10 @@ export function MyChancesSearch({
       {!loading && hasSearched && results.length === 0 && (
         <div className="card p-8 text-center text-slate-500">
           <p className="font-medium">No options match these filters</p>
-          <p className="mt-2 text-sm">Try a wider rank range, set college type to &quot;Any&quot;, or clear specialty filters.</p>
+          <p className="mt-2 text-sm">
+            Try a wider rank range, set college type to &quot;Govt + Private&quot; or &quot;Any&quot;, or choose Course type
+            &quot;DNB&quot; for hospital-based NBEMS seats.
+          </p>
           <Button variant="outline" size="sm" className="mt-4" onClick={openEdit}>
             Edit filters
           </Button>

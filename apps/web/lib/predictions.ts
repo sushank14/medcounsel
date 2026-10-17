@@ -32,6 +32,18 @@ const COLLEGE_PREF_MAP: Record<string, string[]> = {
   ANY: ["GOVT", "CENTRAL", "PRIVATE", "DEEMED", "STATE_UNIV"],
 };
 
+/** MCC DNB (NBEMS) seats sit at private hospitals — expand SQL types when user asks for DNB. */
+function collegeTypesForInput(input: PredictionInput): string[] {
+  const base =
+    input.collegeTypeFilter?.length
+      ? input.collegeTypeFilter
+      : COLLEGE_PREF_MAP[input.collegePref ?? "ANY"] ?? COLLEGE_PREF_MAP.ANY;
+
+  if (input.degreeFilter !== "DNB") return base;
+
+  return [...new Set([...base, "PRIVATE", "DEEMED", "STATE_UNIV", "GOVT", "CENTRAL"])];
+}
+
 /** Applicable quotas per counselling preference */
 function applicableQuotas(counsellingPref: PredictionInput["counsellingPref"], counsellingCode: string) {
   if (counsellingCode === "MAHARASHTRA") return new Set(["STATE", "AIQ"]);
@@ -136,10 +148,7 @@ export async function generatePredictions(
           { rankType: "SML" as const, closingRank: { gte: smlWindow.min, lte: smlWindow.max } },
         ];
 
-  const collegeTypes =
-    input.collegeTypeFilter?.length
-      ? input.collegeTypeFilter
-      : COLLEGE_PREF_MAP[input.collegePref ?? "ANY"] ?? COLLEGE_PREF_MAP.ANY;
+  const collegeTypes = collegeTypesForInput(input);
 
   const degreeFilter =
     input.degreeFilter && input.degreeFilter !== "ALL" ? input.degreeFilter : undefined;
@@ -212,8 +221,11 @@ export async function generatePredictions(
 
     if (isDemoCollege(college.slug, college.dataStatus)) continue;
 
+    const strictGovernmentOnly =
+      input.collegePref === "GOVT_ONLY" && input.degreeFilter !== "DNB";
+
     if (
-      input.collegePref === "GOVT_ONLY" &&
+      strictGovernmentOnly &&
       !qualifiesAsGovernmentCollege(college.name, college.collegeType, specialty.name, specialty.degree)
     ) {
       continue;
