@@ -5,7 +5,21 @@ import {
 import type { Prisma } from "@medcounsel/database";
 import { parseCourseSlugs } from "@/lib/seat-matrix-nav";
 
-const RESERVATION_CATEGORIES = ["GENERAL", "EWS", "OBC", "SC", "ST", "PWD"] as const;
+/** Seat matrix UI is limited to Open (General) and OBC — counselling categories most applicants use. */
+export const SEAT_MATRIX_CATEGORIES = ["GENERAL", "OBC"] as const;
+
+/** MCC sheets label unreserved seats as Open; stored as GENERAL in the DB. */
+export const SEAT_MATRIX_CATEGORY_PARAM = {
+  ALL: "",
+  OPEN: "OPEN",
+  OBC: "OBC",
+} as const;
+
+export const SEAT_MATRIX_CATEGORY_LABELS: Record<string, string> = {
+  GENERAL: "Open (General)",
+  OPEN: "Open (General)",
+  OBC: "OBC (Non-Creamy Layer)",
+};
 
 export type SeatMatrixSearchParams = {
   source?: string;
@@ -18,16 +32,57 @@ export type SeatMatrixSearchParams = {
   q?: string;
 };
 
+export function normalizeSeatMatrixCategoryParam(raw?: string): {
+  /** When set, filter to this category only; otherwise Open + OBC together. */
+  reservationCategory?: (typeof SEAT_MATRIX_CATEGORIES)[number];
+  /** Value to keep in URLs / form controls (OPEN, OBC, …). */
+  categoryParam?: string;
+} {
+  if (!raw) {
+    return { categoryParam: undefined };
+  }
+  const upper = raw.toUpperCase();
+  if (upper === SEAT_MATRIX_CATEGORY_PARAM.OPEN || upper === "GENERAL") {
+    return {
+      reservationCategory: "GENERAL",
+      categoryParam: SEAT_MATRIX_CATEGORY_PARAM.OPEN,
+    };
+  }
+  if (upper === SEAT_MATRIX_CATEGORY_PARAM.OBC) {
+    return {
+      reservationCategory: "OBC",
+      categoryParam: SEAT_MATRIX_CATEGORY_PARAM.OBC,
+    };
+  }
+  return { categoryParam: undefined };
+}
+
+export function seatMatrixCategoryLabel(categoryParam?: string, reservationCategory?: string): string {
+  if (categoryParam === SEAT_MATRIX_CATEGORY_PARAM.OPEN || reservationCategory === "GENERAL") {
+    return SEAT_MATRIX_CATEGORY_LABELS.OPEN;
+  }
+  if (reservationCategory === "OBC" || categoryParam === SEAT_MATRIX_CATEGORY_PARAM.OBC) {
+    return SEAT_MATRIX_CATEGORY_LABELS.OBC;
+  }
+  return "Open & OBC";
+}
+
+function seatMatrixCategoryWhere(
+  reservationCategory?: (typeof SEAT_MATRIX_CATEGORIES)[number]
+): Prisma.SeatMatrixWhereInput["category"] {
+  if (reservationCategory) {
+    return reservationCategory;
+  }
+  return { in: [...SEAT_MATRIX_CATEGORIES] };
+}
+
 export function resolveSeatMatrixFilters(params: SeatMatrixSearchParams) {
   const source = params.source === "mcc" ? "mcc" : "nmc";
   const matrixYear =
     source === "nmc"
       ? ACTIVE_SEAT_MATRIX_YEAR
       : parseInt(params.year ?? String(ACTIVE_MCC_SEAT_MATRIX_YEAR), 10) || ACTIVE_MCC_SEAT_MATRIX_YEAR;
-  const reservationCategory =
-    params.category && RESERVATION_CATEGORIES.includes(params.category as (typeof RESERVATION_CATEGORIES)[number])
-      ? params.category
-      : undefined;
+  const { reservationCategory, categoryParam } = normalizeSeatMatrixCategoryParam(params.category);
   const selectedCourses = parseCourseSlugs(params.course);
   const degreeWhere = resolveDegreeWhere(params.degree);
 
@@ -48,7 +103,7 @@ export function resolveSeatMatrixFilters(params: SeatMatrixSearchParams) {
     year: matrixYear,
     source: matrixSourceWhere,
     ...(params.quota ? { quota: params.quota as never } : {}),
-    ...(reservationCategory ? { category: reservationCategory as never } : {}),
+    category: seatMatrixCategoryWhere(reservationCategory) as never,
     college: {
       slug: { not: "" },
       ...(params.state ? { state: params.state } : {}),
@@ -61,6 +116,7 @@ export function resolveSeatMatrixFilters(params: SeatMatrixSearchParams) {
     source,
     matrixYear,
     reservationCategory,
+    categoryParam,
     selectedCourses,
     where,
   };
