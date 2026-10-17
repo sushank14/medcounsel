@@ -6,6 +6,9 @@ import { is2026DeemedSeatMatrixFormat, parse2026Deemed } from "./parse-seat-matr
 
 export type SeatMatrixCategory = "AIQ" | "DEEMED" | "CENTRAL" | "DNB";
 
+/** NEET reservation category seat counts (when parsed from MCC matrix PDFs). */
+export type ReservationCategoryKey = "GENERAL" | "EWS" | "OBC" | "SC" | "ST" | "PWD";
+
 export interface ParsedSeatMatrixRow {
   instituteCode: string;
   institute: string;
@@ -18,6 +21,7 @@ export interface ParsedSeatMatrixRow {
   quota: string;
   totalSeats: number;
   category: SeatMatrixCategory;
+  reservationSeats?: Partial<Record<ReservationCategoryKey, number>>;
 }
 
 const INSTITUTE_TAIL = /\((\d{5,7})\)\s*$/;

@@ -4,6 +4,7 @@ import {
   ACTIVE_MCC_SEAT_MATRIX_YEAR,
   ACTIVE_SEAT_MATRIX_ACADEMIC_YEAR,
   ACTIVE_SEAT_MATRIX_YEAR,
+  CATEGORY_LABELS,
   COLLEGE_TYPE_LABELS,
   displayCollegeName,
   INDIAN_STATES,
@@ -14,6 +15,8 @@ import { Badge } from "@/components/ui/badge";
 import { seatMatrixHref } from "@/lib/seat-matrix-nav";
 
 const PAGE_SIZE = 50;
+
+const RESERVATION_CATEGORIES = ["GENERAL", "EWS", "OBC", "SC", "ST", "PWD"] as const;
 
 const QUOTA_LABELS: Record<string, string> = {
   AIQ: "All India Quota",
@@ -33,6 +36,8 @@ export default async function SeatMatrixPage({
     state?: string;
     degree?: string;
     quota?: string;
+    category?: string;
+    diffYear?: string;
     q?: string;
     page?: string;
   }>;
@@ -44,6 +49,15 @@ export default async function SeatMatrixPage({
     source === "nmc"
       ? ACTIVE_SEAT_MATRIX_YEAR
       : parseInt(params.year ?? String(ACTIVE_MCC_SEAT_MATRIX_YEAR), 10) || ACTIVE_MCC_SEAT_MATRIX_YEAR;
+  const diffYearParsed = params.diffYear ? parseInt(params.diffYear, 10) : NaN;
+  const diffYear =
+    source === "mcc" && Number.isFinite(diffYearParsed) && diffYearParsed !== matrixYear
+      ? diffYearParsed
+      : null;
+  const reservationCategory =
+    params.category && RESERVATION_CATEGORIES.includes(params.category as (typeof RESERVATION_CATEGORIES)[number])
+      ? params.category
+      : undefined;
 
   const nmcSourceWhere = { title: { contains: "NMC/MARB PG Seat Matrix" } };
   const mccSourceWhere = { title: { contains: "MCC NEET-PG official seat matrix" } };
@@ -52,6 +66,7 @@ export default async function SeatMatrixPage({
     year: matrixYear,
     source: source === "mcc" ? mccSourceWhere : nmcSourceWhere,
     ...(params.quota ? { quota: params.quota as never } : {}),
+    ...(reservationCategory ? { category: reservationCategory as never } : {}),
     ...(params.degree ? { specialty: { degree: params.degree as never } } : {}),
     college: {
       // Inner-join colleges only — skip orphan SeatMatrix rows (e.g. after college cleanup).
@@ -73,7 +88,12 @@ export default async function SeatMatrixPage({
         college: { select: { slug: true, name: true, shortName: true, state: true, collegeType: true } },
         specialty: { select: { name: true, degree: true } },
       },
-      orderBy: [{ college: { state: "asc" } }, { college: { name: "asc" } }, { specialty: { degree: "asc" } }],
+      orderBy: [
+        { college: { state: "asc" } },
+        { college: { name: "asc" } },
+        { specialty: { degree: "asc" } },
+        { category: "asc" },
+      ],
     }),
     prisma.seatMatrix.aggregate({ where, _sum: { seats: true } }),
     prisma.seatMatrix.groupBy({ by: ["collegeId"], where }),
@@ -99,6 +119,33 @@ export default async function SeatMatrixPage({
     }),
   ]);
 
+  const diffMap = new Map<string, number>();
+  if (diffYear && rows.length > 0) {
+    const diffRows = await prisma.seatMatrix.findMany({
+      where: {
+        year: diffYear,
+        source: mccSourceWhere,
+        collegeId: { in: [...new Set(rows.map((r) => r.collegeId))] },
+        college: { slug: { not: "" } },
+        specialty: { slug: { not: "" } },
+        ...(params.quota ? { quota: params.quota as never } : {}),
+        ...(reservationCategory ? { category: reservationCategory as never } : {}),
+      },
+      select: {
+        collegeId: true,
+        specialtyId: true,
+        quota: true,
+        category: true,
+        seats: true,
+      },
+    });
+    for (const r of diffRows) {
+      diffMap.set(`${r.collegeId}|${r.specialtyId}|${r.quota}|${r.category}`, r.seats);
+    }
+  }
+
+  const diffYearOptions = [2026, 2025, 2024, 2023].filter((y) => y !== matrixYear);
+
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const filterParams = {
     source: source === "mcc" ? "mcc" : undefined,
@@ -106,8 +153,13 @@ export default async function SeatMatrixPage({
     state: params.state,
     degree: params.degree,
     quota: params.quota,
+    category: reservationCategory,
+    diffYear: diffYear ? String(diffYear) : undefined,
     q: params.q,
   };
+
+  const tableColSpan =
+    5 + (source === "mcc" ? 1 : 0) + (source === "mcc" ? 1 : 0) + (diffYear ? 2 : 0);
 
   return (
     <div className="space-y-6">
@@ -228,6 +280,26 @@ export default async function SeatMatrixPage({
             ))}
           </select>
         )}
+        {source === "mcc" && (
+          <select name="category" defaultValue={reservationCategory ?? ""} className="rounded-lg border px-3 py-2 text-sm">
+            <option value="">All categories</option>
+            {RESERVATION_CATEGORIES.map((c) => (
+              <option key={c} value={c}>
+                {CATEGORY_LABELS[c] ?? c}
+              </option>
+            ))}
+          </select>
+        )}
+        {source === "mcc" && diffYearOptions.length > 0 && (
+          <select name="diffYear" defaultValue={diffYear ? String(diffYear) : ""} className="rounded-lg border px-3 py-2 text-sm">
+            <option value="">No year diff</option>
+            {diffYearOptions.map((y) => (
+              <option key={y} value={y}>
+                Diff vs MCC {y}
+              </option>
+            ))}
+          </select>
+        )}
         <button type="submit" className="rounded-lg bg-brand-600 px-4 py-2 text-sm text-white">
           Filter
         </button>
@@ -242,8 +314,14 @@ export default async function SeatMatrixPage({
             </>
           ) : (
             <>
-              Showing <strong>MCC NEET-PG {matrixYear}</strong> counselling seat matrix — quota-wise seats offered
-              in MCC counselling.
+              Showing <strong>MCC NEET-PG {matrixYear}</strong> counselling seat matrix — reservation category and
+              quota-wise seats from official PDFs.
+              {diffYear && (
+                <>
+                  {" "}
+                  Comparing seat counts with <strong>MCC {diffYear}</strong> (same college, course, quota & category).
+                </>
+              )}
             </>
           )}
         </p>
@@ -263,13 +341,16 @@ export default async function SeatMatrixPage({
               <th className="p-3">Type</th>
               <th className="p-3">Course</th>
               {source === "mcc" && <th className="p-3">Quota</th>}
-              <th className="p-3">Seats</th>
+              {source === "mcc" && <th className="p-3">Category</th>}
+              <th className="p-3">{diffYear ? `Seats ${matrixYear}` : "Seats"}</th>
+              {diffYear && <th className="p-3">Seats {diffYear}</th>}
+              {diffYear && <th className="p-3">Change</th>}
             </tr>
           </thead>
           <tbody>
             {rows.length === 0 ? (
               <tr>
-                <td colSpan={source === "mcc" ? 6 : 5} className="p-8 text-center text-slate-500">
+                <td colSpan={tableColSpan} className="p-8 text-center text-slate-500">
                   No seat matrix rows match these filters.
                   {source === "mcc" &&
                     matrixYear === ACTIVE_MCC_SEAT_MATRIX_YEAR &&
@@ -283,28 +364,60 @@ export default async function SeatMatrixPage({
                 </td>
               </tr>
             ) : (
-              rows.map((row) => (
-                <tr key={row.id} className="border-b hover:bg-slate-50">
-                  <td className="p-3">
-                    <Link href={`/colleges/${row.college.slug}`} className="text-brand-600 hover:underline">
-                      {displayCollegeName(row.college.shortName || row.college.name)}
-                    </Link>
-                  </td>
-                  <td className="p-3 text-slate-600">{row.college.state}</td>
-                  <td className="p-3">
-                    <Badge className="border-slate-200 bg-white text-slate-700">
-                      {COLLEGE_TYPE_LABELS[row.college.collegeType] ?? row.college.collegeType}
-                    </Badge>
-                  </td>
-                  <td className="p-3">
-                    {row.specialty.degree} {row.specialty.name}
-                  </td>
-                  {source === "mcc" && (
-                    <td className="p-3 text-slate-600">{QUOTA_LABELS[row.quota] ?? row.quota}</td>
-                  )}
-                  <td className="p-3 font-medium">{row.seats}</td>
-                </tr>
-              ))
+              rows.map((row) => {
+                const diffKey = `${row.collegeId}|${row.specialtyId}|${row.quota}|${row.category}`;
+                const prevSeats = diffYear ? diffMap.get(diffKey) : undefined;
+                const delta =
+                  diffYear && prevSeats !== undefined ? row.seats - prevSeats : diffYear ? null : undefined;
+
+                return (
+                  <tr key={row.id} className="border-b hover:bg-slate-50">
+                    <td className="p-3">
+                      <Link href={`/colleges/${row.college.slug}`} className="text-brand-600 hover:underline">
+                        {displayCollegeName(row.college.shortName || row.college.name)}
+                      </Link>
+                    </td>
+                    <td className="p-3 text-slate-600">{row.college.state}</td>
+                    <td className="p-3">
+                      <Badge className="border-slate-200 bg-white text-slate-700">
+                        {COLLEGE_TYPE_LABELS[row.college.collegeType] ?? row.college.collegeType}
+                      </Badge>
+                    </td>
+                    <td className="p-3">
+                      {row.specialty.degree} {row.specialty.name}
+                    </td>
+                    {source === "mcc" && (
+                      <td className="p-3 text-slate-600">{QUOTA_LABELS[row.quota] ?? row.quota}</td>
+                    )}
+                    {source === "mcc" && (
+                      <td className="p-3 text-slate-600">{CATEGORY_LABELS[row.category] ?? row.category}</td>
+                    )}
+                    <td className="p-3 font-medium">{row.seats}</td>
+                    {diffYear && (
+                      <td className="p-3 text-slate-600">{prevSeats !== undefined ? prevSeats : "—"}</td>
+                    )}
+                    {diffYear && (
+                      <td
+                        className={`p-3 font-medium ${
+                          delta === null || delta === undefined
+                            ? "text-slate-400"
+                            : delta > 0
+                              ? "text-emerald-700"
+                              : delta < 0
+                                ? "text-red-700"
+                                : "text-slate-600"
+                        }`}
+                      >
+                        {delta === null || delta === undefined
+                          ? "—"
+                          : delta > 0
+                            ? `+${delta}`
+                            : String(delta)}
+                      </td>
+                    )}
+                  </tr>
+                );
+              })
             )}
           </tbody>
         </table>

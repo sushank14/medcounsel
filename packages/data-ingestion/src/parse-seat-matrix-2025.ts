@@ -69,6 +69,19 @@ function breakdownFromDigits(ten: string, total: number): CategoryBreakdown {
   };
 }
 
+export function reservationSeatsFromBreakdown(
+  breakdown: CategoryBreakdown
+): Partial<Record<"GENERAL" | "EWS" | "OBC" | "SC" | "ST" | "PWD", number>> {
+  const out: Partial<Record<"GENERAL" | "EWS" | "OBC" | "SC" | "ST" | "PWD", number>> = {};
+  if (breakdown.GENERAL > 0) out.GENERAL = breakdown.GENERAL;
+  if (breakdown.EWS > 0) out.EWS = breakdown.EWS;
+  if (breakdown.OBC > 0) out.OBC = breakdown.OBC;
+  if (breakdown.SC > 0) out.SC = breakdown.SC;
+  if (breakdown.ST > 0) out.ST = breakdown.ST;
+  if (breakdown.PWD > 0) out.PWD = breakdown.PWD;
+  return out;
+}
+
 function pushRow(
   results: ParsedSeatMatrixRow[],
   partial: Omit<ParsedSeatMatrixRow, "degree" | "specialty" | "specialtySlug" | "instituteNorm">
@@ -147,6 +160,7 @@ export function parse2025AiqCentral(lines: string[], category: SeatMatrixCategor
       quota: parsed.quota,
       totalSeats: parsed.breakdown.total,
       category,
+      reservationSeats: reservationSeatsFromBreakdown(parsed.breakdown),
     });
   }
 
@@ -195,6 +209,7 @@ export function parse2025Deemed(lines: string[]): ParsedSeatMatrixRow[] {
       quota: parsed.quota,
       totalSeats: parsed.breakdown.total,
       category: "DEEMED",
+      reservationSeats: reservationSeatsFromBreakdown(parsed.breakdown),
     });
   }
 
@@ -266,6 +281,7 @@ export function parse2025Dnb(lines: string[]): ParsedSeatMatrixRow[] {
       quota,
       totalSeats: breakdown.total,
       category: "DNB",
+      reservationSeats: reservationSeatsFromBreakdown(breakdown),
     });
   }
 

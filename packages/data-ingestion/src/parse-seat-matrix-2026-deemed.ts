@@ -13,6 +13,26 @@ const DEEMED_QUOTA =
 
 const CAT_TAIL = /OP\s*(NO|EW|BC|SC|ST|GN|PH)\s*(\d+)\s*$/i;
 
+function reservationCategoryFromOpCode(code: string): "GENERAL" | "EWS" | "OBC" | "SC" | "ST" | "PWD" {
+  switch (code.toUpperCase()) {
+    case "GN":
+      return "GENERAL";
+    case "EW":
+      return "EWS";
+    case "BC":
+    case "NO":
+      return "OBC";
+    case "SC":
+      return "SC";
+    case "ST":
+      return "ST";
+    case "PH":
+      return "PWD";
+    default:
+      return "GENERAL";
+  }
+}
+
 function pushRow(
   results: ParsedSeatMatrixRow[],
   partial: Omit<ParsedSeatMatrixRow, "degree" | "specialty" | "specialtySlug" | "instituteNorm">
@@ -65,7 +85,9 @@ export function parse2026Deemed(lines: string[]): ParsedSeatMatrixRow[] {
     if (embedded) {
       const quota = embedded[1].trim();
       const program = embedded[2].replace(/\s+/g, " ").trim();
+      const opCode = embedded[2];
       const totalSeats = parseInt(embedded[4], 10);
+      const resCat = reservationCategoryFromOpCode(opCode);
       let instituteCode = "";
       let institute = "";
       let state = "Unknown";
@@ -88,6 +110,7 @@ export function parse2026Deemed(lines: string[]): ParsedSeatMatrixRow[] {
           quota,
           totalSeats,
           category: "DEEMED",
+          reservationSeats: { [resCat]: totalSeats },
         });
       }
       continue;
@@ -96,6 +119,7 @@ export function parse2026Deemed(lines: string[]): ParsedSeatMatrixRow[] {
     const seatOnly = line.match(/^OP\s*(NO|EW|BC|SC|ST|GN|PH)\s*(\d+)\s*$/i);
     if (!seatOnly) continue;
 
+    const resCat = reservationCategoryFromOpCode(seatOnly[1]);
     const totalSeats = parseInt(seatOnly[2], 10);
     if (totalSeats <= 0) continue;
 
@@ -141,6 +165,7 @@ export function parse2026Deemed(lines: string[]): ParsedSeatMatrixRow[] {
       quota,
       totalSeats,
       category: "DEEMED",
+      reservationSeats: { [resCat]: totalSeats },
     });
   }
 

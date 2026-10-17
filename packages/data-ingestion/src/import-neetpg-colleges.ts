@@ -21,6 +21,33 @@ interface SeatMatrixEntry {
   year: number;
   matrixCategory: SeatMatrixCategory;
   seats: number;
+  reservationCategory: Category;
+}
+
+function seatMatrixEntriesFromRow(
+  row: { instituteCode: string; specialtySlug: string; totalSeats: number; reservationSeats?: Partial<Record<string, number>> },
+  year: number,
+  matrixCategory: SeatMatrixCategory
+): SeatMatrixEntry[] {
+  const base = {
+    instituteCode: row.instituteCode,
+    specialtySlug: row.specialtySlug,
+    year,
+    matrixCategory,
+  };
+  if (row.reservationSeats && Object.keys(row.reservationSeats).length > 0) {
+    return (Object.entries(row.reservationSeats) as [Category, number][])
+      .filter(([, seats]) => seats > 0)
+      .map(([reservationCategory, seats]) => ({
+        ...base,
+        seats,
+        reservationCategory,
+      }));
+  }
+  if (row.totalSeats > 0) {
+    return [{ ...base, seats: row.totalSeats, reservationCategory: Category.GENERAL }];
+  }
+  return [];
 }
 
 const seatMatrixEntries: SeatMatrixEntry[] = [];
@@ -101,14 +128,10 @@ async function loadFromSeatMatrices(matrixYears?: number[]): Promise<Map<string,
 
     for (const row of rows) {
       upsertInstitute(map, row, "SEAT_MATRIX", doc.category);
-      if (row.totalSeats > 0 && row.specialtySlug) {
-        seatMatrixEntries.push({
-          instituteCode: row.instituteCode,
-          specialtySlug: row.specialtySlug,
-          year: doc.year,
-          matrixCategory: doc.category,
-          seats: row.totalSeats,
-        });
+      if (row.specialtySlug) {
+        seatMatrixEntries.push(
+          ...seatMatrixEntriesFromRow(row, doc.year, doc.category)
+        );
       }
     }
   }
@@ -384,7 +407,7 @@ async function upsertSeatMatrix(
       collegeId,
       specialtyId,
       year: entry.year,
-      category: Category.GENERAL,
+      category: entry.reservationCategory,
       quota,
       sourceId,
     },
@@ -401,7 +424,7 @@ async function upsertSeatMatrix(
       collegeId,
       specialtyId,
       year: entry.year,
-      category: Category.GENERAL,
+      category: entry.reservationCategory,
       quota,
       seats: entry.seats,
       sourceId,
