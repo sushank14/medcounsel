@@ -113,7 +113,7 @@ function resolveInstituteBefore(lines: string[], fromIdx: number, maxLookback = 
     if (codeEmbedded) {
       instituteCode = codeEmbedded[2];
       nameParts.unshift(codeEmbedded[1].trim());
-      break;
+      continue;
     }
 
     if (INSTITUTE_TYPE.test(line)) {

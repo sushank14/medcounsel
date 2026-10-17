@@ -386,7 +386,14 @@ export function uniqueInstitutes(rows: ParsedSeatMatrixRow[]) {
   for (const row of rows) {
     const key = row.instituteCode;
     const existing = map.get(key);
-    if (!existing || row.state !== "Unknown") map.set(key, row);
+    if (!existing) {
+      map.set(key, row);
+      continue;
+    }
+    const preferRow =
+      row.institute.length > existing.institute.length ||
+      (row.state !== "Unknown" && existing.state === "Unknown");
+    if (preferRow) map.set(key, row);
   }
   return [...map.values()];
 }

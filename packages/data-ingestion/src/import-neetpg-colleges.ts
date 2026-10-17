@@ -348,34 +348,148 @@ async function ensureSpecialty(degree: string, specialty: string, slug: string) 
   return created;
 }
 
+async function removeCollegeRecord(collegeId: string) {
+  await prisma.prediction.deleteMany({ where: { collegeId } });
+  await prisma.preferenceItem.deleteMany({ where: { collegeId } });
+  await prisma.fee.deleteMany({ where: { collegeId } });
+  await prisma.bond.deleteMany({ where: { collegeId } });
+  await prisma.stipend.deleteMany({ where: { collegeId } });
+  await prisma.cutoff.deleteMany({ where: { collegeId } });
+  await prisma.seatMatrix.deleteMany({ where: { collegeId } });
+  await prisma.collegeSpecialty.deleteMany({ where: { collegeId } });
+  await prisma.college.delete({ where: { id: collegeId } });
+}
+
+function instituteNamesCompatible(a: string, b: string): boolean {
+  const na = normalizeCollegeName(a);
+  const nb = normalizeCollegeName(b);
+  if (na === nb) return true;
+  const short = na.length < nb.length ? na : nb;
+  const long = na.length < nb.length ? nb : na;
+  return long.includes(short) && short.length >= 12;
+}
+
 async function ensureCollege(rec: InstituteRecord): Promise<{ id: string; isNew: boolean }> {
   const slugBase = slugify(rec.name.split(",")[0]);
   let slug = slugBase;
   let n = 1;
 
   const byCode = await prisma.college.findFirst({ where: { nmcId: rec.instituteCode } });
-  if (byCode) return { id: byCode.id, isNew: false };
+  if (byCode) {
+    if (!instituteNamesCompatible(byCode.name, rec.name)) {
+      await prisma.college.update({
+        where: { id: byCode.id },
+        data: { nmcId: null },
+      });
+    } else {
+      const namePrefix = rec.name.split(",")[0]?.trim().slice(0, 28) ?? "";
+      const sibling =
+        namePrefix.length >= 8
+          ? await prisma.college.findFirst({
+              where: {
+                nmcId: null,
+                id: { not: byCode.id },
+                name: { startsWith: namePrefix },
+                ...(rec.state !== "Unknown" ? { state: rec.state } : {}),
+              },
+            })
+          : null;
 
-  const byNorm = await prisma.college.findFirst({
-    where: {
-      OR: [
-        { name: { equals: rec.name } },
-        { slug: slugBase },
-        { name: { contains: rec.name.slice(0, 40) } },
-      ],
-    },
-  });
-  if (byNorm) {
-    const updated = await prisma.college.update({
-      where: { id: byNorm.id },
-      data: {
-        nmcId: rec.instituteCode,
-        dataStatus: DataStatus.OFFICIAL,
-        state: byNorm.state === "Unknown" ? rec.state : byNorm.state,
-        collegeType: byNorm.collegeType === "GOVT" ? rec.collegeType : byNorm.collegeType,
+      if (sibling && instituteNamesCompatible(sibling.name, rec.name)) {
+        await prisma.collegeSpecialty.deleteMany({ where: { collegeId: byCode.id } });
+        await prisma.cutoff.deleteMany({ where: { collegeId: byCode.id } });
+        const matrices = await prisma.seatMatrix.findMany({ where: { collegeId: byCode.id } });
+        for (const sm of matrices) {
+          const dup = await prisma.seatMatrix.findFirst({
+            where: {
+              collegeId: sibling.id,
+              specialtyId: sm.specialtyId,
+              year: sm.year,
+              category: sm.category,
+              quota: sm.quota,
+            },
+          });
+          if (dup) {
+            await prisma.seatMatrix.delete({ where: { id: sm.id } });
+          } else {
+            await prisma.seatMatrix.update({
+              where: { id: sm.id },
+              data: { collegeId: sibling.id },
+            });
+          }
+        }
+        await removeCollegeRecord(byCode.id);
+        const updated = await prisma.college.update({
+          where: { id: sibling.id },
+          data: {
+            nmcId: rec.instituteCode,
+            name: rec.name.length > sibling.name.length ? rec.name : sibling.name,
+            shortName: displayCollegeName(rec.name).slice(0, 60),
+            state: sibling.state === "Unknown" ? rec.state : sibling.state,
+            city: sibling.city === "Unknown" ? displayCity(rec.city) : sibling.city,
+            dataStatus: DataStatus.OFFICIAL,
+          },
+        });
+        return { id: updated.id, isNew: false };
+      }
+
+      if (rec.name.length > byCode.name.length) {
+        await prisma.college.update({
+          where: { id: byCode.id },
+          data: {
+            name: rec.name,
+            shortName: displayCollegeName(rec.name).slice(0, 60),
+            state: byCode.state === "Unknown" ? rec.state : byCode.state,
+            city: byCode.city === "Unknown" ? displayCity(rec.city) : byCode.city,
+            dataStatus: DataStatus.OFFICIAL,
+          },
+        });
+      }
+      return { id: byCode.id, isNew: false };
+    }
+  }
+
+  const byExactName = await prisma.college.findFirst({ where: { name: rec.name } });
+  if (byExactName) {
+    if (!byExactName.nmcId || byExactName.nmcId === rec.instituteCode) {
+      const updated = await prisma.college.update({
+        where: { id: byExactName.id },
+        data: {
+          nmcId: rec.instituteCode,
+          dataStatus: DataStatus.OFFICIAL,
+          state: byExactName.state === "Unknown" ? rec.state : byExactName.state,
+          collegeType: byExactName.collegeType === "GOVT" ? rec.collegeType : byExactName.collegeType,
+        },
+      });
+      return { id: updated.id, isNew: false };
+    }
+  }
+
+  const namePrefix = rec.name.split(",")[0]?.trim().slice(0, 32);
+  const city = rec.city !== "Unknown" ? rec.city : "";
+  if (namePrefix.length >= 8 && rec.state !== "Unknown") {
+    const byLocal = await prisma.college.findFirst({
+      where: {
+        nmcId: null,
+        state: rec.state,
+        name: { startsWith: namePrefix },
+        ...(city ? { OR: [{ city }, { name: { contains: city } }] } : {}),
       },
     });
-    return { id: updated.id, isNew: false };
+    if (byLocal && instituteNamesCompatible(byLocal.name, rec.name)) {
+      const updated = await prisma.college.update({
+        where: { id: byLocal.id },
+        data: {
+          nmcId: rec.instituteCode,
+          name: rec.name.length > byLocal.name.length ? rec.name : byLocal.name,
+          shortName: displayCollegeName(rec.name).slice(0, 60),
+          city: byLocal.city === "Unknown" ? displayCity(rec.city) : byLocal.city,
+          dataStatus: DataStatus.OFFICIAL,
+          collegeType: byLocal.collegeType === "GOVT" ? rec.collegeType : byLocal.collegeType,
+        },
+      });
+      return { id: updated.id, isNew: false };
+    }
   }
 
   while (await prisma.college.findUnique({ where: { slug } })) {
@@ -463,6 +577,17 @@ async function upsertSeatMatrix(
       where: { id: existing.id },
       data: { seats: entry.seats, sourceId },
     });
+    await prisma.seatMatrix.deleteMany({
+      where: {
+        collegeId,
+        specialtyId,
+        year: entry.year,
+        category: entry.reservationCategory,
+        quota,
+        sourceId,
+        id: { not: existing.id },
+      },
+    });
     return;
   }
   await prisma.seatMatrix.create({
@@ -543,9 +668,6 @@ async function main() {
     yearFilter ? seatMatrixEntries.filter((e) => yearFilter.has(e.year)) : seatMatrixEntries
   );
 
-  type Agg = { entry: SeatMatrixEntry; collegeId: string; specialtyId: string; seats: number };
-  const aggregated = new Map<string, Agg>();
-
   for (const entry of matrixToWrite) {
     let collegeId = collegeIdByCode.get(entry.instituteCode);
     if (!collegeId) {
@@ -560,28 +682,7 @@ async function main() {
     }
 
     const specialty = await ensureSpecialty(entry.degree, entry.specialty, entry.specialtySlug);
-    const quota = quotaFromMatrixCategory(entry.matrixCategory);
-    const aggKey = `${collegeId}|${specialty.id}|${entry.year}|${entry.reservationCategory}|${quota}`;
-    const prev = aggregated.get(aggKey);
-    if (prev) {
-      prev.seats += entry.seats;
-    } else {
-      aggregated.set(aggKey, {
-        entry,
-        collegeId,
-        specialtyId: specialty.id,
-        seats: entry.seats,
-      });
-    }
-  }
-
-  for (const agg of aggregated.values()) {
-    await upsertSeatMatrix(
-      agg.collegeId,
-      agg.specialtyId,
-      { ...agg.entry, seats: agg.seats },
-      seatMatrixSourceId
-    );
+    await upsertSeatMatrix(collegeId, specialty.id, entry, seatMatrixSourceId);
     seatMatricesWritten++;
   }
 
