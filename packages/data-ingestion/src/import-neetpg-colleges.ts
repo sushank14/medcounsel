@@ -117,6 +117,11 @@ import {
 import { displayCollegeName, displayCity, isGarbageCollegeName } from "../../types/src/college-display.js";
 import { inferCollegeTypeFromName } from "../../types/src/college-type.js";
 import { expandInstituteAbbrev } from "./maharashtra-colleges.js";
+import {
+  isGarbageCollegeState,
+  normalizeMccSheetState,
+  resolveCollegeStateFromMatrix,
+} from "./mcc-state-names.js";
 import { slugify, extractStateFromInstitute, normalizeCollegeName, parseCourse } from "./normalizers.js";
 
 const prisma = new PrismaClient();
@@ -210,9 +215,11 @@ function upsertInstitute(
   if (isGarbage(name)) return;
 
   const key = row.instituteCode;
-  const extracted = row.state !== "Unknown" ? { state: row.state, city: "Unknown" } : extractStateFromInstitute(name);
+  const rowState = normalizeMccSheetState(row.state);
+  const extracted =
+    rowState !== "Unknown" ? { state: rowState, city: "Unknown" } : extractStateFromInstitute(name);
   let city = displayCity(extracted.city !== "Unknown" ? extracted.city : name);
-  const state = extracted.state;
+  const state = normalizeMccSheetState(extracted.state);
 
   const abbrevResolved = expandInstituteAbbrev(row.institute, state);
   if (abbrevResolved !== row.institute.replace(/\(\d{5,7}\)\s*$/, "").trim()) {
@@ -235,8 +242,10 @@ function upsertInstitute(
       matrixCategory,
       programs: new Map(),
     });
-  } else if (row.state !== "Unknown" && existing.state === "Unknown") {
-    existing.state = row.state;
+  } else if (source === "SEAT_MATRIX" && state !== "Unknown") {
+    existing.state = resolveCollegeStateFromMatrix(state, existing.state, true);
+  } else if (state !== "Unknown" && (existing.state === "Unknown" || isGarbageCollegeState(existing.state))) {
+    existing.state = state;
   }
 
   const inst = map.get(key)!;
@@ -436,17 +445,27 @@ async function ensureCollege(rec: InstituteRecord): Promise<{ id: string; isNew:
         return { id: updated.id, isNew: false };
       }
 
+      const state = resolveCollegeStateFromMatrix(
+        rec.state,
+        byCode.state,
+        rec.source === "SEAT_MATRIX"
+      );
+      const city = byCode.city === "Unknown" ? displayCity(rec.city) : byCode.city;
+      const patch: {
+        name?: string;
+        shortName?: string;
+        state?: string;
+        city?: string;
+        dataStatus: typeof DataStatus.OFFICIAL;
+      } = { dataStatus: DataStatus.OFFICIAL };
       if (rec.name.length > byCode.name.length) {
-        await prisma.college.update({
-          where: { id: byCode.id },
-          data: {
-            name: rec.name,
-            shortName: displayCollegeName(rec.name).slice(0, 60),
-            state: byCode.state === "Unknown" ? rec.state : byCode.state,
-            city: byCode.city === "Unknown" ? displayCity(rec.city) : byCode.city,
-            dataStatus: DataStatus.OFFICIAL,
-          },
-        });
+        patch.name = rec.name;
+        patch.shortName = displayCollegeName(rec.name).slice(0, 60);
+      }
+      if (state !== byCode.state) patch.state = state;
+      if (city !== byCode.city) patch.city = city;
+      if (Object.keys(patch).length > 1) {
+        await prisma.college.update({ where: { id: byCode.id }, data: patch });
       }
       return { id: byCode.id, isNew: false };
     }
@@ -606,6 +625,35 @@ async function upsertSeatMatrix(
   });
 }
 
+/** Apply MCC Google Sheet / CSV StateName column to college.state (authoritative for AIQ institutes). */
+async function syncOfficialMatrixStates(matrixYears?: number[]) {
+  const docs = getSeatMatrixManifest().filter(
+    (d) =>
+      d.category === "AIQ" &&
+      (!matrixYears?.length || matrixYears.includes(d.year))
+  );
+  let updates = 0;
+  for (const doc of docs) {
+    const { rows, source } = await loadSeatMatrixRows(doc, IMPORT_DIR);
+    if (source !== "csv" || !rows.length) continue;
+    const byCode = new Map<string, string>();
+    for (const r of rows) {
+      const state = normalizeMccSheetState(r.state);
+      if (state !== "Unknown") byCode.set(r.instituteCode, state);
+    }
+    for (const [code, state] of byCode) {
+      const res = await prisma.college.updateMany({
+        where: { nmcId: code },
+        data: { state },
+      });
+      updates += res.count;
+    }
+  }
+  if (updates > 0) {
+    console.log(`\n📍 Synced StateName from official AIQ sheet for ${updates} college record(s)`);
+  }
+}
+
 async function main() {
   const yearArg = process.argv.find((a) => /^\d{4}$/.test(a));
   const matrixYears = yearArg ? [parseInt(yearArg, 10)] : undefined;
@@ -688,6 +736,8 @@ async function main() {
     await upsertSeatMatrix(collegeId, specialty.id, entry, seatMatrixSourceId);
     seatMatricesWritten++;
   }
+
+  await syncOfficialMatrixStates(matrixYears);
 
   const [totalOfficial, withCode, medColleges, dnbHospitals] = await Promise.all([
     prisma.college.count({ where: { dataStatus: "OFFICIAL" } }),

@@ -4,6 +4,7 @@
  */
 import fs from "fs";
 import { INDIAN_STATES } from "@medcounsel/types";
+import { normalizeMccSheetState } from "./mcc-state-names.js";
 import { normalizeCollegeName, parseCourse } from "./normalizers.js";
 import { parseCsvRecords } from "./parse-csv-records.js";
 import type { ParsedSeatMatrixRow, ReservationCategoryKey } from "./parse-seat-matrix-pdf.js";
@@ -48,7 +49,7 @@ function instituteFromCell(raw: string): { code: string; name: string; state: st
   let name = (lines[0] ?? flat.replace(CODE_TAIL, "")).replace(/,\s*$/, "").trim();
   if (name.length > 120) name = name.slice(0, 120).trim();
 
-  const state = stateFromInstituteText(text);
+  const state = normalizeMccSheetState(stateFromInstituteText(text));
   return { code, name, state };
 }
 

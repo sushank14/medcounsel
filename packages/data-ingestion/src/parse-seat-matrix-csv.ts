@@ -3,6 +3,7 @@
  * Columns: StateName, InstituteType, Institute, Quota, Branch, Category, TotalSeats
  */
 import fs from "fs";
+import { normalizeMccSheetState } from "./mcc-state-names.js";
 import { normalizeCollegeName, parseCourse } from "./normalizers.js";
 import { parseCsvRecords } from "./parse-csv-records.js";
 import type {
@@ -69,7 +70,7 @@ export function parseSeatMatrixCsvText(
     const r = records[i];
     if (r.length < 7) continue;
 
-    const state = r[0]?.trim() || "Unknown";
+    const state = normalizeMccSheetState(r[0]?.trim() || "Unknown");
     const instituteRaw = r[2]?.trim() ?? "";
     const quota = r[3]?.trim() ?? "";
     const program = r[4]?.trim() ?? "";
