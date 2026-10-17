@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { GripVertical, X } from "lucide-react";
+import { ChevronDown, ChevronUp, ChevronsDown, ChevronsUp, GripVertical, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import type { FitLevel } from "@medcounsel/types";
@@ -62,6 +62,11 @@ export function ChoiceListEditor({ items, onReorder, onRemove, reordering }: Cho
     },
     [localItems, onReorder]
   );
+
+  const moveTo = async (index: number, target: number) => {
+    const to = Math.max(0, Math.min(localItems.length - 1, target));
+    await commitReorder(index, to);
+  };
 
   const onPointerDown = (index: number, e: React.PointerEvent<HTMLButtonElement>) => {
     if (reordering) return;
@@ -145,9 +150,57 @@ export function ChoiceListEditor({ items, onReorder, onRemove, reordering }: Cho
                 <p className="mt-2 text-xs text-brand-800/90">{item.optimizeNote}</p>
               )}
             </div>
-            <Button variant="ghost" size="sm" onClick={() => onRemove(item.id)} disabled={!!reordering}>
-              <X className="h-4 w-4" />
-            </Button>
+            <div className="flex shrink-0 flex-col items-end gap-0.5">
+              <div className="flex gap-0.5">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 w-8 p-0"
+                  disabled={!!reordering || idx === 0}
+                  aria-label="Move to top"
+                  onClick={() => moveTo(idx, 0)}
+                >
+                  <ChevronsUp className="h-4 w-4" />
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 w-8 p-0"
+                  disabled={!!reordering || idx === 0}
+                  aria-label="Move up"
+                  onClick={() => moveTo(idx, idx - 1)}
+                >
+                  <ChevronUp className="h-4 w-4" />
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 w-8 p-0"
+                  disabled={!!reordering || idx === localItems.length - 1}
+                  aria-label="Move down"
+                  onClick={() => moveTo(idx, idx + 1)}
+                >
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 w-8 p-0"
+                  disabled={!!reordering || idx === localItems.length - 1}
+                  aria-label="Move to bottom"
+                  onClick={() => moveTo(idx, localItems.length - 1)}
+                >
+                  <ChevronsDown className="h-4 w-4" />
+                </Button>
+              </div>
+              <Button variant="ghost" size="sm" onClick={() => onRemove(item.id)} disabled={!!reordering}>
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
         );
       })}
