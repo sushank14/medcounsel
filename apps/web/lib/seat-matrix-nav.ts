@@ -3,7 +3,7 @@ export function seatMatrixHref(
   page?: number
 ): string {
   const q = new URLSearchParams();
-  if (params.source) q.set("source", params.source);
+  if (params.source && params.source !== "nmc") q.set("source", params.source);
   if (params.year) q.set("year", params.year);
   if (params.state) q.set("state", params.state);
   if (params.degree) q.set("degree", params.degree);

@@ -158,8 +158,7 @@ export default async function SeatMatrixPage({
     q: params.q,
   };
 
-  const tableColSpan =
-    5 + (source === "mcc" ? 1 : 0) + (source === "mcc" ? 1 : 0) + (diffYear ? 2 : 0);
+  const tableColSpan = 6 + (source === "mcc" ? 1 : 0) + (diffYear ? 2 : 0);
 
   return (
     <div className="space-y-6">
@@ -237,7 +236,10 @@ export default async function SeatMatrixPage({
       </div>
 
       <form method="GET" className="card flex flex-wrap gap-2 p-4">
-        {source === "mcc" && <input type="hidden" name="source" value="mcc" />}
+        <select name="source" defaultValue={source} className="rounded-lg border px-3 py-2 text-sm">
+          <option value="nmc">NMC master matrix</option>
+          <option value="mcc">MCC counselling matrix</option>
+        </select>
         {source === "mcc" && (
           <select name="year" defaultValue={String(matrixYear)} className="rounded-lg border px-3 py-2 text-sm">
             {[ACTIVE_MCC_SEAT_MATRIX_YEAR, 2025, 2024, 2023].map((y) => (
@@ -280,16 +282,19 @@ export default async function SeatMatrixPage({
             ))}
           </select>
         )}
-        {source === "mcc" && (
-          <select name="category" defaultValue={reservationCategory ?? ""} className="rounded-lg border px-3 py-2 text-sm">
-            <option value="">All categories</option>
-            {RESERVATION_CATEGORIES.map((c) => (
-              <option key={c} value={c}>
-                {CATEGORY_LABELS[c] ?? c}
-              </option>
-            ))}
-          </select>
-        )}
+        <select
+          name="category"
+          defaultValue={reservationCategory ?? ""}
+          className="rounded-lg border px-3 py-2 text-sm"
+          aria-label="Reservation category"
+        >
+          <option value="">All categories</option>
+          {RESERVATION_CATEGORIES.map((c) => (
+            <option key={c} value={c}>
+              {CATEGORY_LABELS[c] ?? c}
+            </option>
+          ))}
+        </select>
         {source === "mcc" && diffYearOptions.length > 0 && (
           <select name="diffYear" defaultValue={diffYear ? String(diffYear) : ""} className="rounded-lg border px-3 py-2 text-sm">
             <option value="">No year diff</option>
@@ -303,6 +308,12 @@ export default async function SeatMatrixPage({
         <button type="submit" className="rounded-lg bg-brand-600 px-4 py-2 text-sm text-white">
           Filter
         </button>
+        {source === "nmc" && (
+          <p className="w-full text-xs text-slate-500">
+            NMC lists total approved seats per course. For General / EWS / OBC / SC / ST / PwD breakdown, choose{" "}
+            <strong>MCC counselling matrix</strong> above.
+          </p>
+        )}
       </form>
 
       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -341,7 +352,7 @@ export default async function SeatMatrixPage({
               <th className="p-3">Type</th>
               <th className="p-3">Course</th>
               {source === "mcc" && <th className="p-3">Quota</th>}
-              {source === "mcc" && <th className="p-3">Category</th>}
+              <th className="p-3">Category</th>
               <th className="p-3">{diffYear ? `Seats ${matrixYear}` : "Seats"}</th>
               {diffYear && <th className="p-3">Seats {diffYear}</th>}
               {diffYear && <th className="p-3">Change</th>}
@@ -389,9 +400,7 @@ export default async function SeatMatrixPage({
                     {source === "mcc" && (
                       <td className="p-3 text-slate-600">{QUOTA_LABELS[row.quota] ?? row.quota}</td>
                     )}
-                    {source === "mcc" && (
-                      <td className="p-3 text-slate-600">{CATEGORY_LABELS[row.category] ?? row.category}</td>
-                    )}
+                    <td className="p-3 text-slate-600">{CATEGORY_LABELS[row.category] ?? row.category}</td>
                     <td className="p-3 font-medium">{row.seats}</td>
                     {diffYear && (
                       <td className="p-3 text-slate-600">{prevSeats !== undefined ? prevSeats : "—"}</td>
