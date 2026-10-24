@@ -34,7 +34,7 @@ npm run fetch:mcc     # Download official PDFs from mcc.nic.in
 npm run import:mcc    # Parse allotments → category-wise closing ranks
 ```
 
-This imports **verified** AIQ cutoffs from MCC final allotment PDFs for rounds 2021–2025.
+This imports AIQ cutoffs from MCC allotment PDFs (2020–2025 final; **2026 Round 1 provisional** when published).
 
 ## Important
 

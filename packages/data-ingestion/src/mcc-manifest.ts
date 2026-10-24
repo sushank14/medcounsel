@@ -9,10 +9,20 @@ export interface MccDocument {
   title: string;
   url: string;
   fileName: string;
+  /** Provisional MCC results — imported as NEEDS_REVIEW until final PDF replaces this entry. */
+  provisional?: boolean;
 }
 
 /** Curated entries (incl. latest 2025 counselling — may not yet be on archive page) */
 const MCC_MANUAL_PDFS: MccDocument[] = [
+  {
+    year: 2026,
+    round: "R1",
+    provisional: true,
+    title: "Provisional NEET-PG Counselling Seats Allotment 2026 Round 1 (AIQ)",
+    url: "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/10/202610231277301968.pdf",
+    fileName: "2026-r1-provisional.pdf",
+  },
   {
     year: 2025,
     round: "R1",

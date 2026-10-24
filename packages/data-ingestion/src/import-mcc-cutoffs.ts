@@ -104,7 +104,13 @@ async function ensureSpecialty(degree: string, specialty: string, slug: string) 
   return spec.id;
 }
 
-async function importCutoffs(cutoffs: CutoffAggregate[], counsellingId: string, roundId: string, sourceId: string) {
+async function importCutoffs(
+  cutoffs: CutoffAggregate[],
+  counsellingId: string,
+  roundId: string,
+  sourceId: string,
+  verificationStatus: VerificationStatus
+) {
   let imported = 0;
   const batch: Parameters<typeof prisma.cutoff.create>[0]["data"][] = [];
 
@@ -131,7 +137,7 @@ async function importCutoffs(cutoffs: CutoffAggregate[], counsellingId: string, 
       rankType: "AIR",
       seats: c.seats,
       sourceId,
-      verificationStatus: VerificationStatus.VERIFIED,
+      verificationStatus,
     });
     imported++;
 
@@ -154,7 +160,7 @@ function parseYearsArg(): number[] {
     return process.argv[flagIdx + 1].split(",").map(Number);
   }
 
-  return [2020, 2021, 2022, 2023, 2024, 2025];
+  return [2020, 2021, 2022, 2023, 2024, 2025, 2026];
 }
 
 async function main() {
@@ -202,9 +208,19 @@ async function main() {
       where: { counsellingId: counselling.id, year: doc.year, roundId: round.id },
     });
 
-    const count = await importCutoffs(cutoffs, counselling.id, round.id, source.id);
+    const verificationStatus = doc.provisional
+      ? VerificationStatus.NEEDS_REVIEW
+      : VerificationStatus.VERIFIED;
+    const count = await importCutoffs(
+      cutoffs,
+      counselling.id,
+      round.id,
+      source.id,
+      verificationStatus
+    );
     totalCutoffs += count;
-    console.log(`   ✓ ${allotments.length} allotments → ${cutoffs.length} cutoffs imported`);
+    const tag = doc.provisional ? " (provisional → NEEDS_REVIEW)" : "";
+    console.log(`   ✓ ${allotments.length} allotments → ${cutoffs.length} cutoffs imported${tag}`);
   }
 
   const officialColleges = await prisma.college.count({ where: { dataStatus: "OFFICIAL" } });

@@ -352,7 +352,7 @@ export const NEET_PG_2026_NEWS: CounsellingNewsItem[] = [
     date: "2026-10-07",
     title: "Cutoff data on MedCounsel",
     summary:
-      "Historical MCC AIQ and Maharashtra SML cutoffs (2020–2025) are live. Build your choice list before Round 1 choice filling opens on 13 October.",
+      "MCC AIQ cutoffs 2020–2025 (final) plus 2026 Round 1 provisional allotment are on MedCounsel — use My Chances and choice list tools for Round 2 planning.",
     tag: "cutoff",
   },
 ];

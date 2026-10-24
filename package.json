@@ -14,6 +14,8 @@
     "db:migrate": "npm run migrate --workspace=@medcounsel/database",
     "db:seed": "npm run seed --workspace=@medcounsel/database",
     "import:mcc": "npm run import-all --workspace=@medcounsel/data-ingestion",
+    "fetch:mcc-2026": "npm run fetch-mcc-2026 --workspace=@medcounsel/data-ingestion",
+    "import:mcc-2026": "npm run import-mcc-2026 --workspace=@medcounsel/data-ingestion",
     "fetch:mcc": "npm run fetch-mcc --workspace=@medcounsel/data-ingestion",
     "fetch:maharashtra": "npm run fetch-maharashtra --workspace=@medcounsel/data-ingestion",
     "import:maharashtra": "npm run import-maharashtra --workspace=@medcounsel/data-ingestion",

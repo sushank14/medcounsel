@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const PIPELINES = [
-  { id: "mcc", label: "Import MCC cutoffs", desc: "AIQ allotment PDFs 2020–2025" },
+  { id: "mcc", label: "Import MCC cutoffs", desc: "AIQ allotment PDFs 2020–2026 (2026 R1 provisional)" },
   { id: "neetpg-colleges", label: "Import NEET-PG colleges", desc: "Seat matrix + all institutes" },
   { id: "maharashtra", label: "Import Maharashtra SML", desc: "State counselling 2025" },
   { id: "fees", label: "Apply fee/stipend estimates", desc: "NMC-scale defaults by college type" },

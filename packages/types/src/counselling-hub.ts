@@ -47,7 +47,8 @@ export const AIQ_COUNSELLING: CounsellingTrackConfig = {
   exitNote:
     "Resignation / non-reporting rules vary by round — always confirm on mcc.nic.in before the deadline.",
   supported: true,
-  dataCoverage: "Official MCC allotment cutoffs 2020–2025 · NMC seat matrix 2026–27",
+  dataCoverage:
+    "MCC AIQ cutoffs 2020–2025 (final) · 2026 Round 1 provisional · NMC seat matrix 2026–27",
 };
 
 export const STATE_COUNSELLING_REGISTRY: StateCounsellingConfig[] = [

@@ -80,6 +80,11 @@ export function PredictionCard({ result, showActions = true }: { result: Predict
               <div key={`${y.year}-${y.round}`} className="text-xs">
                 <span className="text-slate-500">
                   {y.year}
+                  {y.year === 2026 && y.round === "R1" && (
+                    <span className="ml-0.5 text-amber-700" title="MCC provisional Round 1 allotment">
+                      (prov.)
+                    </span>
+                  )}
                   {y.round !== "R1" && (
                     <span className="ml-0.5 text-slate-400">({y.round.replace("_", " ")})</span>
                   )}

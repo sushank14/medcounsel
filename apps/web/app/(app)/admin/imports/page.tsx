@@ -81,10 +81,12 @@ npm run import:nmc-seat-matrix-2026   # Import parsed JSON into database`}
       </div>
 
       <div className="card p-5">
-        <h2 className="mb-2 font-semibold">MCC All India Quota (2020–2025)</h2>
+        <h2 className="mb-2 font-semibold">MCC All India Quota (2020–2026)</h2>
         <pre className="rounded-lg bg-slate-900 p-3 text-xs text-slate-100">
 {`npm run fetch:mcc              # Download allotment PDFs from mcc.nic.in
 npm run import:mcc             # Parse & import AIQ cutoffs (AIR ranks)
+npm run fetch:mcc-2026         # 2026 R1 provisional PDF only
+npm run import:mcc-2026        # Import 2026 R1 provisional cutoffs (prod.db)
 npm run import:neetpg-all      # Import ALL NEET-PG colleges from seat matrices`}
         </pre>
       </div>
