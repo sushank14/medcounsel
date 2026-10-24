@@ -1,10 +1,19 @@
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
+import { PredictionAccuracyPanel } from "@/components/prediction/prediction-accuracy-panel";
+import { loadBacktestReport } from "@/lib/backtest-metrics";
 
 export default function DisclaimerPage() {
+  const backtest = loadBacktestReport();
+
   return (
     <div className="mx-auto max-w-3xl page">
       <h1 className="text-3xl font-bold">Disclaimer & Legal</h1>
       <DisclaimerBanner />
+      {backtest && (
+        <div className="mb-4">
+          <PredictionAccuracyPanel report={backtest} />
+        </div>
+      )}
       <div className="prose prose-slate space-y-4 text-sm text-slate-700">
         <section className="card p-6">
           <h2 className="text-lg font-semibold">Counselling Assistance Only</h2>

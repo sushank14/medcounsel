@@ -4,7 +4,9 @@ import { BackLink } from "@/components/ui/back-link";
 import { prisma } from "@medcounsel/database";
 import { Badge } from "@/components/ui/badge";
 import { getDataStats } from "@/lib/data-stats";
+import { loadBacktestReport } from "@/lib/backtest-metrics";
 import { ImportTrigger } from "@/components/admin/import-trigger";
+import { PredictionAccuracyPanel } from "@/components/prediction/prediction-accuracy-panel";
 
 export default async function AdminImportsPage() {
   const session = await auth();
@@ -13,6 +15,7 @@ export default async function AdminImportsPage() {
   if (user?.role !== "ADMIN") redirect("/dashboard");
 
   const stats = await getDataStats();
+  const backtest = loadBacktestReport();
 
   const imports = await prisma.dataImport.findMany({
     include: { adminUser: true },
@@ -67,6 +70,8 @@ export default async function AdminImportsPage() {
         )}
       </div>
 
+      {backtest && <PredictionAccuracyPanel report={backtest} />}
+
       <ImportTrigger />
 
       <div className="card p-5">
@@ -87,7 +92,8 @@ npm run import:nmc-seat-matrix-2026   # Import parsed JSON into database`}
 npm run import:mcc             # Parse & import AIQ cutoffs (AIR ranks)
 npm run fetch:mcc-2026         # 2026 R1 provisional PDF only
 npm run import:mcc-2026        # Import 2026 R1 provisional cutoffs (prod.db)
-npm run import:neetpg-all      # Import ALL NEET-PG colleges from seat matrices`}
+npm run import:neetpg-all      # Import ALL NEET-PG colleges from seat matrices
+npm run backtest:predictions   # Hold-out fit-label accuracy → data/reports/`}
         </pre>
       </div>
 

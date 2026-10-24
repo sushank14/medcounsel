@@ -41,6 +41,14 @@ This imports AIQ cutoffs from MCC allotment PDFs (2020–2025 final; **2026 Roun
 Demo seed data is marked **DEMO**. Official MCC imports are marked **VERIFIED/OFFICIAL**.
 Predictions are estimates and do not guarantee admission.
 
+## Prediction backtest (hold-out accuracy)
+
+```bash
+npm run backtest:predictions   # Writes data/reports/backtest-predictions.json
+```
+
+Results appear on **Disclaimer** and **Admin → Imports**. Re-run after MCC cutoff imports.
+
 ## Project Structure
 
 ```

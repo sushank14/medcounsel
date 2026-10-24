@@ -1,0 +1,253 @@
+{
+  "generatedAt": "2026-10-24T05:03:03.332Z",
+  "methodology": "For each official AIQ seat in the test year, training uses only prior years' closing ranks (same college, course, category, quota). Fit labels use the same classifyFit rules as My Chances. At closing rank: success if STRONG or POSSIBLE. At closing+3000 AIR: success if BORDERLINE or DIFFICULT.",
+  "slices": [
+    {
+      "testYear": 2023,
+      "round": "R1",
+      "category": "GENERAL",
+      "counsellingCode": "AIQ",
+      "seatsWithHistory": 1846,
+      "minHistoryYears": 2,
+      "atClosingRank": {
+        "strongOrPossible": 1084,
+        "pct": 58.7
+      },
+      "atClosingRankPlus3000": {
+        "difficultOrBorderline": 1226,
+        "pct": 66.4
+      },
+      "medianAbsError": {
+        "mean": 7426,
+        "p50": 2603,
+        "p90": 19543
+      },
+      "withinMedianBand": {
+        "band": 3000,
+        "pct": 54.7
+      }
+    },
+    {
+      "testYear": 2023,
+      "round": "R1",
+      "category": "OBC",
+      "counsellingCode": "AIQ",
+      "seatsWithHistory": 9,
+      "minHistoryYears": 2,
+      "atClosingRank": {
+        "strongOrPossible": 9,
+        "pct": 100
+      },
+      "atClosingRankPlus3000": {
+        "difficultOrBorderline": 0,
+        "pct": 0
+      },
+      "medianAbsError": {
+        "mean": 5674,
+        "p50": 2241,
+        "p90": 24870
+      },
+      "withinMedianBand": {
+        "band": 3000,
+        "pct": 55.6
+      }
+    },
+    {
+      "testYear": 2023,
+      "round": "R1",
+      "category": "EWS",
+      "counsellingCode": "AIQ",
+      "seatsWithHistory": 209,
+      "minHistoryYears": 2,
+      "atClosingRank": {
+        "strongOrPossible": 136,
+        "pct": 65.1
+      },
+      "atClosingRankPlus3000": {
+        "difficultOrBorderline": 158,
+        "pct": 75.6
+      },
+      "medianAbsError": {
+        "mean": 4450,
+        "p50": 1770,
+        "p90": 10303
+      },
+      "withinMedianBand": {
+        "band": 3000,
+        "pct": 68.4
+      }
+    },
+    {
+      "testYear": 2024,
+      "round": "R1",
+      "category": "GENERAL",
+      "counsellingCode": "AIQ",
+      "seatsWithHistory": 2426,
+      "minHistoryYears": 2,
+      "atClosingRank": {
+        "strongOrPossible": 2220,
+        "pct": 91.5
+      },
+      "atClosingRankPlus3000": {
+        "difficultOrBorderline": 449,
+        "pct": 18.5
+      },
+      "medianAbsError": {
+        "mean": 9389,
+        "p50": 3111,
+        "p90": 26304
+      },
+      "withinMedianBand": {
+        "band": 3000,
+        "pct": 48.8
+      }
+    },
+    {
+      "testYear": 2024,
+      "round": "R1",
+      "category": "OBC",
+      "counsellingCode": "AIQ",
+      "seatsWithHistory": 67,
+      "minHistoryYears": 2,
+      "atClosingRank": {
+        "strongOrPossible": 48,
+        "pct": 71.6
+      },
+      "atClosingRankPlus3000": {
+        "difficultOrBorderline": 48,
+        "pct": 71.6
+      },
+      "medianAbsError": {
+        "mean": 3184,
+        "p50": 1432,
+        "p90": 8259
+      },
+      "withinMedianBand": {
+        "band": 3000,
+        "pct": 74.6
+      }
+    },
+    {
+      "testYear": 2024,
+      "round": "R1",
+      "category": "EWS",
+      "counsellingCode": "AIQ",
+      "seatsWithHistory": 371,
+      "minHistoryYears": 2,
+      "atClosingRank": {
+        "strongOrPossible": 280,
+        "pct": 75.5
+      },
+      "atClosingRankPlus3000": {
+        "difficultOrBorderline": 232,
+        "pct": 62.5
+      },
+      "medianAbsError": {
+        "mean": 4581,
+        "p50": 1653,
+        "p90": 11405
+      },
+      "withinMedianBand": {
+        "band": 3000,
+        "pct": 64.7
+      }
+    },
+    {
+      "testYear": 2025,
+      "round": "R1",
+      "category": "GENERAL",
+      "counsellingCode": "AIQ",
+      "seatsWithHistory": 2874,
+      "minHistoryYears": 2,
+      "atClosingRank": {
+        "strongOrPossible": 2661,
+        "pct": 92.6
+      },
+      "atClosingRankPlus3000": {
+        "difficultOrBorderline": 505,
+        "pct": 17.6
+      },
+      "medianAbsError": {
+        "mean": 8998,
+        "p50": 2970,
+        "p90": 24919
+      },
+      "withinMedianBand": {
+        "band": 3000,
+        "pct": 50.1
+      }
+    },
+    {
+      "testYear": 2025,
+      "round": "R1",
+      "category": "OBC",
+      "counsellingCode": "AIQ",
+      "seatsWithHistory": 205,
+      "minHistoryYears": 2,
+      "atClosingRank": {
+        "strongOrPossible": 190,
+        "pct": 92.7
+      },
+      "atClosingRankPlus3000": {
+        "difficultOrBorderline": 49,
+        "pct": 23.9
+      },
+      "medianAbsError": {
+        "mean": 8844,
+        "p50": 2298,
+        "p90": 27786
+      },
+      "withinMedianBand": {
+        "band": 3000,
+        "pct": 56.6
+      }
+    },
+    {
+      "testYear": 2025,
+      "round": "R1",
+      "category": "EWS",
+      "counsellingCode": "AIQ",
+      "seatsWithHistory": 500,
+      "minHistoryYears": 2,
+      "atClosingRank": {
+        "strongOrPossible": 416,
+        "pct": 83.2
+      },
+      "atClosingRankPlus3000": {
+        "difficultOrBorderline": 221,
+        "pct": 44.2
+      },
+      "medianAbsError": {
+        "mean": 4109,
+        "p50": 1560,
+        "p90": 8975
+      },
+      "withinMedianBand": {
+        "band": 3000,
+        "pct": 69.4
+      }
+    }
+  ],
+  "overall": {
+    "label": "All evaluated slices (weighted)",
+    "seatsWithHistory": 8507,
+    "minHistoryYears": 2,
+    "atClosingRank": {
+      "strongOrPossible": 7044,
+      "pct": 82.8
+    },
+    "atClosingRankPlus3000": {
+      "difficultOrBorderline": 2888,
+      "pct": 33.9
+    },
+    "medianAbsError": {
+      "mean": 8124,
+      "p50": 2970,
+      "p90": 3111
+    },
+    "withinMedianBand": {
+      "band": 3000,
+      "pct": 53.3
+    }
+  }
+}

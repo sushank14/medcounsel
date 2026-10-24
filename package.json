@@ -16,6 +16,8 @@
     "import:mcc": "npm run import-all --workspace=@medcounsel/data-ingestion",
     "fetch:mcc-2026": "npm run fetch-mcc-2026 --workspace=@medcounsel/data-ingestion",
     "import:mcc-2026": "npm run import-mcc-2026 --workspace=@medcounsel/data-ingestion",
+    "backtest:predictions": "npm run backtest-predictions --workspace=@medcounsel/data-ingestion",
+    "test:prediction-engine": "npm run test --workspace=@medcounsel/prediction-engine",
     "fetch:mcc": "npm run fetch-mcc --workspace=@medcounsel/data-ingestion",
     "fetch:maharashtra": "npm run fetch-maharashtra --workspace=@medcounsel/data-ingestion",
     "import:maharashtra": "npm run import-maharashtra --workspace=@medcounsel/data-ingestion",

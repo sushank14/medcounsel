@@ -33,10 +33,12 @@
     "fix-dnb-degrees": "tsx src/fix-dnb-degrees.ts",
     "import-nmc-seat-matrix-2026": "tsx src/import-nmc-seat-matrix-2026.ts",
     "purge-demo-colleges": "tsx src/purge-demo-colleges.ts",
-    "test:scenarios": "tsx src/test-scenarios.ts"
+    "test:scenarios": "tsx src/test-scenarios.ts",
+    "backtest-predictions": "tsx src/backtest-predictions.ts"
   },
   "dependencies": {
     "@medcounsel/database": "*",
+    "@medcounsel/prediction-engine": "*",
     "@medcounsel/types": "*",
     "pdf-parse": "^1.1.1"
   },
