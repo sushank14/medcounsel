@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { auth } from "@/lib/auth";
 import { prisma } from "@medcounsel/database";
+import { loadCutoffClosesForSeatRows } from "@/lib/seat-matrix-cutoff-join";
+import { formatRank } from "@/lib/utils";
 import {
   ACTIVE_MCC_SEAT_MATRIX_YEAR,
   ACTIVE_SEAT_MATRIX_ACADEMIC_YEAR,
@@ -50,11 +53,20 @@ export default async function SeatMatrixPage({
     quota?: string;
     category?: string;
     diffYear?: string;
+    mhRanks?: string;
     q?: string;
     page?: string;
   }>;
 }) {
   const params = await searchParams;
+  const session = await auth();
+  const profile = session?.user?.id
+    ? await prisma.candidateProfile.findFirst({
+        where: { userId: session.user.id, isActive: true },
+        select: { rank: true, rankType: true, category: true, domicileState: true, counsellingPref: true },
+      })
+    : null;
+
   const page = Math.max(1, parseInt(params.page ?? "1", 10) || 1);
   const { source, matrixYear, reservationCategory, categoryParam, selectedCourses, where } =
     resolveSeatMatrixFilters(params);
@@ -177,6 +189,21 @@ export default async function SeatMatrixPage({
 
   const diffYearOptions = [2026, 2025, 2024, 2023].filter((y) => y !== matrixYear);
 
+  const showMaharashtraRanks =
+    source === "mcc" && (params.state === "Maharashtra" || params.mhRanks === "1");
+
+  const cutoffCloses =
+    showMaharashtraRanks && rows.length > 0
+      ? await loadCutoffClosesForSeatRows(
+          rows.map((r) => ({
+            collegeId: r.collegeId,
+            specialtyId: r.specialtyId,
+            category: r.category,
+          })),
+          { smlYear: 2025, airYear: 2025, includeProvisionalAiq: true }
+        )
+      : new Map();
+
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const filterParams = {
     source: source === "mcc" ? "mcc" : undefined,
@@ -190,7 +217,8 @@ export default async function SeatMatrixPage({
     q: params.q,
   };
 
-  const tableColSpan = 7 + (source === "mcc" ? 1 : 0) + (diffYear ? 2 : 0);
+  const rankColCount = showMaharashtraRanks ? (profile ? 3 : 2) : 0;
+  const tableColSpan = 7 + (source === "mcc" ? 1 : 0) + (diffYear ? 2 : 0) + rankColCount;
 
   const pageCourseCount = new Set(rows.map((r) => `${r.collegeId}|${r.specialtyId}`)).size;
   const allMatchingCourses = matchingCourseGroups.length;
@@ -241,6 +269,37 @@ export default async function SeatMatrixPage({
         title="PG Seat Matrix"
         description="Official approved seats by college, course, and quota — NMC master matrix and MCC counselling matrices."
       />
+
+      {params.state !== "Maharashtra" && (
+        <div className="card card-tile border-indigo-100 bg-indigo-50/50 p-4 text-sm text-slate-700">
+          <p className="font-medium text-indigo-950">Maharashtra candidates</p>
+          <p className="mt-1">
+            Compare <strong>2026 vs 2025</strong> MCC seats at Maharashtra institutes with{" "}
+            <strong>2025 SML</strong> (state CAP) and <strong>AIQ</strong> closing ranks.
+          </p>
+          <Link
+            href={seatMatrixHref({
+              source: "mcc",
+              year: String(ACTIVE_MCC_SEAT_MATRIX_YEAR),
+              state: "Maharashtra",
+              diffYear: "2025",
+              mhRanks: "1",
+            })}
+            className="mt-2 inline-block font-medium text-brand-600 hover:underline"
+          >
+            Open Maharashtra seat matrix + ranks →
+          </Link>
+        </div>
+      )}
+
+      {showMaharashtraRanks && (
+        <p className="text-sm text-slate-600">
+          <strong>Maharashtra view:</strong> Seat counts from official MCC matrices.{" "}
+          <strong>2025 SML close</strong> = Maharashtra CAP Round 1 (state quota counselling).{" "}
+          <strong>AIQ close</strong> = MCC All India Quota at the same college (2025 final or 2026 R1 provisional).
+          State-quota seat counts are not split in MCC PDFs — use NMC master matrix for total approved intake.
+        </p>
+      )}
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className={`card card-tile ${source === "nmc" ? "ring-2 ring-brand-500" : ""}`}>
@@ -356,7 +415,7 @@ export default async function SeatMatrixPage({
         {source === "mcc" && (
           <select name="quota" defaultValue={params.quota ?? ""} className={fieldSelect}>
             <option value="">All quotas</option>
-            {["AIQ", "MANAGEMENT", "IQ", "NRI"].map((q) => (
+            {["AIQ", "MANAGEMENT", "IQ", "NRI", "STATE"].map((q) => (
               <option key={q} value={q}>
                 {QUOTA_LABELS[q] ?? q}
               </option>
@@ -492,6 +551,13 @@ export default async function SeatMatrixPage({
               <th className="px-4 py-3.5">{diffYear ? `Seats ${matrixYear}` : "Seats"}</th>
               {diffYear && <th className="px-4 py-3.5">Seats {diffYear}</th>}
               {diffYear && <th className="px-4 py-3.5">Change</th>}
+              {showMaharashtraRanks && (
+                <>
+                  <th className="px-4 py-3.5">2025 SML close</th>
+                  <th className="px-4 py-3.5">AIQ close</th>
+                  {profile && <th className="px-4 py-3.5">Your rank Δ</th>}
+                </>
+              )}
               <th className="w-[108px] px-4 py-3.5">Add</th>
             </tr>
           </thead>
@@ -523,6 +589,16 @@ export default async function SeatMatrixPage({
                 const prevSeats = diffYear ? diffMap.get(diffKey) : undefined;
                 const delta =
                   diffYear && prevSeats !== undefined ? row.seats - prevSeats : diffYear ? null : undefined;
+                const closeKey = `${row.collegeId}|${row.specialtyId}|${row.category}`;
+                const closes = cutoffCloses.get(closeKey);
+                const useSml =
+                  profile?.rankType === "SML" ||
+                  profile?.counsellingPref === "STATE" ||
+                  profile?.domicileState === "Maharashtra";
+                const refClose = useSml ? closes?.smlClose : closes?.airClose ?? closes?.smlClose;
+                const refType = useSml && closes?.smlClose ? "SML" : "AIR";
+                const rankDiff =
+                  profile && refClose != null ? profile.rank - refClose : null;
 
                 return (
                   <tr key={row.id} className="border-b border-slate-100 hover:bg-slate-50/80">
@@ -568,6 +644,40 @@ export default async function SeatMatrixPage({
                             ? `+${delta}`
                             : String(delta)}
                       </td>
+                    )}
+                    {showMaharashtraRanks && (
+                      <>
+                        <td className="px-4 py-3.5 text-slate-700">
+                          {closes?.smlClose != null ? formatRank(closes.smlClose, "SML") : "—"}
+                        </td>
+                        <td className="px-4 py-3.5 text-slate-700">
+                          {closes?.airClose != null ? (
+                            <>
+                              {formatRank(closes.airClose, "AIR")}
+                              {closes.airYear === 2026 && (
+                                <span className="ml-1 text-[10px] text-amber-700">prov.</span>
+                              )}
+                            </>
+                          ) : (
+                            "—"
+                          )}
+                        </td>
+                        {profile && (
+                          <td
+                            className={`px-4 py-3.5 text-xs font-medium ${
+                              rankDiff == null
+                                ? "text-slate-400"
+                                : rankDiff <= 0
+                                  ? "text-emerald-700"
+                                  : "text-red-600"
+                            }`}
+                          >
+                            {rankDiff == null || refClose == null
+                              ? "—"
+                              : `${rankDiff <= 0 ? "+" : "−"}${Math.abs(rankDiff).toLocaleString("en-IN")} vs ${refType}`}
+                          </td>
+                        )}
+                      </>
                     )}
                     <td className="px-4 py-3.5">
                       <AddToChoiceButton

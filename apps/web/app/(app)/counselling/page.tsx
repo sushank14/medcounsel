@@ -157,9 +157,17 @@ export default async function CounsellingHubPage() {
                 </a>
               )}
               {state.supported && state.stateCode === "MAHARASHTRA" && (
-                <Link href="/my-chances" className="ml-4 mt-3 inline-block text-sm text-brand-600 hover:underline">
-                  My MH options →
-                </Link>
+                <span className="mt-3 block space-x-3">
+                  <Link href="/my-chances" className="text-sm text-brand-600 hover:underline">
+                    My MH options →
+                  </Link>
+                  <Link
+                    href="/seat-matrix?source=mcc&year=2026&state=Maharashtra&diffYear=2025&mhRanks=1"
+                    className="text-sm text-brand-600 hover:underline"
+                  >
+                    Seats vs 2025 ranks →
+                  </Link>
+                </span>
               )}
             </div>
           ))}
