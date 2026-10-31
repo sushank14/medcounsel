@@ -1,253 +1,577 @@
 {
-  "generatedAt": "2026-10-24T05:03:03.332Z",
-  "methodology": "For each official AIQ seat in the test year, training uses only prior years' closing ranks (same college, course, category, quota). Fit labels use the same classifyFit rules as My Chances. At closing rank: success if STRONG or POSSIBLE. At closing+3000 AIR: success if BORDERLINE or DIFFICULT.",
-  "slices": [
+  "generatedAt": "2026-10-31T16:51:35.485Z",
+  "tracks": [
     {
-      "testYear": 2023,
-      "round": "R1",
-      "category": "GENERAL",
       "counsellingCode": "AIQ",
-      "seatsWithHistory": 1846,
-      "minHistoryYears": 2,
-      "atClosingRank": {
-        "strongOrPossible": 1084,
-        "pct": 58.7
-      },
-      "atClosingRankPlus3000": {
-        "difficultOrBorderline": 1226,
-        "pct": 66.4
-      },
-      "medianAbsError": {
-        "mean": 7426,
-        "p50": 2603,
-        "p90": 19543
-      },
-      "withinMedianBand": {
-        "band": 3000,
-        "pct": 54.7
+      "rankType": "AIR",
+      "methodology": "Year hold-out on verified MCC AIQ Round 1 finals. Training = prior years only (same college, course, category, quota). Fit uses AIR-scale buffers. At closing rank → success if STRONG/POSSIBLE. At closing + 3,000 AIR → success if BORDERLINE/DIFFICULT.",
+      "slices": [
+        {
+          "testYear": 2023,
+          "round": "R1",
+          "category": "GENERAL",
+          "counsellingCode": "AIQ",
+          "rankType": "AIR",
+          "aboveCloseOffset": 3000,
+          "seatsWithHistory": 1895,
+          "minHistoryYears": 2,
+          "atClosingRank": {
+            "strongOrPossible": 1168,
+            "pct": 61.6
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 1250,
+            "pct": 66
+          },
+          "medianAbsError": {
+            "mean": 7569,
+            "p50": 2605,
+            "p90": 19995
+          },
+          "withinMedianBand": {
+            "band": 3000,
+            "pct": 54.6
+          }
+        },
+        {
+          "testYear": 2023,
+          "round": "R1",
+          "category": "OBC",
+          "counsellingCode": "AIQ",
+          "rankType": "AIR",
+          "aboveCloseOffset": 3000,
+          "seatsWithHistory": 9,
+          "minHistoryYears": 2,
+          "atClosingRank": {
+            "strongOrPossible": 9,
+            "pct": 100
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 0,
+            "pct": 0
+          },
+          "medianAbsError": {
+            "mean": 5674,
+            "p50": 2241,
+            "p90": 24870
+          },
+          "withinMedianBand": {
+            "band": 3000,
+            "pct": 55.6
+          }
+        },
+        {
+          "testYear": 2023,
+          "round": "R1",
+          "category": "EWS",
+          "counsellingCode": "AIQ",
+          "rankType": "AIR",
+          "aboveCloseOffset": 3000,
+          "seatsWithHistory": 212,
+          "minHistoryYears": 2,
+          "atClosingRank": {
+            "strongOrPossible": 143,
+            "pct": 67.5
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 159,
+            "pct": 75
+          },
+          "medianAbsError": {
+            "mean": 4534,
+            "p50": 1765,
+            "p90": 10303
+          },
+          "withinMedianBand": {
+            "band": 3000,
+            "pct": 68.4
+          }
+        },
+        {
+          "testYear": 2024,
+          "round": "R1",
+          "category": "GENERAL",
+          "counsellingCode": "AIQ",
+          "rankType": "AIR",
+          "aboveCloseOffset": 3000,
+          "seatsWithHistory": 3207,
+          "minHistoryYears": 2,
+          "atClosingRank": {
+            "strongOrPossible": 2829,
+            "pct": 88.2
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 1002,
+            "pct": 31.2
+          },
+          "medianAbsError": {
+            "mean": 7051,
+            "p50": 2421,
+            "p90": 19125
+          },
+          "withinMedianBand": {
+            "band": 3000,
+            "pct": 56.1
+          }
+        },
+        {
+          "testYear": 2024,
+          "round": "R1",
+          "category": "OBC",
+          "counsellingCode": "AIQ",
+          "rankType": "AIR",
+          "aboveCloseOffset": 3000,
+          "seatsWithHistory": 294,
+          "minHistoryYears": 2,
+          "atClosingRank": {
+            "strongOrPossible": 211,
+            "pct": 71.8
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 208,
+            "pct": 70.7
+          },
+          "medianAbsError": {
+            "mean": 2885,
+            "p50": 1775,
+            "p90": 5457
+          },
+          "withinMedianBand": {
+            "band": 3000,
+            "pct": 70.7
+          }
+        },
+        {
+          "testYear": 2024,
+          "round": "R1",
+          "category": "EWS",
+          "counsellingCode": "AIQ",
+          "rankType": "AIR",
+          "aboveCloseOffset": 3000,
+          "seatsWithHistory": 386,
+          "minHistoryYears": 2,
+          "atClosingRank": {
+            "strongOrPossible": 301,
+            "pct": 78
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 252,
+            "pct": 65.3
+          },
+          "medianAbsError": {
+            "mean": 4465,
+            "p50": 1611,
+            "p90": 11249
+          },
+          "withinMedianBand": {
+            "band": 3000,
+            "pct": 65.8
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R1",
+          "category": "GENERAL",
+          "counsellingCode": "AIQ",
+          "rankType": "AIR",
+          "aboveCloseOffset": 3000,
+          "seatsWithHistory": 3821,
+          "minHistoryYears": 2,
+          "atClosingRank": {
+            "strongOrPossible": 3328,
+            "pct": 87.1
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 1229,
+            "pct": 32.2
+          },
+          "medianAbsError": {
+            "mean": 7298,
+            "p50": 2551,
+            "p90": 18489
+          },
+          "withinMedianBand": {
+            "band": 3000,
+            "pct": 53.7
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R1",
+          "category": "OBC",
+          "counsellingCode": "AIQ",
+          "rankType": "AIR",
+          "aboveCloseOffset": 3000,
+          "seatsWithHistory": 520,
+          "minHistoryYears": 2,
+          "atClosingRank": {
+            "strongOrPossible": 343,
+            "pct": 66
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 366,
+            "pct": 70.4
+          },
+          "medianAbsError": {
+            "mean": 4678,
+            "p50": 2451,
+            "p90": 9218
+          },
+          "withinMedianBand": {
+            "band": 3000,
+            "pct": 55.6
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R1",
+          "category": "EWS",
+          "counsellingCode": "AIQ",
+          "rankType": "AIR",
+          "aboveCloseOffset": 3000,
+          "seatsWithHistory": 517,
+          "minHistoryYears": 2,
+          "atClosingRank": {
+            "strongOrPossible": 385,
+            "pct": 74.5
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 311,
+            "pct": 60.2
+          },
+          "medianAbsError": {
+            "mean": 4157,
+            "p50": 1831,
+            "p90": 8978
+          },
+          "withinMedianBand": {
+            "band": 3000,
+            "pct": 66.7
+          }
+        }
+      ],
+      "overall": {
+        "label": "All evaluated slices (weighted)",
+        "seatsWithHistory": 10861,
+        "minHistoryYears": 2,
+        "atClosingRank": {
+          "strongOrPossible": 8717,
+          "pct": 80.3
+        },
+        "atClosingRankPlus3000": {
+          "difficultOrBorderline": 4777,
+          "pct": 44
+        },
+        "medianAbsError": {
+          "mean": 6722,
+          "p50": 2551,
+          "p90": 2605
+        },
+        "withinMedianBand": {
+          "band": 3000,
+          "pct": 56.5
+        }
       }
     },
     {
-      "testYear": 2023,
-      "round": "R1",
-      "category": "OBC",
-      "counsellingCode": "AIQ",
-      "seatsWithHistory": 9,
-      "minHistoryYears": 2,
-      "atClosingRank": {
-        "strongOrPossible": 9,
-        "pct": 100
-      },
-      "atClosingRankPlus3000": {
-        "difficultOrBorderline": 0,
-        "pct": 0
-      },
-      "medianAbsError": {
-        "mean": 5674,
-        "p50": 2241,
-        "p90": 24870
-      },
-      "withinMedianBand": {
-        "band": 3000,
-        "pct": 55.6
-      }
-    },
-    {
-      "testYear": 2023,
-      "round": "R1",
-      "category": "EWS",
-      "counsellingCode": "AIQ",
-      "seatsWithHistory": 209,
-      "minHistoryYears": 2,
-      "atClosingRank": {
-        "strongOrPossible": 136,
-        "pct": 65.1
-      },
-      "atClosingRankPlus3000": {
-        "difficultOrBorderline": 158,
-        "pct": 75.6
-      },
-      "medianAbsError": {
-        "mean": 4450,
-        "p50": 1770,
-        "p90": 10303
-      },
-      "withinMedianBand": {
-        "band": 3000,
-        "pct": 68.4
-      }
-    },
-    {
-      "testYear": 2024,
-      "round": "R1",
-      "category": "GENERAL",
-      "counsellingCode": "AIQ",
-      "seatsWithHistory": 2426,
-      "minHistoryYears": 2,
-      "atClosingRank": {
-        "strongOrPossible": 2220,
-        "pct": 91.5
-      },
-      "atClosingRankPlus3000": {
-        "difficultOrBorderline": 449,
-        "pct": 18.5
-      },
-      "medianAbsError": {
-        "mean": 9389,
-        "p50": 3111,
-        "p90": 26304
-      },
-      "withinMedianBand": {
-        "band": 3000,
-        "pct": 48.8
-      }
-    },
-    {
-      "testYear": 2024,
-      "round": "R1",
-      "category": "OBC",
-      "counsellingCode": "AIQ",
-      "seatsWithHistory": 67,
-      "minHistoryYears": 2,
-      "atClosingRank": {
-        "strongOrPossible": 48,
-        "pct": 71.6
-      },
-      "atClosingRankPlus3000": {
-        "difficultOrBorderline": 48,
-        "pct": 71.6
-      },
-      "medianAbsError": {
-        "mean": 3184,
-        "p50": 1432,
-        "p90": 8259
-      },
-      "withinMedianBand": {
-        "band": 3000,
-        "pct": 74.6
-      }
-    },
-    {
-      "testYear": 2024,
-      "round": "R1",
-      "category": "EWS",
-      "counsellingCode": "AIQ",
-      "seatsWithHistory": 371,
-      "minHistoryYears": 2,
-      "atClosingRank": {
-        "strongOrPossible": 280,
-        "pct": 75.5
-      },
-      "atClosingRankPlus3000": {
-        "difficultOrBorderline": 232,
-        "pct": 62.5
-      },
-      "medianAbsError": {
-        "mean": 4581,
-        "p50": 1653,
-        "p90": 11405
-      },
-      "withinMedianBand": {
-        "band": 3000,
-        "pct": 64.7
-      }
-    },
-    {
-      "testYear": 2025,
-      "round": "R1",
-      "category": "GENERAL",
-      "counsellingCode": "AIQ",
-      "seatsWithHistory": 2874,
-      "minHistoryYears": 2,
-      "atClosingRank": {
-        "strongOrPossible": 2661,
-        "pct": 92.6
-      },
-      "atClosingRankPlus3000": {
-        "difficultOrBorderline": 505,
-        "pct": 17.6
-      },
-      "medianAbsError": {
-        "mean": 8998,
-        "p50": 2970,
-        "p90": 24919
-      },
-      "withinMedianBand": {
-        "band": 3000,
-        "pct": 50.1
-      }
-    },
-    {
-      "testYear": 2025,
-      "round": "R1",
-      "category": "OBC",
-      "counsellingCode": "AIQ",
-      "seatsWithHistory": 205,
-      "minHistoryYears": 2,
-      "atClosingRank": {
-        "strongOrPossible": 190,
-        "pct": 92.7
-      },
-      "atClosingRankPlus3000": {
-        "difficultOrBorderline": 49,
-        "pct": 23.9
-      },
-      "medianAbsError": {
-        "mean": 8844,
-        "p50": 2298,
-        "p90": 27786
-      },
-      "withinMedianBand": {
-        "band": 3000,
-        "pct": 56.6
-      }
-    },
-    {
-      "testYear": 2025,
-      "round": "R1",
-      "category": "EWS",
-      "counsellingCode": "AIQ",
-      "seatsWithHistory": 500,
-      "minHistoryYears": 2,
-      "atClosingRank": {
-        "strongOrPossible": 416,
-        "pct": 83.2
-      },
-      "atClosingRankPlus3000": {
-        "difficultOrBorderline": 221,
-        "pct": 44.2
-      },
-      "medianAbsError": {
-        "mean": 4109,
-        "p50": 1560,
-        "p90": 8975
-      },
-      "withinMedianBand": {
-        "band": 3000,
-        "pct": 69.4
+      "counsellingCode": "MAHARASHTRA",
+      "rankType": "SML",
+      "methodology": "Round hold-out on Maharashtra CAP 2025 selection lists (SML). Train on earlier rounds in the same year; test whether later-round closing ranks fit prior-round statistics. Uses SML-scale buffers (tighter than AIR). At closing + 1,200 SML → expect BORDERLINE/DIFFICULT.",
+      "dataNote": "Only 2025 CAP data in database today. Import 2024+ selection lists when available for year hold-out SML backtests.",
+      "slices": [
+        {
+          "testYear": 2025,
+          "round": "R2",
+          "category": "GENERAL",
+          "counsellingCode": "MAHARASHTRA",
+          "rankType": "SML",
+          "aboveCloseOffset": 1200,
+          "seatsWithHistory": 236,
+          "minHistoryYears": 1,
+          "atClosingRank": {
+            "strongOrPossible": 131,
+            "pct": 55.5
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 234,
+            "pct": 99.2
+          },
+          "medianAbsError": {
+            "mean": 348,
+            "p50": 202,
+            "p90": 750
+          },
+          "withinMedianBand": {
+            "band": 650,
+            "pct": 85.2
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R2",
+          "category": "OBC",
+          "counsellingCode": "MAHARASHTRA",
+          "rankType": "SML",
+          "aboveCloseOffset": 1200,
+          "seatsWithHistory": 401,
+          "minHistoryYears": 1,
+          "atClosingRank": {
+            "strongOrPossible": 160,
+            "pct": 39.9
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 400,
+            "pct": 99.8
+          },
+          "medianAbsError": {
+            "mean": 445,
+            "p50": 344,
+            "p90": 966
+          },
+          "withinMedianBand": {
+            "band": 650,
+            "pct": 72.3
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R2",
+          "category": "EWS",
+          "counsellingCode": "MAHARASHTRA",
+          "rankType": "SML",
+          "aboveCloseOffset": 1200,
+          "seatsWithHistory": 103,
+          "minHistoryYears": 1,
+          "atClosingRank": {
+            "strongOrPossible": 54,
+            "pct": 52.4
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 103,
+            "pct": 100
+          },
+          "medianAbsError": {
+            "mean": 286,
+            "p50": 207,
+            "p90": 674
+          },
+          "withinMedianBand": {
+            "band": 650,
+            "pct": 88.3
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R2",
+          "category": "SC",
+          "counsellingCode": "MAHARASHTRA",
+          "rankType": "SML",
+          "aboveCloseOffset": 1200,
+          "seatsWithHistory": 184,
+          "minHistoryYears": 1,
+          "atClosingRank": {
+            "strongOrPossible": 93,
+            "pct": 50.5
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 183,
+            "pct": 99.5
+          },
+          "medianAbsError": {
+            "mean": 374,
+            "p50": 232,
+            "p90": 854
+          },
+          "withinMedianBand": {
+            "band": 650,
+            "pct": 79.9
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R2",
+          "category": "ST",
+          "counsellingCode": "MAHARASHTRA",
+          "rankType": "SML",
+          "aboveCloseOffset": 1200,
+          "seatsWithHistory": 91,
+          "minHistoryYears": 1,
+          "atClosingRank": {
+            "strongOrPossible": 45,
+            "pct": 49.5
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 91,
+            "pct": 100
+          },
+          "medianAbsError": {
+            "mean": 309,
+            "p50": 223,
+            "p90": 812
+          },
+          "withinMedianBand": {
+            "band": 650,
+            "pct": 82.4
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R3",
+          "category": "GENERAL",
+          "counsellingCode": "MAHARASHTRA",
+          "rankType": "SML",
+          "aboveCloseOffset": 1200,
+          "seatsWithHistory": 243,
+          "minHistoryYears": 1,
+          "atClosingRank": {
+            "strongOrPossible": 94,
+            "pct": 38.7
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 241,
+            "pct": 99.2
+          },
+          "medianAbsError": {
+            "mean": 785,
+            "p50": 493,
+            "p90": 1939
+          },
+          "withinMedianBand": {
+            "band": 650,
+            "pct": 58.4
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R3",
+          "category": "OBC",
+          "counsellingCode": "MAHARASHTRA",
+          "rankType": "SML",
+          "aboveCloseOffset": 1200,
+          "seatsWithHistory": 434,
+          "minHistoryYears": 1,
+          "atClosingRank": {
+            "strongOrPossible": 128,
+            "pct": 29.5
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 432,
+            "pct": 99.5
+          },
+          "medianAbsError": {
+            "mean": 988,
+            "p50": 832,
+            "p90": 1915
+          },
+          "withinMedianBand": {
+            "band": 650,
+            "pct": 40.6
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R3",
+          "category": "EWS",
+          "counsellingCode": "MAHARASHTRA",
+          "rankType": "SML",
+          "aboveCloseOffset": 1200,
+          "seatsWithHistory": 98,
+          "minHistoryYears": 1,
+          "atClosingRank": {
+            "strongOrPossible": 51,
+            "pct": 52
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 97,
+            "pct": 99
+          },
+          "medianAbsError": {
+            "mean": 603,
+            "p50": 352,
+            "p90": 1567
+          },
+          "withinMedianBand": {
+            "band": 650,
+            "pct": 66.3
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R3",
+          "category": "SC",
+          "counsellingCode": "MAHARASHTRA",
+          "rankType": "SML",
+          "aboveCloseOffset": 1200,
+          "seatsWithHistory": 194,
+          "minHistoryYears": 1,
+          "atClosingRank": {
+            "strongOrPossible": 67,
+            "pct": 34.5
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 193,
+            "pct": 99.5
+          },
+          "medianAbsError": {
+            "mean": 672,
+            "p50": 636,
+            "p90": 1166
+          },
+          "withinMedianBand": {
+            "band": 650,
+            "pct": 50.5
+          }
+        },
+        {
+          "testYear": 2025,
+          "round": "R3",
+          "category": "ST",
+          "counsellingCode": "MAHARASHTRA",
+          "rankType": "SML",
+          "aboveCloseOffset": 1200,
+          "seatsWithHistory": 98,
+          "minHistoryYears": 1,
+          "atClosingRank": {
+            "strongOrPossible": 56,
+            "pct": 57.1
+          },
+          "atClosingRankPlus3000": {
+            "difficultOrBorderline": 98,
+            "pct": 100
+          },
+          "medianAbsError": {
+            "mean": 464,
+            "p50": 343,
+            "p90": 1114
+          },
+          "withinMedianBand": {
+            "band": 650,
+            "pct": 66.3
+          }
+        }
+      ],
+      "overall": {
+        "label": "All evaluated slices (weighted)",
+        "seatsWithHistory": 2082,
+        "minHistoryYears": 1,
+        "atClosingRank": {
+          "strongOrPossible": 879,
+          "pct": 42.2
+        },
+        "atClosingRankPlus3000": {
+          "difficultOrBorderline": 2072,
+          "pct": 99.5
+        },
+        "medianAbsError": {
+          "mean": 596,
+          "p50": 344,
+          "p90": 832
+        },
+        "withinMedianBand": {
+          "band": 650,
+          "pct": 64.8
+        }
       }
     }
-  ],
-  "overall": {
-    "label": "All evaluated slices (weighted)",
-    "seatsWithHistory": 8507,
-    "minHistoryYears": 2,
-    "atClosingRank": {
-      "strongOrPossible": 7044,
-      "pct": 82.8
-    },
-    "atClosingRankPlus3000": {
-      "difficultOrBorderline": 2888,
-      "pct": 33.9
-    },
-    "medianAbsError": {
-      "mean": 8124,
-      "p50": 2970,
-      "p90": 3111
-    },
-    "withinMedianBand": {
-      "band": 3000,
-      "pct": 53.3
-    }
-  }
+  ]
 }

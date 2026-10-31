@@ -47,7 +47,7 @@ Predictions are estimates and do not guarantee admission.
 npm run backtest:predictions   # Writes data/reports/backtest-predictions.json
 ```
 
-Results appear on **Disclaimer** and **Admin → Imports**. Re-run after MCC cutoff imports.
+Results appear on **Disclaimer** and **Admin → Imports** (separate **AIQ AIR** and **Maharashtra SML** tracks). Re-run after cutoff imports.
 
 ## Project Structure
 

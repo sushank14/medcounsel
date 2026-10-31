@@ -4,7 +4,6 @@ import { BackLink } from "@/components/ui/back-link";
 import { prisma } from "@medcounsel/database";
 import { Badge } from "@/components/ui/badge";
 import { getDataStats } from "@/lib/data-stats";
-import { loadBacktestReport } from "@/lib/backtest-metrics";
 import { ImportTrigger } from "@/components/admin/import-trigger";
 import { PredictionAccuracyPanel } from "@/components/prediction/prediction-accuracy-panel";
 
@@ -15,8 +14,6 @@ export default async function AdminImportsPage() {
   if (user?.role !== "ADMIN") redirect("/dashboard");
 
   const stats = await getDataStats();
-  const backtest = loadBacktestReport();
-
   const imports = await prisma.dataImport.findMany({
     include: { adminUser: true },
     orderBy: { createdAt: "desc" },
@@ -70,7 +67,7 @@ export default async function AdminImportsPage() {
         )}
       </div>
 
-      {backtest && <PredictionAccuracyPanel report={backtest} />}
+      <PredictionAccuracyPanel />
 
       <ImportTrigger />
 

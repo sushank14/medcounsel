@@ -21,6 +21,13 @@ describe("fit-classifier", () => {
   it("classifies rank far above range as DIFFICULT", () => {
     expect(classifyFit(30000, stats, recentRanks)).toBe("DIFFICULT");
   });
+
+  it("uses tighter bands for SML scale", () => {
+    const smlRecent = [800, 900, 950];
+    const smlStats = computeStatistics(smlRecent);
+    expect(classifyFit(950, smlStats, smlRecent, "SML")).toBe("POSSIBLE");
+    expect(classifyFit(2500, smlStats, smlRecent, "SML")).toBe("DIFFICULT");
+  });
 });
 
 describe("statistics", () => {

@@ -37,6 +37,7 @@ describe("backtest", () => {
       round: "R1",
       category: "GENERAL",
       counsellingCode: "AIQ",
+      rankType: "AIR",
       minHistoryYears: 2,
       seats: [
         {

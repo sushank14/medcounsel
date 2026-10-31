@@ -102,7 +102,7 @@ function priorityScore(
 
 function rankWindow(rank: number, rankType: "AIR" | "SML") {
   if (rankType === "SML") {
-    return { min: Math.max(1, rank - 3000), max: rank + 8000 };
+    return { min: Math.max(1, rank - 4500), max: rank + 12000 };
   }
   return { min: Math.max(1, Math.floor(rank * 0.4)), max: rank * 2.5 + 15000 };
 }
@@ -252,13 +252,24 @@ export async function generatePredictions(
     if (!passesBudgetFilter(input.budgetRange, fee)) continue;
 
     const closingRanks = group.map((g) => g.closingRank);
-    const recentRanks = group.filter((g) => g.year >= 2024).map((g) => g.closingRank);
+    const latestYear = Math.max(...group.map((g) => g.year));
+    const recentRanks = group
+      .filter((g) => g.year >= latestYear - 1)
+      .map((g) => g.closingRank);
     const stats = computeStatistics(closingRanks);
 
     const effectiveRankType =
       counselling.rankType === "SML" && input.domicileState === "Maharashtra" ? "SML" : "AIR";
 
-    const fitLevel = classifyFit(input.rank, stats, recentRanks.length ? recentRanks : closingRanks);
+    const fitScale =
+      counselling.code === "MAHARASHTRA" || effectiveRankType === "SML" ? "SML" : "AIR";
+
+    const fitLevel = classifyFit(
+      input.rank,
+      stats,
+      recentRanks.length ? recentRanks : closingRanks,
+      fitScale
+    );
     const dataYears = new Set(group.map((g) => g.year)).size;
     const dataRounds = new Set(group.map((g) => `${g.year}-${g.round?.round ?? "R1"}`)).size;
     const { level: confidence, reason: confidenceReason } = scoreConfidence(
