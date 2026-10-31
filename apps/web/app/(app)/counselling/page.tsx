@@ -10,6 +10,8 @@ import {
 import { getTrackStatuses } from "@/lib/counselling-guidance";
 import { eventsByCounselling, formatEventRange, eventPhase } from "@/lib/counselling-calendar";
 import { CounsellingStatusPanel } from "@/components/counselling/counselling-status-panel";
+import { SmlLookupForm } from "@/components/counselling/sml-lookup-form";
+import { loadMaharashtraMeritIndex } from "@/lib/maharashtra-merit-index";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -26,6 +28,7 @@ export default async function CounsellingHubPage() {
   const tracks = getTrackStatuses();
   const aiqEvents = eventsByCounselling("AIQ");
   const mhEvents = eventsByCounselling("MAHARASHTRA");
+  const mhMeritIndex = loadMaharashtraMeritIndex();
 
   const reservedCategories = new Set(["OBC", "SC", "ST", "EWS", "PWD"]);
   const showCategoryExplorer = profile && reservedCategories.has(profile.category);
@@ -163,9 +166,15 @@ export default async function CounsellingHubPage() {
         </div>
       </section>
 
+      {mhMeritIndex && (
+        <section className="section-block">
+          <SmlLookupForm />
+        </section>
+      )}
+
       {mhEvents.length > 0 && (
         <section className="card card-body section-block">
-          <h2 className="mb-3 font-semibold">Maharashtra CAP timeline (expected)</h2>
+          <h2 className="mb-3 font-semibold">Maharashtra CAP timeline</h2>
           <ul className="space-y-1 text-sm text-slate-600">
             {mhEvents.map((e) => (
               <li key={e.title}>

@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { MAHARASHTRA_SELECTION_PDFS } from "./maharashtra-manifest.js";
+import { getMaharashtraManifest } from "./maharashtra-manifest.js";
 
 const IMPORT_DIR = path.resolve(process.cwd(), "../../data/imports/maharashtra");
 
@@ -8,10 +8,10 @@ export async function fetchMaharashtraPdfs(years?: number[]) {
   fs.mkdirSync(IMPORT_DIR, { recursive: true });
 
   const docs = years
-    ? MAHARASHTRA_SELECTION_PDFS.filter((d) => years.includes(d.year))
-    : MAHARASHTRA_SELECTION_PDFS;
+    ? getMaharashtraManifest().filter((d) => years.includes(d.year))
+    : getMaharashtraManifest();
 
-  console.log(`📥 Downloading ${docs.length} official Maharashtra selection PDFs...`);
+  console.log(`📥 Downloading ${docs.length} official Maharashtra PDFs (merit + selection)...`);
 
   for (const doc of docs) {
     const dest = path.join(IMPORT_DIR, doc.fileName);

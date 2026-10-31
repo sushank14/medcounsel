@@ -60,7 +60,8 @@ export const STATE_COUNSELLING_REGISTRY: StateCounsellingConfig[] = [
     supported: true,
     rankType: "SML",
     domicileRequired: true,
-    dataCoverage: "Maharashtra CAP cutoffs 2025 (SML) · Calendar events configured",
+    dataCoverage:
+      "Maharashtra CAP cutoffs 2025 (SML) · 2026 provisional merit list (SML lookup) · Selection list pending",
     notes: "Uses State Merit List (SML), not AIR. Domicile certificate typically required.",
   },
   {

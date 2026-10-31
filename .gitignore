@@ -14,6 +14,8 @@ data/imports/mcc/*-sheet.csv
 data/processed/*
 !data/processed/nmc/
 !data/processed/nmc/**
+!data/processed/maharashtra/
+!data/processed/maharashtra/*-merit-index.json
 .DS_Store
 .idea
 coverage

@@ -21,6 +21,7 @@
     "fetch:mcc": "npm run fetch-mcc --workspace=@medcounsel/data-ingestion",
     "fetch:maharashtra": "npm run fetch-maharashtra --workspace=@medcounsel/data-ingestion",
     "import:maharashtra": "npm run import-maharashtra --workspace=@medcounsel/data-ingestion",
+    "import:maharashtra-merit": "npm run import-maharashtra-merit --workspace=@medcounsel/data-ingestion",
     "fetch:seat-matrix": "npm run fetch-seat-matrix --workspace=@medcounsel/data-ingestion",
     "import:neetpg-colleges": "npm run import-neetpg-colleges --workspace=@medcounsel/data-ingestion",
     "import:neetpg-all": "npm run import-neetpg-all --workspace=@medcounsel/data-ingestion",

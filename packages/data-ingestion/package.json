@@ -14,6 +14,7 @@
     "fetch-maharashtra": "tsx src/fetch-maharashtra-pdfs.ts",
     "parse-maharashtra": "tsx src/parse-maharashtra-pdf.ts",
     "import-maharashtra": "tsx src/import-maharashtra-cutoffs.ts --years 2025",
+    "import-maharashtra-merit": "tsx src/import-maharashtra-merit.ts --year=2026",
     "fetch-seat-matrix": "tsx src/fetch-seat-matrix-pdfs.ts",
     "import-neetpg-colleges": "tsx src/import-neetpg-colleges.ts",
     "import-neetpg-all": "tsx src/fetch-seat-matrix-pdfs.ts && tsx src/import-neetpg-colleges.ts",

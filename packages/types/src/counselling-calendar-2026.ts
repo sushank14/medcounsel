@@ -234,8 +234,8 @@ export const MAHARASHTRA_NEET_PG_2026_EVENTS: CounsellingCalendarEvent[] = [
     counsellingCode: "MAHARASHTRA",
     eventType: "RESULT",
     title: "Maharashtra CAP — Provisional state merit list",
-    startAt: "2026-11-12",
-    status: "expected",
+    startAt: "2026-10-30",
+    status: "official",
     round: "R1",
   },
   {
@@ -324,6 +324,14 @@ export const NEET_PG_2026_ALL_EVENTS: CounsellingCalendarEvent[] = [
 ];
 
 export const NEET_PG_2026_NEWS: CounsellingNewsItem[] = [
+  {
+    date: "2026-10-30",
+    title: "Maharashtra NEET-PG 2026 provisional state merit list",
+    summary:
+      "MAHACET published the common provisional SML (state merit list). Use Counselling Hub to look up your SML rank by NEET roll number. College cutoffs arrive with the Round 1 selection list.",
+    tag: "maharashtra",
+    url: "https://medical2026.mahacet.org/NEET-PGM-2026/instructions-downloadFile/merit-pgm-r1.pdf",
+  },
   {
     date: "2026-10-07",
     title: "MCC NEET-PG 2026 counselling schedule published",
