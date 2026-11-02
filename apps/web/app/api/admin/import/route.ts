@@ -15,6 +15,20 @@ export async function POST(req: Request) {
   const user = await prisma.user.findUnique({ where: { id: session.user.id } });
   if (!canAccessAdmin(user?.role)) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
 
+  if (
+    process.env.NODE_ENV === "production" &&
+    process.env.ALLOW_WEB_IMPORT !== "true" &&
+    process.env.ALLOW_WEB_IMPORT !== "1"
+  ) {
+    return NextResponse.json(
+      {
+        error:
+          "Web-triggered imports are disabled in production. Run ingestion locally or set ALLOW_WEB_IMPORT=true (not recommended on Render).",
+      },
+      { status: 403 }
+    );
+  }
+
   const body = await req.json();
   const pipeline = body.pipeline as string;
 

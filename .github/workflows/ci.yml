@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npm run db:generate
+
+      - name: Prediction engine tests
+        run: npm run test:prediction-engine
+
+      - name: Maharashtra cutoff sanity
+        run: npm run test:maharashtra-cutoff-sanity --workspace=@medcounsel/data-ingestion
+
+      - name: Lint web
+        run: npm run lint --workspace=@medcounsel/web
+
+      - name: Build web
+        run: npm run build

@@ -8,7 +8,7 @@ services:
     region: singapore
     buildCommand: npm install && npm run db:generate && (cd packages/database && DATABASE_URL=file:./prisma/prod.db npx prisma db push) && DATABASE_URL=file:./packages/database/prisma/prod.db npm run fix-dnb-degrees --workspace=@medcounsel/data-ingestion && npm run build
     startCommand: npm run start --workspace=@medcounsel/web
-    healthCheckPath: /login
+    healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
         value: "20"
@@ -21,4 +21,7 @@ services:
       - key: ALLOWED_USERS
         sync: false
       - key: AUTH_DEFAULT_PASSWORD
+        sync: false
+      # Recommended production: AUTH_REQUIRED=true, ALLOWED_USERS, AUTH_DEFAULT_PASSWORD (see DEPLOY.md)
+      - key: AUTH_REQUIRED
         sync: false

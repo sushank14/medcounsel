@@ -57,19 +57,41 @@ export function loadMaharashtraAirSmlIndex(): MaharashtraAirSmlIndexFile | null 
   return null;
 }
 
-export function lookupByAir(air: number): {
+export type AirSmlLookupResult = {
   found: boolean;
+  /** True when SML is interpolated — never used for predictions. */
   estimated: boolean;
   air: number;
+  /** Official SML when found; 0 when unknown. Never interpolated for counselling logic. */
   smlRank: number;
   data?: MaharashtraAirSmlLookup;
   lower?: { air: number; smlRank: number };
   upper?: { air: number; smlRank: number };
   index: MaharashtraAirSmlIndexFile | null;
-} {
+};
+
+function neighborAirPairs(index: MaharashtraAirSmlIndexFile, air: number) {
+  const pairs = Object.entries(index.byAir)
+    .map(([a, v]) => ({ air: parseInt(a, 10), smlRank: v.smlRank }))
+    .sort((x, y) => x.air - y.air);
+  if (pairs.length === 0) return { lower: undefined, upper: undefined };
+  let lower = pairs[0]!;
+  let upper = pairs[pairs.length - 1]!;
+  for (const p of pairs) {
+    if (p.air <= air) lower = p;
+    if (p.air >= air) {
+      upper = p;
+      break;
+    }
+  }
+  return { lower, upper };
+}
+
+/** Official mapping only — exact AIR present on MAHACET registered list (Cap III). */
+export function lookupByAirExact(air: number): AirSmlLookupResult {
   const index = loadMaharashtraAirSmlIndex();
   if (!index) {
-    return { found: false, estimated: true, air, smlRank: 0, index: null };
+    return { found: false, estimated: false, air, smlRank: 0, index: null };
   }
 
   const exact = index.byAir[String(air)];
@@ -84,34 +106,32 @@ export function lookupByAir(air: number): {
     };
   }
 
-  const pairs = Object.entries(index.byAir)
-    .map(([a, v]) => ({ air: parseInt(a, 10), smlRank: v.smlRank }))
-    .sort((x, y) => x.air - y.air);
+  const { lower, upper } = neighborAirPairs(index, air);
+  return { found: false, estimated: false, air, smlRank: 0, lower, upper, index };
+}
 
-  if (pairs.length === 0) {
-    return { found: false, estimated: true, air, smlRank: 0, index };
+/**
+ * Display helper: includes optional linear interpolation for UI hints only.
+ * Do not use `smlRank` from this when estimated=true for predictions or eligibility.
+ */
+export function lookupByAir(air: number): AirSmlLookupResult {
+  const exact = lookupByAirExact(air);
+  if (exact.found || !exact.index) return exact;
+
+  const { lower, upper } = neighborAirPairs(exact.index, air);
+  if (!lower || !upper) {
+    return { ...exact, estimated: false };
   }
-
-  let lower = pairs[0]!;
-  let upper = pairs[pairs.length - 1]!;
-  for (const p of pairs) {
-    if (p.air <= air) lower = p;
-    if (p.air >= air) {
-      upper = p;
-      break;
-    }
-  }
-
   if (air <= lower.air) {
-    return { found: false, estimated: true, air, smlRank: lower.smlRank, lower, upper: lower, index };
+    return { ...exact, estimated: true, smlRank: lower.smlRank, lower, upper: lower };
   }
   if (air >= upper.air) {
-    return { found: false, estimated: true, air, smlRank: upper.smlRank, lower: upper, upper, index };
+    return { ...exact, estimated: true, smlRank: upper.smlRank, lower: upper, upper };
   }
 
   const ratio = (air - lower.air) / (upper.air - lower.air);
   const smlRank = Math.round(lower.smlRank + ratio * (upper.smlRank - lower.smlRank));
-  return { found: false, estimated: true, air, smlRank, lower, upper, index };
+  return { found: false, estimated: true, air, smlRank, lower, upper, index: exact.index };
 }
 
 export function loadMeritIndexMeta(): { year: number; round: string; sourceUrl: string; totalRows: number }[] {

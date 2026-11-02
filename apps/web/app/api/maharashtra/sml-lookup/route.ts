@@ -1,7 +1,16 @@
 import { NextResponse } from "next/server";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
 import { lookupSmlByNeetRoll, loadMaharashtraMeritIndex } from "@/lib/maharashtra-merit-index";
 
 export async function GET(req: Request) {
+  const limited = rateLimit(`sml-lookup:${clientIp(req)}`, 60, 60_000);
+  if (!limited.ok) {
+    return NextResponse.json(
+      { error: "Too many requests. Try again shortly." },
+      { status: 429, headers: { "Retry-After": String(limited.retryAfterSec) } }
+    );
+  }
+
   const { searchParams } = new URL(req.url);
   const roll = searchParams.get("roll")?.trim();
   if (!roll) {

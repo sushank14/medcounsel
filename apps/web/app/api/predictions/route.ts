@@ -74,10 +74,24 @@ export async function GET(req: Request) {
 
   const fitFilter = searchParams.get("fit") ?? undefined;
   const limit = Math.min(parseInt(searchParams.get("limit") ?? "100", 10) || 100, 300);
+  const warnings: string[] = [];
+  if (
+    input.counsellingPref === "STATE" &&
+    input.domicileState === "Maharashtra" &&
+    input.rankType === "AIR"
+  ) {
+    const { lookupByAirExact } = await import("@/lib/maharashtra-air-sml-index");
+    if (!lookupByAirExact(input.rank).found) {
+      warnings.push(
+        "Your AIR is not on the official MAHACET Cap-III registered list, so Maharashtra state predictions are hidden. Enter your SML from the state merit list or use Find My Maharashtra Rank."
+      );
+    }
+  }
+
   let results = await generatePredictionsCached(input, { limit });
   if (fitFilter) {
     results = results.filter((r) => r.fitLevel === fitFilter);
   }
 
-  return NextResponse.json({ results, count: results.length });
+  return NextResponse.json({ results, count: results.length, warnings });
 }

@@ -1,0 +1,8591 @@
+[
+  {
+    "college": "01101",
+    "branch": "0101S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01101",
+    "branch": "0102S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 4,
+    "R3_delta": -6
+  },
+  {
+    "college": "01101",
+    "branch": "0104S",
+    "R1_govt": 0,
+    "R2_updated": 6,
+    "R2_updated_delta": 6,
+    "R3": 6
+  },
+  {
+    "college": "01101",
+    "branch": "0105S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 6,
+    "R3_delta": 6
+  },
+  {
+    "college": "01101",
+    "branch": "0107S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 2,
+    "R3_delta": -8
+  },
+  {
+    "college": "01101",
+    "branch": "0108S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 4,
+    "R3_delta": 2
+  },
+  {
+    "college": "01101",
+    "branch": "0109S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 3,
+    "R3_delta": -5
+  },
+  {
+    "college": "01101",
+    "branch": "0110S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01101",
+    "branch": "0111S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 13,
+    "R3_delta": 13
+  },
+  {
+    "college": "01101",
+    "branch": "0112S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 6,
+    "R3_delta": 6
+  },
+  {
+    "college": "01101",
+    "branch": "0115S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01101",
+    "branch": "0116S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 4,
+    "R3_delta": -1
+  },
+  {
+    "college": "01101",
+    "branch": "0118S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 8,
+    "R3_delta": 8
+  },
+  {
+    "college": "01101",
+    "branch": "0120S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 14,
+    "R3_delta": 14
+  },
+  {
+    "college": "01101",
+    "branch": "0121S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01101",
+    "branch": "0126S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01101",
+    "branch": "0127S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01102",
+    "branch": "0301S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 2,
+    "R3_delta": -8
+  },
+  {
+    "college": "01102",
+    "branch": "0303S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01102",
+    "branch": "0304S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01102",
+    "branch": "0305S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01102",
+    "branch": "0306S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 6,
+    "R3_delta": 2
+  },
+  {
+    "college": "01102",
+    "branch": "0307S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 0,
+    "R3_delta": -7
+  },
+  {
+    "college": "01102",
+    "branch": "0308S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01102",
+    "branch": "0309S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01102",
+    "branch": "0311S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 20,
+    "R3_delta": 20
+  },
+  {
+    "college": "01102",
+    "branch": "0312S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 4,
+    "R3_delta": 4
+  },
+  {
+    "college": "01102",
+    "branch": "0314S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01102",
+    "branch": "0316S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01102",
+    "branch": "0317S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 4,
+    "R3_delta": 4
+  },
+  {
+    "college": "01102",
+    "branch": "0318S",
+    "R1_govt": 0,
+    "R2_updated": 9,
+    "R2_updated_delta": 9,
+    "R3": 2,
+    "R3_delta": -7
+  },
+  {
+    "college": "01102",
+    "branch": "0320S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 4,
+    "R3_delta": 4
+  },
+  {
+    "college": "01102",
+    "branch": "0321S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01102",
+    "branch": "0328S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01102",
+    "branch": "0329S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01102",
+    "branch": "0333S",
+    "R1_govt": 0,
+    "R2_updated": 12,
+    "R2_updated_delta": 12,
+    "R3": 7,
+    "R3_delta": -5
+  },
+  {
+    "college": "01102",
+    "branch": "0334S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01102",
+    "branch": "0335S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01102",
+    "branch": "0340S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01103",
+    "branch": "0202S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01103",
+    "branch": "0203S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01103",
+    "branch": "0204S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01103",
+    "branch": "0205S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 14,
+    "R3_delta": 14
+  },
+  {
+    "college": "01103",
+    "branch": "0206S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 0,
+    "R3_delta": -10
+  },
+  {
+    "college": "01103",
+    "branch": "0207S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 6,
+    "R3_delta": 6
+  },
+  {
+    "college": "01103",
+    "branch": "0208S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01103",
+    "branch": "0209S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 0,
+    "R3_delta": -4
+  },
+  {
+    "college": "01103",
+    "branch": "0211S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 22,
+    "R3_delta": 22
+  },
+  {
+    "college": "01103",
+    "branch": "0215S",
+    "R1_govt": 0,
+    "R2_updated": 11,
+    "R2_updated_delta": 11,
+    "R3": 7,
+    "R3_delta": -4
+  },
+  {
+    "college": "01103",
+    "branch": "0216S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01103",
+    "branch": "0217S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 2,
+    "R3_delta": -5
+  },
+  {
+    "college": "01103",
+    "branch": "0219S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01103",
+    "branch": "0220S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 10,
+    "R3_delta": 10
+  },
+  {
+    "college": "01103",
+    "branch": "0222S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01103",
+    "branch": "0242S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01104",
+    "branch": "0401S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01104",
+    "branch": "0402S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01104",
+    "branch": "0403S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01104",
+    "branch": "0404S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01104",
+    "branch": "0405S",
+    "R1_govt": 0,
+    "R2_updated": 11,
+    "R2_updated_delta": 11,
+    "R3": 7,
+    "R3_delta": -4
+  },
+  {
+    "college": "01104",
+    "branch": "0406S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 5,
+    "R3_delta": 1
+  },
+  {
+    "college": "01104",
+    "branch": "0407S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01104",
+    "branch": "0408S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01104",
+    "branch": "0409S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01104",
+    "branch": "0410S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01104",
+    "branch": "0411S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 13,
+    "R3_delta": 13
+  },
+  {
+    "college": "01104",
+    "branch": "0412S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01104",
+    "branch": "0414S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01104",
+    "branch": "0415S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01104",
+    "branch": "0416S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01104",
+    "branch": "0417S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01104",
+    "branch": "0420S",
+    "R1_govt": 0,
+    "R2_updated": 11,
+    "R2_updated_delta": 11,
+    "R3": 5,
+    "R3_delta": -6
+  },
+  {
+    "college": "01105",
+    "branch": "3305S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01105",
+    "branch": "3306S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01105",
+    "branch": "3309S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01105",
+    "branch": "3310S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01105",
+    "branch": "3312S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01105",
+    "branch": "3314S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01105",
+    "branch": "3320S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01108",
+    "branch": "3701S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01108",
+    "branch": "3702S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01108",
+    "branch": "3705S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01108",
+    "branch": "3707S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01108",
+    "branch": "3709S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01108",
+    "branch": "3710S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01108",
+    "branch": "3711S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 4,
+    "R3_delta": -4
+  },
+  {
+    "college": "01108",
+    "branch": "3712S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01108",
+    "branch": "3718S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 7,
+    "R3_delta": 3
+  },
+  {
+    "college": "01108",
+    "branch": "3720S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01109",
+    "branch": "0601S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01109",
+    "branch": "0605S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01109",
+    "branch": "0606S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01109",
+    "branch": "0607S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01109",
+    "branch": "0608S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01109",
+    "branch": "0609S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01109",
+    "branch": "0611S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01109",
+    "branch": "0612S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01109",
+    "branch": "0617S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01109",
+    "branch": "0618S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 5,
+    "R3_delta": -3
+  },
+  {
+    "college": "01109",
+    "branch": "0619S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01109",
+    "branch": "0620S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01109",
+    "branch": "0621S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01110",
+    "branch": "0703S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01110",
+    "branch": "0704S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01110",
+    "branch": "0705S",
+    "R1_govt": 0,
+    "R2_updated": 6,
+    "R2_updated_delta": 6,
+    "R3": 2,
+    "R3_delta": -4
+  },
+  {
+    "college": "01110",
+    "branch": "0707S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 1,
+    "R3_delta": 1
+  },
+  {
+    "college": "01110",
+    "branch": "0708S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01110",
+    "branch": "0709S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01110",
+    "branch": "0710S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01110",
+    "branch": "0711S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 9,
+    "R3_delta": 9
+  },
+  {
+    "college": "01110",
+    "branch": "0712S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01110",
+    "branch": "0716S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 4,
+    "R3_delta": 4
+  },
+  {
+    "college": "01110",
+    "branch": "0717S",
+    "R1_govt": 0,
+    "R2_updated": 12,
+    "R2_updated_delta": 12,
+    "R3": 5,
+    "R3_delta": -7
+  },
+  {
+    "college": "01110",
+    "branch": "0718S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 6,
+    "R3_delta": -4
+  },
+  {
+    "college": "01110",
+    "branch": "0719S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 5,
+    "R3_delta": -2
+  },
+  {
+    "college": "01110",
+    "branch": "0720S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 6,
+    "R3_delta": 6
+  },
+  {
+    "college": "01110",
+    "branch": "0721S",
+    "R1_govt": 0,
+    "R2_updated": 9,
+    "R2_updated_delta": 9,
+    "R3": 7,
+    "R3_delta": -2
+  },
+  {
+    "college": "01110",
+    "branch": "0726S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01112",
+    "branch": "3502S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01112",
+    "branch": "3504S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01112",
+    "branch": "3506S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01112",
+    "branch": "3507S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01112",
+    "branch": "3508S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01112",
+    "branch": "3509S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01112",
+    "branch": "3511S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01112",
+    "branch": "3516S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01112",
+    "branch": "3517S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01112",
+    "branch": "3518S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01112",
+    "branch": "3520S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01112",
+    "branch": "3521S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01113",
+    "branch": "0505S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01113",
+    "branch": "0506S",
+    "R1_govt": 0,
+    "R2_updated": 6,
+    "R2_updated_delta": 6,
+    "R3": 8,
+    "R3_delta": 2
+  },
+  {
+    "college": "01113",
+    "branch": "0507S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01113",
+    "branch": "0508S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01113",
+    "branch": "0511S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01113",
+    "branch": "0512S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01113",
+    "branch": "0514S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 7,
+    "R3_delta": 2
+  },
+  {
+    "college": "01113",
+    "branch": "0515S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01113",
+    "branch": "0516S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01113",
+    "branch": "0517S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01113",
+    "branch": "0518S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01113",
+    "branch": "0519S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01114",
+    "branch": "0901S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 5,
+    "R3_delta": 1
+  },
+  {
+    "college": "01114",
+    "branch": "0902S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01114",
+    "branch": "0904S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01114",
+    "branch": "0905S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 2,
+    "R3_delta": -5
+  },
+  {
+    "college": "01114",
+    "branch": "0906S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01114",
+    "branch": "0908S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01114",
+    "branch": "0909S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01114",
+    "branch": "0910S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01114",
+    "branch": "0911S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01114",
+    "branch": "0912S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01114",
+    "branch": "0914S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01114",
+    "branch": "0915S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01114",
+    "branch": "0916S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01114",
+    "branch": "0917S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01114",
+    "branch": "0918S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 2,
+    "R3_delta": -5
+  },
+  {
+    "college": "01114",
+    "branch": "0919S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01114",
+    "branch": "0920S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 7
+  },
+  {
+    "college": "01114",
+    "branch": "0921S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01115",
+    "branch": "1002S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01115",
+    "branch": "1004S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01115",
+    "branch": "1005S",
+    "R1_govt": 0,
+    "R2_updated": 6,
+    "R2_updated_delta": 6,
+    "R3": 0,
+    "R3_delta": -6
+  },
+  {
+    "college": "01115",
+    "branch": "1006S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 0,
+    "R3_delta": -4
+  },
+  {
+    "college": "01115",
+    "branch": "1007S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01115",
+    "branch": "1008S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01115",
+    "branch": "1009S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01115",
+    "branch": "1012S",
+    "R1_govt": 0,
+    "R2_updated": 12,
+    "R2_updated_delta": 12,
+    "R3": 4,
+    "R3_delta": -8
+  },
+  {
+    "college": "01115",
+    "branch": "1014S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01115",
+    "branch": "1015S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01115",
+    "branch": "1017S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01115",
+    "branch": "1018S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 4,
+    "R3_delta": -3
+  },
+  {
+    "college": "01115",
+    "branch": "1019S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01115",
+    "branch": "1020S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 8
+  },
+  {
+    "college": "01115",
+    "branch": "1021S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01115",
+    "branch": "1026S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01116",
+    "branch": "1202S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01116",
+    "branch": "1204S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01116",
+    "branch": "1206S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01116",
+    "branch": "1207S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01116",
+    "branch": "1208S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01116",
+    "branch": "1211S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01116",
+    "branch": "1212S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 5,
+    "R3_delta": -2
+  },
+  {
+    "college": "01116",
+    "branch": "1217S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01116",
+    "branch": "1219S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 4,
+    "R3_delta": -3
+  },
+  {
+    "college": "01116",
+    "branch": "1220S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01116",
+    "branch": "1221S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01119",
+    "branch": "3108S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01120",
+    "branch": "3907S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01120",
+    "branch": "3909S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01120",
+    "branch": "3912S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01120",
+    "branch": "3917S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01132",
+    "branch": "1101S",
+    "R1_govt": 0,
+    "R2_updated": 6,
+    "R2_updated_delta": 6,
+    "R3": 1,
+    "R3_delta": -5
+  },
+  {
+    "college": "01132",
+    "branch": "1103S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01132",
+    "branch": "1104S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01132",
+    "branch": "1105S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01132",
+    "branch": "1106S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 0,
+    "R3_delta": -7
+  },
+  {
+    "college": "01132",
+    "branch": "1107S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01132",
+    "branch": "1109S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01132",
+    "branch": "1110S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01132",
+    "branch": "1111S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01132",
+    "branch": "1114S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01132",
+    "branch": "1116S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01132",
+    "branch": "1117S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01132",
+    "branch": "1118S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 4,
+    "R3_delta": -3
+  },
+  {
+    "college": "01132",
+    "branch": "1119S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01132",
+    "branch": "1120S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01132",
+    "branch": "1121S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01133",
+    "branch": "2901S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01133",
+    "branch": "2905S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01133",
+    "branch": "2906S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01133",
+    "branch": "2909S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01133",
+    "branch": "2910S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01133",
+    "branch": "2912S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 0,
+    "R3_delta": -7
+  },
+  {
+    "college": "01133",
+    "branch": "2920S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01134",
+    "branch": "3007S",
+    "R1_govt": 0,
+    "R2_updated": 11,
+    "R2_updated_delta": 11,
+    "R3": 0,
+    "R3_delta": -11
+  },
+  {
+    "college": "01135",
+    "branch": "2511S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 14,
+    "R3_delta": 14
+  },
+  {
+    "college": "01135",
+    "branch": "2513S",
+    "R1_govt": 0,
+    "R2_updated": 18,
+    "R2_updated_delta": 18,
+    "R3": 12,
+    "R3_delta": -6
+  },
+  {
+    "college": "01135",
+    "branch": "2517S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01135",
+    "branch": "2520S",
+    "R1_govt": 0,
+    "R2_updated": 15,
+    "R2_updated_delta": 15,
+    "R3": 5,
+    "R3_delta": -10
+  },
+  {
+    "college": "01135",
+    "branch": "2521S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01135",
+    "branch": "2522S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01135",
+    "branch": "2524S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01135",
+    "branch": "2525S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01136",
+    "branch": "3401S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01136",
+    "branch": "3403S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01136",
+    "branch": "3406S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 4,
+    "R3_delta": 1
+  },
+  {
+    "college": "01136",
+    "branch": "3407S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01136",
+    "branch": "3409S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01136",
+    "branch": "3410S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01136",
+    "branch": "3411S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 6,
+    "R3_delta": 6
+  },
+  {
+    "college": "01136",
+    "branch": "3412S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01136",
+    "branch": "3416S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01136",
+    "branch": "3417S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01136",
+    "branch": "3420S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 3,
+    "R3_delta": -4
+  },
+  {
+    "college": "01136",
+    "branch": "3421S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01137",
+    "branch": "4402S",
+    "R1_govt": 0,
+    "R2_updated": 6,
+    "R2_updated_delta": 6,
+    "R3": 3,
+    "R3_delta": -3
+  },
+  {
+    "college": "01137",
+    "branch": "4405S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01137",
+    "branch": "4406S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01137",
+    "branch": "4407S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 7,
+    "R3_delta": 7
+  },
+  {
+    "college": "01137",
+    "branch": "4408S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01137",
+    "branch": "4409S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01137",
+    "branch": "4410S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 0,
+    "R3_delta": -4
+  },
+  {
+    "college": "01137",
+    "branch": "4411S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01137",
+    "branch": "4420S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01139",
+    "branch": "4501S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 7,
+    "R3_delta": -1
+  },
+  {
+    "college": "01139",
+    "branch": "4502S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01139",
+    "branch": "4503S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01139",
+    "branch": "4504S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01139",
+    "branch": "4505S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 0,
+    "R3_delta": -8
+  },
+  {
+    "college": "01139",
+    "branch": "4506S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 0,
+    "R3_delta": -7
+  },
+  {
+    "college": "01139",
+    "branch": "4507S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01139",
+    "branch": "4508S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01139",
+    "branch": "4509S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01139",
+    "branch": "4511S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01139",
+    "branch": "4512S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01139",
+    "branch": "4513S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01139",
+    "branch": "4520S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01140",
+    "branch": "2623S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01141",
+    "branch": "3803S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01141",
+    "branch": "3804S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01141",
+    "branch": "3805S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01141",
+    "branch": "3806S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01141",
+    "branch": "3807S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 0,
+    "R3_delta": -4
+  },
+  {
+    "college": "01141",
+    "branch": "3808S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01141",
+    "branch": "3809S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01141",
+    "branch": "3811S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 0,
+    "R3_delta": -10
+  },
+  {
+    "college": "01141",
+    "branch": "3812S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 2,
+    "R3_delta": -1
+  },
+  {
+    "college": "01141",
+    "branch": "3817S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01141",
+    "branch": "3820S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 0,
+    "R3_delta": -7
+  },
+  {
+    "college": "01142",
+    "branch": "4301S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01142",
+    "branch": "4302S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01142",
+    "branch": "4303S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01142",
+    "branch": "4304S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01142",
+    "branch": "4305S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01142",
+    "branch": "4306S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01142",
+    "branch": "4307S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 3,
+    "R3_delta": -4
+  },
+  {
+    "college": "01142",
+    "branch": "4308S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01142",
+    "branch": "4310S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01142",
+    "branch": "4311S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01142",
+    "branch": "4314S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01142",
+    "branch": "4317S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01142",
+    "branch": "4318S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01142",
+    "branch": "4320S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 8
+  },
+  {
+    "college": "01142",
+    "branch": "4321S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01142",
+    "branch": "4326S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01143",
+    "branch": "2825S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01144",
+    "branch": "4005S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 2,
+    "R3_delta": -6
+  },
+  {
+    "college": "01144",
+    "branch": "4006S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01144",
+    "branch": "4007S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01144",
+    "branch": "4009S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 0,
+    "R3_delta": -8
+  },
+  {
+    "college": "01144",
+    "branch": "4010S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01144",
+    "branch": "4011S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 0,
+    "R3_delta": -4
+  },
+  {
+    "college": "01144",
+    "branch": "4012S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 0,
+    "R3_delta": -4
+  },
+  {
+    "college": "01145",
+    "branch": "5202S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01145",
+    "branch": "5205S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01145",
+    "branch": "5206S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01145",
+    "branch": "5207S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 0,
+    "R3_delta": -7
+  },
+  {
+    "college": "01145",
+    "branch": "5208S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01145",
+    "branch": "5209S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01145",
+    "branch": "5210S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01145",
+    "branch": "5211S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01145",
+    "branch": "5212S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01146",
+    "branch": "4605S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 0,
+    "R3_delta": -7
+  },
+  {
+    "college": "01146",
+    "branch": "4606S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 3,
+    "R3_delta": -5
+  },
+  {
+    "college": "01146",
+    "branch": "4607S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01146",
+    "branch": "4608S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01146",
+    "branch": "4609S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01146",
+    "branch": "4610S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01146",
+    "branch": "4612S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 0,
+    "R3_delta": -8
+  },
+  {
+    "college": "01147",
+    "branch": "4801S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 2,
+    "R3_delta": -8
+  },
+  {
+    "college": "01147",
+    "branch": "4803S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01147",
+    "branch": "4804S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01147",
+    "branch": "4805S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 0,
+    "R3_delta": -10
+  },
+  {
+    "college": "01147",
+    "branch": "4806S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01147",
+    "branch": "4807S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01147",
+    "branch": "4808S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01147",
+    "branch": "4809S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01147",
+    "branch": "4810S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01147",
+    "branch": "4811S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 6,
+    "R3_delta": -1
+  },
+  {
+    "college": "01147",
+    "branch": "4812S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 0,
+    "R3_delta": -8
+  },
+  {
+    "college": "01147",
+    "branch": "4814S",
+    "R1_govt": 0,
+    "R2_updated": 9,
+    "R2_updated_delta": 9,
+    "R3": 9
+  },
+  {
+    "college": "01147",
+    "branch": "4816S",
+    "R1_govt": 0,
+    "R2_updated": 9,
+    "R2_updated_delta": 9,
+    "R3": 9
+  },
+  {
+    "college": "01147",
+    "branch": "4817S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01147",
+    "branch": "4818S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 10
+  },
+  {
+    "college": "01147",
+    "branch": "4820S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 10
+  },
+  {
+    "college": "01149",
+    "branch": "4901S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 0,
+    "R3_delta": -4
+  },
+  {
+    "college": "01149",
+    "branch": "4903S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01149",
+    "branch": "4905S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01149",
+    "branch": "4906S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 6,
+    "R3_delta": 6
+  },
+  {
+    "college": "01149",
+    "branch": "4907S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01149",
+    "branch": "4908S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01149",
+    "branch": "4909S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01149",
+    "branch": "4912S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 5,
+    "R3_delta": -5
+  },
+  {
+    "college": "01149",
+    "branch": "4916S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01149",
+    "branch": "4917S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01149",
+    "branch": "4918S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01149",
+    "branch": "4920S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01150",
+    "branch": "5006S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01150",
+    "branch": "5011S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01150",
+    "branch": "5015S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01150",
+    "branch": "5018S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 4,
+    "R3_delta": 4
+  },
+  {
+    "college": "01150",
+    "branch": "5020S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01151",
+    "branch": "5307S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01151",
+    "branch": "5311S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01151",
+    "branch": "5314S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 4,
+    "R3_delta": 4
+  },
+  {
+    "college": "01151",
+    "branch": "5319S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01156",
+    "branch": "5401S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01156",
+    "branch": "5405S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01156",
+    "branch": "5406S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01156",
+    "branch": "5407S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01156",
+    "branch": "5408S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 7,
+    "R3_delta": 7
+  },
+  {
+    "college": "01156",
+    "branch": "5409S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01156",
+    "branch": "5410S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01156",
+    "branch": "5412S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01162",
+    "branch": "0801S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01162",
+    "branch": "0804S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01162",
+    "branch": "0805S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01162",
+    "branch": "0806S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01162",
+    "branch": "0808S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01162",
+    "branch": "0809S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01162",
+    "branch": "0811S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 2,
+    "R3_delta": -8
+  },
+  {
+    "college": "01162",
+    "branch": "0817S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01162",
+    "branch": "0818S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01162",
+    "branch": "0820S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01198",
+    "branch": "5101S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01198",
+    "branch": "5105S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01198",
+    "branch": "5106S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01198",
+    "branch": "5107S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01198",
+    "branch": "5112S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 5,
+    "R3_delta": -2
+  },
+  {
+    "college": "01199",
+    "branch": "2301S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 0,
+    "R3_delta": -7
+  },
+  {
+    "college": "01199",
+    "branch": "2305S",
+    "R1_govt": 0,
+    "R2_updated": 6,
+    "R2_updated_delta": 6,
+    "R3": 3,
+    "R3_delta": -3
+  },
+  {
+    "college": "01199",
+    "branch": "2306S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 4,
+    "R3_delta": -3
+  },
+  {
+    "college": "01199",
+    "branch": "2307S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 2,
+    "R3_delta": -1
+  },
+  {
+    "college": "01199",
+    "branch": "2308S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01199",
+    "branch": "2310S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01199",
+    "branch": "2311S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 2,
+    "R3_delta": -8
+  },
+  {
+    "college": "01199",
+    "branch": "2312S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01199",
+    "branch": "2316S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01199",
+    "branch": "2317S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01199",
+    "branch": "2320S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01221",
+    "branch": "1301S",
+    "R1_govt": 0,
+    "R2_updated": 18,
+    "R2_updated_delta": 18,
+    "R3": 5,
+    "R3_delta": -13
+  },
+  {
+    "college": "01221",
+    "branch": "1302S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01221",
+    "branch": "1303S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 3,
+    "R3_delta": 1
+  },
+  {
+    "college": "01221",
+    "branch": "1305S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01221",
+    "branch": "1307S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01221",
+    "branch": "1308S",
+    "R1_govt": 0,
+    "R2_updated": 6,
+    "R2_updated_delta": 6,
+    "R3": 5,
+    "R3_delta": -1
+  },
+  {
+    "college": "01221",
+    "branch": "1309S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01221",
+    "branch": "1310S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01221",
+    "branch": "1311S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 7,
+    "R3_delta": 7
+  },
+  {
+    "college": "01221",
+    "branch": "1313S",
+    "R1_govt": 0,
+    "R2_updated": 6,
+    "R2_updated_delta": 6,
+    "R3": 3,
+    "R3_delta": -3
+  },
+  {
+    "college": "01221",
+    "branch": "1314S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01221",
+    "branch": "1315S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 4,
+    "R3_delta": 2
+  },
+  {
+    "college": "01221",
+    "branch": "1316S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 8,
+    "R3_delta": 8
+  },
+  {
+    "college": "01221",
+    "branch": "1317S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 11,
+    "R3_delta": 11
+  },
+  {
+    "college": "01221",
+    "branch": "1318S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 14,
+    "R3_delta": 14
+  },
+  {
+    "college": "01221",
+    "branch": "1319S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01221",
+    "branch": "1320S",
+    "R1_govt": 0,
+    "R2_updated": 12,
+    "R2_updated_delta": 12,
+    "R3": 7,
+    "R3_delta": -5
+  },
+  {
+    "college": "01221",
+    "branch": "1321S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01222",
+    "branch": "1401S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 4,
+    "R3_delta": -1
+  },
+  {
+    "college": "01222",
+    "branch": "1402S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 5,
+    "R3_delta": 2
+  },
+  {
+    "college": "01222",
+    "branch": "1403S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01222",
+    "branch": "1404S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 5,
+    "R3_delta": -3
+  },
+  {
+    "college": "01222",
+    "branch": "1406S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01222",
+    "branch": "1407S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01222",
+    "branch": "1408S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01222",
+    "branch": "1409S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01222",
+    "branch": "1411S",
+    "R1_govt": 0,
+    "R2_updated": 11,
+    "R2_updated_delta": 11,
+    "R3": 4,
+    "R3_delta": -7
+  },
+  {
+    "college": "01222",
+    "branch": "1412S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 8,
+    "R3_delta": 8
+  },
+  {
+    "college": "01222",
+    "branch": "1414S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01222",
+    "branch": "1415S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01222",
+    "branch": "1416S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01222",
+    "branch": "1417S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 5,
+    "R3_delta": -5
+  },
+  {
+    "college": "01222",
+    "branch": "1418S",
+    "R1_govt": 0,
+    "R2_updated": 9,
+    "R2_updated_delta": 9,
+    "R3": 0,
+    "R3_delta": -9
+  },
+  {
+    "college": "01222",
+    "branch": "1420S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 4,
+    "R3_delta": 2
+  },
+  {
+    "college": "01222",
+    "branch": "1421S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01223",
+    "branch": "4101S",
+    "R1_govt": 0,
+    "R2_updated": 9,
+    "R2_updated_delta": 9,
+    "R3": 9
+  },
+  {
+    "college": "01223",
+    "branch": "4102S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01223",
+    "branch": "4103S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 0,
+    "R3_delta": -8
+  },
+  {
+    "college": "01223",
+    "branch": "4104S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01223",
+    "branch": "4105S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01223",
+    "branch": "4106S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01223",
+    "branch": "4107S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 4,
+    "R3_delta": -3
+  },
+  {
+    "college": "01223",
+    "branch": "4108S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01223",
+    "branch": "4109S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01223",
+    "branch": "4110S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 0,
+    "R3_delta": -4
+  },
+  {
+    "college": "01223",
+    "branch": "4111S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01223",
+    "branch": "4112S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01223",
+    "branch": "4115S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 7
+  },
+  {
+    "college": "01223",
+    "branch": "4116S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01223",
+    "branch": "4118S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 9,
+    "R3_delta": 2
+  },
+  {
+    "college": "01223",
+    "branch": "4120S",
+    "R1_govt": 0,
+    "R2_updated": 13,
+    "R2_updated_delta": 13,
+    "R3": 8,
+    "R3_delta": -5
+  },
+  {
+    "college": "01223",
+    "branch": "4121S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01225",
+    "branch": "4202S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01225",
+    "branch": "4205S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01225",
+    "branch": "4206S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01225",
+    "branch": "4207S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01225",
+    "branch": "4208S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01225",
+    "branch": "4214S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01225",
+    "branch": "4215S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01225",
+    "branch": "4216S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01225",
+    "branch": "4217S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01225",
+    "branch": "4218S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01226",
+    "branch": "1501S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 4,
+    "R3_delta": 4
+  },
+  {
+    "college": "01226",
+    "branch": "1502S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01226",
+    "branch": "1503S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 8,
+    "R3_delta": 5
+  },
+  {
+    "college": "01226",
+    "branch": "1505S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 6,
+    "R3_delta": 2
+  },
+  {
+    "college": "01226",
+    "branch": "1506S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 2,
+    "R3_delta": -1
+  },
+  {
+    "college": "01226",
+    "branch": "1508S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01226",
+    "branch": "1511S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 9,
+    "R3_delta": 4
+  },
+  {
+    "college": "01226",
+    "branch": "1514S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 7
+  },
+  {
+    "college": "01226",
+    "branch": "1516S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01226",
+    "branch": "1517S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 4,
+    "R3_delta": -3
+  },
+  {
+    "college": "01226",
+    "branch": "1518S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01226",
+    "branch": "1520S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01226",
+    "branch": "1521S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01234",
+    "branch": "1602S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01234",
+    "branch": "1603S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01234",
+    "branch": "1604S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01234",
+    "branch": "1605S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01234",
+    "branch": "1608S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01234",
+    "branch": "1609S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 2,
+    "R3_delta": -1
+  },
+  {
+    "college": "01234",
+    "branch": "1610S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01234",
+    "branch": "1611S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01234",
+    "branch": "1612S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 8,
+    "R3_delta": 8
+  },
+  {
+    "college": "01234",
+    "branch": "1614S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01234",
+    "branch": "1615S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01234",
+    "branch": "1617S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01234",
+    "branch": "1618S",
+    "R1_govt": 0,
+    "R2_updated": 12,
+    "R2_updated_delta": 12,
+    "R3": 5,
+    "R3_delta": -7
+  },
+  {
+    "college": "01234",
+    "branch": "1619S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01234",
+    "branch": "1620S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 4,
+    "R3_delta": 4
+  },
+  {
+    "college": "01234",
+    "branch": "1621S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01241",
+    "branch": "2101S",
+    "R1_govt": 0,
+    "R2_updated": 6,
+    "R2_updated_delta": 6,
+    "R3": 2,
+    "R3_delta": -4
+  },
+  {
+    "college": "01241",
+    "branch": "2104S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01241",
+    "branch": "2105S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01241",
+    "branch": "2107S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01241",
+    "branch": "2108S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01241",
+    "branch": "2109S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01241",
+    "branch": "2111S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01241",
+    "branch": "2112S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01241",
+    "branch": "2114S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01241",
+    "branch": "2115S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01241",
+    "branch": "2116S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01241",
+    "branch": "2117S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01241",
+    "branch": "2118S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01241",
+    "branch": "2119S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01241",
+    "branch": "2120S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01241",
+    "branch": "2121S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01242",
+    "branch": "2205S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01242",
+    "branch": "2206S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01242",
+    "branch": "2208S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01242",
+    "branch": "2209S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01242",
+    "branch": "2212S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01242",
+    "branch": "2214S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01242",
+    "branch": "2215S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 7
+  },
+  {
+    "college": "01242",
+    "branch": "2216S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01242",
+    "branch": "2217S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01242",
+    "branch": "2218S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01242",
+    "branch": "2219S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 5,
+    "R3_delta": 3
+  },
+  {
+    "college": "01242",
+    "branch": "2220S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01242",
+    "branch": "2221S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01248",
+    "branch": "5501S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01248",
+    "branch": "5502S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01248",
+    "branch": "5505S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01248",
+    "branch": "5506S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01248",
+    "branch": "5509S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01248",
+    "branch": "5510S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01248",
+    "branch": "5511S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01248",
+    "branch": "5512S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 5,
+    "R3_delta": 5
+  },
+  {
+    "college": "01261",
+    "branch": "2401S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 4,
+    "R3_delta": 4
+  },
+  {
+    "college": "01261",
+    "branch": "2402S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01261",
+    "branch": "2404S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01261",
+    "branch": "2405S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01261",
+    "branch": "2406S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01261",
+    "branch": "2408S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01261",
+    "branch": "2409S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01261",
+    "branch": "2412S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 4,
+    "R3_delta": -3
+  },
+  {
+    "college": "01261",
+    "branch": "2414S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01261",
+    "branch": "2415S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01261",
+    "branch": "2416S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01261",
+    "branch": "2417S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01261",
+    "branch": "2418S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 5,
+    "R3_delta": -2
+  },
+  {
+    "college": "01261",
+    "branch": "2420S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01261",
+    "branch": "2421S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01327",
+    "branch": "1701S",
+    "R1_govt": 0,
+    "R2_updated": 13,
+    "R2_updated_delta": 13,
+    "R3": 8,
+    "R3_delta": -5
+  },
+  {
+    "college": "01327",
+    "branch": "1702S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01327",
+    "branch": "1703S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01327",
+    "branch": "1704S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01327",
+    "branch": "1705S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01327",
+    "branch": "1707S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 4
+  },
+  {
+    "college": "01327",
+    "branch": "1708S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01327",
+    "branch": "1709S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01327",
+    "branch": "1711S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 12,
+    "R3_delta": 12
+  },
+  {
+    "college": "01327",
+    "branch": "1712S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 0,
+    "R3_delta": -7
+  },
+  {
+    "college": "01327",
+    "branch": "1713S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01327",
+    "branch": "1714S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01327",
+    "branch": "1716S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01327",
+    "branch": "1719S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01327",
+    "branch": "1720S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 7,
+    "R3_delta": 7
+  },
+  {
+    "college": "01328",
+    "branch": "1801S",
+    "R1_govt": 0,
+    "R2_updated": 9,
+    "R2_updated_delta": 9,
+    "R3": 5,
+    "R3_delta": -4
+  },
+  {
+    "college": "01328",
+    "branch": "1802S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01328",
+    "branch": "1804S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01328",
+    "branch": "1806S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01328",
+    "branch": "1808S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01328",
+    "branch": "1809S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 2,
+    "R3_delta": -3
+  },
+  {
+    "college": "01328",
+    "branch": "1811S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 3,
+    "R3_delta": -4
+  },
+  {
+    "college": "01328",
+    "branch": "1812S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 2,
+    "R3_delta": -5
+  },
+  {
+    "college": "01328",
+    "branch": "1815S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01328",
+    "branch": "1816S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 4,
+    "R3_delta": -3
+  },
+  {
+    "college": "01328",
+    "branch": "1817S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01328",
+    "branch": "1818S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 4,
+    "R3_delta": -6
+  },
+  {
+    "college": "01328",
+    "branch": "1819S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01328",
+    "branch": "1820S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01328",
+    "branch": "1821S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01329",
+    "branch": "1901S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01329",
+    "branch": "1903S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01329",
+    "branch": "1905S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01329",
+    "branch": "1906S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 5,
+    "R3_delta": 3
+  },
+  {
+    "college": "01329",
+    "branch": "1907S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 7
+  },
+  {
+    "college": "01329",
+    "branch": "1909S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 5,
+    "R3_delta": -2
+  },
+  {
+    "college": "01329",
+    "branch": "1911S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01329",
+    "branch": "1912S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 4,
+    "R3_delta": 2
+  },
+  {
+    "college": "01329",
+    "branch": "1914S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01329",
+    "branch": "1915S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01329",
+    "branch": "1917S",
+    "R1_govt": 0,
+    "R2_updated": 8,
+    "R2_updated_delta": 8,
+    "R3": 3,
+    "R3_delta": -5
+  },
+  {
+    "college": "01329",
+    "branch": "1918S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 7,
+    "R3_delta": -3
+  },
+  {
+    "college": "01329",
+    "branch": "1919S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 5
+  },
+  {
+    "college": "01329",
+    "branch": "1920S",
+    "R1_govt": 0,
+    "R2_updated": 10,
+    "R2_updated_delta": 10,
+    "R3": 4,
+    "R3_delta": -6
+  },
+  {
+    "college": "01329",
+    "branch": "1921S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 4,
+    "R3_delta": 4
+  },
+  {
+    "college": "01330",
+    "branch": "3601S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01330",
+    "branch": "3602S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01330",
+    "branch": "3605S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01330",
+    "branch": "3606S",
+    "R1_govt": 0,
+    "R2_updated": 7,
+    "R2_updated_delta": 7,
+    "R3": 2,
+    "R3_delta": -5
+  },
+  {
+    "college": "01330",
+    "branch": "3607S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01330",
+    "branch": "3608S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 0,
+    "R3_delta": -3
+  },
+  {
+    "college": "01330",
+    "branch": "3609S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01330",
+    "branch": "3611S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01330",
+    "branch": "3615S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01330",
+    "branch": "3617S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01330",
+    "branch": "3618S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01333",
+    "branch": "2001S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01333",
+    "branch": "2002S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01333",
+    "branch": "2003S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 3,
+    "R3_delta": 3
+  },
+  {
+    "college": "01333",
+    "branch": "2005S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 6,
+    "R3_delta": 4
+  },
+  {
+    "college": "01333",
+    "branch": "2006S",
+    "R1_govt": 0,
+    "R2_updated": 9,
+    "R2_updated_delta": 9,
+    "R3": 9
+  },
+  {
+    "college": "01333",
+    "branch": "2007S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01333",
+    "branch": "2008S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01333",
+    "branch": "2009S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 3,
+    "R3_delta": -2
+  },
+  {
+    "college": "01333",
+    "branch": "2010S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 5,
+    "R3_delta": 3
+  },
+  {
+    "college": "01333",
+    "branch": "2011S",
+    "R1_govt": 0,
+    "R2_updated": 12,
+    "R2_updated_delta": 12,
+    "R3": 10,
+    "R3_delta": -2
+  },
+  {
+    "college": "01333",
+    "branch": "2014S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01333",
+    "branch": "2015S",
+    "R1_govt": 0,
+    "R2_updated": 3,
+    "R2_updated_delta": 3,
+    "R3": 3
+  },
+  {
+    "college": "01333",
+    "branch": "2017S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01333",
+    "branch": "2018S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 0,
+    "R3_delta": -5
+  },
+  {
+    "college": "01333",
+    "branch": "2019S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01333",
+    "branch": "2020S",
+    "R1_govt": 0,
+    "R2_updated": 5,
+    "R2_updated_delta": 5,
+    "R3": 9,
+    "R3_delta": 4
+  },
+  {
+    "college": "01345",
+    "branch": "4701S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "01345",
+    "branch": "4703S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01345",
+    "branch": "4704S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 4,
+    "R3_delta": 2
+  },
+  {
+    "college": "01345",
+    "branch": "4705S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01345",
+    "branch": "4706S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01345",
+    "branch": "4707S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01345",
+    "branch": "4708S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01345",
+    "branch": "4709S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 0,
+    "R3_delta": -2
+  },
+  {
+    "college": "01345",
+    "branch": "4711S",
+    "R1_govt": 0,
+    "R2_updated": 2,
+    "R2_updated_delta": 2,
+    "R3": 2
+  },
+  {
+    "college": "01345",
+    "branch": "4712S",
+    "R1_govt": 0,
+    "R2_updated": 0,
+    "R3": 2,
+    "R3_delta": 2
+  },
+  {
+    "college": "01345",
+    "branch": "4720S",
+    "R1_govt": 0,
+    "R2_updated": 4,
+    "R2_updated_delta": 4,
+    "R3": 2,
+    "R3_delta": -2
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Anaesthesiology",
+    "R1_govt": 162,
+    "R2_updated": 0,
+    "R2_updated_delta": -162,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Dermatology",
+    "R1_govt": 33,
+    "R2_updated": 0,
+    "R2_updated_delta": -33,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "ENT",
+    "R1_govt": 49,
+    "R2_updated": 0,
+    "R2_updated_delta": -49,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "General Medicine",
+    "R1_govt": 294,
+    "R2_updated": 0,
+    "R2_updated_delta": -294,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "General Surgery",
+    "R1_govt": 135,
+    "R2_updated": 0,
+    "R2_updated_delta": -135,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Md (Emergency & Critical Care)",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Md (Geriatric)",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Md Biochemistry",
+    "R1_govt": 36,
+    "R2_updated": 0,
+    "R2_updated_delta": -36,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Md Microbiology",
+    "R1_govt": 73,
+    "R2_updated": 0,
+    "R2_updated_delta": -73,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Md Pathology",
+    "R1_govt": 96,
+    "R2_updated": 0,
+    "R2_updated_delta": -96,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 53,
+    "R2_updated": 0,
+    "R2_updated_delta": -53,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Md Physiology",
+    "R1_govt": 36,
+    "R2_updated": 0,
+    "R2_updated_delta": -36,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Md Psychiatry",
+    "R1_govt": 33,
+    "R2_updated": 0,
+    "R2_updated_delta": -33,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Md Radio Therapy",
+    "R1_govt": 13,
+    "R2_updated": 0,
+    "R2_updated_delta": -13,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 27,
+    "R2_updated": 0,
+    "R2_updated_delta": -27,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Ms Anatomy",
+    "R1_govt": 34,
+    "R2_updated": 0,
+    "R2_updated_delta": -34,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 54,
+    "R2_updated": 0,
+    "R2_updated_delta": -54,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 137,
+    "R2_updated": 0,
+    "R2_updated_delta": -137,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Orthopedics",
+    "R1_govt": 75,
+    "R2_updated": 0,
+    "R2_updated_delta": -75,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Pediatrics",
+    "R1_govt": 95,
+    "R2_updated": 0,
+    "R2_updated_delta": -95,
+    "R3": 0
+  },
+  {
+    "college": "1MD Anesthesiology. 162 16 4 1 0 8 2 1 0 4 1 0 0 3 1 0 0 4 1 1 0 1 1 1 0 25 5 0 1 12 3 1 0 13 3 0 0 38 9 1 1 SC OPEN 162",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 76,
+    "R2_updated": 0,
+    "R2_updated_delta": -76,
+    "R3": 0
+  },
+  {
+    "college": "ALL INDIA INSTITUTE OF PHYSICAL MEDICINE & REHABILIATION, MUMBAI",
+    "branch": "General Medicine",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Anaesthesiology",
+    "R1_govt": 9,
+    "R2_updated": 0,
+    "R2_updated_delta": -9,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Dermatology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "ENT",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "General Medicine",
+    "R1_govt": 16,
+    "R2_updated": 0,
+    "R2_updated_delta": -16,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "General Surgery",
+    "R1_govt": 8,
+    "R2_updated": 0,
+    "R2_updated_delta": -8,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Md (Emergency & Critical Care)",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Md Biochemistry",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Md Microbiology",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Md Pathology",
+    "R1_govt": 8,
+    "R2_updated": 0,
+    "R2_updated_delta": -8,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Md Physiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Md Psychiatry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Ms Anatomy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 10,
+    "R2_updated": 0,
+    "R2_updated_delta": -10,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Orthopedics",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Pediatrics",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "B.J. MEDICAL COLLEGE, PUNE",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "Bhabha Automic Research Centre, Mumbai",
+    "branch": "General Medicine",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Anaesthesiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Dermatology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "ENT",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "General Medicine",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "General Surgery",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Md Biochemistry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Md Microbiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Md Pathology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Md Physiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Md Psychiatry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Ms Anatomy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Orthopedics",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Chandrapur Govt. Medical College, Chandrapur",
+    "branch": "Pediatrics",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Anaesthesiology",
+    "R1_govt": 13,
+    "R2_updated": 0,
+    "R2_updated_delta": -13,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Dermatology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "General Medicine",
+    "R1_govt": 18,
+    "R2_updated": 0,
+    "R2_updated_delta": -18,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "General Surgery",
+    "R1_govt": 10,
+    "R2_updated": 0,
+    "R2_updated_delta": -10,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Md (Geriatric)",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Md Biochemistry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Md Microbiology",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Md Pathology",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Md Physiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Md Psychiatry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Md Radio Therapy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Ms Anatomy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 11,
+    "R2_updated": 0,
+    "R2_updated_delta": -11,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Orthopedics",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Pediatrics",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, AURANGABAD",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Anaesthesiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Dermatology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "General Medicine",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Md Biochemistry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Md Microbiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Md Pathology",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Md Physiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Ms Anatomy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Pediatrics",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, Akola",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Anaesthesiology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Dermatology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "ENT",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "General Medicine",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "General Surgery",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Md (Emergency & Critical Care)",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Md Biochemistry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Md Microbiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Md Pathology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Md Physiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Md Psychiatry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Ms Anatomy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Orthopedics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Pediatrics",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Anaesthesiology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Dermatology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "General Medicine",
+    "R1_govt": 10,
+    "R2_updated": 0,
+    "R2_updated_delta": -10,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "General Surgery",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Md Biochemistry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Md Microbiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Md Pathology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Md Physiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Md Psychiatry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Ms Anatomy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Orthopedics",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Pediatrics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVERNMENT MEDICAL COLLEGE, NANDED",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Anaesthesiology",
+    "R1_govt": 10,
+    "R2_updated": 0,
+    "R2_updated_delta": -10,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Dermatology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "ENT",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "General Medicine",
+    "R1_govt": 32,
+    "R2_updated": 0,
+    "R2_updated_delta": -32,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "General Surgery",
+    "R1_govt": 11,
+    "R2_updated": 0,
+    "R2_updated_delta": -11,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Biochemistry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Microbiology",
+    "R1_govt": 12,
+    "R2_updated": 0,
+    "R2_updated_delta": -12,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Pathology",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 8,
+    "R2_updated": 0,
+    "R2_updated_delta": -8,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Physiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Psychiatry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Radio Therapy",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Ms Anatomy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 12,
+    "R2_updated": 0,
+    "R2_updated_delta": -12,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Orthopedics",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Pediatrics",
+    "R1_govt": 8,
+    "R2_updated": 0,
+    "R2_updated_delta": -8,
+    "R3": 0
+  },
+  {
+    "college": "GOVT. MEDICAL COLLEGE, NAGPUR",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 9,
+    "R2_updated": 0,
+    "R2_updated_delta": -9,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Anaesthesiology",
+    "R1_govt": 12,
+    "R2_updated": 0,
+    "R2_updated_delta": -12,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Dermatology",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "General Medicine",
+    "R1_govt": 26,
+    "R2_updated": 0,
+    "R2_updated_delta": -26,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "General Surgery",
+    "R1_govt": 16,
+    "R2_updated": 0,
+    "R2_updated_delta": -16,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Md (Emergency & Critical Care)",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Md (Geriatric)",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Md Biochemistry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Md Microbiology",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Md Pathology",
+    "R1_govt": 13,
+    "R2_updated": 0,
+    "R2_updated_delta": -13,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Md Physiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Md Psychiatry",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Ms Anatomy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 11,
+    "R2_updated": 0,
+    "R2_updated_delta": -11,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Orthopedics",
+    "R1_govt": 8,
+    "R2_updated": 0,
+    "R2_updated_delta": -8,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Pediatrics",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "GRANT GOVERNMENT MEDICAL COLLEGE, MUMBAI",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 8,
+    "R2_updated": 0,
+    "R2_updated_delta": -8,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "Anaesthesiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "General Medicine",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "General Surgery",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "Md Biochemistry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "Md Microbiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "Md Pathology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "Md Physiology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "Ms Anatomy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Gondia Govt. Medical College, Gondia",
+    "branch": "Pediatrics",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Government Medical College, Baramati",
+    "branch": "Anaesthesiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Government Medical College, Baramati",
+    "branch": "General Medicine",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Government Medical College, Baramati",
+    "branch": "Md Physiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "Anaesthesiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "ENT",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "General Medicine",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "General Surgery",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "Md Microbiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "Md Pathology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "Orthopedics",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "Pediatrics",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Govt. Medical College, Jalgaon",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "HBT & DR. R. N. COOPER MEDICAL COLLEGE, ANDHERI, MUMBAI",
+    "branch": "Anaesthesiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "HBT & DR. R. N. COOPER MEDICAL COLLEGE, ANDHERI, MUMBAI",
+    "branch": "ENT",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "HBT & DR. R. N. COOPER MEDICAL COLLEGE, ANDHERI, MUMBAI",
+    "branch": "General Medicine",
+    "R1_govt": 9,
+    "R2_updated": 0,
+    "R2_updated_delta": -9,
+    "R3": 0
+  },
+  {
+    "college": "HBT & DR. R. N. COOPER MEDICAL COLLEGE, ANDHERI, MUMBAI",
+    "branch": "General Surgery",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "HBT & DR. R. N. COOPER MEDICAL COLLEGE, ANDHERI, MUMBAI",
+    "branch": "Md Pathology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "HBT & DR. R. N. COOPER MEDICAL COLLEGE, ANDHERI, MUMBAI",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "HBT & DR. R. N. COOPER MEDICAL COLLEGE, ANDHERI, MUMBAI",
+    "branch": "Md Physiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "HBT & DR. R. N. COOPER MEDICAL COLLEGE, ANDHERI, MUMBAI",
+    "branch": "Ms Anatomy",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "HBT & DR. R. N. COOPER MEDICAL COLLEGE, ANDHERI, MUMBAI",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "HBT & DR. R. N. COOPER MEDICAL COLLEGE, ANDHERI, MUMBAI",
+    "branch": "Orthopedics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "HBT & DR. R. N. COOPER MEDICAL COLLEGE, ANDHERI, MUMBAI",
+    "branch": "Pediatrics",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Anaesthesiology",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Dermatology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "General Medicine",
+    "R1_govt": 13,
+    "R2_updated": 0,
+    "R2_updated_delta": -13,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "General Surgery",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Biochemistry",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Microbiology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Pathology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Physiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Psychiatry",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Ms Anatomy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 10,
+    "R2_updated": 0,
+    "R2_updated_delta": -10,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Orthopedics",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Pediatrics",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "INDIRA GANDHI MEDICAL COLLEGE, NAGPUR",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Anaesthesiology",
+    "R1_govt": 17,
+    "R2_updated": 0,
+    "R2_updated_delta": -17,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Dermatology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "General Medicine",
+    "R1_govt": 16,
+    "R2_updated": 0,
+    "R2_updated_delta": -16,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "General Surgery",
+    "R1_govt": 10,
+    "R2_updated": 0,
+    "R2_updated_delta": -10,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Biochemistry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Microbiology",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Pathology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Physiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Psychiatry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Ms Anatomy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 9,
+    "R2_updated": 0,
+    "R2_updated_delta": -9,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Orthopedics",
+    "R1_govt": 8,
+    "R2_updated": 0,
+    "R2_updated_delta": -8,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Pediatrics",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "LOKMANYA TILAK MEDICAL COLLEGE, Mumbai",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Anaesthesiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Dermatology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "General Medicine",
+    "R1_govt": 10,
+    "R2_updated": 0,
+    "R2_updated_delta": -10,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "General Surgery",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Md Biochemistry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Md Microbiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Md Pathology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Md Physiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Md Psychiatry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Ms Anatomy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Orthopedics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Pediatrics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "MAHATMA GANDHI INSTITUTE OF MEDICAL SCIENCES, WARDHA",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "Anaesthesiology",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "General Medicine",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "General Surgery",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "Md (Emergency & Critical Care)",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "Md Microbiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "Md Pathology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "Orthopedics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "Pediatrics",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Maharashtra Post Graduate Institute of Medical Education & Research, Nashik",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "Anaesthesiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "Dermatology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "General Medicine",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "General Surgery",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "Md Microbiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "Md Pathology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "Md Psychiatry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "Orthopedics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "PIMPRI CHINCHWAD MUNCIPAL CORPORATIONS, HAVELI, PUNE",
+    "branch": "Pediatrics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Post Graduate Institute of Medical Sciences, (P.G.I.M.S), Nerul, Navi Mumbai",
+    "branch": "General Medicine",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Post Graduate Institute of Medical Sciences, (P.G.I.M.S), Nerul, Navi Mumbai",
+    "branch": "General Surgery",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Post Graduate Institute of Medical Sciences, (P.G.I.M.S), Nerul, Navi Mumbai",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "Post Graduate Institute of Medical Sciences, (P.G.I.M.S), Nerul, Navi Mumbai",
+    "branch": "Orthopedics",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Post Graduate Institute of Medical Sciences, (P.G.I.M.S), Nerul, Navi Mumbai",
+    "branch": "Pediatrics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Anaesthesiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "General Medicine",
+    "R1_govt": 10,
+    "R2_updated": 0,
+    "R2_updated_delta": -10,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "General Surgery",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Md Biochemistry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Md Microbiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Md Pathology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Md Physiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Md Psychiatry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Ms Anatomy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Orthopedics",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Pediatrics",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "RCSM Govt. Medical College, Kolhapur",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Rajiv Gandhi MC, Kalva, Thane",
+    "branch": "General Medicine",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "Rajiv Gandhi MC, Kalva, Thane",
+    "branch": "Md Biochemistry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Rajiv Gandhi MC, Kalva, Thane",
+    "branch": "Md Microbiology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Rajiv Gandhi MC, Kalva, Thane",
+    "branch": "Md Pathology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Rajiv Gandhi MC, Kalva, Thane",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Rajiv Gandhi MC, Kalva, Thane",
+    "branch": "Md Physiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Anaesthesiology",
+    "R1_govt": 20,
+    "R2_updated": 0,
+    "R2_updated_delta": -20,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Dermatology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "ENT",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "General Medicine",
+    "R1_govt": 22,
+    "R2_updated": 0,
+    "R2_updated_delta": -22,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "General Surgery",
+    "R1_govt": 10,
+    "R2_updated": 0,
+    "R2_updated_delta": -10,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Biochemistry",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Microbiology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Pathology",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Physiology",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Psychiatry",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Ms Anatomy",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 18,
+    "R2_updated": 0,
+    "R2_updated_delta": -18,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Orthopedics",
+    "R1_govt": 12,
+    "R2_updated": 0,
+    "R2_updated_delta": -12,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Pediatrics",
+    "R1_govt": 14,
+    "R2_updated": 0,
+    "R2_updated_delta": -14,
+    "R3": 0
+  },
+  {
+    "college": "SETH G.S. MEDICAL COLLEGE, Mumbai",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "Anaesthesiology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "Dermatology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "ENT",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "General Medicine",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "General Surgery",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "Md Biochemistry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "Md Microbiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "Md Pathology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "Md Psychiatry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "Orthopedics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "SHREE BHAUSAHEB HIRE GOVERNMENT MEDICAL COLLEGE, DHULE",
+    "branch": "Pediatrics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Anaesthesiology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "General Medicine",
+    "R1_govt": 10,
+    "R2_updated": 0,
+    "R2_updated_delta": -10,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "General Surgery",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Md Biochemistry",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Md Microbiology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Md Pathology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Md Physiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Ms Anatomy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Orthopedics",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "SRTR MEDICAL COLLEGE, AMBAJOGAI",
+    "branch": "Pediatrics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Anaesthesiology",
+    "R1_govt": 13,
+    "R2_updated": 0,
+    "R2_updated_delta": -13,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Dermatology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "ENT",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "General Medicine",
+    "R1_govt": 15,
+    "R2_updated": 0,
+    "R2_updated_delta": -15,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "General Surgery",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Microbiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Pathology",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Physiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Psychiatry",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Ms Anatomy",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Orthopedics",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Pediatrics",
+    "R1_govt": 7,
+    "R2_updated": 0,
+    "R2_updated_delta": -7,
+    "R3": 0
+  },
+  {
+    "college": "T.N. MUNICIPAL MEDICAL COLLEGE, Mumbai",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "TATA MEMORIAL HOSPITAL, Mumbai",
+    "branch": "Anaesthesiology",
+    "R1_govt": 15,
+    "R2_updated": 0,
+    "R2_updated_delta": -15,
+    "R3": 0
+  },
+  {
+    "college": "TATA MEMORIAL HOSPITAL, Mumbai",
+    "branch": "General Medicine",
+    "R1_govt": 8,
+    "R2_updated": 0,
+    "R2_updated_delta": -8,
+    "R3": 0
+  },
+  {
+    "college": "TATA MEMORIAL HOSPITAL, Mumbai",
+    "branch": "Md Pathology",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "TATA MEMORIAL HOSPITAL, Mumbai",
+    "branch": "Md Radio Therapy",
+    "R1_govt": 9,
+    "R2_updated": 0,
+    "R2_updated_delta": -9,
+    "R3": 0
+  },
+  {
+    "college": "TATA MEMORIAL HOSPITAL, Mumbai",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 9,
+    "R2_updated": 0,
+    "R2_updated_delta": -9,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Anaesthesiology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Dermatology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "ENT",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "General Medicine",
+    "R1_govt": 11,
+    "R2_updated": 0,
+    "R2_updated_delta": -11,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "General Surgery",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Md Biochemistry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Md Microbiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Md Pathology",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Md Physiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Md Psychiatry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Ms Anatomy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Orthopedics",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Pediatrics",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "V.M. GOVERNMENT MEDICAL COLLEGE, SOLAPUR",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "Anaesthesiology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "General Medicine",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "General Surgery",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "Md Biochemistry",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "Md Microbiology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "Md Pathology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "Md Tb & Respiratory Disease",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "Ms Anatomy",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "V.N. GOVERNMENT MEDICAL COLLEGE, YEWATMAL",
+    "branch": "Pediatrics",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Anaesthesiology",
+    "R1_govt": 5,
+    "R2_updated": 0,
+    "R2_updated_delta": -5,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Dermatology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "ENT",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "General Medicine",
+    "R1_govt": 6,
+    "R2_updated": 0,
+    "R2_updated_delta": -6,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "General Surgery",
+    "R1_govt": 4,
+    "R2_updated": 0,
+    "R2_updated_delta": -4,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Md Microbiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Md Pathology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Md Pharmacalogy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Md Physiology",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Ms Anatomy",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Ms Ophthalmology",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Obstetrics & Gynecology",
+    "R1_govt": 3,
+    "R2_updated": 0,
+    "R2_updated_delta": -3,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Orthopedics",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Pediatrics",
+    "R1_govt": 1,
+    "R2_updated": 0,
+    "R2_updated_delta": -1,
+    "R3": 0
+  },
+  {
+    "college": "Vilasrao Deshmukh Govt. MEDICAL COLLEGE, LATUR",
+    "branch": "Radiodiagnosis",
+    "R1_govt": 2,
+    "R2_updated": 0,
+    "R2_updated_delta": -2,
+    "R3": 0
+  }
+]

@@ -93,6 +93,7 @@ export function MyChancesSearch({
   const [loading, setLoading] = useState(false);
   const [savingPriorities, setSavingPriorities] = useState(false);
   const [results, setResults] = useState<PredictionResult[]>(initialResults ?? []);
+  const [warnings, setWarnings] = useState<string[]>([]);
   const [hasSearched, setHasSearched] = useState(!!initialResults?.length);
 
   const [draft, setDraft] = useState<SearchFilters>(() =>
@@ -131,6 +132,7 @@ export function MyChancesSearch({
       params.set("limit", "100");
       const res = await fetch(`/api/predictions?${params}`);
       const data = await res.json();
+      setWarnings(Array.isArray(data.warnings) ? data.warnings : []);
       let list: PredictionResult[] = data.results ?? [];
 
       if (f.counsellingCode)
@@ -238,6 +240,14 @@ export function MyChancesSearch({
       />
 
       <DisclaimerBanner compact />
+
+      {warnings.length > 0 && (
+        <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950">
+          {warnings.map((w) => (
+            <p key={w}>{w}</p>
+          ))}
+        </div>
+      )}
 
       <div className="card card-tile flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
         <span>

@@ -136,6 +136,8 @@ export interface PredictionResult {
   statistics: RankStatistics;
   candidateDiff: number;
   fitLevel: FitLevel;
+  /** Plain-language reason this fit band was assigned (historical cutoffs vs your rank). */
+  fitExplanation?: string;
   confidence: ConfidenceLevel;
   confidenceReason: string;
   fees?: { totalAnnual: number; tuitionFee: number; hostelFee: number; isEstimate?: boolean };
@@ -163,6 +165,20 @@ export const FIT_LABELS: Record<FitLevel, { label: string; color: string; emoji:
   POSSIBLE: { label: "Possible / competitive", color: "text-amber-700 bg-amber-50 border-amber-200", emoji: "🟡" },
   BORDERLINE: { label: "Borderline", color: "text-orange-700 bg-orange-50 border-orange-200", emoji: "🟠" },
   DIFFICULT: { label: "Historically difficult", color: "text-red-700 bg-red-50 border-red-200", emoji: "🔴" },
+};
+
+/** User-facing chance labels aligned with counselling guidance (not admission probabilities). */
+export const FIT_CHANCE_LABELS: Record<FitLevel, string> = {
+  STRONG: "High chance (historical)",
+  POSSIBLE: "Moderate chance (historical)",
+  BORDERLINE: "Low chance (historical)",
+  DIFFICULT: "Very unlikely (historical)",
+};
+
+export const CONFIDENCE_LABELS: Record<ConfidenceLevel, string> = {
+  HIGH: "High data confidence",
+  MEDIUM: "Moderate data confidence",
+  LOW: "Insufficient / limited historical data",
 };
 
 export const ACTIVE_SEAT_MATRIX_YEAR = 2026;

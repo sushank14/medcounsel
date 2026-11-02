@@ -22,7 +22,7 @@ import {
 const MCC_SOURCE_URL = "https://mcc.nic.in/pg-medical-counselling/";
 
 import { BUDGET_LIMITS } from "./budget-limits";
-import { lookupByAir } from "./maharashtra-air-sml-index";
+import { lookupByAirExact } from "./maharashtra-air-sml-index";
 import { getMaharashtra2025Readiness } from "./maharashtra-data-readiness";
 
 const COLLEGE_PREF_MAP: Record<string, string[]> = {
@@ -121,6 +121,35 @@ function passesBudgetFilter(
 }
 
 /** Ignore MD branch prefs when user filters MS-only (and vice versa). */
+function buildFitExplanation(
+  fitLevel: PredictionResult["fitLevel"],
+  candidateRank: number,
+  scale: "AIR" | "SML",
+  median: number,
+  recentRanks: number[],
+  latestYear: number
+): string {
+  const scaleLabel = scale === "SML" ? "SML" : "AIR";
+  const recentMin = Math.min(...recentRanks);
+  const recentMax = Math.max(...recentRanks);
+  const diff = candidateRank - median;
+  const diffText =
+    diff <= 0
+      ? `${Math.abs(diff).toLocaleString("en-IN")} ranks better than median closing (${scaleLabel})`
+      : `${diff.toLocaleString("en-IN")} ranks above median closing (${scaleLabel})`;
+
+  switch (fitLevel) {
+    case "STRONG":
+      return `Your ${scaleLabel} ${candidateRank.toLocaleString("en-IN")} is stronger than recent ${latestYear} closings (${recentMin.toLocaleString("en-IN")}–${recentMax.toLocaleString("en-IN")}). ${diffText}.`;
+    case "POSSIBLE":
+      return `Your ${scaleLabel} is within the typical ${latestYear} closing band (${recentMin.toLocaleString("en-IN")}–${recentMax.toLocaleString("en-IN")}). ${diffText}.`;
+    case "BORDERLINE":
+      return `Your ${scaleLabel} is slightly above recent closings but within a stretched buffer. ${diffText}.`;
+    default:
+      return `Historical ${latestYear} closings (${recentMin.toLocaleString("en-IN")}–${recentMax.toLocaleString("en-IN")}) were stronger than your ${scaleLabel}. ${diffText}.`;
+  }
+}
+
 function preferredSpecialtiesForDegree(input: PredictionInput): string[] | undefined {
   const preferred = input.preferredSpecialties;
   if (!preferred?.length) return undefined;
@@ -158,17 +187,24 @@ export async function generatePredictions(
 
   /** When user enters AIR but we query Maharashtra SML cutoffs, map via official CET registered list. */
   let maharashtraSmlRank = input.rankType === "SML" ? input.rank : null;
-  let smlFromAirEstimated = false;
   if (
     maharashtraSmlRank == null &&
     input.domicileState === "Maharashtra" &&
     (input.counsellingPref === "STATE" || input.counsellingPref === "BOTH")
   ) {
-    const mapped = lookupByAir(input.rank);
-    if (mapped.smlRank > 0) {
+    const mapped = lookupByAirExact(input.rank);
+    if (mapped.found && mapped.smlRank > 0) {
       maharashtraSmlRank = mapped.smlRank;
-      smlFromAirEstimated = mapped.estimated;
     }
+  }
+
+  if (
+    input.counsellingPref === "STATE" &&
+    input.domicileState === "Maharashtra" &&
+    input.rankType === "AIR" &&
+    maharashtraSmlRank == null
+  ) {
+    return [];
   }
 
   const airWindow = rankWindow(input.rank, "AIR");
@@ -320,9 +356,10 @@ export async function generatePredictions(
       counselling.code === "MAHARASHTRA" || effectiveRankType === "SML" ? "SML" : "AIR";
 
     const rankForFit =
-      counselling.code === "MAHARASHTRA" && maharashtraSmlRank != null
-        ? maharashtraSmlRank
+      counselling.code === "MAHARASHTRA"
+        ? maharashtraSmlRank ?? (input.rankType === "SML" ? input.rank : null)
         : input.rank;
+    if (rankForFit == null) continue;
 
     const fitLevel = classifyFit(
       rankForFit,
@@ -413,12 +450,20 @@ export async function generatePredictions(
       fitLevel,
       confidence,
       confidenceReason: `${confidenceReason}. Category: ${sample.category}, Quota: ${sample.quota}. Years: ${yearWiseCutoffs.map((y) => y.year).join(", ")} (${dataRounds} round records).${
-        counselling.code === "MAHARASHTRA" && smlFromAirEstimated
-          ? " Maharashtra SML inferred from AIR via official registered list (estimated)."
-          : counselling.code === "MAHARASHTRA" && maharashtraSmlRank != null && input.rankType === "AIR"
-            ? " Maharashtra SML matched from AIR via official registered list."
-            : ""
+        counselling.code === "MAHARASHTRA" && maharashtraSmlRank != null && input.rankType === "AIR"
+          ? " Fit uses official SML from registered Cap-III list (exact AIR match)."
+          : counselling.code === "MAHARASHTRA"
+            ? " Fit uses Maharashtra SML vs MAHACET selection-list closing ranks (not MCC AIR)."
+            : " Fit uses MCC AIQ AIR vs AIQ closing ranks."
       }`,
+      fitExplanation: buildFitExplanation(
+        fitLevel,
+        rankForFit,
+        fitScale,
+        stats.median,
+        recentRanks.length ? recentRanks : closingRanks,
+        latestYear
+      ),
       fees: fee
         ? {
             totalAnnual: fee.totalAnnual,

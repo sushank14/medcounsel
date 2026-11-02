@@ -1,7 +1,15 @@
 import { NextResponse } from "next/server";
-import { lookupByAir, loadMaharashtraAirSmlIndex } from "@/lib/maharashtra-air-sml-index";
+import { lookupByAir, lookupByAirExact, loadMaharashtraAirSmlIndex } from "@/lib/maharashtra-air-sml-index";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 export async function GET(req: Request) {
+  const limited = rateLimit(`air-sml:${clientIp(req)}`, 60, 60_000);
+  if (!limited.ok) {
+    return NextResponse.json(
+      { error: "Too many requests. Try again shortly." },
+      { status: 429, headers: { "Retry-After": String(limited.retryAfterSec) } }
+    );
+  }
   const { searchParams } = new URL(req.url);
   const airRaw = searchParams.get("air")?.trim();
   const air = airRaw ? parseInt(airRaw, 10) : NaN;
@@ -21,13 +29,15 @@ export async function GET(req: Request) {
     );
   }
 
-  const result = lookupByAir(air);
+  const exact = lookupByAirExact(air);
+  const result = exact.found ? exact : lookupByAir(air);
 
   return NextResponse.json({
     air: result.air,
-    smlRank: result.smlRank,
-    found: result.found,
-    estimated: result.estimated,
+    smlRank: exact.found ? exact.smlRank : result.estimated ? result.smlRank : 0,
+    found: exact.found,
+    estimated: !exact.found && result.estimated,
+    officialSmlRank: exact.found ? exact.smlRank : null,
     category: result.data?.category,
     categoryRaw: result.data?.categoryRaw,
     neetScore: result.data?.neetScore,
@@ -43,6 +53,6 @@ export async function GET(req: Request) {
       totalCandidates: index.totalRows,
     },
     disclaimer:
-      "SML from official CET registered-candidate list. Interpolation between nearest published AIRs is marked estimated. AIR and SML are not interchangeable for counselling.",
+      "Official SML only when your AIR appears on the MAHACET Cap-III registered list. Interpolated values are UI hints only — My Chances uses exact matches or your entered SML, never estimated SML. AIR and SML are not interchangeable.",
   });
 }

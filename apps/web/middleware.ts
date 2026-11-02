@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import { authConfig } from "@/lib/auth.config";
-import { isAuthRequired } from "@/lib/auth-access";
+import { canAccessAdmin, isAdminPath, isAuthRequired } from "@/lib/auth-access";
 import { NextResponse } from "next/server";
 
 const { auth } = NextAuth(authConfig);
@@ -13,6 +13,20 @@ export default auth((req) => {
   const isPublic =
     pathname.startsWith("/login") ||
     pathname.startsWith("/api/auth");
+
+  if (isAdminPath(pathname)) {
+    if (isAuthRequired() && !isLoggedIn) {
+      const login = new URL("/login", req.url);
+      login.searchParams.set("callbackUrl", pathname);
+      return NextResponse.redirect(login);
+    }
+    if (!canAccessAdmin(role)) {
+      if (pathname.startsWith("/api/")) {
+        return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+      }
+      return NextResponse.redirect(new URL("/?admin=denied", req.url));
+    }
+  }
 
   if (!isAuthRequired()) {
     if (pathname.startsWith("/login")) {

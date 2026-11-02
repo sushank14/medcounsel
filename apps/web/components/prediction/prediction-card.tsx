@@ -1,6 +1,12 @@
 import Link from "next/link";
 import type { PredictionResult } from "@medcounsel/types";
-import { CATEGORY_LABELS, COLLEGE_TYPE_LABELS, QUOTA_LABELS } from "@medcounsel/types";
+import {
+  CATEGORY_LABELS,
+  COLLEGE_TYPE_LABELS,
+  CONFIDENCE_LABELS,
+  FIT_CHANCE_LABELS,
+  QUOTA_LABELS,
+} from "@medcounsel/types";
 import { FitBadge } from "./fit-badge";
 import { formatCurrency, formatRank } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -24,7 +30,10 @@ export function PredictionCard({ result, showActions = true }: { result: Predict
           <p className="text-sm text-slate-600">{result.collegeName}</p>
           <p className="text-xs text-slate-400">{result.city}, {result.state}</p>
         </div>
-        <FitBadge fitLevel={result.fitLevel} />
+        <div className="text-right">
+          <FitBadge fitLevel={result.fitLevel} />
+          <p className="mt-1 text-xs text-slate-500">{FIT_CHANCE_LABELS[result.fitLevel]}</p>
+        </div>
       </div>
 
       <div className="mb-3 flex flex-wrap gap-2">
@@ -72,10 +81,16 @@ export function PredictionCard({ result, showActions = true }: { result: Predict
           </p>
         </div>
         <div>
-          <p className="text-xs text-slate-500">Confidence</p>
-          <Badge className="mt-0.5">{result.confidence}</Badge>
+          <p className="text-xs text-slate-500">Data confidence</p>
+          <Badge className="mt-0.5" title={result.confidenceReason}>
+            {CONFIDENCE_LABELS[result.confidence]}
+          </Badge>
         </div>
       </div>
+
+      {result.fitExplanation && (
+        <p className="mb-3 text-xs leading-relaxed text-slate-600">{result.fitExplanation}</p>
+      )}
 
       {result.yearWiseCutoffs.length > 0 && (
         <div className="mb-3 rounded-lg bg-slate-50 p-3">
