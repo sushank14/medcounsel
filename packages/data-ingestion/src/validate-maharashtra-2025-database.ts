@@ -22,6 +22,11 @@ function readJson<T>(p: string): T | null {
 }
 
 async function main() {
+  const { syncMaharashtraCollegeTypesFromMatrices } = await import(
+    "./sync-maharashtra-college-types.js"
+  );
+  await syncMaharashtraCollegeTypesFromMatrices();
+
   const counselling = await ensureMaharashtraCounselling();
   const report = readJson<{
     audits: Array<{ document_key: string; extraction_status: string; rows_extracted: number }>;
