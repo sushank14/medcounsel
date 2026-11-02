@@ -58,12 +58,26 @@ const FIT_OPTIONS = [
 function buildInitialFilters(profile: ProfileSnapshot, fitFilter = ""): SearchFilters {
   return {
     ...profile,
+    preferredSpecialties: preferredSpecialtiesForDegree(
+      profile.preferredSpecialties,
+      profile.degreePref
+    ),
     stateFilter: "",
     cityFilter: "",
     counsellingCode: "",
     fitFilter,
     specialtyQuery: "",
   };
+}
+
+/** Profile may store MD branches; don't send them when user filters MS-only (etc.). */
+function preferredSpecialtiesForDegree(
+  preferred: string[],
+  degreePref: DegreeFilter
+): string[] {
+  if (!preferred.length || degreePref === "ALL") return preferred;
+  const allowed = new Set(specialtiesForDegree(degreePref));
+  return preferred.filter((p) => allowed.has(p));
 }
 
 export function MyChancesSearch({
@@ -105,8 +119,8 @@ export function MyChancesSearch({
         budgetRange: f.budgetRange,
       });
       if (f.stateFilter) params.set("state", f.stateFilter);
-      if (f.preferredSpecialties.length)
-        params.set("specialties", f.preferredSpecialties.join(","));
+      const specs = preferredSpecialtiesForDegree(f.preferredSpecialties, f.degreePref);
+      if (specs.length) params.set("specialties", specs.join(","));
       if (f.preferredCities.length)
         params.set("cities", f.preferredCities.join(","));
       if (f.cityFilter) params.set("city", f.cityFilter);
@@ -308,7 +322,20 @@ export function MyChancesSearch({
             </div>
             <div className="space-y-1">
               <Label>Course type</Label>
-              <Select value={draft.degreePref} onChange={(e) => updateDraft("degreePref", e.target.value)}>
+              <Select
+                value={draft.degreePref}
+                onChange={(e) => {
+                  const degreePref = e.target.value as DegreeFilter;
+                  setDraft((f) => ({
+                    ...f,
+                    degreePref,
+                    preferredSpecialties: preferredSpecialtiesForDegree(
+                      f.preferredSpecialties,
+                      degreePref
+                    ),
+                  }));
+                }}
+              >
                 {DEGREE_OPTIONS.map((d) => (
                   <option key={d.value} value={d.value}>{d.label}</option>
                 ))}
@@ -496,8 +523,10 @@ export function MyChancesSearch({
         <div className="card p-8 text-center text-slate-500">
           <p className="font-medium">No options match these filters</p>
           <p className="mt-2 text-sm">
-            Try a wider rank range, set college type to &quot;Govt + Private&quot; or &quot;Any&quot;, or choose Course type
-            &quot;DNB&quot; for hospital-based NBEMS seats.
+            Common causes: Course type MS while your profile still has MD preferred branches (open Preferred specialties
+            and pick MS branches, or set Course type to All). Also try college
+            type &quot;Govt + Private&quot;, budget &quot;No restriction&quot; for low-fee GMCs, or Course type
+            &quot;DNB&quot; for NBEMS hospital seats.
           </p>
           <Button variant="outline" size="sm" className="mt-4" onClick={openEdit}>
             Edit filters

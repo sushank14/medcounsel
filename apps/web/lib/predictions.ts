@@ -16,6 +16,7 @@ import {
   resolveCollegeCity,
   matchesAnyPreferredCity,
   matchesPreferredCity,
+  specialtiesForDegree,
 } from "@medcounsel/types";
 
 const MCC_SOURCE_URL = "https://mcc.nic.in/pg-medical-counselling/";
@@ -117,6 +118,17 @@ function passesBudgetFilter(
   if (!fee) return true; // unknown fee — don't exclude official colleges
   const limit = BUDGET_LIMITS[budgetRange] ?? Infinity;
   return fee.totalAnnual <= limit;
+}
+
+/** Ignore MD branch prefs when user filters MS-only (and vice versa). */
+function preferredSpecialtiesForDegree(input: PredictionInput): string[] | undefined {
+  const preferred = input.preferredSpecialties;
+  if (!preferred?.length) return undefined;
+  const degree = input.degreeFilter;
+  if (!degree || degree === "ALL") return preferred;
+  const allowed = new Set(specialtiesForDegree(degree));
+  const narrowed = preferred.filter((p) => allowed.has(p));
+  return narrowed.length > 0 ? narrowed : undefined;
 }
 
 export async function generatePredictions(
@@ -280,9 +292,10 @@ export async function generatePredictions(
     if (input.cityFilter && !matchesPreferredCity(college.city, input.cityFilter)) continue;
     if (counselling.code === "MAHARASHTRA" && input.domicileState !== "Maharashtra") continue;
 
-    if (input.preferredSpecialties?.length) {
+    const branchPrefs = preferredSpecialtiesForDegree(input);
+    if (branchPrefs?.length) {
       const specLabel = `${specialty.degree} ${specialty.name}`;
-      const matches = input.preferredSpecialties.some(
+      const matches = branchPrefs.some(
         (p) =>
           p.toLowerCase().includes(specialty.name.toLowerCase()) ||
           specLabel.toLowerCase().includes(p.toLowerCase())
