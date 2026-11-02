@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import { authConfig } from "@/lib/auth.config";
+import { isAuthRequired } from "@/lib/auth-access";
 import { NextResponse } from "next/server";
 
 const { auth } = NextAuth(authConfig);
@@ -12,6 +13,13 @@ export default auth((req) => {
   const isPublic =
     pathname.startsWith("/login") ||
     pathname.startsWith("/api/auth");
+
+  if (!isAuthRequired()) {
+    if (pathname.startsWith("/login")) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+    return NextResponse.next();
+  }
 
   if (isPublic) {
     if (pathname.startsWith("/login") && isLoggedIn) {

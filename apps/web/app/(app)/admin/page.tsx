@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { auth } from "@/lib/auth";
+import { canAccessAdmin } from "@/lib/auth-access";
 import { prisma } from "@medcounsel/database";
 import { Badge } from "@/components/ui/badge";
 
@@ -9,7 +10,7 @@ export default async function AdminPage() {
   if (!session?.user?.id) redirect("/login");
 
   const user = await prisma.user.findUnique({ where: { id: session.user.id } });
-  if (user?.role !== "ADMIN") redirect("/dashboard");
+  if (!canAccessAdmin(user?.role)) redirect("/dashboard");
 
   const [colleges, cutoffs, stipends, imports, sources] = await Promise.all([
     prisma.college.count(),

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
+import { canAccessAdmin } from "@/lib/auth-access";
 import { prisma } from "@medcounsel/database";
 import fs from "fs";
 import path from "path";
@@ -20,7 +21,7 @@ export async function GET() {
   const session = await auth();
   if (!session?.user?.id) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const user = await prisma.user.findUnique({ where: { id: session.user.id } });
-  if (user?.role !== "ADMIN") return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  if (!canAccessAdmin(user?.role)) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
 
   const validation =
     readJsonSafe(path.join(PROCESSED, "validation_report.json")) ??

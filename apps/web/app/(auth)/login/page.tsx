@@ -1,4 +1,6 @@
+import { redirect } from "next/navigation";
 import { googleAuthEnabled, signIn } from "@/lib/auth";
+import { isAuthRequired } from "@/lib/auth-access";
 import { loginAction } from "./actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,6 +18,10 @@ export default async function LoginPage({
 }: {
   searchParams: Promise<{ callbackUrl?: string; error?: string }>;
 }) {
+  if (!isAuthRequired()) {
+    redirect("/");
+  }
+
   const params = await searchParams;
   const callbackUrl = params.callbackUrl ?? "/";
   const errorMessage = params.error

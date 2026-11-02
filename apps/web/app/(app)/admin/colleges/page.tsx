@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { auth } from "@/lib/auth";
+import { canAccessAdmin } from "@/lib/auth-access";
 import { BackLink } from "@/components/ui/back-link";
 import { prisma } from "@medcounsel/database";
 import { Badge } from "@/components/ui/badge";
@@ -13,7 +14,7 @@ export default async function AdminCollegesPage({
   const session = await auth();
   if (!session?.user?.id) redirect("/login");
   const user = await prisma.user.findUnique({ where: { id: session.user.id } });
-  if (user?.role !== "ADMIN") redirect("/dashboard");
+  if (!canAccessAdmin(user?.role)) redirect("/dashboard");
 
   const params = await searchParams;
   const page = Math.max(1, parseInt(params.page ?? "1", 10));

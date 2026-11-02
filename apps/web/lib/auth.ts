@@ -1,10 +1,12 @@
 import NextAuth from "next-auth";
+import type { Session } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 import { prisma } from "@medcounsel/database";
 import { authConfig } from "./auth.config";
 import { isEmailAllowed } from "./allowed-users";
 import { verifyPassword } from "./password";
+import { GUEST_EMAIL, isAuthRequired } from "./auth-access";
 
 function normalizeLoginId(raw: string): string {
   const value = raw.trim().toLowerCase();
@@ -14,7 +16,34 @@ function normalizeLoginId(raw: string): string {
   return `${slug}@local.dev`;
 }
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
+async function ensureGuestUser() {
+  let user = await prisma.user.findUnique({ where: { email: GUEST_EMAIL } });
+  if (!user) {
+    user = await prisma.user.create({
+      data: {
+        email: GUEST_EMAIL,
+        name: "Guest",
+        role: "USER",
+      },
+    });
+  }
+  return user;
+}
+
+async function guestSession(): Promise<Session> {
+  const user = await ensureGuestUser();
+  return {
+    user: {
+      id: user.id,
+      email: user.email ?? GUEST_EMAIL,
+      name: user.name ?? "Guest",
+      role: user.role,
+    },
+    expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
+  };
+}
+
+const nextAuth = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
@@ -84,6 +113,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
   },
 });
+
+export const { handlers, signIn, signOut, auth: nextAuthSession } = nextAuth;
+
+/** Returns a signed-in session, or an auto guest session when login is disabled. */
+export async function auth(): Promise<Session | null> {
+  const session = await nextAuthSession();
+  if (session?.user?.id) return session;
+  if (isAuthRequired()) return null;
+  return guestSession();
+}
 
 export const googleAuthEnabled = Boolean(
   process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { auth, signOut } from "@/lib/auth";
+import { canAccessAdmin, isAuthRequired } from "@/lib/auth-access";
 import { Button } from "@/components/ui/button";
 import { Stethoscope } from "lucide-react";
 
@@ -9,7 +10,7 @@ export async function Header() {
   return (
     <header className="sticky top-0 z-50 border-b bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-        <Link href={session ? "/" : "/login"} className="flex items-center gap-2 font-semibold text-brand-700">
+        <Link href="/" className="flex items-center gap-2 font-semibold text-brand-700">
           <Stethoscope className="h-5 w-5" />
           MedCounsel AI
         </Link>
@@ -25,23 +26,24 @@ export async function Header() {
           <Link href="/compare" className="hover:text-brand-600">Compare</Link>
           <Link href="/category-explorer" className="hover:text-brand-600">Categories</Link>
           <Link href="/profile" className="hover:text-brand-600">Profile</Link>
-          {session?.user?.role === "ADMIN" && (
+          {canAccessAdmin(session?.user?.role) && (
             <Link href="/admin" className="hover:text-brand-600">Admin</Link>
           )}
         </nav>
         <div className="flex items-center gap-2">
-          {session ? (
-            <>
-              <span className="hidden max-w-[140px] truncate text-sm text-slate-500 sm:inline">
-                {session.user.name ?? session.user.email}
-              </span>
+          {session && (
+            <span className="hidden max-w-[140px] truncate text-sm text-slate-500 sm:inline">
+              {session.user.name ?? session.user.email}
+            </span>
+          )}
+          {isAuthRequired() &&
+            (session ? (
               <form action={async () => { "use server"; await signOut({ redirectTo: "/login" }); }}>
                 <Button variant="outline" size="sm" type="submit">Sign out</Button>
               </form>
-            </>
-          ) : (
-            <Link href="/login"><Button size="sm">Sign in</Button></Link>
-          )}
+            ) : (
+              <Link href="/login"><Button size="sm">Sign in</Button></Link>
+            ))}
         </div>
       </div>
     </header>

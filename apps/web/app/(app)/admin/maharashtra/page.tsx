@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
+import { canAccessAdmin } from "@/lib/auth-access";
 import { BackLink } from "@/components/ui/back-link";
 import { prisma } from "@medcounsel/database";
 import { getMaharashtra2025Readiness } from "@/lib/maharashtra-data-readiness";
@@ -48,7 +49,7 @@ export default async function AdminMaharashtraPage() {
   const session = await auth();
   if (!session?.user?.id) redirect("/login");
   const user = await prisma.user.findUnique({ where: { id: session.user.id } });
-  if (user?.role !== "ADMIN") redirect("/dashboard");
+  if (!canAccessAdmin(user?.role)) redirect("/dashboard");
 
   const validation = loadValidation();
   const audits = validation?.audits ?? [];
