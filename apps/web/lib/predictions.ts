@@ -21,6 +21,8 @@ import {
 const MCC_SOURCE_URL = "https://mcc.nic.in/pg-medical-counselling/";
 
 import { BUDGET_LIMITS } from "./budget-limits";
+import { lookupByAir } from "./maharashtra-air-sml-index";
+import { getMaharashtra2025Readiness } from "./maharashtra-data-readiness";
 
 const COLLEGE_PREF_MAP: Record<string, string[]> = {
   GOVT_ONLY: ["GOVT", "CENTRAL"],
@@ -121,12 +123,20 @@ export async function generatePredictions(
   input: PredictionInput,
   options?: { limit?: number }
 ): Promise<PredictionResult[]> {
-  const counsellingCodes =
+  const mahReadiness = await getMaharashtra2025Readiness();
+  let counsellingCodes =
     input.counsellingPref === "AIQ"
       ? ["AIQ"]
       : input.counsellingPref === "STATE"
       ? ["MAHARASHTRA"]
       : ["AIQ", "MAHARASHTRA"];
+
+  if (!mahReadiness.predictionReady && counsellingCodes.includes("MAHARASHTRA")) {
+    if (input.counsellingPref === "STATE") {
+      return [];
+    }
+    counsellingCodes = counsellingCodes.filter((c) => c !== "MAHARASHTRA");
+  }
 
   const counsellings = await prisma.counselling.findMany({
     where: { code: { in: counsellingCodes }, isActive: true },
@@ -134,9 +144,23 @@ export async function generatePredictions(
 
   const counsellingIds = counsellings.map((c) => c.id);
 
-  const useSmlRank = input.rankType === "SML" || input.counsellingPref === "STATE";
-  const airWindow = rankWindow(input.rank, useSmlRank ? "SML" : "AIR");
-  const smlWindow = rankWindow(input.rank, "SML");
+  /** When user enters AIR but we query Maharashtra SML cutoffs, map via official CET registered list. */
+  let maharashtraSmlRank = input.rankType === "SML" ? input.rank : null;
+  let smlFromAirEstimated = false;
+  if (
+    maharashtraSmlRank == null &&
+    input.domicileState === "Maharashtra" &&
+    (input.counsellingPref === "STATE" || input.counsellingPref === "BOTH")
+  ) {
+    const mapped = lookupByAir(input.rank);
+    if (mapped.smlRank > 0) {
+      maharashtraSmlRank = mapped.smlRank;
+      smlFromAirEstimated = mapped.estimated;
+    }
+  }
+
+  const airWindow = rankWindow(input.rank, "AIR");
+  const smlWindow = rankWindow(maharashtraSmlRank ?? input.rank, "SML");
 
   const rankFilters =
     input.counsellingPref === "STATE" && input.domicileState === "Maharashtra"
@@ -164,11 +188,29 @@ export async function generatePredictions(
       ? { degree: degreeFilter as never }
       : undefined;
 
+  const mahCounsellingId = counsellings.find((c) => c.code === "MAHARASHTRA")?.id;
+
   const cutoffs = await prisma.cutoff.findMany({
     where: {
       counsellingId: { in: counsellingIds },
       category: input.category as never,
-      OR: rankFilters,
+      AND: [
+        { OR: rankFilters },
+        ...(mahCounsellingId && mahReadiness.predictionReady
+          ? [
+              {
+                OR: [
+                  { counsellingId: { not: mahCounsellingId } },
+                  {
+                    counsellingId: mahCounsellingId,
+                    verificationStatus: "VERIFIED" as const,
+                    year: 2025,
+                  },
+                ],
+              },
+            ]
+          : []),
+      ],
       ...(input.collegeId ? { collegeId: input.collegeId } : {}),
       ...(specialtyWhere ? { specialty: specialtyWhere } : {}),
       college: {
@@ -264,8 +306,13 @@ export async function generatePredictions(
     const fitScale =
       counselling.code === "MAHARASHTRA" || effectiveRankType === "SML" ? "SML" : "AIR";
 
+    const rankForFit =
+      counselling.code === "MAHARASHTRA" && maharashtraSmlRank != null
+        ? maharashtraSmlRank
+        : input.rank;
+
     const fitLevel = classifyFit(
-      input.rank,
+      rankForFit,
       stats,
       recentRanks.length ? recentRanks : closingRanks,
       fitScale
@@ -346,10 +393,16 @@ export async function generatePredictions(
       yearWiseCutoffs,
       yearTrend,
       statistics: { ...stats, dataYears: yearWiseCutoffs.length },
-      candidateDiff: input.rank - stats.median,
+      candidateDiff: rankForFit - stats.median,
       fitLevel,
       confidence,
-      confidenceReason: `${confidenceReason}. Category: ${sample.category}, Quota: ${sample.quota}. Years: ${yearWiseCutoffs.map((y) => y.year).join(", ")} (${dataRounds} round records).`,
+      confidenceReason: `${confidenceReason}. Category: ${sample.category}, Quota: ${sample.quota}. Years: ${yearWiseCutoffs.map((y) => y.year).join(", ")} (${dataRounds} round records).${
+        counselling.code === "MAHARASHTRA" && smlFromAirEstimated
+          ? " Maharashtra SML inferred from AIR via official registered list (estimated)."
+          : counselling.code === "MAHARASHTRA" && maharashtraSmlRank != null && input.rankType === "AIR"
+            ? " Maharashtra SML matched from AIR via official registered list."
+            : ""
+      }`,
       fees: fee
         ? {
             totalAnnual: fee.totalAnnual,

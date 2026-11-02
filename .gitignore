@@ -16,6 +16,14 @@ data/processed/*
 !data/processed/nmc/**
 !data/processed/maharashtra/
 !data/processed/maharashtra/*-merit-index.json
+!data/processed/maharashtra/2025-reg-cap3-air-sml-index.json
+!data/maharashtra/
+!data/maharashtra/2025/processed/2025-reg-cap3-air-sml-index.json
+!data/maharashtra/2025/processed/db_validation_report.json
+packages/data-ingestion/python/maharashtra/**/__pycache__/
+apps/web/tsconfig.tsbuildinfo
+data/imports/maharashtra/*.pdf
+data/maharashtra/**/*.pdf
 .DS_Store
 .idea
 coverage

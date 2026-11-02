@@ -1,0 +1,187 @@
+{
+  "generated_at": "2026-11-02T22:50:36.956180+00:00",
+  "year": 2025,
+  "documents": [
+    {
+      "key": "merit_r1",
+      "ok": true,
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/merit_lists/02-pgm-merit-r1.pdf",
+      "status_code": 200,
+      "checksum_sha256": "b2c4f428185d05aa57e12767a9d04de42753d1cc28e35448f45815f9a132102c",
+      "file_size_bytes": 1376450,
+      "error": null,
+      "skipped_duplicate": true,
+      "spec": {
+        "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/02-pgm-merit-r1.pdf",
+        "kind": "merit_list",
+        "round": "R1",
+        "version": "provisional"
+      }
+    },
+    {
+      "key": "merit_cap3",
+      "ok": true,
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/merit_lists/pgm-merit-cap3.pdf",
+      "status_code": 200,
+      "checksum_sha256": "77a8c1eb2a956a9a231e1f16fe2f2d46a158e85cb40fe2fb90c05edb748be714",
+      "file_size_bytes": 1896084,
+      "error": null,
+      "skipped_duplicate": true,
+      "spec": {
+        "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/pgm-merit-cap3.pdf",
+        "kind": "merit_list",
+        "round": "R3",
+        "version": "provisional"
+      }
+    },
+    {
+      "key": "registered_cap3",
+      "ok": true,
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/merit_lists/pgm-reg-cap3.pdf",
+      "status_code": 200,
+      "checksum_sha256": "5ff51e30039b68980c439dedd238cbb8e9a89ef048b7d1935b30f5b227403c15",
+      "file_size_bytes": 1601950,
+      "error": null,
+      "skipped_duplicate": true,
+      "spec": {
+        "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/pgm-reg-cap3.pdf",
+        "kind": "registered_list",
+        "round": "CAP3",
+        "version": "provisional"
+      }
+    },
+    {
+      "key": "seat_matrix_r1_govt",
+      "ok": true,
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/seat_matrices/round_1/05-Final-PGM25-Govt-Degree.pdf",
+      "status_code": 200,
+      "checksum_sha256": "7efff31a0e4873c44ef8155c74b06893e54221731334e6c4ead0132b59ca7d2f",
+      "file_size_bytes": 283384,
+      "error": null,
+      "skipped_duplicate": false,
+      "spec": {
+        "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/05-Final+PGM25-Categorywise+Govt+_+Degree.pdf",
+        "kind": "seat_matrix",
+        "round": "R1",
+        "version": "original"
+      }
+    },
+    {
+      "key": "seat_matrix_r1_pvt",
+      "ok": true,
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/seat_matrices/round_1/07-Final-PGM25-Pvt.pdf",
+      "status_code": 200,
+      "checksum_sha256": "82325b1ec13b27e39cbd6db7b065c1989a9d255b1a5512c7a2327d782cf5426f",
+      "file_size_bytes": 147027,
+      "error": null,
+      "skipped_duplicate": false,
+      "spec": {
+        "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/07-Final+PGM25-Categorywise+Pvt+with+Per--WEBFILE..pdf",
+        "kind": "seat_matrix",
+        "round": "R1",
+        "version": "original"
+      }
+    },
+    {
+      "key": "seat_matrix_r2_original",
+      "ok": true,
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/seat_matrices/round_2/original/PGM_R2_Seat.pdf",
+      "status_code": 200,
+      "checksum_sha256": "13d504e0ae24a09dddd9fe39847495c5d75347acfbb25881db8a782e3c1e2406",
+      "file_size_bytes": 167139,
+      "error": null,
+      "skipped_duplicate": false,
+      "spec": {
+        "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/PGM_R2_Seat.pdf",
+        "kind": "seat_matrix",
+        "round": "R2",
+        "version": "original"
+      }
+    },
+    {
+      "key": "seat_matrix_r2_updated",
+      "ok": true,
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/seat_matrices/round_2/updated/PGM_R2_Seat23Dec.pdf",
+      "status_code": 200,
+      "checksum_sha256": "0d6528b65efc23c6626cfcd35be3e66ed14a11dd339ec0d6a561df77e0c00a87",
+      "file_size_bytes": 86767,
+      "error": null,
+      "skipped_duplicate": false,
+      "spec": {
+        "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/PGM_R2_Seat23Dec.pdf.pdf",
+        "kind": "seat_matrix",
+        "round": "R2",
+        "version": "updated"
+      }
+    },
+    {
+      "key": "seat_matrix_r3",
+      "ok": true,
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/seat_matrices/round_3/PGM_R3_Seat.pdf",
+      "status_code": 200,
+      "checksum_sha256": "72b1f61e4423bacd57cf254195f0bb3c1066e1b18e7edcd881ded8d99cf4a014",
+      "file_size_bytes": 88426,
+      "error": null,
+      "skipped_duplicate": true,
+      "spec": {
+        "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/PGM_R3_Seat.pdf",
+        "kind": "seat_matrix",
+        "round": "R3",
+        "version": "provisional"
+      }
+    },
+    {
+      "key": "allotment_r1",
+      "ok": true,
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/allotments/round_1/SelList_R1.pdf",
+      "status_code": 200,
+      "checksum_sha256": "15841ff79981b1b80e3b59ca6c818132df941b627cd3dcfdd7f6a6da04a440a3",
+      "file_size_bytes": 310863,
+      "error": null,
+      "skipped_duplicate": true,
+      "spec": {
+        "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/SelList_R1.pdf",
+        "kind": "allotment",
+        "round": "R1",
+        "version": "original"
+      }
+    },
+    {
+      "key": "allotment_r2",
+      "ok": true,
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/allotments/round_2/SelList_R2.pdf",
+      "status_code": 200,
+      "checksum_sha256": "40306ccc1a16703dfb98b333642e7f39e72d02da3ff1121199d521f0db6d7385",
+      "file_size_bytes": 1006635,
+      "error": null,
+      "skipped_duplicate": true,
+      "spec": {
+        "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/SelList_R2.pdf",
+        "kind": "allotment",
+        "round": "R2",
+        "version": "original"
+      }
+    },
+    {
+      "key": "allotment_r3",
+      "ok": true,
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/allotments/round_3/Revised_SelList_R3.pdf",
+      "status_code": 200,
+      "checksum_sha256": "f69869cc8b583f6332474970e06d1890a77bcf06debb852c0e85f99b50ccb644",
+      "file_size_bytes": 985059,
+      "error": null,
+      "skipped_duplicate": true,
+      "spec": {
+        "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/Revised_SelList_R3.pdf",
+        "kind": "allotment",
+        "round": "R3",
+        "version": "revised"
+      }
+    }
+  ],
+  "summary": {
+    "total": 11,
+    "ok": 11,
+    "failed": 0
+  }
+}

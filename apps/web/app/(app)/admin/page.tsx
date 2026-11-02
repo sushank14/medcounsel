@@ -37,6 +37,7 @@ export default async function AdminPage() {
           { label: "Cutoffs", value: cutoffs, href: "/admin/cutoffs" },
           { label: "Stipends", value: stipends, href: "/admin/stipends" },
           { label: "Sources", value: sources, href: "/admin/sources" },
+          { label: "MH 2025 Pipeline", value: "→", href: "/admin/maharashtra" },
         ].map((s) => (
           <Link key={s.label} href={s.href} className="card p-5 hover:shadow-md">
             <p className="text-2xl font-bold">{s.value}</p>

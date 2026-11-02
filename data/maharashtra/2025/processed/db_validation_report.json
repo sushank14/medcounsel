@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-11-02T23:03:28.262Z",
+  "allOk": true,
+  "checks": [
+    {
+      "name": "documents_registered",
+      "ok": true,
+      "detail": "documents=11, expected>=10"
+    },
+    {
+      "name": "pipeline_extractions_ok",
+      "ok": true,
+      "detail": "all ok"
+    },
+    {
+      "name": "registered_air_sml_rows",
+      "ok": true,
+      "detail": "rows=7069"
+    },
+    {
+      "name": "cutoffs_r1",
+      "ok": true,
+      "detail": "1174"
+    },
+    {
+      "name": "cutoffs_r2",
+      "ok": true,
+      "detail": "1176"
+    },
+    {
+      "name": "cutoffs_r3",
+      "ok": true,
+      "detail": "1261"
+    },
+    {
+      "name": "seat_matrices",
+      "ok": true,
+      "detail": "8510"
+    },
+    {
+      "name": "air_sml_index_file",
+      "ok": true,
+      "detail": "totalRows=7069"
+    }
+  ],
+  "verifiedCutoffs": 3611,
+  "cutoffByRound": {
+    "R1": 1174,
+    "R2": 1176,
+    "R3": 1261
+  }
+}

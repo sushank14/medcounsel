@@ -1,0 +1,5 @@
+# Use Python 3.11+ (default `python3` may be 3.6 and fail to build wheels):
+#   python3.11 -m pip install -r requirements.txt
+pymupdf>=1.24.0
+pdfplumber>=0.11.0
+pytest>=8.0.0

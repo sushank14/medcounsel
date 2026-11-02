@@ -454,9 +454,35 @@ model Document {
   parseStatus          ParseStatus @default(PENDING)
   extractedData        String?     // JSON
   extractionConfidence Float?
+  sourceUrl            String?
+  checksumSha256       String?
+  counsellingYear      Int?
+  counsellingRound     String?
+  documentVersion      String?
+  pageCount            Int?
+  verificationStatus   VerificationStatus @default(PENDING)
 
   source      Source?      @relation(fields: [sourceId], references: [id])
   dataImports DataImport[]
+  extractionAudits MahExtractionAudit[]
+
+  @@index([counsellingYear, counsellingRound, docType])
+}
+
+model MahExtractionAudit {
+  id              String   @id @default(cuid())
+  documentId      String?
+  documentKey     String
+  extractionStatus String
+  rowsExtracted   Int      @default(0)
+  rowsVerified    Int      @default(0)
+  rowsRejected    Int      @default(0)
+  errorDetails    String?  // JSON
+  processedAt     DateTime @default(now())
+
+  document Document? @relation(fields: [documentId], references: [id])
+
+  @@index([documentKey, processedAt])
 }
 
 enum DocType {
@@ -466,6 +492,9 @@ enum DocType {
   BOND
   STIPEND
   SCHEDULE
+  MERIT_LIST
+  ALLOTMENT
+  REGISTERED_LIST
 }
 
 enum ParseStatus {

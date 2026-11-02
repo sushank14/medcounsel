@@ -1,0 +1,79 @@
+[
+  {
+    "key": "merit_r1",
+    "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/02-pgm-merit-r1.pdf",
+    "kind": "merit_list",
+    "round": "R1",
+    "version": "provisional"
+  },
+  {
+    "key": "merit_cap3",
+    "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/pgm-merit-cap3.pdf",
+    "kind": "merit_list",
+    "round": "R3",
+    "version": "provisional"
+  },
+  {
+    "key": "registered_cap3",
+    "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/pgm-reg-cap3.pdf",
+    "kind": "registered_list",
+    "round": "CAP3",
+    "version": "provisional"
+  },
+  {
+    "key": "seat_matrix_r1_govt",
+    "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/05-Final+PGM25-Categorywise+Govt+_+Degree.pdf",
+    "kind": "seat_matrix",
+    "round": "R1",
+    "version": "original"
+  },
+  {
+    "key": "seat_matrix_r1_pvt",
+    "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/07-Final+PGM25-Categorywise+Pvt+with+Per--WEBFILE..pdf",
+    "kind": "seat_matrix",
+    "round": "R1",
+    "version": "original"
+  },
+  {
+    "key": "seat_matrix_r2_original",
+    "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/PGM_R2_Seat.pdf",
+    "kind": "seat_matrix",
+    "round": "R2",
+    "version": "original"
+  },
+  {
+    "key": "seat_matrix_r2_updated",
+    "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/PGM_R2_Seat23Dec.pdf.pdf",
+    "kind": "seat_matrix",
+    "round": "R2",
+    "version": "updated"
+  },
+  {
+    "key": "seat_matrix_r3",
+    "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/PGM_R3_Seat.pdf",
+    "kind": "seat_matrix",
+    "round": "R3",
+    "version": "provisional"
+  },
+  {
+    "key": "allotment_r1",
+    "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/SelList_R1.pdf",
+    "kind": "allotment",
+    "round": "R1",
+    "version": "original"
+  },
+  {
+    "key": "allotment_r2",
+    "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/SelList_R2.pdf",
+    "kind": "allotment",
+    "round": "R2",
+    "version": "original"
+  },
+  {
+    "key": "allotment_r3",
+    "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/Revised_SelList_R3.pdf",
+    "kind": "allotment",
+    "round": "R3",
+    "version": "revised"
+  }
+]

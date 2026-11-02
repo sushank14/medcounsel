@@ -15,7 +15,7 @@ export interface ParsedMahMeritRow {
   candidatureType: "State" | "NRI" | string;
 }
 
-const ROLL_RE = /^266\d{8}$/;
+const ROLL_RE = /^256\d{8}$/;
 const APP_RE = /^(\d{9})(.*)$/;
 const SCORE_RE = /^\d{3}$/;
 
@@ -72,27 +72,29 @@ export function parseMaharashtraMeritText(text: string): ParsedMahMeritRow[] {
       i++;
     }
 
-    if (i >= lines.length || !APP_RE.test(lines[i])) continue;
-
-    const appMatch = lines[i].match(APP_RE)!;
-    const applicationNo = appMatch[1];
-    const categoryRaw = (appMatch[2] ?? "").trim();
+    if (i >= lines.length || !/^258\d{6}$/.test(lines[i]!)) continue;
+    const applicationNo = lines[i]!;
     i++;
 
-    if (i >= lines.length || !SCORE_RE.test(lines[i])) continue;
-    const neetScore = parseInt(lines[i], 10);
-    i++;
-
-    if (i >= lines.length || !/^\d+$/.test(lines[i])) continue;
-    const categoryMeritNo = parseInt(lines[i], 10);
-    i++;
-
-    if (i >= lines.length) break;
-    const candidatureType = lines[i];
-    if (!/^(State|NRI)$/i.test(candidatureType)) {
-      continue;
+    let categoryRaw = "";
+    if (i < lines.length && !SCORE_RE.test(lines[i]!) && !/^\d+$/.test(lines[i]!)) {
+      categoryRaw = lines[i]!;
+      i++;
     }
+
+    if (i >= lines.length || !/^\d+$/.test(lines[i]!)) continue;
+    const categoryMeritNo = parseInt(lines[i]!, 10);
     i++;
+
+    if (i >= lines.length || !SCORE_RE.test(lines[i]!)) continue;
+    const neetScore = parseInt(lines[i]!, 10);
+    i++;
+
+    let candidatureType = "State";
+    if (i < lines.length && /^(State|NRI)$/i.test(lines[i]!)) {
+      candidatureType = lines[i]!;
+      i++;
+    }
 
     results.push({
       smlRank,

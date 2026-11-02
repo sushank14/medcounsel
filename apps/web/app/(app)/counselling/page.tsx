@@ -161,6 +161,9 @@ export default async function CounsellingHubPage() {
                   <Link href="/my-chances" className="text-sm text-brand-600 hover:underline">
                     My MH options →
                   </Link>
+                  <Link href="/maharashtra/rank-map" className="text-sm text-brand-600 hover:underline">
+                    AIR ↔ SML map →
+                  </Link>
                   <Link
                     href="/seat-matrix?source=mcc&year=2026&state=Maharashtra&diffYear=2025&mhRanks=1"
                     className="text-sm text-brand-600 hover:underline"

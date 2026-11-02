@@ -97,8 +97,10 @@ npm run backtest:predictions   # Hold-out fit-label accuracy → data/reports/`}
       <div className="card p-5">
         <h2 className="mb-2 font-semibold">Maharashtra State Counselling (2025)</h2>
         <pre className="rounded-lg bg-slate-900 p-3 text-xs text-slate-100">
-{`npm run fetch:maharashtra    # Download MAHACET selection lists
-npm run import:maharashtra   # Parse & import SML cutoffs`}
+{`npm run fetch:maharashtra         # Merit, selection, registered, seat matrix PDFs
+npm run import:maharashtra        # SML closing ranks → database
+npm run import:maharashtra-merit  # Roll → SML merit indexes (JSON)
+npm run import:maharashtra-air-sml # AIR ↔ SML from registered lists (JSON)`}
         </pre>
         <p className="mt-2 text-xs text-slate-400">
           Maharashtra uses SML (State Merit List) ranks — never mixed with AIR without explicit labels.
