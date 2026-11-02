@@ -380,8 +380,11 @@ export async function generatePredictions(
       counsellingName: counselling.name,
       category: sample.category,
       quota: sample.quota,
-      candidateRank: input.rank,
-      rankType: effectiveRankType as PredictionResult["rankType"],
+      candidateRank: rankForFit,
+      rankType: fitScale as PredictionResult["rankType"],
+      ...(counselling.code === "MAHARASHTRA"
+        ? { profileRank: input.rank, profileRankType: input.rankType }
+        : {}),
       historicalCutoffs: group.map((g) => ({
         year: g.year,
         round: g.round?.round ?? "R1",

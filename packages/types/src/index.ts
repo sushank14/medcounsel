@@ -127,6 +127,9 @@ export interface PredictionResult {
   quota: string;
   candidateRank: number;
   rankType: RankType;
+  /** Profile rank when fit uses a converted rank (e.g. AIR → SML for Maharashtra). */
+  profileRank?: number;
+  profileRankType?: RankType;
   historicalCutoffs: CutoffRecord[];
   yearWiseCutoffs: YearWiseCutoff[];
   yearTrend: YearTrendSummary;

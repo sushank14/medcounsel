@@ -51,8 +51,15 @@ export function PredictionCard({ result, showActions = true }: { result: Predict
 
       <div className="mb-3 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
         <div>
-          <p className="text-xs text-slate-500">Your rank</p>
+          <p className="text-xs text-slate-500">Your rank (for fit)</p>
           <p className="font-medium">{formatRank(result.candidateRank, result.rankType)}</p>
+          {result.profileRank != null &&
+            result.profileRankType &&
+            (result.profileRank !== result.candidateRank || result.profileRankType !== result.rankType) && (
+              <p className="text-xs text-slate-500">
+                Profile: {formatRank(result.profileRank, result.profileRankType)}
+              </p>
+            )}
         </div>
         <div>
           <p className="text-xs text-slate-500">Recent closing</p>
@@ -133,7 +140,9 @@ export function PredictionCard({ result, showActions = true }: { result: Predict
           <Badge className="bg-orange-50 text-orange-800">Bond {formatCurrency(result.bond.bondAmount)}</Badge>
         )}
         {result.dataStatus === "OFFICIAL" && (
-          <Badge className="bg-emerald-50 text-emerald-800">OFFICIAL MCC</Badge>
+          <Badge className="bg-emerald-50 text-emerald-800">
+            {result.counsellingCode === "MAHARASHTRA" ? "MAHACET SML" : "OFFICIAL MCC"}
+          </Badge>
         )}
       </div>
 

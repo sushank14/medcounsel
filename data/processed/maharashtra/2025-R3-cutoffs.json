@@ -101,8 +101,8 @@
     "category": "OBC",
     "quota": "STATE",
     "openingRank": 37,
-    "closingRank": 3996,
-    "seats": 6
+    "closingRank": 261,
+    "seats": 5
   },
   {
     "year": 2025,
@@ -146,8 +146,8 @@
     "category": "GENERAL",
     "quota": "STATE",
     "openingRank": 45,
-    "closingRank": 4297,
-    "seats": 3
+    "closingRank": 62,
+    "seats": 2
   },
   {
     "year": 2025,
@@ -221,8 +221,8 @@
     "category": "GENERAL",
     "quota": "STATE",
     "openingRank": 57,
-    "closingRank": 4802,
-    "seats": 6
+    "closingRank": 101,
+    "seats": 5
   },
   {
     "year": 2025,
@@ -281,8 +281,8 @@
     "category": "OBC",
     "quota": "STATE",
     "openingRank": 69,
-    "closingRank": 6835,
-    "seats": 6
+    "closingRank": 327,
+    "seats": 5
   },
   {
     "year": 2025,
@@ -311,8 +311,8 @@
     "category": "OBC",
     "quota": "STATE",
     "openingRank": 75,
-    "closingRank": 5230,
-    "seats": 3
+    "closingRank": 119,
+    "seats": 2
   },
   {
     "year": 2025,
@@ -341,8 +341,8 @@
     "category": "EWS",
     "quota": "STATE",
     "openingRank": 82,
-    "closingRank": 5197,
-    "seats": 2
+    "closingRank": 82,
+    "seats": 1
   },
   {
     "year": 2025,
@@ -401,8 +401,8 @@
     "category": "OBC",
     "quota": "STATE",
     "openingRank": 93,
-    "closingRank": 5662,
-    "seats": 6
+    "closingRank": 498,
+    "seats": 4
   },
   {
     "year": 2025,
@@ -431,8 +431,8 @@
     "category": "GENERAL",
     "quota": "STATE",
     "openingRank": 100,
-    "closingRank": 4588,
-    "seats": 3
+    "closingRank": 144,
+    "seats": 2
   },
   {
     "year": 2025,
@@ -581,8 +581,8 @@
     "category": "OBC",
     "quota": "STATE",
     "openingRank": 140,
-    "closingRank": 6012,
-    "seats": 7
+    "closingRank": 439,
+    "seats": 6
   },
   {
     "year": 2025,
@@ -941,8 +941,8 @@
     "category": "OBC",
     "quota": "STATE",
     "openingRank": 233,
-    "closingRank": 4424,
-    "seats": 3
+    "closingRank": 659,
+    "seats": 2
   },
   {
     "year": 2025,
@@ -1016,8 +1016,8 @@
     "category": "OBC",
     "quota": "STATE",
     "openingRank": 249,
-    "closingRank": 6751,
-    "seats": 3
+    "closingRank": 329,
+    "seats": 2
   },
   {
     "year": 2025,
@@ -1121,8 +1121,8 @@
     "category": "OBC",
     "quota": "STATE",
     "openingRank": 285,
-    "closingRank": 6004,
-    "seats": 3
+    "closingRank": 293,
+    "seats": 2
   },
   {
     "year": 2025,
@@ -1196,8 +1196,8 @@
     "category": "GENERAL",
     "quota": "STATE",
     "openingRank": 307,
-    "closingRank": 4971,
-    "seats": 2
+    "closingRank": 307,
+    "seats": 1
   },
   {
     "year": 2025,
@@ -1586,8 +1586,8 @@
     "category": "OBC",
     "quota": "STATE",
     "openingRank": 426,
-    "closingRank": 4932,
-    "seats": 2
+    "closingRank": 426,
+    "seats": 1
   },
   {
     "year": 2025,
@@ -2261,8 +2261,8 @@
     "category": "OBC",
     "quota": "STATE",
     "openingRank": 605,
-    "closingRank": 6293,
-    "seats": 2
+    "closingRank": 605,
+    "seats": 1
   },
   {
     "year": 2025,
@@ -3431,8 +3431,8 @@
     "category": "SC",
     "quota": "STATE",
     "openingRank": 906,
-    "closingRank": 6309,
-    "seats": 2
+    "closingRank": 906,
+    "seats": 1
   },
   {
     "year": 2025,
@@ -4136,8 +4136,8 @@
     "category": "SC",
     "quota": "STATE",
     "openingRank": 1077,
-    "closingRank": 4076,
-    "seats": 2
+    "closingRank": 1077,
+    "seats": 1
   },
   {
     "year": 2025,
@@ -5216,8 +5216,8 @@
     "category": "SC",
     "quota": "STATE",
     "openingRank": 1385,
-    "closingRank": 4919,
-    "seats": 2
+    "closingRank": 1385,
+    "seats": 1
   },
   {
     "year": 2025,
@@ -7091,8 +7091,8 @@
     "category": "OBC",
     "quota": "STATE",
     "openingRank": 1874,
-    "closingRank": 6872,
-    "seats": 5
+    "closingRank": 2594,
+    "seats": 4
   },
   {
     "year": 2025,
@@ -13277,6 +13277,21 @@
   {
     "year": 2025,
     "round": "R3",
+    "college": "Grant Medical College",
+    "collegeNorm": "grant-medical-college-mumbai",
+    "city": "Mumbai",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "OBC",
+    "quota": "STATE",
+    "openingRank": 3996,
+    "closingRank": 3996,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
     "college": "Government Medical College, Kolhapur",
     "collegeNorm": "government-medical-college-kolhapur",
     "city": "Kolhapur",
@@ -13542,6 +13557,21 @@
     "quota": "STATE",
     "openingRank": 4072,
     "closingRank": 4072,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "Government Medical College, Mumbai",
+    "collegeNorm": "government-medical-college-mumbai",
+    "city": "Mumbai",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "SC",
+    "quota": "STATE",
+    "openingRank": 4076,
+    "closingRank": 4076,
     "seats": 1
   },
   {
@@ -14102,6 +14132,21 @@
   {
     "year": 2025,
     "round": "R3",
+    "college": "Government Medical College, Mumbai",
+    "collegeNorm": "government-medical-college-mumbai",
+    "city": "Mumbai",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "GENERAL",
+    "quota": "STATE",
+    "openingRank": 4297,
+    "closingRank": 4297,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
     "college": "Government Medical College, Sambhajinagar",
     "collegeNorm": "government-medical-college-sambhajinagar",
     "city": "Sambhajinagar",
@@ -14142,6 +14187,21 @@
     "quota": "STATE",
     "openingRank": 4301,
     "closingRank": 4535,
+    "seats": 2
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "Government Medical College, Mumbai",
+    "collegeNorm": "government-medical-college-mumbai",
+    "city": "Mumbai",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "OBC",
+    "quota": "STATE",
+    "openingRank": 4302,
+    "closingRank": 5662,
     "seats": 2
   },
   {
@@ -14397,6 +14457,21 @@
     "quota": "STATE",
     "openingRank": 4423,
     "closingRank": 4423,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "Tata Memorial Hospital",
+    "collegeNorm": "tata-memorial-hospital-mumbai",
+    "city": "Mumbai",
+    "subject": "General Medicine",
+    "specialtySlug": "md-general-medicine",
+    "degree": "MD",
+    "category": "OBC",
+    "quota": "STATE",
+    "openingRank": 4424,
+    "closingRank": 4424,
     "seats": 1
   },
   {
@@ -14757,6 +14832,21 @@
     "quota": "STATE",
     "openingRank": 4584,
     "closingRank": 4584,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "BJ Medical College",
+    "collegeNorm": "bj-medical-college-pune",
+    "city": "Pune",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "GENERAL",
+    "quota": "STATE",
+    "openingRank": 4588,
+    "closingRank": 4588,
     "seats": 1
   },
   {
@@ -15305,8 +15395,8 @@
     "college": "Government Medical College, Latur",
     "collegeNorm": "government-medical-college-latur",
     "city": "Latur",
-    "subject": "General Medicine",
-    "specialtySlug": "md-general-medicine",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
     "degree": "MD",
     "category": "EWS",
     "quota": "STATE",
@@ -15357,6 +15447,21 @@
     "quota": "STATE",
     "openingRank": 4797,
     "closingRank": 4797,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "Government Medical College, Nagpur",
+    "collegeNorm": "government-medical-college-nagpur",
+    "city": "Nagpur",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "GENERAL",
+    "quota": "STATE",
+    "openingRank": 4802,
+    "closingRank": 4802,
     "seats": 1
   },
   {
@@ -15632,6 +15737,21 @@
   {
     "year": 2025,
     "round": "R3",
+    "college": "Mahatma Gandhi Institute of Medical Sciences",
+    "collegeNorm": "mahatma-gandhi-institute-of-medical-sciences-wardha",
+    "city": "Wardha",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "SC",
+    "quota": "STATE",
+    "openingRank": 4919,
+    "closingRank": 4919,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
     "college": "NKP Salve Institute of Medical Sciences",
     "collegeNorm": "nkp-salve-institute-of-medical-sciences-nagpur",
     "city": "Nagpur",
@@ -15642,6 +15762,21 @@
     "quota": "STATE",
     "openingRank": 4920,
     "closingRank": 4920,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "Rajiv Gandhi Medical College",
+    "collegeNorm": "rajiv-gandhi-medical-college-thane",
+    "city": "Thane",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "OBC",
+    "quota": "STATE",
+    "openingRank": 4932,
+    "closingRank": 4932,
     "seats": 1
   },
   {
@@ -15747,6 +15882,21 @@
     "quota": "STATE",
     "openingRank": 4965,
     "closingRank": 4965,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "Mahatma Gandhi Post Graduate Institute",
+    "collegeNorm": "mahatma-gandhi-post-graduate-institute-nashik",
+    "city": "Nashik",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "GENERAL",
+    "quota": "STATE",
+    "openingRank": 4971,
+    "closingRank": 4971,
     "seats": 1
   },
   {
@@ -16115,8 +16265,8 @@
     "college": "Government Medical College, Miraj",
     "collegeNorm": "government-medical-college-miraj",
     "city": "Miraj",
-    "subject": "General Medicine",
-    "specialtySlug": "md-general-medicine",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
     "degree": "MD",
     "category": "EWS",
     "quota": "STATE",
@@ -16137,6 +16287,36 @@
     "quota": "STATE",
     "openingRank": 5194,
     "closingRank": 5194,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "Grant Medical College",
+    "collegeNorm": "grant-medical-college-mumbai",
+    "city": "Mumbai",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "EWS",
+    "quota": "STATE",
+    "openingRank": 5197,
+    "closingRank": 5197,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "Topiwala National Medical College",
+    "collegeNorm": "topiwala-national-medical-college-mumbai",
+    "city": "Mumbai",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "OBC",
+    "quota": "STATE",
+    "openingRank": 5230,
+    "closingRank": 5230,
     "seats": 1
   },
   {
@@ -17030,8 +17210,8 @@
     "college": "Government Medical College, Jalgaon",
     "collegeNorm": "government-medical-college-jalgaon",
     "city": "Jalgaon",
-    "subject": "General Medicine",
-    "specialtySlug": "md-general-medicine",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
     "degree": "MD",
     "category": "OBC",
     "quota": "STATE",
@@ -17255,8 +17435,8 @@
     "college": "Indira Gandhi Government Medical College",
     "collegeNorm": "indira-gandhi-government-medical-college-nagpur",
     "city": "Nagpur",
-    "subject": "General Medicine",
-    "specialtySlug": "md-general-medicine",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
     "degree": "MD",
     "category": "PWD",
     "quota": "STATE",
@@ -17702,6 +17882,21 @@
   {
     "year": 2025,
     "round": "R3",
+    "college": "Government Medical College, Kolhapur",
+    "collegeNorm": "government-medical-college-kolhapur",
+    "city": "Kolhapur",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "OBC",
+    "quota": "STATE",
+    "openingRank": 6004,
+    "closingRank": 6004,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
     "college": "Indira Gandhi Government Medical College",
     "collegeNorm": "indira-gandhi-government-medical-college-nagpur",
     "city": "Nagpur",
@@ -17712,6 +17907,21 @@
     "quota": "STATE",
     "openingRank": 6006,
     "closingRank": 6006,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "Government Medical College, Nagpur",
+    "collegeNorm": "government-medical-college-nagpur",
+    "city": "Nagpur",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "OBC",
+    "quota": "STATE",
+    "openingRank": 6012,
+    "closingRank": 6012,
     "seats": 1
   },
   {
@@ -17975,8 +18185,8 @@
     "college": "Seth GS Medical College (KEM)",
     "collegeNorm": "seth-gs-medical-college-kem-solapur",
     "city": "Solapur",
-    "subject": "General Medicine",
-    "specialtySlug": "md-general-medicine",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
     "degree": "MD",
     "category": "EWS",
     "quota": "STATE",
@@ -18062,6 +18272,21 @@
   {
     "year": 2025,
     "round": "R3",
+    "college": "SRTR Medical College",
+    "collegeNorm": "srtr-medical-college-ambajogai",
+    "city": "Ambajogai",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "OBC",
+    "quota": "STATE",
+    "openingRank": 6293,
+    "closingRank": 6293,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
     "college": "Seth GS Medical College (KEM)",
     "collegeNorm": "seth-gs-medical-college-kem-solapur",
     "city": "Solapur",
@@ -18072,6 +18297,21 @@
     "quota": "STATE",
     "openingRank": 6299,
     "closingRank": 6299,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "Indira Gandhi Government Medical College",
+    "collegeNorm": "indira-gandhi-government-medical-college-nagpur",
+    "city": "Nagpur",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "SC",
+    "quota": "STATE",
+    "openingRank": 6309,
+    "closingRank": 6309,
     "seats": 1
   },
   {
@@ -18125,8 +18365,8 @@
     "college": "Bhausaheb Hire Government Medical College",
     "collegeNorm": "bhausaheb-hire-government-medical-college-dhule",
     "city": "Dhule",
-    "subject": "General Medicine",
-    "specialtySlug": "md-general-medicine",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
     "degree": "MD",
     "category": "GENERAL",
     "quota": "STATE",
@@ -18320,8 +18560,8 @@
     "college": "Lokmanya Tilak Municipal Medical College",
     "collegeNorm": "lokmanya-tilak-municipal-medical-college-mumbai",
     "city": "Mumbai",
-    "subject": "General Medicine",
-    "specialtySlug": "md-general-medicine",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
     "degree": "MD",
     "category": "SC",
     "quota": "STATE",
@@ -18497,6 +18737,21 @@
   {
     "year": 2025,
     "round": "R3",
+    "college": "Seth GS Medical College (KEM)",
+    "collegeNorm": "seth-gs-medical-college-kem-solapur",
+    "city": "Solapur",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "OBC",
+    "quota": "STATE",
+    "openingRank": 6751,
+    "closingRank": 6751,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
     "college": "SRTR Medical College",
     "collegeNorm": "srtr-medical-college-ambajogai-ph",
     "city": "Ambajogai ph",
@@ -18560,8 +18815,8 @@
     "college": "SRTR Medical College",
     "collegeNorm": "srtr-medical-college-ambajogai",
     "city": "Ambajogai",
-    "subject": "General Medicine",
-    "specialtySlug": "md-general-medicine",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
     "degree": "MD",
     "category": "ST",
     "quota": "STATE",
@@ -18617,6 +18872,21 @@
   {
     "year": 2025,
     "round": "R3",
+    "college": "Government Medical College, Sambhajinagar",
+    "collegeNorm": "government-medical-college-sambhajinagar",
+    "city": "Sambhajinagar",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "OBC",
+    "quota": "STATE",
+    "openingRank": 6835,
+    "closingRank": 6835,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
     "college": "Government Medical College, Latur",
     "collegeNorm": "government-medical-college-latur",
     "city": "Latur",
@@ -18627,6 +18897,21 @@
     "quota": "STATE",
     "openingRank": 6869,
     "closingRank": 6869,
+    "seats": 1
+  },
+  {
+    "year": 2025,
+    "round": "R3",
+    "college": "Vedanta Medical College",
+    "collegeNorm": "vedanta-medical-college-palghar",
+    "city": "Palghar",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
+    "degree": "MD",
+    "category": "OBC",
+    "quota": "STATE",
+    "openingRank": 6872,
+    "closingRank": 6872,
     "seats": 1
   },
   {
@@ -18710,8 +18995,8 @@
     "college": "Government Medical College, Nandurbar",
     "collegeNorm": "government-medical-college-nandurbar",
     "city": "Nandurbar",
-    "subject": "General Medicine",
-    "specialtySlug": "md-general-medicine",
+    "subject": "Forensic Medicine",
+    "specialtySlug": "md-forensic-medicine",
     "degree": "MD",
     "category": "OBC",
     "quota": "STATE",

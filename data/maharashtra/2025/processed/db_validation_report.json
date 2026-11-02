@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T23:03:28.262Z",
+  "generated_at": "2026-11-02T23:24:40.165Z",
   "allOk": true,
   "checks": [
     {
@@ -20,17 +20,17 @@
     {
       "name": "cutoffs_r1",
       "ok": true,
-      "detail": "1174"
+      "detail": "1186"
     },
     {
       "name": "cutoffs_r2",
       "ok": true,
-      "detail": "1176"
+      "detail": "1190"
     },
     {
       "name": "cutoffs_r3",
       "ok": true,
-      "detail": "1261"
+      "detail": "1280"
     },
     {
       "name": "seat_matrices",
@@ -41,12 +41,17 @@
       "name": "air_sml_index_file",
       "ok": true,
       "detail": "totalRows=7069"
+    },
+    {
+      "name": "parser_grant_md_obc_r3",
+      "ok": true,
+      "detail": "closing=261 (expect 261, not forensic 3996)"
     }
   ],
-  "verifiedCutoffs": 3611,
+  "verifiedCutoffs": 3656,
   "cutoffByRound": {
-    "R1": 1174,
-    "R2": 1176,
-    "R3": 1261
+    "R1": 1186,
+    "R2": 1190,
+    "R3": 1280
   }
 }

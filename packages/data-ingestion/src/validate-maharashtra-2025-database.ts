@@ -108,6 +108,24 @@ async function main() {
     detail: `totalRows=${airIndex?.totalRows ?? 0}`,
   });
 
+  const closingRanks = readJson<
+    Array<{ collegeNorm: string; specialtySlug: string; category: string; round: string; closingRank: number }>
+  >(path.join(PROCESSED, "closing_ranks_sml_2025.json"));
+  const grantObcMdR3 = closingRanks?.find(
+    (c) =>
+      c.collegeNorm === "grant-medical-college-mumbai" &&
+      c.specialtySlug === "md-general-medicine" &&
+      c.category === "OBC" &&
+      c.round === "R3"
+  );
+  checks.push({
+    name: "parser_grant_md_obc_r3",
+    ok: grantObcMdR3?.closingRank === 261,
+    detail: grantObcMdR3
+      ? `closing=${grantObcMdR3.closingRank} (expect 261, not forensic 3996)`
+      : "missing Grant MD OBC R3 row",
+  });
+
   const allOk = checks.every((c) => c.ok);
   const now = new Date().toISOString();
 

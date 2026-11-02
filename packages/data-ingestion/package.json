@@ -19,6 +19,7 @@
     "import-mah-pipeline-audit": "tsx src/import-mah-pipeline-audit.ts",
     "import:maharashtra-2025-db": "tsx src/import-maharashtra-2025-database.ts",
     "validate:maharashtra-2025-db": "tsx src/validate-maharashtra-2025-database.ts",
+    "test:maharashtra-cutoff-sanity": "tsx src/maharashtra-cutoff-sanity.test.ts",
     "export-mah-allotment-json": "tsx src/export-mah-allotment-json.ts",
     "export-mah-registered-json": "tsx src/export-mah-registered-json.ts",
     "fetch-seat-matrix": "tsx src/fetch-seat-matrix-pdfs.ts",

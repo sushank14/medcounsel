@@ -29,6 +29,10 @@ BRANCH_ALIASES: dict[str, str] = {
 def normalize_branch(raw: str) -> tuple[str, str]:
     s = re.sub(r"\s+", " ", raw.strip().upper())
     s = re.sub(r"^\d{4}S\s*:\s*", "", s)
+    if "FORENSIC" in s:
+        return "Forensic Medicine", "MD"
+    if "COMMUNITY" in s or re.search(r"\bPSM\b", s):
+        return "Community Medicine", "MD"
     for key, name in BRANCH_ALIASES.items():
         if key in s or s.startswith(key):
             degree = "MS" if any(x in s for x in ("SURGERY", "ORTHO", "OBG", "ENT")) else "MD"

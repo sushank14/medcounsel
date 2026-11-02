@@ -46,6 +46,8 @@ const SEAT_CATEGORIES = [
 const SUBJECT_MAP: [RegExp, string][] = [
   [/CHEST\s*&\s*TB|RESPIR|PULMON/i, "Respiratory Medicine"],
   [/EMERGENCY\s*&\s*CRITICAL|EMERGENCY/i, "Emergency Medicine"],
+  [/FORENSIC/i, "Forensic Medicine"],
+  [/COMMUNITY\s*HEALTH|PSM/i, "Community Medicine"],
   [/MEDICINE/i, "General Medicine"],
   [/RADIOLOGY|RADIO\s*DIAG/i, "Radiodiagnosis"],
   [/SKIN\s*&\s*VD|SKIN|DERM/i, "Dermatology"],
@@ -232,7 +234,8 @@ export function aggregateMahCutoffs(
     const { name, city, norm } = resolveMahCollege(s.collegeRaw, s.cityRaw);
     const { subject, degree, slug } = parseSubject(s.subject);
     const category = mapMahCategory(s.seatCategory, s.candidateCategory);
-    const key = `${norm}|${slug}|${category}|STATE`;
+    const branchKey = s.subjectCode?.trim() || slug;
+    const key = `${norm}|${branchKey}|${category}|STATE`;
 
     const existing = map.get(key);
     if (!existing) {
