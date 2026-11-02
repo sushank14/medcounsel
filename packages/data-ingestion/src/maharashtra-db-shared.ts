@@ -10,6 +10,7 @@ import {
 } from "@prisma/client";
 import { slugify } from "./normalizers.js";
 import type { MahCutoffAggregate } from "./parse-maharashtra-pdf.js";
+import { inferCollegeTypeFromName } from "../../types/src/college-type.js";
 
 export const prisma = new PrismaClient();
 
@@ -66,10 +67,7 @@ export async function ensureMahRound(counsellingId: string, year: number, round:
 }
 
 function inferCollegeType(name: string): CollegeType {
-  const n = name.toLowerCase();
-  if (n.includes("private") || n.includes("trust") || n.includes("deemed")) return "PRIVATE";
-  if (n.includes("municipal") || n.includes("corporation")) return "GOVT";
-  return "GOVT";
+  return inferCollegeTypeFromName(name) as CollegeType;
 }
 
 export async function ensureMahCollege(name: string, city: string, collegeNorm: string) {
@@ -92,6 +90,13 @@ export async function ensureMahCollege(name: string, city: string, collegeNorm: 
   });
 
   if (existing) {
+    const typed = inferCollegeType(name);
+    if (existing.collegeType !== typed) {
+      await prisma.college.update({
+        where: { id: existing.id },
+        data: { collegeType: typed },
+      });
+    }
     collegeCache.set(key, existing.id);
     return existing.id;
   }

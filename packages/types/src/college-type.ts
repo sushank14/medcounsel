@@ -62,6 +62,25 @@ const GOVT_KNOWN_PATTERNS = [
   /\besic medical college/i,
   /post graduate institute of medical education.*research/i,
   /capital hospital.*pgimer/i,
+  // Maharashtra — government colleges without "Government" in the legal name
+  /grant medical college/i,
+  /topiwala national medical college/i,
+  /seth g\.?s\.? medical college/i,
+  /seth gordhandas sunderdas medical college/i,
+  /lokmanya tilak municipal medical college/i,
+  /\bltmc\b/i,
+  /\btnmc\b/i,
+  /\bbj medical college\b/i,
+  /hbt medical college/i,
+  /swami ramanand teerth rural government medical college/i,
+  /\bsrtr medical college/i,
+  /rajiv gandhi medical college.*thane/i,
+  /chhatrapati shivaji maharaj hospital/i,
+  /indira gandhi government medical college/i,
+  /indira gandhi medical college.*nagpur/i,
+  /government medical college.*nagpur/i,
+  /shri bhausaheb hire government medical college/i,
+  /bhausaheb hire government medical college/i,
 ];
 
 const GOVT_PATTERNS = [
@@ -72,11 +91,11 @@ const GOVT_PATTERNS = [
   /municipal.*postgraduate institute/i,
   /college of medicine\b/i,
   /medical college and hospital/i,
-  /medical college,/i,
-  /medical college\s/i,
   /district hospital/i,
   /central railway hospital/i,
   /railway hospital/i,
+  /rural government medical college/i,
+  /government dental college/i,
   ...GOVT_KNOWN_PATTERNS,
 ];
 
@@ -139,6 +158,31 @@ const PRIVATE_CHAIN_PATTERNS = [
   /lisie medical institution/i,
   /rajiv gandhi cancer institute/i,
   /chittaranjan national cancer institute dnb/i,
+  /vedanta\s*(mc|medical|institute)/i,
+  /vedantaa institute of medical sciences/i,
+  /\bk\.?\s*j\.?\s*somaiya medical/i,
+  /somaiyya medical college/i,
+  /\bmimer\b/i,
+  /\bsmbt medical college/i,
+  /\bvvpf medical college/i,
+  /\bacpm medical college/i,
+  /ashwini rural medical college/i,
+  /b\.?k\.?\s*wal(w)?alkar rural medical college/i,
+  /\bskn medical college/i,
+  /\bvps medical college/i,
+  /pandit deendayal medical college/i,
+  /\bmimsr medical college/i,
+  /dr\.?\s*ulhas patil medical college/i,
+  /dr\.?\s*vithalrao vikhe patil/i,
+  /dr\.?\s*rajendra gode medical college/i,
+  /dr\.?\s*vaishampayan memorial medical college/i,
+  /terna medical college/i,
+  /bharati vidyapeeth medical college/i,
+  /krishna institute of medical sciences/i,
+  /pravara institute of medical sciences/i,
+  /rural medical college.*loni/i,
+  /dy patil medical college/i,
+  /d\.?\s*y\.?\s*patil medical college/i,
 ];
 
 /**
@@ -170,14 +214,13 @@ export function hasPrivateOwnershipSignals(name: string): boolean {
     return true;
   }
 
+  if (PRIVATE_CHAIN_PATTERNS.some((p) => p.test(name))) return true;
+  if (PRIVATE_NAME_PATTERNS.some((p) => p.test(name))) return true;
+
   const isGovtMedicalCollege =
-    (/medical college/i.test(name) && !isDeemedUniversityMedicalCollege(name)) ||
-    /college of medicine/i.test(name) ||
+    hasGovernmentOwnershipSignals(name) ||
     /\besic medical college/i.test(name) ||
     GOVT_KNOWN_PATTERNS.some((p) => p.test(name));
-
-  if (!isGovtMedicalCollege && PRIVATE_NAME_PATTERNS.some((p) => p.test(name))) return true;
-  if (!isGovtMedicalCollege && PRIVATE_CHAIN_PATTERNS.some((p) => p.test(name))) return true;
 
   if (/hospital/i.test(name) && !/medical college/i.test(name) && !/college of medicine/i.test(name)) {
     const publicHospital =
@@ -214,8 +257,14 @@ export function inferCollegeTypeFromName(name: string): CollegeTypeCode {
     }
     return "GOVT";
   }
-  if (/medical college/i.test(name) && !isDeemedUniversityMedicalCollege(name)) return "GOVT";
-  if (/university/i.test(name) && /medical/i.test(name)) return "STATE_UNIV";
+  if (/university/i.test(name) && /medical/i.test(name) && !/government|govt/i.test(name)) {
+    return "STATE_UNIV";
+  }
+  // Legacy state-government medical colleges are often named "District Medical College" without "Government".
+  if (/medical college/i.test(name) && !isDeemedUniversityMedicalCollege(name)) {
+    if (hasPrivateOwnershipSignals(name)) return "PRIVATE";
+    return "GOVT";
+  }
   return "PRIVATE";
 }
 
@@ -238,8 +287,7 @@ export function qualifiesAsGovernmentCollege(
   }
 
   return (
-    /medical college/i.test(name) ||
-    /government|govt\.|municipal|gmers|\bgmc\b/i.test(name) ||
+    hasGovernmentOwnershipSignals(name) ||
     GOVT_KNOWN_PATTERNS.some((p) => p.test(name))
   );
 }
