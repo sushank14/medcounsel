@@ -4,12 +4,14 @@ import { prisma } from "@medcounsel/database";
 import { loadCutoffClosesForSeatRows } from "@/lib/seat-matrix-cutoff-join";
 import { formatRank } from "@/lib/utils";
 import {
+  ACTIVE_MAH_SEAT_MATRIX_YEAR,
   ACTIVE_MCC_SEAT_MATRIX_YEAR,
   ACTIVE_SEAT_MATRIX_ACADEMIC_YEAR,
   ACTIVE_SEAT_MATRIX_YEAR,
   COLLEGE_TYPE_LABELS,
   displayCollegeName,
   INDIAN_STATES,
+  MAH_SEAT_MATRIX_SOURCE_NOTE,
   MCC_SEAT_MATRIX_SOURCE_NOTE,
   SEAT_MATRIX_SOURCE_NOTE,
 } from "@medcounsel/types";
@@ -21,6 +23,7 @@ import { seatMatrixHref } from "@/lib/seat-matrix-nav";
 import {
   degreeFilterLabel,
   resolveDegreeWhere,
+  mahSeatMatrixSourceWhere,
   resolveSeatMatrixFilters,
   SEAT_MATRIX_CATEGORIES,
   SEAT_MATRIX_CATEGORY_LABELS,
@@ -68,7 +71,7 @@ export default async function SeatMatrixPage({
     : null;
 
   const page = Math.max(1, parseInt(params.page ?? "1", 10) || 1);
-  const { source, matrixYear, reservationCategory, categoryParam, selectedCourses, where } =
+  const { source, matrixYear, reservationCategory, categoryParam, selectedCourses, where, matrixSourceWhere } =
     resolveSeatMatrixFilters(params);
 
   const diffYearParsed = params.diffYear ? parseInt(params.diffYear, 10) : NaN;
@@ -79,7 +82,6 @@ export default async function SeatMatrixPage({
 
   const nmcSourceWhere = { title: { contains: "NMC/MARB PG Seat Matrix" } };
   const mccSourceWhere = { title: { contains: "MCC NEET-PG official seat matrix" } };
-  const matrixSourceWhere = source === "mcc" ? mccSourceWhere : nmcSourceWhere;
   const specialtyWhere = where.specialty;
 
   const coursePickerWhere = {
@@ -103,6 +105,8 @@ export default async function SeatMatrixPage({
     mcc2026Stats,
     mcc2025Stats,
     mcc2024Stats,
+    mah2026Stats,
+    mah2025Stats,
   ] = await Promise.all([
     prisma.seatMatrix.count({ where }),
     prisma.seatMatrix.findMany({
@@ -149,6 +153,16 @@ export default async function SeatMatrixPage({
       _sum: { seats: true },
       _count: true,
     }),
+    prisma.seatMatrix.aggregate({
+      where: { year: ACTIVE_MAH_SEAT_MATRIX_YEAR, source: mahSeatMatrixSourceWhere(), college: { state: "Maharashtra" } },
+      _sum: { seats: true },
+      _count: true,
+    }),
+    prisma.seatMatrix.aggregate({
+      where: { year: 2025, source: mahSeatMatrixSourceWhere(), college: { state: "Maharashtra" } },
+      _sum: { seats: true },
+      _count: true,
+    }),
   ]);
 
   const courseOptions =
@@ -190,7 +204,8 @@ export default async function SeatMatrixPage({
   const diffYearOptions = [2026, 2025, 2024, 2023].filter((y) => y !== matrixYear);
 
   const showMaharashtraRanks =
-    source === "mcc" && (params.state === "Maharashtra" || params.mhRanks === "1");
+    (source === "mcc" && (params.state === "Maharashtra" || params.mhRanks === "1")) ||
+    source === "maharashtra";
 
   const cutoffCloses =
     showMaharashtraRanks && rows.length > 0
@@ -206,8 +221,8 @@ export default async function SeatMatrixPage({
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const filterParams = {
-    source: source === "mcc" ? "mcc" : undefined,
-    year: source === "mcc" ? String(matrixYear) : undefined,
+    source: source === "nmc" ? undefined : source,
+    year: source === "mcc" || source === "maharashtra" ? String(matrixYear) : undefined,
     state: params.state,
     degree: params.degree,
     course: selectedCourses.length ? selectedCourses : undefined,
@@ -218,7 +233,8 @@ export default async function SeatMatrixPage({
   };
 
   const rankColCount = showMaharashtraRanks ? (profile ? 3 : 2) : 0;
-  const tableColSpan = 7 + (source === "mcc" ? 1 : 0) + (diffYear ? 2 : 0) + rankColCount;
+  const showQuotaCol = source === "mcc" || source === "maharashtra";
+  const tableColSpan = 7 + (showQuotaCol ? 1 : 0) + (diffYear ? 2 : 0) + rankColCount;
 
   const pageCourseCount = new Set(rows.map((r) => `${r.collegeId}|${r.specialtyId}`)).size;
   const allMatchingCourses = matchingCourseGroups.length;
@@ -229,6 +245,8 @@ export default async function SeatMatrixPage({
   const filterChips: { label: string; value: string }[] = [];
   if (source === "mcc") {
     filterChips.push({ label: "Source", value: `MCC ${matrixYear}` });
+  } else if (source === "maharashtra") {
+    filterChips.push({ label: "Source", value: `MAHACET ${matrixYear}` });
   } else {
     filterChips.push({ label: "Source", value: "NMC master matrix" });
   }
@@ -373,6 +391,24 @@ export default async function SeatMatrixPage({
             Browse MCC 2024 →
           </Link>
         </div>
+        <div
+          className={`card card-tile border-orange-100 ${source === "maharashtra" && matrixYear === ACTIVE_MAH_SEAT_MATRIX_YEAR ? "ring-2 ring-orange-500" : ""}`}
+        >
+          <p className="text-xs font-medium uppercase tracking-wide text-orange-800">Maharashtra MAHACET {ACTIVE_MAH_SEAT_MATRIX_YEAR}</p>
+          <p className="mt-1 text-2xl font-bold">
+            {mah2026Stats._count > 0 ? mah2026Stats._sum.seats?.toLocaleString("en-IN") : "—"}
+          </p>
+          <p className="text-sm text-slate-600">
+            State quota · govt R1
+            {mah2026Stats._count > 0 ? ` · ${mah2026Stats._count.toLocaleString("en-IN")} rows` : " · import pending"}
+          </p>
+          <Link
+            href={seatMatrixHref({ source: "maharashtra", year: String(ACTIVE_MAH_SEAT_MATRIX_YEAR) })}
+            className="mt-2 inline-block text-sm font-medium text-brand-600 hover:underline"
+          >
+            Browse MAHACET matrix →
+          </Link>
+        </div>
       </div>
 
       <form method="GET" className={`${sectionCard} section-block`}>
@@ -381,12 +417,22 @@ export default async function SeatMatrixPage({
         <select name="source" defaultValue={source} className={fieldSelect}>
           <option value="nmc">NMC master matrix</option>
           <option value="mcc">MCC counselling matrix</option>
+          <option value="maharashtra">Maharashtra MAHACET (state)</option>
         </select>
         {source === "mcc" && (
           <select name="year" defaultValue={String(matrixYear)} className={fieldSelect}>
             {[ACTIVE_MCC_SEAT_MATRIX_YEAR, 2025, 2024, 2023].map((y) => (
               <option key={y} value={y}>
                 MCC {y}
+              </option>
+            ))}
+          </select>
+        )}
+        {source === "maharashtra" && (
+          <select name="year" defaultValue={String(matrixYear)} className={fieldSelect}>
+            {[ACTIVE_MAH_SEAT_MATRIX_YEAR, 2025].map((y) => (
+              <option key={y} value={y}>
+                MAHACET {y}
               </option>
             ))}
           </select>
@@ -398,14 +444,16 @@ export default async function SeatMatrixPage({
           placeholder="Search college…"
           className={`${fieldInput} min-w-[180px] flex-[1_1_200px]`}
         />
-        <select name="state" defaultValue={params.state ?? ""} className={fieldSelect}>
-          <option value="">All states</option>
-          {INDIAN_STATES.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </select>
+        {source !== "maharashtra" && (
+          <select name="state" defaultValue={params.state ?? ""} className={fieldSelect}>
+            <option value="">All states</option>
+            {INDIAN_STATES.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
+          </select>
+        )}
         <select name="degree" defaultValue={params.degree ?? ""} className={fieldSelect}>
           <option value="">All course types</option>
           <option value="MD_MS">MD / MS</option>
@@ -430,15 +478,38 @@ export default async function SeatMatrixPage({
             ))}
           </select>
         )}
+        {source === "maharashtra" && (
+          <select name="quota" defaultValue={params.quota ?? ""} className={fieldSelect}>
+            <option value="">All quotas</option>
+            {["STATE", "IN_SERVICE"].map((q) => (
+              <option key={q} value={q}>
+                {QUOTA_LABELS[q] ?? q}
+              </option>
+            ))}
+          </select>
+        )}
         <select
           name="category"
           defaultValue={categoryParam ?? ""}
           className={fieldSelect}
           aria-label="Reservation category"
         >
-          <option value="">Open & OBC (both)</option>
-          <option value={SEAT_MATRIX_CATEGORY_PARAM.OPEN}>{SEAT_MATRIX_CATEGORY_LABELS.OPEN}</option>
-          <option value={SEAT_MATRIX_CATEGORY_PARAM.OBC}>{SEAT_MATRIX_CATEGORY_LABELS.OBC}</option>
+          {source === "maharashtra" ? (
+            <>
+              <option value="">All categories</option>
+              <option value={SEAT_MATRIX_CATEGORY_PARAM.OPEN}>{SEAT_MATRIX_CATEGORY_LABELS.OPEN}</option>
+              <option value={SEAT_MATRIX_CATEGORY_PARAM.OBC}>{SEAT_MATRIX_CATEGORY_LABELS.OBC}</option>
+              <option value={SEAT_MATRIX_CATEGORY_PARAM.SC}>{SEAT_MATRIX_CATEGORY_LABELS.SC}</option>
+              <option value={SEAT_MATRIX_CATEGORY_PARAM.ST}>{SEAT_MATRIX_CATEGORY_LABELS.ST}</option>
+              <option value={SEAT_MATRIX_CATEGORY_PARAM.EWS}>{SEAT_MATRIX_CATEGORY_LABELS.EWS}</option>
+            </>
+          ) : (
+            <>
+              <option value="">Open & OBC (both)</option>
+              <option value={SEAT_MATRIX_CATEGORY_PARAM.OPEN}>{SEAT_MATRIX_CATEGORY_LABELS.OPEN}</option>
+              <option value={SEAT_MATRIX_CATEGORY_PARAM.OBC}>{SEAT_MATRIX_CATEGORY_LABELS.OBC}</option>
+            </>
+          )}
         </select>
         {source === "mcc" && diffYearOptions.length > 0 && (
           <select name="diffYear" defaultValue={diffYear ? String(diffYear) : ""} className={fieldSelect}>
@@ -524,6 +595,15 @@ export default async function SeatMatrixPage({
               Showing <strong>NMC {ACTIVE_SEAT_MATRIX_ACADEMIC_YEAR}</strong> master matrix — total approved intake
               per college & course (not round-wise vacancies).
             </>
+          ) : source === "maharashtra" ? (
+            <>
+              Showing <strong>MAHACET {matrixYear}</strong> Maharashtra state seat matrix — college, course, state
+              quota, and reservation category (Open, OBC, SC, ST, EWS, etc.) from official MAHACET data.
+              {" "}
+              <Link href="/seat-matrix/compare" className="font-medium text-brand-600 hover:underline">
+                Compare 2025 vs 2026 →
+              </Link>
+            </>
           ) : (
             <>
               Showing <strong>MCC NEET-PG {matrixYear}</strong> counselling seat matrix — reservation category and
@@ -554,7 +634,7 @@ export default async function SeatMatrixPage({
               <th className="px-4 py-3.5">State</th>
               <th className="px-4 py-3.5">Type</th>
               <th className="px-4 py-3.5">Course</th>
-              {source === "mcc" && <th className="px-4 py-3.5">Quota</th>}
+              {showQuotaCol && <th className="px-4 py-3.5">Quota</th>}
               <th className="px-4 py-3.5">Category</th>
               <th className="px-4 py-3.5">{diffYear ? `Seats ${matrixYear}` : "Seats"}</th>
               {diffYear && <th className="px-4 py-3.5">Seats {diffYear}</th>}
@@ -574,6 +654,19 @@ export default async function SeatMatrixPage({
               <tr>
                 <td colSpan={tableColSpan} className="p-8 text-center text-slate-500">
                   No seat matrix rows match these filters.
+                  {source === "maharashtra" &&
+                    matrixYear === ACTIVE_MAH_SEAT_MATRIX_YEAR &&
+                    mah2026Stats._count === 0 && (
+                    <span className="mt-2 block text-sm">
+                      MAHACET {ACTIVE_MAH_SEAT_MATRIX_YEAR} matrix not loaded. Run{" "}
+                      <code className="rounded bg-slate-100 px-1">npm run sync:maharashtra-2026-seat-matrix-sheet</code>.
+                    </span>
+                  )}
+                  {source === "maharashtra" && mah2026Stats._count > 0 && total === 0 && (
+                    <span className="mt-2 block text-sm">
+                      Data is loaded — try clearing category, quota, or branch filters (default shows all categories).
+                    </span>
+                  )}
                   {source === "mcc" &&
                     matrixYear === ACTIVE_MCC_SEAT_MATRIX_YEAR &&
                     mcc2026Stats._count === 0 && (
@@ -624,7 +717,7 @@ export default async function SeatMatrixPage({
                     <td className="px-4 py-3.5">
                       {row.specialty.degree} {row.specialty.name}
                     </td>
-                    {source === "mcc" && (
+                    {showQuotaCol && (
                       <td className="px-4 py-3.5 text-slate-600">{QUOTA_LABELS[row.quota] ?? row.quota}</td>
                     )}
                     <td className="px-4 py-3.5 text-slate-600">
@@ -736,7 +829,11 @@ export default async function SeatMatrixPage({
       )}
 
       <p className="text-xs text-slate-500">
-        {source === "mcc" ? MCC_SEAT_MATRIX_SOURCE_NOTE : SEAT_MATRIX_SOURCE_NOTE}
+        {source === "mcc"
+          ? MCC_SEAT_MATRIX_SOURCE_NOTE
+          : source === "maharashtra"
+            ? MAH_SEAT_MATRIX_SOURCE_NOTE
+            : SEAT_MATRIX_SOURCE_NOTE}
       </p>
     </div>
   );

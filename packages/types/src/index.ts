@@ -193,6 +193,12 @@ export const SEAT_MATRIX_SOURCE_NOTE =
 export const MCC_SEAT_MATRIX_SOURCE_NOTE =
   "MCC counselling seat matrices (AIQ, Deemed, Central Internal, DNB) from official PDFs published for NEET-PG 2026 counselling, October 2026.";
 
+/** Latest Maharashtra MAHACET state-quota seat matrix in the app (govt R1). */
+export const ACTIVE_MAH_SEAT_MATRIX_YEAR = 2026;
+
+export const MAH_SEAT_MATRIX_SOURCE_NOTE =
+  "Maharashtra state CAP seat matrix (govt/corporation/aided) from official MAHACET documents — category-wise state quota seats (Open, OBC, SC, ST, EWS, etc.). Not MCC All India Quota.";
+
 export const DISCLAIMER =
   "Predictions are estimates based on historical and available counselling data and do not guarantee admission. Verify eligibility, fees, deadlines, and rules with the official counselling authority.";
 

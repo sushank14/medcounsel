@@ -165,7 +165,7 @@ export default async function CounsellingHubPage() {
                     AIR ↔ SML map →
                   </Link>
                   <Link
-                    href="/seat-matrix?source=mcc&year=2026&state=Maharashtra&diffYear=2025&mhRanks=1"
+                    href="/seat-matrix?source=maharashtra&year=2026"
                     className="text-sm text-brand-600 hover:underline"
                   >
                     Seats vs 2025 ranks →
