@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { canonicalMahCollegeName } from "./maharashtra-college-canonical";
 
 function slugify(text: string): string {
   return text
@@ -93,8 +94,12 @@ export function loadMahSeatMatrixJson(
 }
 
 function collegeKey(name: string): string {
-  const expanded = normalizeCollegeHeader(name);
+  const expanded = canonicalMahCollegeName(normalizeCollegeHeader(name));
   return slugify(expanded.split(",")[0] ?? expanded);
+}
+
+function displayCollege(name: string): string {
+  return canonicalMahCollegeName(normalizeCollegeHeader(name));
 }
 
 function branchKey(row: MahSeatRow): string {
@@ -179,7 +184,7 @@ export function compareMaharashtraSeatMatrices(
     if (change != null) collegeDelta.set(cKey, (collegeDelta.get(cKey) ?? 0) + change);
 
     rows.push({
-      college: sample.college_name_norm || sample.college_name_raw || "Unknown",
+      college: displayCollege(sample.college_name_norm || sample.college_name_raw || "Unknown"),
       collegeKey: cKey,
       branch: sample.branch_name_norm || sample.branch_name_raw || "Unknown",
       branchKey: branchKey(sample),

@@ -1,16 +1,18 @@
 {
-  "generated_at": "2026-11-03T04:43:50.494Z",
+  "generated_at": "2026-11-03T05:06:02.014Z",
   "source": {
     "year": 2026,
-    "url": "https://medical2026.mahacet.org/NEET-PGM-2026/instructions-downloadFile/Final%20PGM26-Categorywise%20Govt%20with%20Per%20on%20SQDegree.pdf",
-    "title": "Final PGM26 Categorywise Govt",
-    "pages": 32,
-    "rows": 1420,
-    "total_seats": 1544
+    "url": "https://docs.google.com/spreadsheets/d/1Jl2v_UhUQxJNT2WuHQqs20cLDr8pMV1Ihe8IqDZaTJo/export?format=xlsx",
+    "title": "MAHACET NEET-PG 2026 govt matrix (Google Sheet)",
+    "source": "google_sheet",
+    "sheet_id": "1Jl2v_UhUQxJNT2WuHQqs20cLDr8pMV1Ihe8IqDZaTJo",
+    "rows": 1454,
+    "total_seats": 1578,
+    "colleges": 31
   },
-  "pdf_pages": 32,
-  "rows_extracted": 1420,
-  "rows_import_ready": 1420,
+  "pdf_pages": null,
+  "rows_extracted": 1454,
+  "rows_import_ready": 1454,
   "skipped_zero_seats": 0,
   "skipped_invalid_college": 0,
   "duplicate_keys": 100,

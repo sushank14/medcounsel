@@ -226,8 +226,8 @@ export default async function SeatMatrixComparePage({
         <p className="text-xs text-slate-500">Showing first 200 of {rows.length} rows. Use filters or API export.</p>
       )}
       <p className="text-xs text-slate-500">
-        Source 2026: MAHACET Final PGM26 Categorywise Govt PDF (32 pages). Missing matched keys are not counted as zero
-        seats.
+        Source 2026: official MAHACET Google Sheet (govt/corporation matrix). College names normalized (e.g. Topiwala
+        National Medical College). Missing matched keys are not counted as zero seats.
       </p>
     </div>
   );

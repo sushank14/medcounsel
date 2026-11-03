@@ -22,6 +22,7 @@
     "sync:mah-college-types": "tsx src/sync-maharashtra-college-types-cli.ts",
     "import:maharashtra-2026-seat-matrix": "tsx src/import-maharashtra-2026-seat-matrix.ts",
     "report:maharashtra-2026-seat-matrix": "tsx src/write-mah-2026-import-report.ts",
+    "fetch:maharashtra-2026-seat-matrix-sheet": "python3.11 packages/data-ingestion/python/maharashtra/extract_seat_matrix_gsheet.py",
     "test:mah-seat-matrix-compare": "tsx src/maharashtra-seat-matrix-compare.test.ts",
     "test:maharashtra-cutoff-sanity": "tsx src/maharashtra-cutoff-sanity.test.ts",
     "export-mah-allotment-json": "tsx src/export-mah-allotment-json.ts",

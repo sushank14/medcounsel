@@ -4,13 +4,13 @@
     "yearB": 2026,
     "matrixKey": "seat_matrix_r1_govt",
     "totalSeatsA": 1504,
-    "totalSeatsB": 1544,
-    "netChange": 40,
+    "totalSeatsB": 1578,
+    "netChange": 74,
     "collegesIncreased": 5,
-    "collegesDecreased": 7,
-    "collegesNew": 1,
+    "collegesDecreased": 6,
+    "collegesNew": 2,
     "collegesRemoved": 0,
-    "rowsCompared": 2077,
+    "rowsCompared": 1752,
     "sourceA": {
       "key": "seat_matrix_r1_govt",
       "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/05-Final+PGM25-Categorywise+Govt+_+Degree.pdf",
@@ -18,12 +18,14 @@
     },
     "sourceB": {
       "year": 2026,
-      "url": "https://medical2026.mahacet.org/NEET-PGM-2026/instructions-downloadFile/Final%20PGM26-Categorywise%20Govt%20with%20Per%20on%20SQDegree.pdf",
-      "title": "Final PGM26 Categorywise Govt",
-      "pages": 32,
-      "rows": 1420,
-      "total_seats": 1544
+      "url": "https://docs.google.com/spreadsheets/d/1Jl2v_UhUQxJNT2WuHQqs20cLDr8pMV1Ihe8IqDZaTJo/export?format=xlsx",
+      "title": "MAHACET NEET-PG 2026 govt matrix (Google Sheet)",
+      "source": "google_sheet",
+      "sheet_id": "1Jl2v_UhUQxJNT2WuHQqs20cLDr8pMV1Ihe8IqDZaTJo",
+      "rows": 1454,
+      "total_seats": 1578,
+      "colleges": 31
     }
   },
-  "generated_at": "2026-11-03T04:43:50.624Z"
+  "generated_at": "2026-11-03T05:06:42.112Z"
 }

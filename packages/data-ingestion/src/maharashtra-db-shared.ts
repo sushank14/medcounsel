@@ -1,5 +1,4 @@
 import {
-  PrismaClient,
   Category,
   Quota,
   Degree,
@@ -7,12 +6,13 @@ import {
   VerificationStatus,
   DocType,
   CollegeType,
-} from "@prisma/client";
+  prisma,
+} from "@medcounsel/database";
 import { slugify } from "./normalizers.js";
 import type { MahCutoffAggregate } from "./parse-maharashtra-pdf.js";
 import { inferCollegeTypeFromName } from "../../types/src/college-type.js";
 
-export const prisma = new PrismaClient();
+export { prisma };
 
 const DEGREE_MAP: Record<string, Degree> = {
   MD: "MD",

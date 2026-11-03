@@ -16,7 +16,8 @@ import { slugify } from "./normalizers.js";
 const REPO = path.resolve(process.cwd(), "../..");
 const JSON_PATH = path.join(REPO, "data/maharashtra/2026/processed/seat_matrix_r1_govt.json");
 const SOURCE_URL =
-  "https://medical2026.mahacet.org/NEET-PGM-2026/instructions-downloadFile/Final%20PGM26-Categorywise%20Govt%20with%20Per%20on%20SQDegree.pdf";
+  "https://docs.google.com/spreadsheets/d/1Jl2v_UhUQxJNT2WuHQqs20cLDr8pMV1Ihe8IqDZaTJo/edit";
+const SOURCE_TITLE = "MAHACET NEET-PG 2026 govt seat matrix (official Google Sheet)";
 
 type SeatRow = {
   college_name_norm?: string;
@@ -43,7 +44,7 @@ async function main() {
     source = await prisma.source.create({
       data: {
         authority: "MAHACET",
-        title: "Final PGM26 Categorywise Govt with Per on SQ Degree",
+        title: SOURCE_TITLE,
         url: SOURCE_URL,
         dataYear: 2026,
         sourceType: "OFFICIAL",
