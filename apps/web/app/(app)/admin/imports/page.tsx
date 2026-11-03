@@ -101,7 +101,9 @@ npm run backtest:predictions   # Hold-out fit-label accuracy → data/reports/`}
 {`npm run fetch:maharashtra         # Merit, selection, registered, seat matrix PDFs
 npm run import:maharashtra        # SML closing ranks → database
 npm run import:maharashtra-merit  # Roll → SML merit indexes (JSON)
-npm run import:maharashtra-air-sml # AIR ↔ SML from registered lists (JSON)`}
+npm run import:maharashtra-air-sml # AIR ↔ SML from registered lists (JSON)
+npm run import:maharashtra-2026-seat-matrix # MAH 2026 R1 govt matrix → DB (2025 untouched)
+npm run report:maharashtra-2026-seat-matrix --workspace=@medcounsel/data-ingestion # import_report.json`}
         </pre>
         <p className="mt-2 text-xs text-slate-400">
           Maharashtra uses SML (State Merit List) ranks — never mixed with AIR without explicit labels.

@@ -1,0 +1,29 @@
+{
+  "summary": {
+    "yearA": 2025,
+    "yearB": 2026,
+    "matrixKey": "seat_matrix_r1_govt",
+    "totalSeatsA": 1504,
+    "totalSeatsB": 1544,
+    "netChange": 40,
+    "collegesIncreased": 5,
+    "collegesDecreased": 7,
+    "collegesNew": 1,
+    "collegesRemoved": 0,
+    "rowsCompared": 2077,
+    "sourceA": {
+      "key": "seat_matrix_r1_govt",
+      "url": "https://statecetcell.s3.ap-south-1.amazonaws.com/PGM-25/05-Final+PGM25-Categorywise+Govt+_+Degree.pdf",
+      "path": "/Users/sushank.sakharwade/Desktop/wevvv/data/maharashtra/2025/seat_matrices/round_1/05-Final-PGM25-Govt-Degree.pdf"
+    },
+    "sourceB": {
+      "year": 2026,
+      "url": "https://medical2026.mahacet.org/NEET-PGM-2026/instructions-downloadFile/Final%20PGM26-Categorywise%20Govt%20with%20Per%20on%20SQDegree.pdf",
+      "title": "Final PGM26 Categorywise Govt",
+      "pages": 32,
+      "rows": 1420,
+      "total_seats": 1544
+    }
+  },
+  "generated_at": "2026-11-03T04:43:50.624Z"
+}

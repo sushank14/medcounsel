@@ -48,12 +48,31 @@ def _int_cell(val: str | None) -> int:
 def _college_from_page(text: str) -> str:
     for line in text.split("\n"):
         line = line.strip()
-        if not line or line.startswith("SC ST"):
+        if not line or len(line) < 10 or line.startswith("SC ST"):
             continue
-        if re.match(r"^(No\.|State|Seats|GEN|NEET|PROVISIONAL|CATEGORY)", line, re.I):
+        upper = line.upper()
+        if re.match(r"^(No\.|State|Seats|GEN|NEET|PROVISIONAL|CATEGORY|CATEGORY-WISE|\d+\.\s*Seat)", line, re.I):
             continue
-        if len(line) > 8:
-            return line
+        if "SEAT POSITION IS SUBJECT" in upper or "MUHS NASHIK" in upper:
+            continue
+        if "ALLOTMENT OF ABOVE" in upper or "AVIALIBILTY OF POSTGRADUATE" in upper:
+            continue
+        if re.match(r"^\d+(MD|MS)\s", line, re.I):
+            continue
+        if any(
+            k in upper
+            for k in (
+                "MEDICAL COLLEGE",
+                "MEDICAL COLLEGE,",
+                " HOSPITAL",
+                "INSTitute",
+                "INSTITUTE",
+                "POSTGRADUATE",
+                "CORPORATION",
+            )
+        ):
+            if "SEAT MATRIX" not in upper and "NEET PG" not in upper:
+                return line
     return "UNKNOWN"
 
 
@@ -63,8 +82,8 @@ def extract_r1_seat_matrix_pdf(path: str) -> list[dict[str, Any]]:
         for pno, page in enumerate(pdf.pages):
             text = page.extract_text() or ""
             college = _college_from_page(text)
-            if college == "UNKNOWN" and pno == 0:
-                college = "STATE_SUMMARY"
+            if college == "UNKNOWN":
+                continue
             tables = page.extract_tables() or []
             if not tables:
                 continue

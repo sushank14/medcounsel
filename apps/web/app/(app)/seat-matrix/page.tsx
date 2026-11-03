@@ -268,6 +268,11 @@ export default async function SeatMatrixPage({
       <PageHeader
         title="PG Seat Matrix"
         description="Official approved seats by college, course, and quota — NMC master matrix and MCC counselling matrices."
+        actions={
+          <Link href="/seat-matrix/compare" className="text-sm font-medium text-brand-600 hover:underline">
+            Maharashtra 2025 vs 2026 (MAHACET) →
+          </Link>
+        }
       />
 
       {params.state !== "Maharashtra" && (
@@ -288,6 +293,9 @@ export default async function SeatMatrixPage({
             className="mt-2 inline-block font-medium text-brand-600 hover:underline"
           >
             Open Maharashtra seat matrix + ranks →
+          </Link>
+          <Link href="/seat-matrix/compare" className="mt-2 ml-4 inline-block font-medium text-brand-600 hover:underline">
+            MAHACET govt matrix 2025 vs 2026 →
           </Link>
         </div>
       )}

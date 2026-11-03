@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-11-03T04:43:50.494Z",
+  "source": {
+    "year": 2026,
+    "url": "https://medical2026.mahacet.org/NEET-PGM-2026/instructions-downloadFile/Final%20PGM26-Categorywise%20Govt%20with%20Per%20on%20SQDegree.pdf",
+    "title": "Final PGM26 Categorywise Govt",
+    "pages": 32,
+    "rows": 1420,
+    "total_seats": 1544
+  },
+  "pdf_pages": 32,
+  "rows_extracted": 1420,
+  "rows_import_ready": 1420,
+  "skipped_zero_seats": 0,
+  "skipped_invalid_college": 0,
+  "duplicate_keys": 100,
+  "unmatched_or_rejected_college_names": [],
+  "validation": {
+    "status": "ok",
+    "note": "All positive seat rows passed college validation."
+  }
+}
