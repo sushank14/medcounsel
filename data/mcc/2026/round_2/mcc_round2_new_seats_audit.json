@@ -1,0 +1,4521 @@
+{
+  "source_label": "New Seats",
+  "vacancy_type": "new",
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/11/202611101718716060.pdf",
+  "source_file": "new_seats.pdf",
+  "sha256": "9030dd971174aca90db655344460c688ef913b6b7ba3ad260b6e80d055fd2345",
+  "file_bytes": 1239233,
+  "extracted_at": "2026-11-11T04:05:09Z",
+  "pdf_page_count": 178,
+  "declared_page_count": 178,
+  "pages_processed": 178,
+  "pages_ok": 178,
+  "pages_with_errors": 0,
+  "extracted_records": 2440,
+  "verified_records": 2440,
+  "error_count": 0,
+  "row_errors": 0,
+  "structural_page_errors": 0,
+  "pages_not_in_file": 0,
+  "pdf_reported_seat_totals": [
+    {
+      "page": 178,
+      "seats": 3657,
+      "cells": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "3657"
+      ]
+    }
+  ],
+  "seat_sum_matches_pdf_total": true,
+  "seat_sum_all_parsed_integers": 3657,
+  "seat_sum_verified": 3657,
+  "unique_colleges": 323,
+  "rows_missing_college_name": 0,
+  "rows_missing_college_code": 0,
+  "rows_unparsed_seats": 0,
+  "rows_unparsed_category": 0,
+  "ocr_required_pages": [],
+  "non_data_rows": [
+    {
+      "page": 1,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 2,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 3,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 4,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 5,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 6,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 7,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 8,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 9,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 10,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 11,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 12,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 13,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 14,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 15,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 16,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 17,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 18,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 19,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 20,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 21,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 22,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 23,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 24,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 25,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 26,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 27,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 28,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 29,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 30,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 31,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 32,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 33,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 34,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 35,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 36,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 37,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 38,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 39,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 40,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 41,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 42,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 43,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 44,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 45,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 46,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 47,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 48,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 49,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 50,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 51,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 52,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 53,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 54,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 55,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 56,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 57,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 58,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 59,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 60,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 61,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 62,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 63,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 64,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 65,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 66,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 67,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 68,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 69,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 70,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 71,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 72,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 73,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 74,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 75,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 76,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 77,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 78,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 79,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 80,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 81,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 82,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 83,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 84,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 85,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 86,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 87,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 88,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 89,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 90,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 91,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 92,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 93,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 94,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 95,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 96,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 97,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 98,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 99,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 100,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 101,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 102,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 103,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 104,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 105,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 106,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 107,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 108,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 109,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 110,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 111,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 112,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 113,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 114,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 115,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 116,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 117,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 118,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 119,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 120,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 121,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 122,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 123,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 124,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 125,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 126,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 127,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 128,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 129,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 130,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 131,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 132,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 133,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 134,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 135,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 136,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 137,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 138,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 139,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 140,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 141,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 142,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 143,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 144,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 145,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 146,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 147,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 148,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 149,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 150,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 151,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 152,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 153,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 154,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 155,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 156,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 157,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 158,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 159,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 160,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 161,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 162,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 163,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 164,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 165,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 166,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 167,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 168,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 169,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 170,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 171,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 172,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 173,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 174,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 175,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 176,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 177,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 178,
+      "kind": "title",
+      "cells": [
+        "NEWLY ADDED SEATS ROUND 2 (MD/MS/DNB) – PG COUNSELLING 2026",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": 178,
+      "kind": "total",
+      "cells": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "3657"
+      ]
+    }
+  ],
+  "repair": null,
+  "file_errors": [],
+  "issues": [],
+  "pages": [
+    {
+      "page": 1,
+      "printed_page": 1,
+      "declared_total_pages": 178,
+      "chars": 3464,
+      "tables": 1,
+      "data_rows": 14,
+      "parsed_rows": 14,
+      "seat_sum": 15,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 2,
+      "printed_page": 2,
+      "declared_total_pages": 178,
+      "chars": 2893,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 12,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 3,
+      "printed_page": 3,
+      "declared_total_pages": 178,
+      "chars": 2775,
+      "tables": 1,
+      "data_rows": 10,
+      "parsed_rows": 10,
+      "seat_sum": 11,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 4,
+      "printed_page": 4,
+      "declared_total_pages": 178,
+      "chars": 3256,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 18,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 5,
+      "printed_page": 5,
+      "declared_total_pages": 178,
+      "chars": 3407,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 18,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 6,
+      "printed_page": 6,
+      "declared_total_pages": 178,
+      "chars": 3052,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 7,
+      "printed_page": 7,
+      "declared_total_pages": 178,
+      "chars": 3035,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 19,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 8,
+      "printed_page": 8,
+      "declared_total_pages": 178,
+      "chars": 3039,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 9,
+      "printed_page": 9,
+      "declared_total_pages": 178,
+      "chars": 2965,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 10,
+      "printed_page": 10,
+      "declared_total_pages": 178,
+      "chars": 2977,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 11,
+      "printed_page": 11,
+      "declared_total_pages": 178,
+      "chars": 3497,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 18,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 12,
+      "printed_page": 12,
+      "declared_total_pages": 178,
+      "chars": 3479,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 18,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 13,
+      "printed_page": 13,
+      "declared_total_pages": 178,
+      "chars": 3553,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 34,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 14,
+      "printed_page": 14,
+      "declared_total_pages": 178,
+      "chars": 3451,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 24,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 15,
+      "printed_page": 15,
+      "declared_total_pages": 178,
+      "chars": 2721,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 16,
+      "printed_page": 16,
+      "declared_total_pages": 178,
+      "chars": 2975,
+      "tables": 1,
+      "data_rows": 11,
+      "parsed_rows": 11,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 17,
+      "printed_page": 17,
+      "declared_total_pages": 178,
+      "chars": 3372,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 23,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 18,
+      "printed_page": 18,
+      "declared_total_pages": 178,
+      "chars": 3166,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 19,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 19,
+      "printed_page": 19,
+      "declared_total_pages": 178,
+      "chars": 3045,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 20,
+      "printed_page": 20,
+      "declared_total_pages": 178,
+      "chars": 3749,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 24,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 21,
+      "printed_page": 21,
+      "declared_total_pages": 178,
+      "chars": 3703,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 24,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 22,
+      "printed_page": 22,
+      "declared_total_pages": 178,
+      "chars": 3220,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 12,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 23,
+      "printed_page": 23,
+      "declared_total_pages": 178,
+      "chars": 2959,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 9,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 24,
+      "printed_page": 24,
+      "declared_total_pages": 178,
+      "chars": 3433,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 19,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 25,
+      "printed_page": 25,
+      "declared_total_pages": 178,
+      "chars": 3830,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 21,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 26,
+      "printed_page": 26,
+      "declared_total_pages": 178,
+      "chars": 3940,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 22,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 27,
+      "printed_page": 27,
+      "declared_total_pages": 178,
+      "chars": 2697,
+      "tables": 1,
+      "data_rows": 10,
+      "parsed_rows": 10,
+      "seat_sum": 10,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 28,
+      "printed_page": 28,
+      "declared_total_pages": 178,
+      "chars": 3002,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 22,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 29,
+      "printed_page": 29,
+      "declared_total_pages": 178,
+      "chars": 3305,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 15,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 30,
+      "printed_page": 30,
+      "declared_total_pages": 178,
+      "chars": 3440,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 15,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 31,
+      "printed_page": 31,
+      "declared_total_pages": 178,
+      "chars": 3243,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 15,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 32,
+      "printed_page": 32,
+      "declared_total_pages": 178,
+      "chars": 3021,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 15,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 33,
+      "printed_page": 33,
+      "declared_total_pages": 178,
+      "chars": 2748,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 34,
+      "printed_page": 34,
+      "declared_total_pages": 178,
+      "chars": 2797,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 39,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 35,
+      "printed_page": 35,
+      "declared_total_pages": 178,
+      "chars": 3013,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 44,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 36,
+      "printed_page": 36,
+      "declared_total_pages": 178,
+      "chars": 3390,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 40,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 37,
+      "printed_page": 37,
+      "declared_total_pages": 178,
+      "chars": 3557,
+      "tables": 1,
+      "data_rows": 18,
+      "parsed_rows": 18,
+      "seat_sum": 40,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 38,
+      "printed_page": 38,
+      "declared_total_pages": 178,
+      "chars": 2935,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 34,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 39,
+      "printed_page": 39,
+      "declared_total_pages": 178,
+      "chars": 3302,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 47,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 40,
+      "printed_page": 40,
+      "declared_total_pages": 178,
+      "chars": 3233,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 39,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 41,
+      "printed_page": 41,
+      "declared_total_pages": 178,
+      "chars": 2814,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 19,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 42,
+      "printed_page": 42,
+      "declared_total_pages": 178,
+      "chars": 2805,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 43,
+      "printed_page": 43,
+      "declared_total_pages": 178,
+      "chars": 3511,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 22,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 44,
+      "printed_page": 44,
+      "declared_total_pages": 178,
+      "chars": 3554,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 20,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 45,
+      "printed_page": 45,
+      "declared_total_pages": 178,
+      "chars": 3764,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 24,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 46,
+      "printed_page": 46,
+      "declared_total_pages": 178,
+      "chars": 3334,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 18,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 47,
+      "printed_page": 47,
+      "declared_total_pages": 178,
+      "chars": 3104,
+      "tables": 1,
+      "data_rows": 14,
+      "parsed_rows": 14,
+      "seat_sum": 44,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 48,
+      "printed_page": 48,
+      "declared_total_pages": 178,
+      "chars": 3188,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 29,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 49,
+      "printed_page": 49,
+      "declared_total_pages": 178,
+      "chars": 3186,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 50,
+      "printed_page": 50,
+      "declared_total_pages": 178,
+      "chars": 3208,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 51,
+      "printed_page": 51,
+      "declared_total_pages": 178,
+      "chars": 3453,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 22,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 52,
+      "printed_page": 52,
+      "declared_total_pages": 178,
+      "chars": 3626,
+      "tables": 1,
+      "data_rows": 18,
+      "parsed_rows": 18,
+      "seat_sum": 24,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 53,
+      "printed_page": 53,
+      "declared_total_pages": 178,
+      "chars": 3109,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 19,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 54,
+      "printed_page": 54,
+      "declared_total_pages": 178,
+      "chars": 3164,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 55,
+      "printed_page": 55,
+      "declared_total_pages": 178,
+      "chars": 3202,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 56,
+      "printed_page": 56,
+      "declared_total_pages": 178,
+      "chars": 3105,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 57,
+      "printed_page": 57,
+      "declared_total_pages": 178,
+      "chars": 3682,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 21,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 58,
+      "printed_page": 58,
+      "declared_total_pages": 178,
+      "chars": 3184,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 59,
+      "printed_page": 59,
+      "declared_total_pages": 178,
+      "chars": 3221,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 60,
+      "printed_page": 60,
+      "declared_total_pages": 178,
+      "chars": 2894,
+      "tables": 1,
+      "data_rows": 14,
+      "parsed_rows": 14,
+      "seat_sum": 15,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 61,
+      "printed_page": 61,
+      "declared_total_pages": 178,
+      "chars": 3002,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 22,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 62,
+      "printed_page": 62,
+      "declared_total_pages": 178,
+      "chars": 3135,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 39,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 63,
+      "printed_page": 63,
+      "declared_total_pages": 178,
+      "chars": 3680,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 36,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 64,
+      "printed_page": 64,
+      "declared_total_pages": 178,
+      "chars": 2856,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 33,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 65,
+      "printed_page": 65,
+      "declared_total_pages": 178,
+      "chars": 3078,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 27,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 66,
+      "printed_page": 66,
+      "declared_total_pages": 178,
+      "chars": 3426,
+      "tables": 1,
+      "data_rows": 18,
+      "parsed_rows": 18,
+      "seat_sum": 36,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 67,
+      "printed_page": 67,
+      "declared_total_pages": 178,
+      "chars": 3181,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 18,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 68,
+      "printed_page": 68,
+      "declared_total_pages": 178,
+      "chars": 2906,
+      "tables": 1,
+      "data_rows": 10,
+      "parsed_rows": 10,
+      "seat_sum": 11,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 69,
+      "printed_page": 69,
+      "declared_total_pages": 178,
+      "chars": 3100,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 70,
+      "printed_page": 70,
+      "declared_total_pages": 178,
+      "chars": 3581,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 20,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 71,
+      "printed_page": 71,
+      "declared_total_pages": 178,
+      "chars": 3263,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 17,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 72,
+      "printed_page": 72,
+      "declared_total_pages": 178,
+      "chars": 2980,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 73,
+      "printed_page": 73,
+      "declared_total_pages": 178,
+      "chars": 3003,
+      "tables": 1,
+      "data_rows": 14,
+      "parsed_rows": 14,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 74,
+      "printed_page": 74,
+      "declared_total_pages": 178,
+      "chars": 3891,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 21,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 75,
+      "printed_page": 75,
+      "declared_total_pages": 178,
+      "chars": 3163,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 17,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 76,
+      "printed_page": 76,
+      "declared_total_pages": 178,
+      "chars": 2856,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 10,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 77,
+      "printed_page": 77,
+      "declared_total_pages": 178,
+      "chars": 2822,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 78,
+      "printed_page": 78,
+      "declared_total_pages": 178,
+      "chars": 3103,
+      "tables": 1,
+      "data_rows": 11,
+      "parsed_rows": 11,
+      "seat_sum": 20,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 79,
+      "printed_page": 79,
+      "declared_total_pages": 178,
+      "chars": 2755,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 80,
+      "printed_page": 80,
+      "declared_total_pages": 178,
+      "chars": 2471,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 9,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 81,
+      "printed_page": 81,
+      "declared_total_pages": 178,
+      "chars": 2506,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 11,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 82,
+      "printed_page": 82,
+      "declared_total_pages": 178,
+      "chars": 3331,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 83,
+      "printed_page": 83,
+      "declared_total_pages": 178,
+      "chars": 3138,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 84,
+      "printed_page": 84,
+      "declared_total_pages": 178,
+      "chars": 3772,
+      "tables": 1,
+      "data_rows": 18,
+      "parsed_rows": 18,
+      "seat_sum": 66,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 85,
+      "printed_page": 85,
+      "declared_total_pages": 178,
+      "chars": 2951,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 33,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 86,
+      "printed_page": 86,
+      "declared_total_pages": 178,
+      "chars": 3000,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 87,
+      "printed_page": 87,
+      "declared_total_pages": 178,
+      "chars": 3392,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 88,
+      "printed_page": 88,
+      "declared_total_pages": 178,
+      "chars": 3396,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 89,
+      "printed_page": 89,
+      "declared_total_pages": 178,
+      "chars": 3281,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 90,
+      "printed_page": 90,
+      "declared_total_pages": 178,
+      "chars": 3026,
+      "tables": 1,
+      "data_rows": 11,
+      "parsed_rows": 11,
+      "seat_sum": 11,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 91,
+      "printed_page": 91,
+      "declared_total_pages": 178,
+      "chars": 2906,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 10,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 92,
+      "printed_page": 92,
+      "declared_total_pages": 178,
+      "chars": 3151,
+      "tables": 1,
+      "data_rows": 11,
+      "parsed_rows": 11,
+      "seat_sum": 11,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 93,
+      "printed_page": 93,
+      "declared_total_pages": 178,
+      "chars": 3218,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 15,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 94,
+      "printed_page": 94,
+      "declared_total_pages": 178,
+      "chars": 3171,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 43,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 95,
+      "printed_page": 95,
+      "declared_total_pages": 178,
+      "chars": 2826,
+      "tables": 1,
+      "data_rows": 11,
+      "parsed_rows": 11,
+      "seat_sum": 25,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 96,
+      "printed_page": 96,
+      "declared_total_pages": 178,
+      "chars": 2555,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 10,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 97,
+      "printed_page": 97,
+      "declared_total_pages": 178,
+      "chars": 3032,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 98,
+      "printed_page": 98,
+      "declared_total_pages": 178,
+      "chars": 3400,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 21,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 99,
+      "printed_page": 99,
+      "declared_total_pages": 178,
+      "chars": 2851,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 100,
+      "printed_page": 100,
+      "declared_total_pages": 178,
+      "chars": 3073,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 101,
+      "printed_page": 101,
+      "declared_total_pages": 178,
+      "chars": 2941,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 102,
+      "printed_page": 102,
+      "declared_total_pages": 178,
+      "chars": 3004,
+      "tables": 1,
+      "data_rows": 14,
+      "parsed_rows": 14,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 103,
+      "printed_page": 103,
+      "declared_total_pages": 178,
+      "chars": 3380,
+      "tables": 1,
+      "data_rows": 14,
+      "parsed_rows": 14,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 104,
+      "printed_page": 104,
+      "declared_total_pages": 178,
+      "chars": 2454,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 11,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 105,
+      "printed_page": 105,
+      "declared_total_pages": 178,
+      "chars": 2599,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 106,
+      "printed_page": 106,
+      "declared_total_pages": 178,
+      "chars": 2344,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 9,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 107,
+      "printed_page": 107,
+      "declared_total_pages": 178,
+      "chars": 2988,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 108,
+      "printed_page": 108,
+      "declared_total_pages": 178,
+      "chars": 3205,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 109,
+      "printed_page": 109,
+      "declared_total_pages": 178,
+      "chars": 3456,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 21,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 110,
+      "printed_page": 110,
+      "declared_total_pages": 178,
+      "chars": 3505,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 49,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 111,
+      "printed_page": 111,
+      "declared_total_pages": 178,
+      "chars": 2596,
+      "tables": 1,
+      "data_rows": 10,
+      "parsed_rows": 10,
+      "seat_sum": 18,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 112,
+      "printed_page": 112,
+      "declared_total_pages": 178,
+      "chars": 2632,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 25,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 113,
+      "printed_page": 113,
+      "declared_total_pages": 178,
+      "chars": 2637,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 28,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 114,
+      "printed_page": 114,
+      "declared_total_pages": 178,
+      "chars": 2279,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 35,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 115,
+      "printed_page": 115,
+      "declared_total_pages": 178,
+      "chars": 2389,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 53,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 116,
+      "printed_page": 116,
+      "declared_total_pages": 178,
+      "chars": 2591,
+      "tables": 1,
+      "data_rows": 10,
+      "parsed_rows": 10,
+      "seat_sum": 53,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 117,
+      "printed_page": 117,
+      "declared_total_pages": 178,
+      "chars": 3239,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 46,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 118,
+      "printed_page": 118,
+      "declared_total_pages": 178,
+      "chars": 3848,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 61,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 119,
+      "printed_page": 119,
+      "declared_total_pages": 178,
+      "chars": 3102,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 23,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 120,
+      "printed_page": 120,
+      "declared_total_pages": 178,
+      "chars": 2659,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 28,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 121,
+      "printed_page": 121,
+      "declared_total_pages": 178,
+      "chars": 2639,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 27,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 122,
+      "printed_page": 122,
+      "declared_total_pages": 178,
+      "chars": 3165,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 41,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 123,
+      "printed_page": 123,
+      "declared_total_pages": 178,
+      "chars": 2990,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 36,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 124,
+      "printed_page": 124,
+      "declared_total_pages": 178,
+      "chars": 3008,
+      "tables": 1,
+      "data_rows": 18,
+      "parsed_rows": 18,
+      "seat_sum": 26,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 125,
+      "printed_page": 125,
+      "declared_total_pages": 178,
+      "chars": 3073,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 20,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 126,
+      "printed_page": 126,
+      "declared_total_pages": 178,
+      "chars": 3096,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 22,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 127,
+      "printed_page": 127,
+      "declared_total_pages": 178,
+      "chars": 3058,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 21,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 128,
+      "printed_page": 128,
+      "declared_total_pages": 178,
+      "chars": 3323,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 18,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 129,
+      "printed_page": 129,
+      "declared_total_pages": 178,
+      "chars": 3337,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 130,
+      "printed_page": 130,
+      "declared_total_pages": 178,
+      "chars": 3069,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 17,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 131,
+      "printed_page": 131,
+      "declared_total_pages": 178,
+      "chars": 3077,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 18,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 132,
+      "printed_page": 132,
+      "declared_total_pages": 178,
+      "chars": 2602,
+      "tables": 1,
+      "data_rows": 11,
+      "parsed_rows": 11,
+      "seat_sum": 12,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 133,
+      "printed_page": 133,
+      "declared_total_pages": 178,
+      "chars": 3183,
+      "tables": 1,
+      "data_rows": 14,
+      "parsed_rows": 14,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 134,
+      "printed_page": 134,
+      "declared_total_pages": 178,
+      "chars": 3070,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 17,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 135,
+      "printed_page": 135,
+      "declared_total_pages": 178,
+      "chars": 3119,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 136,
+      "printed_page": 136,
+      "declared_total_pages": 178,
+      "chars": 3795,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 49,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 137,
+      "printed_page": 137,
+      "declared_total_pages": 178,
+      "chars": 2910,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 17,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 138,
+      "printed_page": 138,
+      "declared_total_pages": 178,
+      "chars": 2934,
+      "tables": 1,
+      "data_rows": 14,
+      "parsed_rows": 14,
+      "seat_sum": 17,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 139,
+      "printed_page": 139,
+      "declared_total_pages": 178,
+      "chars": 3331,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 19,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 140,
+      "printed_page": 140,
+      "declared_total_pages": 178,
+      "chars": 3359,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 141,
+      "printed_page": 141,
+      "declared_total_pages": 178,
+      "chars": 3081,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 21,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 142,
+      "printed_page": 142,
+      "declared_total_pages": 178,
+      "chars": 3320,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 21,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 143,
+      "printed_page": 143,
+      "declared_total_pages": 178,
+      "chars": 3231,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 144,
+      "printed_page": 144,
+      "declared_total_pages": 178,
+      "chars": 3476,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 17,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 145,
+      "printed_page": 145,
+      "declared_total_pages": 178,
+      "chars": 3462,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 17,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 146,
+      "printed_page": 146,
+      "declared_total_pages": 178,
+      "chars": 2802,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 147,
+      "printed_page": 147,
+      "declared_total_pages": 178,
+      "chars": 3276,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 21,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 148,
+      "printed_page": 148,
+      "declared_total_pages": 178,
+      "chars": 3238,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 149,
+      "printed_page": 149,
+      "declared_total_pages": 178,
+      "chars": 3560,
+      "tables": 1,
+      "data_rows": 15,
+      "parsed_rows": 15,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 150,
+      "printed_page": 150,
+      "declared_total_pages": 178,
+      "chars": 3091,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 17,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 151,
+      "printed_page": 151,
+      "declared_total_pages": 178,
+      "chars": 3113,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 15,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 152,
+      "printed_page": 152,
+      "declared_total_pages": 178,
+      "chars": 3142,
+      "tables": 1,
+      "data_rows": 14,
+      "parsed_rows": 14,
+      "seat_sum": 17,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 153,
+      "printed_page": 153,
+      "declared_total_pages": 178,
+      "chars": 3419,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 19,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 154,
+      "printed_page": 154,
+      "declared_total_pages": 178,
+      "chars": 3733,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 21,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 155,
+      "printed_page": 155,
+      "declared_total_pages": 178,
+      "chars": 3670,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 21,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 156,
+      "printed_page": 156,
+      "declared_total_pages": 178,
+      "chars": 3289,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 16,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 157,
+      "printed_page": 157,
+      "declared_total_pages": 178,
+      "chars": 3540,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 158,
+      "printed_page": 158,
+      "declared_total_pages": 178,
+      "chars": 3368,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 14,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 159,
+      "printed_page": 159,
+      "declared_total_pages": 178,
+      "chars": 2842,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 15,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 160,
+      "printed_page": 160,
+      "declared_total_pages": 178,
+      "chars": 3419,
+      "tables": 1,
+      "data_rows": 14,
+      "parsed_rows": 14,
+      "seat_sum": 28,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 161,
+      "printed_page": 161,
+      "declared_total_pages": 178,
+      "chars": 2992,
+      "tables": 1,
+      "data_rows": 9,
+      "parsed_rows": 9,
+      "seat_sum": 9,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 162,
+      "printed_page": 162,
+      "declared_total_pages": 178,
+      "chars": 3063,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 163,
+      "printed_page": 163,
+      "declared_total_pages": 178,
+      "chars": 3326,
+      "tables": 1,
+      "data_rows": 16,
+      "parsed_rows": 16,
+      "seat_sum": 20,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 164,
+      "printed_page": 164,
+      "declared_total_pages": 178,
+      "chars": 3064,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 15,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 165,
+      "printed_page": 165,
+      "declared_total_pages": 178,
+      "chars": 3308,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 15,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 166,
+      "printed_page": 166,
+      "declared_total_pages": 178,
+      "chars": 3075,
+      "tables": 1,
+      "data_rows": 13,
+      "parsed_rows": 13,
+      "seat_sum": 37,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 167,
+      "printed_page": 167,
+      "declared_total_pages": 178,
+      "chars": 3181,
+      "tables": 1,
+      "data_rows": 14,
+      "parsed_rows": 14,
+      "seat_sum": 36,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 168,
+      "printed_page": 168,
+      "declared_total_pages": 178,
+      "chars": 3429,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 30,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 169,
+      "printed_page": 169,
+      "declared_total_pages": 178,
+      "chars": 2842,
+      "tables": 1,
+      "data_rows": 11,
+      "parsed_rows": 11,
+      "seat_sum": 12,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 170,
+      "printed_page": 170,
+      "declared_total_pages": 178,
+      "chars": 3096,
+      "tables": 1,
+      "data_rows": 10,
+      "parsed_rows": 10,
+      "seat_sum": 11,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 171,
+      "printed_page": 171,
+      "declared_total_pages": 178,
+      "chars": 3592,
+      "tables": 1,
+      "data_rows": 17,
+      "parsed_rows": 17,
+      "seat_sum": 18,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 172,
+      "printed_page": 172,
+      "declared_total_pages": 178,
+      "chars": 3740,
+      "tables": 1,
+      "data_rows": 19,
+      "parsed_rows": 19,
+      "seat_sum": 20,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 173,
+      "printed_page": 173,
+      "declared_total_pages": 178,
+      "chars": 3053,
+      "tables": 1,
+      "data_rows": 11,
+      "parsed_rows": 11,
+      "seat_sum": 12,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 174,
+      "printed_page": 174,
+      "declared_total_pages": 178,
+      "chars": 2827,
+      "tables": 1,
+      "data_rows": 7,
+      "parsed_rows": 7,
+      "seat_sum": 7,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 175,
+      "printed_page": 175,
+      "declared_total_pages": 178,
+      "chars": 2751,
+      "tables": 1,
+      "data_rows": 11,
+      "parsed_rows": 11,
+      "seat_sum": 11,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 176,
+      "printed_page": 176,
+      "declared_total_pages": 178,
+      "chars": 2979,
+      "tables": 1,
+      "data_rows": 12,
+      "parsed_rows": 12,
+      "seat_sum": 13,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 177,
+      "printed_page": 177,
+      "declared_total_pages": 178,
+      "chars": 2767,
+      "tables": 1,
+      "data_rows": 10,
+      "parsed_rows": 10,
+      "seat_sum": 11,
+      "status": "ok",
+      "issues": []
+    },
+    {
+      "page": 178,
+      "printed_page": 178,
+      "declared_total_pages": 178,
+      "chars": 821,
+      "tables": 1,
+      "data_rows": 3,
+      "parsed_rows": 3,
+      "seat_sum": 6,
+      "status": "ok",
+      "issues": []
+    }
+  ],
+  "complete": true,
+  "code_recovery": {
+    "note": "Virtual rows whose institute code was clipped are filled only on a unique name match and remain unverified.",
+    "recovered_unique_name": 761,
+    "still_missing": 110,
+    "ambiguous": 0
+  }
+}

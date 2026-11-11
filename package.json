@@ -36,6 +36,8 @@
     "import:maharashtra-2026-seat-matrix": "DATABASE_URL=file:./packages/database/prisma/prod.db npm run import:maharashtra-2026-seat-matrix --workspace=@medcounsel/data-ingestion",
     "sync:maharashtra-2026-seat-matrix-sheet": "python3.11 packages/data-ingestion/python/maharashtra/extract_seat_matrix_gsheet.py && npm run import:maharashtra-2026-seat-matrix && npm run report:maharashtra-2026-seat-matrix --workspace=@medcounsel/data-ingestion",
     "test:mah-seat-matrix-compare": "npm run test:mah-seat-matrix-compare --workspace=@medcounsel/data-ingestion",
+    "extract:mcc-round2-2026": "python3.11 packages/data-ingestion/python/mcc/extract_round2_vacancies.py",
+    "test:mcc-round2": "python3.11 packages/data-ingestion/python/mcc/test_extract_round2.py",
     "audit:mcc-seat-matrix-2026": "DATABASE_URL=file:./packages/database/prisma/prod.db npm run audit-mcc-seat-matrix-2026 --workspace=@medcounsel/data-ingestion",
     "audit:mcc-seat-matrix-by-college": "DATABASE_URL=file:./packages/database/prisma/prod.db npm run audit-mcc-seat-matrix-by-college --workspace=@medcounsel/data-ingestion",
     "import:nmc-seat-matrix-2026": "npm run import-nmc-seat-matrix-2026 --workspace=@medcounsel/data-ingestion",

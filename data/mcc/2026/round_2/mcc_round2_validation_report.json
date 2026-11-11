@@ -1,0 +1,225 @@
+{
+  "extracted_at": "2026-11-11T04:02:19Z",
+  "dataset_complete": false,
+  "completion_rule": "Complete only when every printed page of every official PDF was opened and every extracted seat row verified. The virtual vacancy file on cdnbbsr is published at exactly 1048576 bytes and has no trailer; recovered pages are included and the dataset stays incomplete.",
+  "reconciliation": [
+    {
+      "source_pdf": "Clear Vacancy",
+      "total_pages": 842,
+      "pdf_pages_opened": 842,
+      "pages_processed": 842,
+      "extracted_records": 10423,
+      "verified_records": 10423,
+      "errors": 0,
+      "complete": true
+    },
+    {
+      "source_pdf": "Virtual Vacancy",
+      "total_pages": 699,
+      "pdf_pages_opened": 127,
+      "pages_processed": 127,
+      "extracted_records": 2147,
+      "verified_records": 1276,
+      "errors": 1444,
+      "complete": false
+    },
+    {
+      "source_pdf": "New Seats",
+      "total_pages": 178,
+      "pdf_pages_opened": 178,
+      "pages_processed": 178,
+      "extracted_records": 2440,
+      "verified_records": 2440,
+      "errors": 0,
+      "complete": true
+    }
+  ],
+  "seat_totals": {
+    "clear_vacancy_seats": 15387,
+    "clear_vacancy_verified_seats": 15387,
+    "virtual_vacancy_seats": 2987,
+    "virtual_vacancy_verified_seats": 1716,
+    "newly_added_seats": 3657,
+    "newly_added_verified_seats": 3657,
+    "note": "Clear, virtual, and new seats are not added together. Virtual seats are not confirmed vacancies."
+  },
+  "unique_colleges_in_round2": 1567,
+  "new_college_count": 94,
+  "new_specialty_count": 315,
+  "cross_document_overlaps": {
+    "clear_and_virtual": {
+      "keys": 364,
+      "seats_in_clear": 429,
+      "seats_in_virtual": 570,
+      "sample_keys": [
+        "700107|DIPLOMA IN ANAESTHESIOLOGY (D.A.) (D-AN)|ALL INDIA|OP NO",
+        "700107|M.D. GENERAL MEDICINE (GMED)|ALL INDIA|BC NO",
+        "700107|M.D. PHARMACOLOGY (PHAR)|ALL INDIA|OP NO",
+        "700107|M.D. RADIO-DIAGNOSIS /RADIOLOGY (RADD)|ALL INDIA|OP NO",
+        "700107|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|BC NO",
+        "700107|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|OP NO",
+        "700107|M.S. OBSTETRICS AND GYNAECOLOGY (OBGY)|ALL INDIA|OP NO",
+        "700109|M.D. ANAESTHESIOLOGY (ASTH)|ALL INDIA|OP NO",
+        "700109|M.D. GENERAL MEDICINE (GMED)|ALL INDIA|OP NO",
+        "700109|M.D. MICROBIOLOGY (MICR)|ALL INDIA|BC NO",
+        "700109|M.D. PAEDIATRICS (PAED)|ALL INDIA|BC NO",
+        "700109|M.D. PAEDIATRICS (PAED)|ALL INDIA|OP NO",
+        "700109|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|BC NO",
+        "700109|M.S. OBSTETRICS AND GYNAECOLOGY (OBGY)|ALL INDIA|OP NO",
+        "700109|M.S. OTORHINOLARYNGOLOGY/ENT (EN-T)|ALL INDIA|OP NO",
+        "700111|M.D. ANAESTHESIOLOGY (ASTH)|ALL INDIA|BC NO",
+        "700111|M.D. ANAESTHESIOLOGY (ASTH)|ALL INDIA|OP NO",
+        "700111|M.D. MICROBIOLOGY (MICR)|ALL INDIA|BC NO",
+        "700111|M.D. PATHOLOGY (PATH)|ALL INDIA|OP NO",
+        "700111|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|BC NO",
+        "700111|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|SC NO",
+        "700111|M.S. OTORHINOLARYNGOLOGY/ENT (EN-T)|ALL INDIA|OP NO",
+        "700113|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|OP NO",
+        "700118|M.D. COMMUNITY MEDICINE/SOCIAL AND PREVENTIVE MEDICINE (P-SM)|ALL INDIA|OP NO",
+        "700118|M.D. FORENSIC MEDICINE AND TOXICOLOGY/FORENSIC MEDICINE (FMED)|DELHI UNIVERSITY QUOTA|OP NO"
+      ]
+    },
+    "clear_and_new": {
+      "keys": 2440,
+      "seats_in_clear": 4522,
+      "seats_in_new": 3657,
+      "sample_keys": [
+        "700109|M.D. ANAESTHESIOLOGY (ASTH)|ALL INDIA|OP NO",
+        "700109|M.D. COMMUNITY MEDICINE/SOCIAL AND PREVENTIVE MEDICINE (P-SM)|ALL INDIA|OP NO",
+        "700109|M.D. COMMUNITY MEDICINE/SOCIAL AND PREVENTIVE MEDICINE (P-SM)|ALL INDIA|ST PH",
+        "700109|M.D. MICROBIOLOGY (MICR)|ALL INDIA|BC NO",
+        "700109|M.D. MICROBIOLOGY (MICR)|ALL INDIA|EW NO",
+        "700109|M.D. PATHOLOGY (PATH)|ALL INDIA|BC PH",
+        "700109|M.D. PATHOLOGY (PATH)|ALL INDIA|SC PH",
+        "700109|M.S. OBSTETRICS AND GYNAECOLOGY (OBGY)|ALL INDIA|OP NO",
+        "700109|M.S. OBSTETRICS AND GYNAECOLOGY (OBGY)|ALL INDIA|OP PH",
+        "700111|M.D. BIO-CHEMISTRY (BIOC)|ALL INDIA|OP NO",
+        "700111|M.D. PHYSICAL MEDICINE AND REHABILITATION (PM-R)|ALL INDIA|OP NO",
+        "700111|M.D. PHYSIOLOGY (PHYS)|ALL INDIA|BC NO",
+        "700111|M.D. PSYCHIATRY (PSYY)|ALL INDIA|OP NO",
+        "700111|M.D. RADIATION ONCOLOGY/ RADIOTHERAPY (RADT)|ALL INDIA|BC NO",
+        "700111|M.D. RESPIRATORY MEDICINE/TUBERCULOSIS AND RESPIRATORY DISEASES (TBRD)|ALL INDIA|SC NO",
+        "700111|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|BC NO",
+        "700111|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|SC NO",
+        "700111|M.S. OBSTETRICS AND GYNAECOLOGY (OBGY)|ALL INDIA|EW NO",
+        "700111|M.S. OBSTETRICS AND GYNAECOLOGY (OBGY)|ALL INDIA|ST NO",
+        "700111|M.S. OTORHINOLARYNGOLOGY/ENT (EN-T)|ALL INDIA|OP NO",
+        "700113|M.D. COMMUNITY MEDICINE/SOCIAL AND PREVENTIVE MEDICINE (P-SM)|ALL INDIA|BC NO",
+        "700113|M.D. COMMUNITY MEDICINE/SOCIAL AND PREVENTIVE MEDICINE (P-SM)|ALL INDIA|SC NO",
+        "700113|M.D. PAEDIATRICS (PAED)|ALL INDIA|BC NO",
+        "700113|M.D. PHARMACOLOGY (PHAR)|ALL INDIA|OP NO",
+        "700289|M.D. EMERGENCY MEDICINE (E-CC)|ALL INDIA|BC PH"
+      ]
+    },
+    "virtual_and_new": {
+      "keys": 31,
+      "seats_in_virtual": 42,
+      "seats_in_new": 33,
+      "sample_keys": [
+        "700109|M.D. ANAESTHESIOLOGY (ASTH)|ALL INDIA|OP NO",
+        "700109|M.D. MICROBIOLOGY (MICR)|ALL INDIA|BC NO",
+        "700109|M.S. OBSTETRICS AND GYNAECOLOGY (OBGY)|ALL INDIA|OP NO",
+        "700111|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|BC NO",
+        "700111|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|SC NO",
+        "700111|M.S. OTORHINOLARYNGOLOGY/ENT (EN-T)|ALL INDIA|OP NO",
+        "700316|M.D. RADIATION ONCOLOGY/ RADIOTHERAPY (RADT)|ALL INDIA|BC NO",
+        "700316|M.S. ORTHOPAEDICS (ORTH)|ALL INDIA|BC NO",
+        "700319|M.D. GENERAL MEDICINE (GMED)|ALL INDIA|OP NO",
+        "700319|M.D. GENERAL MEDICINE (GMED)|ALL INDIA|SC NO",
+        "700468|M.D. GENERAL MEDICINE (GMED)|ALL INDIA|OP NO",
+        "700468|M.D. PAEDIATRICS (PAED)|ALL INDIA|BC NO",
+        "700468|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|BC NO",
+        "700468|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|OP NO",
+        "700469|M.D. PAEDIATRICS (PAED)|ALL INDIA|BC NO",
+        "700469|M.D. PAEDIATRICS (PAED)|ALL INDIA|OP NO",
+        "700469|M.D. RADIO-DIAGNOSIS /RADIOLOGY (RADD)|ALL INDIA|BC NO",
+        "700469|M.D. RADIO-DIAGNOSIS /RADIOLOGY (RADD)|ALL INDIA|OP NO",
+        "700473|M.S. ORTHOPAEDICS (ORTH)|ALL INDIA|BC NO",
+        "700473|M.S. ORTHOPAEDICS (ORTH)|ALL INDIA|OP NO",
+        "700474|M.D. ANAESTHESIOLOGY (ASTH)|ALL INDIA|OP NO",
+        "700474|M.D. ANAESTHESIOLOGY (ASTH)|ALL INDIA|SC NO",
+        "700474|M.D. PAEDIATRICS (PAED)|ALL INDIA|EW NO",
+        "700474|M.D. RADIO-DIAGNOSIS /RADIOLOGY (RADD)|ALL INDIA|BC NO",
+        "700474|M.S. GENERAL SURGERY (GSUR)|ALL INDIA|BC NO"
+      ]
+    }
+  },
+  "duplicate_policy": "Rows are kept once per source page. Identical logical keys inside one PDF are retained because they are separate printed rows. Keys that appear in more than one PDF are listed under overlaps and are not summed into a single availability total.",
+  "ocr": {
+    "pages_without_text": {
+      "clear": [],
+      "virtual": [],
+      "new": []
+    },
+    "note": "All opened pages of these MCC PDFs are text-based. OCR was not applied. Pages with no extractable text would be listed above."
+  },
+  "code_recovery": {
+    "recovered_unique_name": 761,
+    "still_missing": 110,
+    "ambiguous": 0
+  },
+  "round1_comparison_available": true,
+  "round1_issue_count": 2,
+  "errors_disclosed": {
+    "clear": {
+      "error_count": 0,
+      "file_errors": [],
+      "unverified_records": 0
+    },
+    "virtual": {
+      "error_count": 1444,
+      "file_errors": [
+        {
+          "severity": "error",
+          "notes": [
+            "Official virtual vacancy PDF is truncated at the published Content-Length. Trailer, catalog, and %%EOF are absent. Only complete page objects were extracted."
+          ],
+          "repair": {
+            "source_bytes": 1048576,
+            "source_has_eof": false,
+            "objects_recovered": 397,
+            "truncated_objects": [
+              {
+                "object": 401,
+                "offset": 1044773,
+                "reason": "stream truncated need 5350 bytes have 3746"
+              }
+            ],
+            "page_objects_found": 127,
+            "pages_rebuilt": 127,
+            "pages_dropped_incomplete": [],
+            "font_repairs": [
+              "built ToUnicode object 10 with 142 mappings",
+              "built width array object 9 (7042 glyphs)",
+              "built FontBBox object 6",
+              "built StemV object 7",
+              "built ToUnicode object 18 with 85 mappings",
+              "built width array object 17 (7042 glyphs)",
+              "built FontBBox object 14",
+              "built StemV object 15"
+            ],
+            "repaired_path": "data/mcc/2026/round_2/raw/virtual_vacancy.repaired.pdf"
+          }
+        },
+        {
+          "severity": "error",
+          "notes": [
+            "572 declared pages are not present in the downloaded file"
+          ]
+        },
+        {
+          "severity": "error",
+          "notes": [
+            "Opened page count 127 != printed total 699"
+          ]
+        }
+      ],
+      "unverified_records": 871
+    },
+    "new": {
+      "error_count": 0,
+      "file_errors": [],
+      "unverified_records": 0
+    }
+  }
+}

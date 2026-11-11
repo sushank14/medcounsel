@@ -103,6 +103,9 @@ export default async function CounsellingHubPage() {
           <Link href="/seat-matrix">
             <Button variant="outline" size="sm">Seat matrix</Button>
           </Link>
+          <Link href="/mcc-round-2">
+            <Button variant="outline" size="sm">MCC Round 2</Button>
+          </Link>
         </div>
         <details className="mt-4">
           <summary className="cursor-pointer text-sm font-medium text-slate-700">Round timeline (MCC official · Maharashtra expected)</summary>

@@ -287,8 +287,8 @@ export default async function SeatMatrixPage({
         title="PG Seat Matrix"
         description="Official approved seats by college, course, and quota — NMC master matrix and MCC counselling matrices."
         actions={
-          <Link href="/seat-matrix/compare" className="text-sm font-medium text-brand-600 hover:underline">
-            Maharashtra 2025 vs 2026 (MAHACET) →
+          <Link href="/mcc-round-2" className="text-sm font-medium text-brand-600 hover:underline">
+            MCC Round 2 vacancies →
           </Link>
         }
       />
