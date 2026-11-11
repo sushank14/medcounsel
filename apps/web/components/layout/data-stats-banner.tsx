@@ -50,7 +50,7 @@ export async function DataStatsBanner() {
         {stats.lastImport && (
           <>
             {" · "}
-            Updated {stats.lastImport.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}
+            Updated {new Date(stats.lastImport).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}
           </>
         )}
       </p>

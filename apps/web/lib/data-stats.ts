@@ -48,6 +48,8 @@ async function fetchDataStats() {
   ]);
 
   const lastImport = sources[0]?.lastVerifiedDate ?? null;
+  // unstable_cache JSON-serializes this result. A Date comes back as a string
+  // on the next request, so store an ISO string from the start.
   const aiqYearRange =
     aiqYears.length > 0
       ? { min: aiqYears[0].year, max: aiqYears[aiqYears.length - 1].year, count: aiqYears.length }
@@ -58,8 +60,11 @@ async function fetchDataStats() {
     mahCutoffs,
     totalVerifiedCutoffs: aiqCutoffs + mahCutoffs,
     officialColleges,
-    lastImport,
-    sources,
+    lastImport: lastImport ? lastImport.toISOString() : null,
+    sources: sources.map((source) => ({
+      ...source,
+      lastVerifiedDate: source.lastVerifiedDate ? source.lastVerifiedDate.toISOString() : null,
+    })),
     aiqYearRange,
     mccSources,
     neetPgColleges,
