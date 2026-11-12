@@ -27,6 +27,8 @@ export function seatMatrixHref(
   if (params.category) q.set("category", String(params.category));
   if (params.diffYear) q.set("diffYear", String(params.diffYear));
   if (params.mhRanks) q.set("mhRanks", String(params.mhRanks));
+  if (params.vacancy) q.set("vacancy", String(params.vacancy));
+  if (params.group) q.set("group", String(params.group));
   if (params.q) q.set("q", String(params.q));
   if (page && page > 1) q.set("page", String(page));
   const s = q.toString();

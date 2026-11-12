@@ -20,6 +20,7 @@ import { SeatMatrixAddToPreferences } from "@/components/seat-matrix/seat-matrix
 import { SeatMatrixCourseFilter } from "@/components/seat-matrix/seat-matrix-course-filter";
 import { AddToChoiceButton } from "@/components/preference/add-to-choice-button";
 import { seatMatrixHref } from "@/lib/seat-matrix-nav";
+import { loadRound2SeatMatrix, round2AvailabilityLabel, round2InstituteLabel } from "@/lib/seat-matrix-round2";
 import {
   degreeFilterLabel,
   resolveDegreeWhere,
@@ -58,6 +59,8 @@ export default async function SeatMatrixPage({
     diffYear?: string;
     mhRanks?: string;
     q?: string;
+    vacancy?: string;
+    group?: string;
     page?: string;
   }>;
 }) {
@@ -73,6 +76,14 @@ export default async function SeatMatrixPage({
   const page = Math.max(1, parseInt(params.page ?? "1", 10) || 1);
   const { source, matrixYear, reservationCategory, categoryParam, selectedCourses, where, matrixSourceWhere } =
     resolveSeatMatrixFilters(params);
+  const isRound2 = source === "mcc-r2";
+  const round2Overview = loadRound2SeatMatrix({}, 1, 1);
+  const round2Card = {
+    clear: round2Overview.totals.clear.seats,
+    virtual: round2Overview.totals.virtual.seats,
+    new: round2Overview.totals.new.seats,
+  };
+  const round2 = isRound2 ? loadRound2SeatMatrix(params, page, PAGE_SIZE) : null;
 
   const diffYearParsed = params.diffYear ? parseInt(params.diffYear, 10) : NaN;
   const diffYear =
@@ -219,7 +230,9 @@ export default async function SeatMatrixPage({
         )
       : new Map();
 
-  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const shownTotal = round2 ? round2.total : total;
+  const shownPage = round2 ? round2.page : page;
+  const totalPages = round2 ? round2.pageCount : Math.max(1, Math.ceil(total / PAGE_SIZE));
   const filterParams = {
     source: source === "nmc" ? undefined : source,
     year: source === "mcc" || source === "maharashtra" ? String(matrixYear) : undefined,
@@ -229,12 +242,14 @@ export default async function SeatMatrixPage({
     quota: params.quota,
     category: categoryParam ?? params.category,
     diffYear: diffYear ? String(diffYear) : undefined,
+    vacancy: params.vacancy,
+    group: params.group,
     q: params.q,
   };
 
   const rankColCount = showMaharashtraRanks ? (profile ? 3 : 2) : 0;
-  const showQuotaCol = source === "mcc" || source === "maharashtra";
-  const tableColSpan = 7 + (showQuotaCol ? 1 : 0) + (diffYear ? 2 : 0) + rankColCount;
+  const showQuotaCol = source === "mcc" || source === "maharashtra" || isRound2;
+  const tableColSpan = (isRound2 ? 8 : 7) + (showQuotaCol && !isRound2 ? 1 : 0) + (diffYear ? 2 : 0) + rankColCount;
 
   const pageCourseCount = new Set(rows.map((r) => `${r.collegeId}|${r.specialtyId}`)).size;
   const allMatchingCourses = matchingCourseGroups.length;
@@ -243,7 +258,18 @@ export default async function SeatMatrixPage({
     courseOptions.map((sp) => [sp.slug, `${sp.degree} — ${sp.name}`])
   );
   const filterChips: { label: string; value: string }[] = [];
-  if (source === "mcc") {
+  if (isRound2) {
+    filterChips.push({ label: "Source", value: "MCC Round 2" });
+    if (params.vacancy === "clear" || params.vacancy === "virtual" || params.vacancy === "new") {
+      filterChips.push({ label: "Availability", value: round2AvailabilityLabel(params.vacancy) });
+    }
+    if (params.group === "government" || params.group === "dnb" || params.group === "deemed") {
+      filterChips.push({
+        label: "Institute",
+        value: params.group === "government" ? "Government" : params.group === "dnb" ? "DNB" : "Deemed",
+      });
+    }
+  } else if (source === "mcc") {
     filterChips.push({ label: "Source", value: `MCC ${matrixYear}` });
   } else if (source === "maharashtra") {
     filterChips.push({ label: "Source", value: `MAHACET ${matrixYear}` });
@@ -363,6 +389,19 @@ export default async function SeatMatrixPage({
             Browse MCC {ACTIVE_MCC_SEAT_MATRIX_YEAR} →
           </Link>
         </div>
+        <div className={`card card-tile border-emerald-100 ${isRound2 ? "ring-2 ring-emerald-600" : ""}`}>
+          <p className="text-xs font-medium uppercase tracking-wide text-emerald-800">MCC Round 2</p>
+          <p className="mt-1 text-2xl font-bold">{round2Card.clear.toLocaleString("en-IN")}</p>
+          <p className="text-sm text-slate-600">
+            Clear seats · Virtual {round2Card.virtual.toLocaleString("en-IN")} · New {round2Card.new.toLocaleString("en-IN")}
+          </p>
+          <Link
+            href={seatMatrixHref({ source: "mcc-r2" })}
+            className="mt-2 inline-block text-sm font-medium text-brand-600 hover:underline"
+          >
+            Browse Round 2 →
+          </Link>
+        </div>
         <div className={`card card-tile ${source === "mcc" && matrixYear === 2025 ? "ring-2 ring-brand-500" : ""}`}>
           <p className="text-xs font-medium uppercase tracking-wide text-slate-500">MCC Counselling 2025</p>
           <p className="mt-1 text-2xl font-bold">
@@ -417,6 +456,7 @@ export default async function SeatMatrixPage({
         <select name="source" defaultValue={source} className={fieldSelect}>
           <option value="nmc">NMC master matrix</option>
           <option value="mcc">MCC counselling matrix</option>
+          <option value="mcc-r2">MCC Round 2 vacancies</option>
           <option value="maharashtra">Maharashtra MAHACET (state)</option>
         </select>
         {source === "mcc" && (
@@ -444,10 +484,26 @@ export default async function SeatMatrixPage({
           placeholder="Search college…"
           className={`${fieldInput} min-w-[180px] flex-[1_1_200px]`}
         />
+        {isRound2 && (
+          <>
+            <select name="vacancy" defaultValue={params.vacancy ?? ""} className={fieldSelect}>
+              <option value="">Clear, virtual, and new</option>
+              <option value="clear">Clear vacancy only</option>
+              <option value="virtual">Virtual vacancy only</option>
+              <option value="new">Newly added only</option>
+            </select>
+            <select name="group" defaultValue={params.group ?? ""} className={fieldSelect}>
+              <option value="">All institute types</option>
+              <option value="government">Government</option>
+              <option value="dnb">DNB</option>
+              <option value="deemed">Deemed</option>
+            </select>
+          </>
+        )}
         {source !== "maharashtra" && (
           <select name="state" defaultValue={params.state ?? ""} className={fieldSelect}>
             <option value="">All states</option>
-            {INDIAN_STATES.map((s) => (
+            {(isRound2 ? round2Overview.states : INDIAN_STATES).map((s) => (
               <option key={s} value={s}>
                 {s}
               </option>
@@ -460,6 +516,7 @@ export default async function SeatMatrixPage({
           <option value="DNB">DNB</option>
           <option value="DIPLOMA">Diploma</option>
         </select>
+        {!isRound2 && (
         <SeatMatrixCourseFilter
           key={selectedCourses.join("\0")}
           selected={selectedCourses}
@@ -468,7 +525,8 @@ export default async function SeatMatrixPage({
             label: `${sp.degree} — ${sp.name}`,
           }))}
         />
-        {source === "mcc" && (
+        )}
+        {source === "mcc" && !isRound2 && (
           <select name="quota" defaultValue={params.quota ?? ""} className={fieldSelect}>
             <option value="">All quotas</option>
             {["AIQ", "MANAGEMENT", "IQ", "NRI", "STATE"].map((q) => (
@@ -543,8 +601,10 @@ export default async function SeatMatrixPage({
                   ) : (
                     <Link
                       href={seatMatrixHref({
-                        source: source === "mcc" ? "mcc" : undefined,
-                        year: source === "mcc" ? String(matrixYear) : undefined,
+                        source: isRound2 ? "mcc-r2" : source === "mcc" ? "mcc" : undefined,
+                        year: source === "mcc" && !isRound2 ? String(matrixYear) : undefined,
+                        vacancy: params.vacancy,
+                        group: params.group,
                         state: params.state,
                         degree: params.degree,
                         course: selectedCourses.length ? selectedCourses : undefined,
@@ -578,6 +638,7 @@ export default async function SeatMatrixPage({
         </div>
       </form>
 
+      {!isRound2 && (
       <SeatMatrixAddToPreferences
         filters={seatMatrixFilters}
         filterChips={filterChips}
@@ -587,10 +648,19 @@ export default async function SeatMatrixPage({
         pageSize={PAGE_SIZE}
         disabled={total === 0}
       />
+      )}
 
       <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
         <p className="text-sm leading-relaxed text-slate-600">
-          {source === "nmc" ? (
+          {isRound2 && round2 ? (
+            <>
+              Showing <strong>MCC Round 2</strong> vacancies from the 11 November 2026 PDFs. Clear, virtual, and
+              newly added seats stay in separate counts.
+              {params.vacancy !== "virtual" && round2.totals.virtual.rows > 0 && (
+                <> Virtual vacancies are not confirmed clear seats.</>
+              )}
+            </>
+          ) : source === "nmc" ? (
             <>
               Showing <strong>NMC {ACTIVE_SEAT_MATRIX_ACADEMIC_YEAR}</strong> master matrix — total approved intake
               per college & course (not round-wise vacancies).
@@ -620,12 +690,90 @@ export default async function SeatMatrixPage({
           )}
         </p>
         <p className="text-sm text-slate-500">
-          {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, total)} of {total.toLocaleString("en-IN")} rows ·{" "}
-          {collegeCount.length.toLocaleString("en-IN")} colleges ·{" "}
-          {(seatSum._sum.seats ?? 0).toLocaleString("en-IN")} seats on this filter
+          {isRound2 && round2 ? (
+            <>
+              {shownTotal === 0
+                ? "0 rows"
+                : `${((shownPage - 1) * PAGE_SIZE + 1).toLocaleString("en-IN")}–${Math.min(shownPage * PAGE_SIZE, shownTotal).toLocaleString("en-IN")} of ${shownTotal.toLocaleString("en-IN")} rows`}
+              {" "}· Clear {round2.totals.clear.seats.toLocaleString("en-IN")} ·
+              Virtual {round2.totals.virtual.seats.toLocaleString("en-IN")} · New{" "}
+              {round2.totals.new.seats.toLocaleString("en-IN")}
+            </>
+          ) : (
+            <>
+              {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, total)} of {total.toLocaleString("en-IN")} rows ·{" "}
+              {collegeCount.length.toLocaleString("en-IN")} colleges ·{" "}
+              {(seatSum._sum.seats ?? 0).toLocaleString("en-IN")} seats on this filter
+            </>
+          )}
         </p>
       </div>
 
+      {isRound2 && round2 ? (
+        <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b bg-slate-50/80 text-left text-xs font-medium uppercase tracking-wide text-slate-500">
+                <th className="px-4 py-3.5">College</th>
+                <th className="px-4 py-3.5">State</th>
+                <th className="px-4 py-3.5">Type</th>
+                <th className="px-4 py-3.5">Course</th>
+                <th className="px-4 py-3.5">Quota</th>
+                <th className="px-4 py-3.5">Category</th>
+                <th className="px-4 py-3.5">Seats</th>
+                <th className="px-4 py-3.5">Availability</th>
+              </tr>
+            </thead>
+            <tbody>
+              {round2.rows.length === 0 ? (
+                <tr>
+                  <td colSpan={8} className="p-8 text-center text-slate-500">
+                    No Round 2 rows match these filters.
+                  </td>
+                </tr>
+              ) : (
+                round2.rows.map((row) => (
+                  <tr key={row.id} className="border-b border-slate-100 align-top hover:bg-slate-50/80">
+                    <td className="px-4 py-3.5">
+                      <Link href={`/mcc-college-finder?code=${row.code}`} className="text-brand-600 hover:underline">
+                        {row.institute}
+                      </Link>
+                      <span className="mt-1 block text-xs text-slate-500">{row.code}</span>
+                    </td>
+                    <td className="px-4 py-3.5 text-slate-600">{row.state}</td>
+                    <td className="px-4 py-3.5 text-slate-700">{round2InstituteLabel(row)}</td>
+                    <td className="px-4 py-3.5">
+                      {row.branch}
+                      <span className="mt-1 block text-xs text-slate-500">{row.degree || "Degree not printed"}</span>
+                    </td>
+                    <td className="px-4 py-3.5 text-slate-600">{row.quota}</td>
+                    <td className="px-4 py-3.5 text-slate-700">
+                      {row.seatCategory}
+                      {row.pwd ? " · PwD" : ""}
+                      <span className="mt-1 block text-xs text-slate-500">{row.category}</span>
+                    </td>
+                    <td className="px-4 py-3.5 font-medium">{row.seats ?? "—"}</td>
+                    <td className="px-4 py-3.5">
+                      <Badge
+                        className={
+                          row.source === "clear"
+                            ? "bg-emerald-50 text-emerald-900"
+                            : row.source === "virtual"
+                              ? "bg-orange-50 text-orange-950"
+                              : "bg-violet-50 text-violet-950"
+                        }
+                      >
+                        {round2AvailabilityLabel(row.source)}
+                      </Badge>
+                      <span className="mt-1 block text-xs text-slate-500">p.{row.page}</span>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+      ) : (
       <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
         <table className="w-full text-sm">
           <thead>
@@ -801,24 +949,25 @@ export default async function SeatMatrixPage({
           </tbody>
         </table>
       </div>
+      )}
 
       {totalPages > 1 && (
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="text-sm text-slate-500">
-            Page {page} of {totalPages}
+            Page {shownPage} of {totalPages}
           </p>
           <div className="flex gap-2">
-            {page > 1 && (
+            {shownPage > 1 && (
               <Link
-                href={seatMatrixHref(filterParams, page - 1)}
+                href={seatMatrixHref(filterParams, shownPage - 1)}
                 className="rounded-lg border px-4 py-2 text-sm hover:bg-slate-50"
               >
                 ← Previous
               </Link>
             )}
-            {page < totalPages && (
+            {shownPage < totalPages && (
               <Link
-                href={seatMatrixHref(filterParams, page + 1)}
+                href={seatMatrixHref(filterParams, shownPage + 1)}
                 className="rounded-lg bg-brand-600 px-4 py-2 text-sm text-white hover:bg-brand-700"
               >
                 Next →
@@ -829,7 +978,9 @@ export default async function SeatMatrixPage({
       )}
 
       <p className="text-xs text-slate-500">
-        {source === "mcc"
+        {isRound2
+          ? "MCC Round 2 rows are the verified 11 November 2026 clear vacancy, virtual vacancy, and newly added seat workbooks. Virtual vacancies are not confirmed seats and are not added to the clear total. This is not the October full counselling matrix."
+          : source === "mcc"
           ? MCC_SEAT_MATRIX_SOURCE_NOTE
           : source === "maharashtra"
             ? MAH_SEAT_MATRIX_SOURCE_NOTE

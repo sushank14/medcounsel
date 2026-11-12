@@ -12,7 +12,7 @@ export const SEAT_MATRIX_CATEGORIES = ["GENERAL", "OBC"] as const;
 /** Maharashtra state matrix — all reservation columns from official PDFs/sheets. */
 export const MAH_SEAT_MATRIX_CATEGORIES = ["GENERAL", "OBC", "SC", "ST", "EWS", "PWD"] as const;
 
-export type SeatMatrixSource = "nmc" | "mcc" | "maharashtra";
+export type SeatMatrixSource = "nmc" | "mcc" | "maharashtra" | "mcc-r2";
 
 /** MCC sheets label unreserved seats as Open; stored as GENERAL in the DB. */
 export const SEAT_MATRIX_CATEGORY_PARAM = {
@@ -104,6 +104,7 @@ function seatMatrixCategoryWhere(
 
 export function resolveSeatMatrixSource(raw?: string): SeatMatrixSource {
   if (raw === "mcc") return "mcc";
+  if (raw === "mcc-r2" || raw === "round2") return "mcc-r2";
   if (raw === "maharashtra" || raw === "mah") return "maharashtra";
   return "nmc";
 }
@@ -132,7 +133,13 @@ export function resolveSeatMatrixFilters(params: SeatMatrixSearchParams) {
   const nmcSourceWhere = { title: { contains: "NMC/MARB PG Seat Matrix" } };
   const mccSourceWhere = { title: { contains: "MCC NEET-PG official seat matrix" } };
   const matrixSourceWhere =
-    source === "mcc" ? mccSourceWhere : source === "maharashtra" ? mahSeatMatrixSourceWhere() : nmcSourceWhere;
+    source === "mcc"
+      ? mccSourceWhere
+      : source === "maharashtra"
+        ? mahSeatMatrixSourceWhere()
+        : source === "mcc-r2"
+          ? { title: { equals: "MCC Round 2 vacancies are read from the verified Excel index" } }
+          : nmcSourceWhere;
 
   const specialtyWhere: Prisma.SpecialtyWhereInput = {
     ...degreeWhere,
