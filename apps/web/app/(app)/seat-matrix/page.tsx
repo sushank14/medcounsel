@@ -83,7 +83,7 @@ export default async function SeatMatrixPage({
     virtual: round2Overview.totals.virtual.seats,
     new: round2Overview.totals.new.seats,
   };
-  const round2 = isRound2 ? loadRound2SeatMatrix(params, page, PAGE_SIZE) : null;
+  const round2 = isRound2 ? loadRound2SeatMatrix({ ...params, course: selectedCourses }, page, PAGE_SIZE) : null;
 
   const diffYearParsed = params.diffYear ? parseInt(params.diffYear, 10) : NaN;
   const diffYear =
@@ -255,7 +255,9 @@ export default async function SeatMatrixPage({
   const allMatchingCourses = matchingCourseGroups.length;
 
   const courseLabels = new Map(
-    courseOptions.map((sp) => [sp.slug, `${sp.degree} — ${sp.name}`])
+    (round2 ? round2.courses : courseOptions.map((sp) => ({ slug: sp.slug, label: `${sp.degree} — ${sp.name}` }))).map(
+      (course) => [course.slug, course.label] as const
+    )
   );
   const filterChips: { label: string; value: string }[] = [];
   if (isRound2) {
@@ -516,16 +518,18 @@ export default async function SeatMatrixPage({
           <option value="DNB">DNB</option>
           <option value="DIPLOMA">Diploma</option>
         </select>
-        {!isRound2 && (
         <SeatMatrixCourseFilter
-          key={selectedCourses.join("\0")}
+          key={`${isRound2 ? "r2" : "matrix"}\0${selectedCourses.join("\0")}`}
           selected={selectedCourses}
-          options={courseOptions.map((sp) => ({
-            slug: sp.slug,
-            label: `${sp.degree} — ${sp.name}`,
-          }))}
+          options={
+            round2
+              ? round2.courses
+              : courseOptions.map((sp) => ({
+                  slug: sp.slug,
+                  label: `${sp.degree} — ${sp.name}`,
+                }))
+          }
         />
-        )}
         {source === "mcc" && !isRound2 && (
           <select name="quota" defaultValue={params.quota ?? ""} className={fieldSelect}>
             <option value="">All quotas</option>

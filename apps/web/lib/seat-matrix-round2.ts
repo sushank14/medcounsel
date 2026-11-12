@@ -11,6 +11,8 @@ import {
   type SourceTotals,
 } from "@/lib/mcc-college-finder";
 
+export type Round2CourseOption = { slug: string; label: string };
+
 export type Round2MatrixView = {
   rows: FinderRecord[];
   total: number;
@@ -18,6 +20,7 @@ export type Round2MatrixView = {
   pageCount: number;
   totals: Record<FinderSource, SourceTotals>;
   states: string[];
+  courses: Round2CourseOption[];
 };
 
 function categoryFilter(raw?: string): FinderFilters["category"] {
@@ -45,6 +48,22 @@ function matchesDegree(record: FinderRecord, degree?: string): boolean {
   return record.degree === degree;
 }
 
+function matchesCourse(record: FinderRecord, courses: string[]): boolean {
+  if (courses.length === 0) return true;
+  return courses.includes(record.branchCode);
+}
+
+function courseOptions(records: FinderRecord[]): Round2CourseOption[] {
+  const labels = new Map<string, string>();
+  for (const record of records) {
+    if (!record.branchCode || labels.has(record.branchCode)) continue;
+    labels.set(record.branchCode, record.branch);
+  }
+  return [...labels.entries()]
+    .map(([slug, label]) => ({ slug, label }))
+    .sort((a, b) => a.label.localeCompare(b.label) || a.slug.localeCompare(b.slug));
+}
+
 export function round2AvailabilityLabel(source: FinderSource): string {
   return sourceLabel(source);
 }
@@ -63,6 +82,7 @@ export function loadRound2SeatMatrix(
     category?: string;
     vacancy?: string;
     group?: string;
+    course?: string | string[];
   },
   page: number,
   pageSize: number
@@ -81,10 +101,14 @@ export function loadRound2SeatMatrix(
     code: "",
     pick: [],
   };
-  const scoped = sortRecords(
+  const courses = (Array.isArray(params.course) ? params.course : params.course ? [params.course] : [])
+    .map((course) => course.trim())
+    .filter(Boolean);
+  const matched = sortRecords(
     filterRecords(records, base).filter((record) => matchesDegree(record, params.degree)),
     "priority"
   );
+  const scoped = matched.filter((record) => matchesCourse(record, courses));
   const vacancy = vacancyFilter(params.vacancy);
   const filtered = vacancy ? scoped.filter((record) => record.source === vacancy) : scoped;
   const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
@@ -96,5 +120,6 @@ export function loadRound2SeatMatrix(
     pageCount,
     totals: sourceTotals(scoped),
     states,
+    courses: courseOptions(matched),
   };
 }
