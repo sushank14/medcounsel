@@ -1,0 +1,49 @@
+{
+  "status": "pass",
+  "records": {
+    "new": 2443,
+    "clear": 10424,
+    "virtual": 11312
+  },
+  "seat_sums": {
+    "new": 3678,
+    "clear": 15408,
+    "virtual": 18189
+  },
+  "excel_check": {
+    "new": {
+      "excel_rows": 2443,
+      "index_rows": 2443,
+      "excel_seats": 3678,
+      "index_seats": 3678
+    },
+    "clear": {
+      "excel_rows": 10424,
+      "index_rows": 10424,
+      "excel_seats": 15408,
+      "index_seats": 15408
+    },
+    "virtual": {
+      "excel_rows": 11312,
+      "index_rows": 11312,
+      "excel_seats": 18189,
+      "index_seats": 18189
+    }
+  },
+  "groups": {
+    "government_mdms": 14216,
+    "dnb": 7068,
+    "deemed": 2772,
+    "government_other": 123
+  },
+  "seat_categories": {
+    "Open": 13101,
+    "OBC": 4714,
+    "EWS": 2010,
+    "SC": 2843,
+    "ST": 1511
+  },
+  "flags": {},
+  "private_medical_college_rows": 0,
+  "private_note": "The verified workbooks contain no institute type named Private Medical College. DNB (Pvt.) rows remain DNB."
+}

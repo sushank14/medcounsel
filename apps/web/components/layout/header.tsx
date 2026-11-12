@@ -23,7 +23,7 @@ export async function Header() {
           <Link href="/calendar" className="hover:text-brand-600">Calendar</Link>
           <Link href="/cutoffs" className="hover:text-brand-600">Cutoffs</Link>
           <Link href="/seat-matrix" className="hover:text-brand-600">Seat Matrix</Link>
-          <Link href="/mcc-round-2" className="hover:text-brand-600">Round 2</Link>
+          <Link href="/mcc-college-finder" className="hover:text-brand-600">College Finder</Link>
           <Link href="/compare" className="hover:text-brand-600">Compare</Link>
           <Link href="/category-explorer" className="hover:text-brand-600">Categories</Link>
           <Link href="/profile" className="hover:text-brand-600">Profile</Link>
@@ -31,8 +31,8 @@ export async function Header() {
             <Link href="/admin" className="hover:text-brand-600">Admin</Link>
           )}
         </nav>
-        <Link href="/mcc-round-2" className="text-sm font-medium text-brand-700 md:hidden">
-          Round 2
+        <Link href="/mcc-college-finder" className="text-sm font-medium text-brand-700 md:hidden">
+          Finder
         </Link>
         <div className="flex items-center gap-2">
           {session && (

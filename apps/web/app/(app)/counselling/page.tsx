@@ -103,8 +103,8 @@ export default async function CounsellingHubPage() {
           <Link href="/seat-matrix">
             <Button variant="outline" size="sm">Seat matrix</Button>
           </Link>
-          <Link href="/mcc-round-2">
-            <Button variant="outline" size="sm">MCC Round 2</Button>
+          <Link href="/mcc-college-finder">
+            <Button variant="outline" size="sm">College Finder</Button>
           </Link>
         </div>
         <details className="mt-4">
