@@ -135,6 +135,12 @@ const TAB_VACANCY: Record<string, VacancyType | null> = {
   "new-colleges": null,
 };
 
+export function round2DatasetAvailable(): boolean {
+  const cwd = process.cwd();
+  const candidates = [cwd, path.resolve(cwd, "../.."), path.resolve(cwd, "..")];
+  return candidates.some((root) => fs.existsSync(path.join(root, "data/mcc/2026/round_2/mcc_round2_records.json")));
+}
+
 function repoRoot(): string {
   const cwd = process.cwd();
   const candidates = [cwd, path.resolve(cwd, "../.."), path.resolve(cwd, "..")];

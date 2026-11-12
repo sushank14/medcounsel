@@ -8,6 +8,7 @@ import {
   filterRecords,
   loadRound2,
   parseRound2Filters,
+  round2DatasetAvailable,
   type Round2Filters,
   type Round2Record,
   type VacancyType,
@@ -55,6 +56,18 @@ export default async function MccRound2Page({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  if (!round2DatasetAvailable()) {
+    return (
+      <div className="page">
+        <PageHeader
+          kicker="MCC NEET PG 2026"
+          title="Round 2 updates"
+          description="The 10 November extract has been removed. The corrected 11 November Excel files are saved for review and are not published on this page yet."
+        />
+      </div>
+    );
+  }
+
   const filters = parseRound2Filters(await searchParams);
   const { records, validation, comparison, options } = loadRound2();
   const filtered = filterRecords(records, filters);

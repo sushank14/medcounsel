@@ -9,6 +9,8 @@ def test_specialty_codes_with_hyphens():
     assert parsed["specialty_code"] == "P-SM"
     assert parse_branch("M.D. Emergency Medicine (E-CC)")["specialty_code"] == "E-CC"
     assert parse_branch("M.S. Otorhinolaryngology/ENT (EN-T)")["specialty_code"] == "EN-T"
+    assert parse_branch("M.D. Immuno Haematology and Blood Transfusion (T- FM)")["specialty_code"] == "T-FM"
+    assert parse_branch("Diploma in Obstetrics and Gynaecology (D.G.O.) (D- GO)")["specialty_code"] == "D-GO"
 
 
 def test_mch_and_diploma_titles():

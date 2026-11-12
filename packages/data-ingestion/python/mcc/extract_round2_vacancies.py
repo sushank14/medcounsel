@@ -59,7 +59,8 @@ HEADER_TOKENS = ("statename", "institutetype", "institute", "quota", "branch", "
 CODE_RE = re.compile(r"\((\d{5,7})\)")
 PAGE_OF_RE = re.compile(r"Page\s+(\d+)\s+of\s+(\d+)", re.I)
 CAT_RE = re.compile(r"^(OP|BC|EW|SC|ST|GN|UR|EWS|OBC)\s+(NO|PH)$", re.I)
-SPEC_CODE_RE = re.compile(r"\(([A-Z][A-Z0-9]{0,8}(?:-[A-Z0-9]{1,8})?)\)\s*$")
+# A wrapped code can extract as "(T- FM)" or "(D- GO)". The space is the line break, not a second token.
+SPEC_CODE_RE = re.compile(r"\(([A-Z][A-Z0-9]{0,8}(?:-\s*[A-Z0-9]{1,8})?)\)\s*$")
 OBJ_RE = re.compile(rb"(\d+)\s+0\s+obj\b")
 
 CATEGORY_LABEL = {
@@ -186,7 +187,7 @@ def parse_branch(raw: str) -> dict:
     specialty = rest
     cm = SPEC_CODE_RE.search(rest)
     if cm:
-        code = cm.group(1).upper()
+        code = re.sub(r"\s+", "", cm.group(1).upper())
         specialty = rest[: cm.start()].strip(" -/")
     else:
         notes.append("missing_specialty_code")
